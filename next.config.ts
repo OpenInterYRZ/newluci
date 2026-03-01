@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  turbopack: {
+    rules: {
+      "*.glb": {
+        loaders: ["file-loader"],
+        as: "*.js",
+      },
+    },
+  },
 };
 
 export default nextConfig;

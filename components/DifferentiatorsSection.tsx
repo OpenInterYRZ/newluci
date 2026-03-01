@@ -8,7 +8,7 @@ import SkillsScene from './scenes/SkillsScene';
 
 export default function DifferentiatorsSection() {
   return (
-    <section className="bg-bg w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
+    <section className="bg-bg-0 w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px]">
         <Badge
@@ -17,10 +17,10 @@ export default function DifferentiatorsSection() {
           textColor="#785DE1"
           bgColor="#785DE115"
         />
-        <h2 className="text-primary font-serif text-[48px] tracking-[-1px] text-center">
+        <h2 className="text-text-0 font-serif text-[48px] tracking-[-1px] text-center">
           Five Core Differentiators
         </h2>
-        <p className="text-secondary font-sans text-[18px] leading-[1.6] text-center">
+        <p className="text-text-1 font-sans text-[18px] leading-[1.6] text-center">
           Not just a tool upgrade — a fundamental change in how you work
         </p>
       </div>

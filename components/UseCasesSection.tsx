@@ -88,7 +88,7 @@ export default function UseCasesSection() {
   const currentData = useCasesData[activeTab];
 
   return (
-    <section className="bg-bg w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
+    <section className="bg-bg-0 w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px]">
         <Badge
@@ -97,10 +97,10 @@ export default function UseCasesSection() {
           textColor="#22C55E"
           bgColor="#22C55E15"
         />
-        <h2 className="text-primary font-serif text-[48px] tracking-[-1px] text-center">
+        <h2 className="text-text-0 font-serif text-[48px] tracking-[-1px] text-center">
           Use Cases
         </h2>
-        <p className="text-secondary font-sans text-[18px] leading-[1.6] text-center">
+        <p className="text-text-1 font-sans text-[18px] leading-[1.6] text-center">
           From marketing to sales, from general to vertical — LUCI covers every scenario
         </p>
       </div>
@@ -113,8 +113,8 @@ export default function UseCasesSection() {
             onClick={() => setActiveTab('marketing')}
             className={`rounded-[8px] py-[10px] px-[20px] font-sans text-[14px] transition-all ${
               activeTab === 'marketing'
-                ? 'bg-[#FF5C0015] text-brand font-semibold'
-                : 'bg-surface-elevated text-quaternary font-medium hover:text-secondary'
+                ? 'bg-[#FF5C0015] text-primary font-semibold'
+                : 'bg-bg-1 text-text-3 font-medium hover:text-text-1'
             }`}
           >
             Marketing
@@ -123,8 +123,8 @@ export default function UseCasesSection() {
             onClick={() => setActiveTab('sales')}
             className={`rounded-[8px] py-[10px] px-[20px] font-sans text-[14px] transition-all ${
               activeTab === 'sales'
-                ? 'bg-[#22C55E15] text-success font-semibold'
-                : 'bg-surface-elevated text-quaternary font-medium hover:text-secondary'
+                ? 'bg-[#22C55E15] text-[#22C55E] font-semibold'
+                : 'bg-bg-1 text-text-3 font-medium hover:text-text-1'
             }`}
           >
             Sales
@@ -133,8 +133,8 @@ export default function UseCasesSection() {
             onClick={() => setActiveTab('industry')}
             className={`rounded-[8px] py-[10px] px-[20px] font-sans text-[14px] transition-all ${
               activeTab === 'industry'
-                ? 'bg-[#785DE115] text-accent font-semibold'
-                : 'bg-surface-elevated text-quaternary font-medium hover:text-secondary'
+                ? 'bg-[#785DE115] text-[#785DE1] font-semibold'
+                : 'bg-bg-1 text-text-3 font-medium hover:text-text-1'
             }`}
           >
             Industry
@@ -143,23 +143,23 @@ export default function UseCasesSection() {
 
         {/* Use Case Card (Placeholder) */}
         <div className="flex gap-[24px]">
-          <div className="bg-surface-elevated rounded-[16px] flex-1 flex flex-col">
+          <div className="bg-bg-1 rounded-[16px] flex-1 flex flex-col">
             {/* Image Placeholder */}
-            <div className="bg-surface-hover rounded-t-[16px] h-[200px] flex items-center justify-center">
-              <span className="text-quaternary font-mono text-[13px] font-medium">
+            <div className="bg-bg-2 rounded-t-[16px] h-[200px] flex items-center justify-center">
+              <span className="text-text-3 font-mono text-[13px] font-medium">
                 [Image placeholder]
               </span>
             </div>
             {/* Card Content */}
             <div className="p-[20px] flex flex-col gap-[10px]">
-              <h3 className="text-primary font-serif text-[20px] tracking-[-0.5px]">
+              <h3 className="text-text-0 font-serif text-[20px] tracking-[-0.5px]">
                 Creator Discovery & Outreach
               </h3>
-              <p className="text-secondary font-sans text-[13px] leading-[1.6]">
+              <p className="text-text-1 font-sans text-[13px] leading-[1.6]">
                 Analyze social videos to find creators, auto-score, build profiles; generate candidate lists, estimate reach potential, recommend best posting times
               </p>
               <div className="bg-[#785DE115] rounded-[6px] py-[4px] px-[10px] self-start">
-                <span className="text-accent font-mono text-[10px] font-medium">
+                <span className="text-[#785DE1] font-mono text-[10px] font-medium">
                   Marketing
                 </span>
               </div>
@@ -180,9 +180,9 @@ export default function UseCasesSection() {
           {currentData.cases.map((useCase, index) => (
             <p
               key={index}
-              className="text-secondary font-sans text-[14px] leading-[1.6]"
+              className="text-text-1 font-sans text-[14px] leading-[1.6]"
             >
-              <span className="text-secondary font-sans text-[14px] font-semibold">
+              <span className="text-text-0 font-sans text-[14px] font-semibold">
                 {useCase.title}
               </span>
               {' — '}

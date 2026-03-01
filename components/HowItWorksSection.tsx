@@ -7,7 +7,7 @@ import NotifyScene from './scenes/NotifyScene';
 
 export default function HowItWorksSection() {
   return (
-    <section className="bg-bg w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
+    <section className="bg-bg-0 w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px]">
         <Badge
@@ -16,10 +16,10 @@ export default function HowItWorksSection() {
           textColor="#785DE1"
           bgColor="#785DE118"
         />
-        <h2 className="text-primary font-serif text-[48px] text-center">
+        <h2 className="text-text-0 font-serif text-[48px] text-center">
           How LUCI Works
         </h2>
-        <p className="text-tertiary font-sans text-[18px] text-center">
+        <p className="text-text-2 font-sans text-[18px] text-center">
           Fully automated from meeting end to task completion
         </p>
       </div>

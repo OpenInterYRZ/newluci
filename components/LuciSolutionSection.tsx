@@ -33,10 +33,10 @@ export default function LuciSolutionSection() {
       <div className="container mx-auto px-4 md:px-6 max-w-[1200px]">
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-text-0 mb-4">
             How LUCI Works
           </h2>
-          <p className="font-sans text-lg md:text-xl text-secondary">
+          <p className="font-sans text-lg md:text-xl text-text-1">
             Fully automated workflow
           </p>
         </div>

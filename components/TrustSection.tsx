@@ -12,7 +12,7 @@ export default function TrustSection() {
   ];
 
   return (
-    <section className="bg-bg w-full flex flex-col items-center gap-[60px] py-[100px] px-[80px]">
+    <section className="bg-bg-0 w-full flex flex-col items-center gap-[60px] py-[100px] px-[80px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-[24px]">
         <Badge
@@ -21,10 +21,10 @@ export default function TrustSection() {
           textColor="#22C55E"
           bgColor="#22C55E15"
         />
-        <h2 className="text-primary font-serif text-[48px] tracking-[-1px] text-center">
+        <h2 className="text-text-0 font-serif text-[48px] tracking-[-1px] text-center">
           Data & Trust
         </h2>
-        <p className="text-secondary font-sans text-[18px] leading-[1.6] text-center">
+        <p className="text-text-1 font-sans text-[18px] leading-[1.6] text-center">
           Enterprise-grade security, full transparency over your data
         </p>
       </div>
@@ -37,12 +37,12 @@ export default function TrustSection() {
       </div>
 
       {/* Marquee Label */}
-      <div className="text-quaternary font-mono text-[13px] font-medium text-center">
+      <div className="text-text-3 font-mono text-[13px] font-medium text-center">
         [ Marquee area — recommend using React Marquee component ]
       </div>
 
       {/* Trust Cards Container */}
-      <div className="bg-surface-elevated rounded-[12px] p-[24px] w-full">
+      <div className="bg-bg-1 rounded-[12px] p-[24px] w-full">
         <div className="flex justify-center gap-[32px] flex-wrap">
           {trustItems.map((item, index) => (
             <TrustCard

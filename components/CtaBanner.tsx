@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Mail, ArrowRight } from "lucide-react";
-import Lanyard from "@/components/ui/Lanyard/lanyard";
 
 export default function CtaBanner() {
   const [email, setEmail] = useState("");
@@ -70,7 +69,6 @@ export default function CtaBanner() {
         </div>
 
         {/* Right: Lanyard 3D component */}
-        <Lanyard position={[0, 0, 10]} fov={50} />
       </div>
     </section>
   );
