@@ -62,38 +62,6 @@ const CHAOS_TOOLS = [
 export function ChaosZone() {
   return (
     <div className="relative flex items-center justify-center">
-      {/* Scattered windows */}
-      {/* {CHAOS_TOOLS.map((tool, index) => (
-        <AppWindow
-          key={index}
-          name={tool.name}
-          logo={tool.logo}
-          position={tool.position}
-        />
-      ))} */}
-      {/* <CardSwap
-        cardDistance={65}
-        verticalDistance={60}
-        delay={3500}
-        pauseOnHover={false}
-        skewAmount={0}
-      >
-        <Card>
-          <NotionWindow />
-        </Card>
-        <Card>
-          <ChatGPTWindow />
-        </Card>
-        <Card>
-          <ZoomWindow />
-        </Card>
-        <Card>
-          <SlackWindow />
-        </Card>
-        <Card>
-          <GmailWindow />
-        </Card>
-      </CardSwap> */}
       <BounceCards items={items} enableHover />
     </div>
   );

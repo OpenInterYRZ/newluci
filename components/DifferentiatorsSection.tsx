@@ -1,32 +1,32 @@
-import Badge from './Badge';
-import FeatureCard from './FeatureCard';
-import VideoMemoryScene from './scenes/VideoMemoryScene';
-import AutoExecuteScene from './scenes/AutoExecuteScene';
-import DataSovereigntyScene from './scenes/DataSovereigntyScene';
-import ConnectorScene from './scenes/ConnectorScene';
-import SkillsScene from './scenes/SkillsScene';
+import Badge from "./Badge";
+import FeatureCard from "./FeatureCard";
+import VideoMemoryScene from "./scenes/VideoMemoryScene";
+import AutoExecuteScene from "./scenes/AutoExecuteScene";
+import DataSovereigntyScene from "./scenes/DataSovereigntyScene";
+import ConnectorScene from "./scenes/ConnectorScene";
+import SkillsScene from "./scenes/SkillsScene";
 
 export default function DifferentiatorsSection() {
   return (
-    <section className="bg-bg-0 w-full flex flex-col gap-[60px] py-[100px] px-[80px]">
+    <section className=" w-full flex flex-col gap-12 md:gap-14 lg:gap-16 py-16 md:py-20 lg:py-24 px-12 md:px-16 lg:px-20">
       {/* Header */}
-      <div className="flex flex-col items-center gap-[24px]">
+      <div className="flex flex-col items-center gap-6">
         <Badge
           text="Core Advantages"
           dotColor="#785DE1"
           textColor="#785DE1"
           bgColor="#785DE115"
         />
-        <h2 className="text-text-0 font-serif text-[48px] tracking-[-1px] text-center">
+        <h2 className="text-text-0 text-3xl md:text-4xl lg:text-5xl tracking-tight text-center">
           Five Core Differentiators
         </h2>
-        <p className="text-text-1 font-sans text-[18px] leading-[1.6] text-center">
+        <p className="text-text-1 font-sans text-base md:text-lg leading-relaxed text-center">
           Not just a tool upgrade — a fundamental change in how you work
         </p>
       </div>
 
       {/* Row 1: 3 cards */}
-      <div className="flex gap-[24px] w-full">
+      <div className="flex gap-6 w-full">
         <FeatureCard
           scene={<VideoMemoryScene />}
           title="Video Memory, Not Just Text"
@@ -47,7 +47,7 @@ export default function DifferentiatorsSection() {
       </div>
 
       {/* Row 2: 2 cards */}
-      <div className="flex gap-[24px] w-full">
+      <div className="flex gap-6 w-full">
         <FeatureCard
           scene={<ConnectorScene />}
           title="Massive Integrations"

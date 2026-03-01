@@ -8,7 +8,7 @@ export default function CtaOne() {
     <section className="w-full flex items-center justify-center max-w-[1400px] mx-auto rounded-[32px] overflow-hidden my-10">
       {/* CTA Background with Grainient effect */}
 
-      <div className="bg-bg-1 w-full flex flex-col items-center gap-8 py-30 px-20 relative overflow-hidden min-h-[600px]">
+      <div className="bg-bg-1 w-full flex flex-col items-center gap-8 py-30 px-20 relative overflow-hidden ">
         {/* Grainient Background */}
         <div className="absolute inset-0 opacity-60">
           <Grainient
@@ -38,7 +38,7 @@ export default function CtaOne() {
         </div>
 
         {/* CTA Content */}
-        <div className="flex flex-col items-center gap-6 relative z-10 max-w-3xl">
+        <div className="flex flex-col items-center my-auto gap-6 relative z-10 max-w-3xl">
           {/* Title */}
           <h2 className="text-text-0 font-bold text-6xl tracking-tight text-center">
             Get Started in 3 Minutes

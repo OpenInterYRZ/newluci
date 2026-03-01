@@ -7,7 +7,7 @@ export default function CtaBanner() {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="relative w-full overflow-hidden rounded-[32px] mx-auto max-w-[1400px]">
+    <section className="relative w-full overflow-hidden rounded-[32px] mx-auto max-w-[1400px] my-30">
       {/* Background gradient — orange core fading to black edges */}
       <div
         className="absolute inset-0 z-0"
@@ -34,11 +34,6 @@ export default function CtaBanner() {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_480px] min-h-[520px]">
         {/* Left: CTA content */}
         <div className="flex flex-col justify-center px-10 py-16 lg:px-16 lg:py-20">
-          {/* Eyebrow */}
-          <p className="font-mono text-[13px] font-medium tracking-[2px] uppercase text-[#ffb88c] mb-6">
-            Join the waitlist
-          </p>
-
           {/* Heading */}
           <h2 className="font-serif text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-1.5px] text-white mb-4">
             Start building something{" "}

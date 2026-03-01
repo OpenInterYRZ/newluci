@@ -2,6 +2,7 @@ import React from "react";
 import { Download } from "lucide-react";
 import GradientButton from "../ui/GradientButton";
 import GlassButton from "../ui/GlassButton";
+import ProductMockup from "../ProductMockup";
 
 export const CapHero = () => {
   return (
@@ -24,7 +25,6 @@ export const CapHero = () => {
         <h1 className="text-text-0 text-7xl font-bold text-center leading-tight mt-12">
           Your Personal AI Agent Assistant <br /> that can do anything.
         </h1>
-
         <p className="text-text-1 font-sans text-md leading-relaxed text-center max-w-3xl mt-6 mb-12">
           LUCI remembers everything, then gets things done automatically.
           <br />
@@ -38,6 +38,7 @@ export const CapHero = () => {
         <p className="text-text-3 text-sm mb-24 text-center mt-6">
           No credit card required
         </p>
+        <ProductMockup />
 
         {/* 底部合作 Logos */}
         <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-40 hover:opacity-60 transition-opacity">
