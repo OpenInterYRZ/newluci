@@ -21,20 +21,19 @@ import FAQSection from "@/components/FAQ/FAQSection";
 import { VideoText } from "@/components/ui/video-text";
 import KeyFeaturesBento from "@/components/bento/KeyFeaturesBento";
 import AccordionFeatures from "@/components/features/AccordionFeatures";
+import FeaturesTimeline from "@/components/features/FeaturesTimeline";
 export default function Home() {
   return (
     <div className="w-full h-full  mx-auto">
       <CapHero />
       {/* Section Divider */}
       <PainPointsSection />
-      <AccordionFeatures />
+      <AccordionFeatures /> <FeaturesTimeline />
       {/* Section Divider */}
       <BentoFeatures />
       <KeyFeaturesBento />
-
       <UseCaseSectionMasonry />
       {/* Section Divider */}
-
       <UserSection />
       <PricingSection />
       <FAQSection />

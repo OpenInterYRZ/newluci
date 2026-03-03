@@ -14,6 +14,7 @@
   --bg-2: #ffffff;
   --bg-3: #ffffff;
   --web-bg-0: #ffffff;
+  --bento-bg: #1b1728;
   --text-0: rgba(32, 31, 38, 1);
   --text-1: rgba(32, 31, 38, 0.8);
   --text-2: rgba(32, 31, 38, 0.6);
@@ -39,8 +40,8 @@
   --grey-8: #32313b;
   --grey-9: #201f26;
   --disabled-fill: rgba(50, 49, 59, 0.04);
-  --nav-btn1: #EEF1F5;
-  --nav-btn1-hover: #E7EAF0;
+  --nav-btn1: #eef1f5;
+  --nav-btn1-hover: #e7eaf0;
   --nav-btn2: #262626;
   --nav-btn2-hover: #000000;
   --free: #027c3f;
@@ -51,42 +52,42 @@
   --gradient-red: #ff2c36;
 
   /* PainPoint window tokens — light mode */
-  --win-bg: #F5F5F7;
-  --win-border: #D1D1D6;
-  --win-titlebar: #E8E8ED;
-  --win-title-text: #86868B;
-  --win-placeholder-1: #D1D1D6;
-  --win-placeholder-2: #DCDCE0;
-  --win-body-text-1: #6E6E73;
-  --win-body-text-2: #86868B;
-  --win-body-text-3: #AEAEB2;
-  --win-body-text-bright: #3A3A3C;
-  --win-card-bg: #FFFFFF;
-  --win-card-border: #E5E5EA;
-  --win-card-text: #1D1D1F;
-  --win-card-text-muted: #6E6E73;
-  --win-card-text-dim: #AEAEB2;
-  --win-progress-track: #E5E5EA;
-  --win-badge-bg: #E8E8ED;
-  --win-badge-text: #86868B;
-  --win-fade-to: #FFFFFF;
+  --win-bg: #f5f5f7;
+  --win-border: #d1d1d6;
+  --win-titlebar: #e8e8ed;
+  --win-title-text: #86868b;
+  --win-placeholder-1: #d1d1d6;
+  --win-placeholder-2: #dcdce0;
+  --win-body-text-1: #6e6e73;
+  --win-body-text-2: #86868b;
+  --win-body-text-3: #aeaeb2;
+  --win-body-text-bright: #3a3a3c;
+  --win-card-bg: #ffffff;
+  --win-card-border: #e5e5ea;
+  --win-card-text: #1d1d1f;
+  --win-card-text-muted: #6e6e73;
+  --win-card-text-dim: #aeaeb2;
+  --win-progress-track: #e5e5ea;
+  --win-badge-bg: #e8e8ed;
+  --win-badge-text: #86868b;
+  --win-fade-to: #ffffff;
 
   /* Hero 四角渐变色 — 每个角一团颜色，中间留白 */
   --grad-tl: rgba(200, 160, 255, 0.45);
-  --grad-tr: rgba(255, 200, 170, 0.40);
+  --grad-tr: rgba(255, 200, 170, 0.4);
   --grad-bl: rgba(255, 180, 210, 0.35);
   --grad-br: rgba(180, 200, 255, 0.35);
   /* Features section gradient colors */
   --grad-feat-purple: rgba(168, 85, 247, 0.12);
-  --grad-feat-orange: rgba(255, 92, 0, 0.10);
-  --grad-feat-top: #FBF5FF;
-  --grad-feat-mid: #FFFFFF;
-  --grad-feat-bottom: #FFF8F5;
+  --grad-feat-orange: rgba(255, 92, 0, 0.1);
+  --grad-feat-top: #fbf5ff;
+  --grad-feat-mid: #ffffff;
+  --grad-feat-bottom: #fff8f5;
   /* CTA section gradient colors */
   --grad-cta-orange: rgba(255, 92, 0, 0.15);
-  --grad-cta-purple: rgba(168, 85, 247, 0.10);
-  --grad-cta-dark-top: #1A1714;
-  --grad-cta-dark-bottom: #2E2117;
+  --grad-cta-purple: rgba(168, 85, 247, 0.1);
+  --grad-cta-dark-top: #1a1714;
+  --grad-cta-dark-bottom: #2e2117;
 
   --toaster-width: 25rem;
   --background: oklch(1 0 0);
@@ -128,12 +129,12 @@
   --primary-hover: #e65300;
   --primary-light-hover: rgba(255, 92, 0, 0.3);
   --primary-light-default: rgba(255, 92, 0, 0.2);
-  --bg-0: #16161a;
+  --bg-0: #1a1624;
   --bg-1: #232429;
   --bg-2: #35363c;
   --bg-3: #43444a;
-  --web-bg-0: #040108;
-  --text-0: rgb(249, 249, 249);
+  --web-bg-0: #0a0612;
+  --text-0: #eeedef;
   --text-1: rgba(249, 249, 249, 0.8);
   --text-2: rgba(249, 249, 249, 0.6);
   --text-3: rgba(249, 249, 249, 0.35);
@@ -160,31 +161,31 @@
   --disabled-fill: rgba(231, 231, 234, 0.04);
   --nav-btn1: #303030;
   --nav-btn1-hover: #222222;
-  --nav-btn2: #F7F7F7;
-  --nav-btn2-hover: #FFFFFF;
+  --nav-btn2: #f7f7f7;
+  --nav-btn2-hover: #ffffff;
 
   /* PainPoint window tokens — dark mode */
-  --win-bg: #1E1E1E;
+  --win-bg: #1e1e1e;
   --win-border: #333333;
-  --win-titlebar: #2A2A2A;
+  --win-titlebar: #2a2a2a;
   --win-title-text: #888888;
   --win-placeholder-1: #333333;
-  --win-placeholder-2: #2D2D2D;
+  --win-placeholder-2: #2d2d2d;
   --win-body-text-1: #999999;
   --win-body-text-2: #777777;
   --win-body-text-3: #555555;
-  --win-body-text-bright: #CCCCCC;
-  --win-card-bg: #16161A;
-  --win-card-border: #2A2A2A;
-  --win-card-text: #E0E0E0;
+  --win-body-text-bright: #cccccc;
+  --win-card-bg: #16161a;
+  --win-card-border: #2a2a2a;
+  --win-card-text: #e0e0e0;
   --win-card-text-muted: #888888;
   --win-card-text-dim: #666666;
-  --win-progress-track: #2A2A2A;
+  --win-progress-track: #2a2a2a;
   --win-badge-bg: #333333;
   --win-badge-text: #999999;
-  --win-fade-to: #0A0A0F;
+  --win-fade-to: #0a0a0f;
 
-  --grad-tl: rgba(200, 160, 255, 0.10);
+  --grad-tl: rgba(200, 160, 255, 0.1);
   --grad-tr: rgba(255, 200, 170, 0.08);
   --grad-bl: rgba(255, 180, 210, 0.06);
   --grad-br: rgba(180, 200, 255, 0.06);
@@ -193,7 +194,7 @@
   --grad-feat-top: #1a1820;
   --grad-feat-mid: #16161a;
   --grad-feat-bottom: #1a1815;
-  --grad-cta-orange: rgba(255, 92, 0, 0.10);
+  --grad-cta-orange: rgba(255, 92, 0, 0.1);
   --grad-cta-purple: rgba(168, 85, 247, 0.06);
   --grad-cta-dark-top: #0d0b08;
   --grad-cta-dark-bottom: #1a1510;
@@ -240,6 +241,7 @@
   --color-bg-2: var(--bg-2);
   --color-bg-3: var(--bg-3);
   --color-web-bg-0: var(--web-bg-0);
+  --color-bento-bg: var(--bento-bg);
   --color-text-0: var(--text-0);
   --color-text-1: var(--text-1);
   --color-text-2: var(--text-2);

@@ -37,7 +37,7 @@ export default function PainPointsSection() {
         className="relative flex gap-24 md:gap-32 lg:gap-40 w-full items-center justify-center"
       >
         {/* Left side - Individual cards */}
-        <div className="flex flex-col items-center justify-center gap-8">
+        <div className="grid grid-cols-2 gap-6 items-center justify-items-center">
           <div
             ref={notionRef}
             className="w-40 h-24 md:w-44 md:h-28 lg:w-48 lg:h-30"
@@ -64,7 +64,7 @@ export default function PainPointsSection() {
           </div>
           <div
             ref={gmailRef}
-            className="w-40 h-24 md:w-44 md:h-28 lg:w-48 lg:h-30"
+            className="w-40 h-24 md:w-44 md:h-28 lg:w-48 lg:h-30 col-span-2 justify-self-center"
           >
             <GmailWindow />
           </div>

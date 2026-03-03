@@ -138,13 +138,7 @@ function BillingToggle({
 }
 
 /* ─── price display ─── */
-function PriceDisplay({
-  plan,
-  isYearly,
-}: {
-  plan: Plan;
-  isYearly: boolean;
-}) {
+function PriceDisplay({ plan, isYearly }: { plan: Plan; isYearly: boolean }) {
   const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
 
   return (
@@ -157,7 +151,6 @@ function PriceDisplay({
           exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
           transition={{ duration: 0.25 }}
           className="text-5xl font-bold tracking-tight"
-          style={{ color: c.textPrimary }}
         >
           ${price}
         </motion.span>
@@ -188,7 +181,11 @@ function PricingCard({
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0, 1] }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: [0.25, 0.1, 0, 1],
+      }}
       className="relative flex flex-col rounded-2xl overflow-hidden"
       style={{
         background: isPopular
@@ -219,12 +216,7 @@ function PricingCard({
       <div className="flex flex-col p-7 gap-6 flex-1">
         {/* Header */}
         <div className="flex flex-col gap-2">
-          <h3
-            className="text-lg font-semibold"
-            style={{ color: c.textPrimary }}
-          >
-            {plan.name}
-          </h3>
+          <h3 className="text-lg font-semibold">{plan.name}</h3>
           <p className="text-sm" style={{ color: c.textSecondary }}>
             {plan.description}
           </p>
@@ -274,10 +266,7 @@ function PricingCard({
         </button>
 
         {/* Divider */}
-        <div
-          className="w-full h-px"
-          style={{ background: c.borderSubtle }}
-        />
+        <div className="w-full h-px" style={{ background: c.borderSubtle }} />
 
         {/* Features */}
         <ul className="flex flex-col gap-3.5">
@@ -312,9 +301,7 @@ function PricingCard({
               <span
                 className="text-sm"
                 style={{
-                  color: feature.included
-                    ? c.textSecondary
-                    : c.textMuted,
+                  color: feature.included ? c.textSecondary : c.textMuted,
                   opacity: feature.included ? 1 : 0.5,
                 }}
               >
@@ -343,17 +330,15 @@ export default function PricingSection() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-5 text-center"
         >
-          <h2
-            className="text-3xl font-bold md:text-4xl lg:text-5xl tracking-tight"
-            style={{ color: c.textPrimary }}
-          >
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl tracking-tight">
             Simple, Transparent Pricing
           </h2>
           <p
             className="text-base md:text-lg max-w-md"
             style={{ color: c.textSecondary }}
           >
-            Start free, upgrade when you need more. No hidden fees, no surprises.
+            Start free, upgrade when you need more. No hidden fees, no
+            surprises.
           </p>
           <BillingToggle
             isYearly={isYearly}

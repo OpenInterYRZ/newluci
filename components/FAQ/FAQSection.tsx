@@ -27,15 +27,14 @@ const faqs = [
   },
   {
     q: "How do I cancel my subscription?",
-    a: "Head to Settings and click \"Manage Subscription\" to cancel anytime — no need to contact support. After cancellation, your account downgrades to Free at the end of the current billing cycle. All your data is preserved.",
+    a: 'Head to Settings and click "Manage Subscription" to cancel anytime — no need to contact support. After cancellation, your account downgrades to Free at the end of the current billing cycle. All your data is preserved.',
   },
 ];
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (i: number) =>
-    setOpenIndex(openIndex === i ? null : i);
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <section className="relative w-full py-24 md:py-32">
@@ -51,13 +50,13 @@ export default function FAQSection() {
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-[#ff5c00]">
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-primary">
             FAQ
           </p>
-          <h2 className="text-[clamp(32px,5vw,52px)] font-bold leading-[1.1] tracking-tight text-white">
+          <h2 className="text-[clamp(32px,5vw,52px)] font-bold leading-[1.1] tracking-tight text-text-0">
             Frequently Asked Questions
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/50">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-text-0/50">
             Everything you need to know about LUCI
           </p>
         </div>
@@ -74,9 +73,7 @@ export default function FAQSection() {
                 >
                   <span
                     className={`text-lg font-medium leading-snug transition-colors duration-200 ${
-                      isOpen
-                        ? "text-[#ff5c00]"
-                        : "text-white/90 group-hover:text-white"
+                      isOpen ? "text-primary" : "text-text-0"
                     }`}
                   >
                     {faq.q}
@@ -89,7 +86,7 @@ export default function FAQSection() {
                     <ChevronDown
                       size={20}
                       className={`transition-colors duration-200 ${
-                        isOpen ? "text-[#ff5c00]" : "text-white/40"
+                        isOpen ? "text-primary" : "text-text-0/40"
                       }`}
                     />
                   </motion.span>
@@ -104,7 +101,7 @@ export default function FAQSection() {
                       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-6 text-[15px] leading-[1.7] text-white/55">
+                      <p className="pb-6 text-[15px] leading-[1.7] text-text-0/55">
                         {faq.a}
                       </p>
                     </motion.div>

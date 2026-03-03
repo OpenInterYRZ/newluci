@@ -4,11 +4,11 @@ import { VideoText } from "./ui/video-text";
 export default function Footer() {
   return (
     <footer className="bg-bg-0 w-full">
-      <div className="py-[60px] px-[80px] flex flex-col gap-[40px]">
+      <div className="py-[40px] px-[20px] md:py-[60px] md:px-[80px] flex flex-col gap-[32px] md:gap-[40px]">
         {/* Footer Top */}
-        <div className="flex gap-[80px]">
+        <div className="flex flex-col md:flex-row gap-[32px] md:gap-[80px]">
           {/* Footer Brand */}
-          <div className="w-[300px] flex flex-col gap-[16px]">
+          <div className="md:w-[300px] flex flex-col gap-[16px]">
             <div className="text-primary font-mono text-[24px] font-bold tracking-[2px]">
               LUCI
             </div>
@@ -20,9 +20,9 @@ export default function Footer() {
           </div>
 
           {/* Footer Links */}
-          <div className="flex-1 flex gap-[60px]">
+          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-[24px] md:gap-[60px]">
             {/* Column 1 - Product */}
-            <div className="flex-1 flex flex-col gap-[12px]">
+            <div className="flex flex-col gap-[12px]">
               <h3 className="text-text-0 font-sans text-[14px] font-semibold">
                 Product
               </h3>
@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
 
             {/* Column 2 - Resources */}
-            <div className="flex-1 flex flex-col gap-[12px]">
+            <div className="flex flex-col gap-[12px]">
               <h3 className="text-text-0 font-sans text-[14px] font-semibold">
                 Resources
               </h3>
@@ -84,7 +84,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3 - Company */}
-            <div className="flex-1 flex flex-col gap-[12px]">
+            <div className="flex flex-col gap-[12px]">
               <h3 className="text-text-0 font-sans text-[14px] font-semibold">
                 Company
               </h3>
@@ -115,16 +115,16 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="relative h-[500px] w-full overflow-hidden">
+        <div className="relative h-[200px] md:h-[500px] w-full overflow-hidden">
           <VideoText src="videos/d.mp4">LUCI</VideoText>
         </div>
 
         {/* Footer Bottom */}
-        <div className="flex items-center gap-[40px] pt-[20px] border-t border-grey-2">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-[16px] md:gap-[40px] pt-[20px] border-t border-grey-2">
           <span className="text-text-3 font-sans text-[13px]">
             © 2026 LUCI. All rights reserved.
           </span>
-          <div className="flex gap-[20px] ml-auto">
+          <div className="flex flex-wrap gap-[16px] md:gap-[20px] md:ml-auto">
             <a
               href="#twitter"
               className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"

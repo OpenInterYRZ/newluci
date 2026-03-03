@@ -181,7 +181,7 @@ export default function AccordionFeatures() {
   };
 
   return (
-    <section className="relative w-full bg-web-bg-0 py-28 md:py-36">
+    <section className="relative w-full bg-web-bg-0 py-20 md:py-20">
       <div className="relative z-10 mx-auto max-w-[1420px] px-6">
         {/* Header */}
         <div className="mb-16 flex flex-col items-center gap-6">

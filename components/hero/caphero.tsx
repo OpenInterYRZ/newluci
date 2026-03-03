@@ -1,25 +1,39 @@
+"use client";
+
 import React from "react";
-import { Download } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import GradientButton from "../ui/GradientButton";
 import GlassButton from "../ui/GlassButton";
 import ProductMockup from "../ProductMockup";
-import { HeroGradientBg } from "../gradient/GradientBg";
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.18, delayChildren: 0.2 },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+  },
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
 export const CapHero = () => {
   return (
-    // <HeroGradientBg>
     <div className="relative min-h-screen flex flex-col items-center pt-24 pb-16 px-4 overflow-hidden font-sans">
-      {/* 背景视频 */}
-      {/* <div className="absolute inset-0 w-full h-full z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-60"
-        >
-          <source src="/videos/bak2.mp4" type="video/mp4" />
-        </video>
-      </div> */}
+      {/* 背景图 */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
           src="/q.png"
@@ -33,27 +47,56 @@ export const CapHero = () => {
         />
       </div>
       {/* 渐变叠加层 */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-bg-0 via-bg-0/30 to-bg-0/90 pointer-events-none"></div>
-      {/* 主要内容区 */}
-      <div className="relative z-10 flex flex-col items-center text-center w-full max-w-7xl mt-12">
-        {/* 标题 & 副标题 */}
-        <h1 className="text-text-0 text-7xl font-bold text-center leading-tight mt-12">
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-bg-0 via-bg-0/30 to-bg-0/90 pointer-events-none dark:hidden"></div>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#08050c]/80 via-[#08050c]/30 to-[#08050c]/90 pointer-events-none hidden dark:block"></div>
+
+      {/* 主要内容区 — stagger 容器 */}
+      <motion.div
+        className="relative z-10 flex flex-col items-center text-center w-full max-w-7xl mt-12"
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* 1. 标题 */}
+        <motion.h1
+          className="text-text-0 text-7xl font-bold text-center leading-tight mt-12"
+          variants={fadeUp}
+        >
           LUCI sees, understands, and acts.
-        </h1>
-        <p className="text-text-1 font-sans text-md leading-relaxed text-center max-w-3xl mt-6 mb-12">
+        </motion.h1>
+
+        {/* 2. 副标题 */}
+        <motion.p
+          className="text-text-1 font-sans text-md leading-relaxed text-center max-w-3xl mt-6 mb-12"
+          variants={fadeUp}
+        >
           Meet your professional AI assistant that remembers everything.
-        </p>
-        <div className="flex gap-4">
+        </motion.p>
+
+        {/* 3. 按钮组 */}
+        <motion.div className="flex gap-4" variants={fadeUp}>
           <GradientButton href="/signup" text="Sign Up for Cloud →" />
           <GlassButton href="/download" text="Download Local ↓" />
-        </div>
-        <p className="text-text-3 text-sm mb-24 text-center mt-6">
-          No credit card required
-        </p>
-        <ProductMockup />
+        </motion.div>
 
-        {/* 底部合作 Logos */}
-        <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-40 hover:opacity-60 transition-opacity">
+        {/* 4. 提示文字 */}
+        <motion.p
+          className="text-text-3 text-sm mb-24 text-center mt-6"
+          variants={fadeUp}
+        >
+          No credit card required
+        </motion.p>
+
+        {/* 5. 产品截图 */}
+        <motion.div variants={fadeIn}>
+          <ProductMockup />
+        </motion.div>
+
+        {/* 6. 底部合作 Logos */}
+        <motion.div
+          className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-40 hover:opacity-60 transition-opacity"
+          variants={fadeIn}
+        >
           {/* NVIDIA */}
           <svg
             className="h-4 fill-white"
@@ -86,12 +129,12 @@ export const CapHero = () => {
           <span className="text-xl font-bold text-white tracking-tight">
             Google
           </span>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
+
       {/* 底部模糊渐变过渡 */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent via-bg-0/60 to-bg-0 pointer-events-none" />
     </div>
-    // </HeroGradientBg>
   );
 };
 

@@ -127,15 +127,10 @@ function AnimatedCard({
    ═══════════════════════════════════════════════════ */
 function AlwaysOnCard() {
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(239,68,68,0.22)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(239, 68, 68, 0.22)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.red.base} icon={Disc} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
-          Always-On Recording
-        </h3>
+        <h3 className="text-[20px] font-semibold">Always-On Recording</h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: c.textSecondary }}
@@ -223,15 +218,10 @@ function AlwaysOnCard() {
    ═══════════════════════════════════════════════════ */
 function SpeakerIdCard() {
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(99,102,241,0.18)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(99, 102, 241, 0.18)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.indigo.base} icon={ScanFace} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
-          True Speaker ID
-        </h3>
+        <h3 className="text-[20px] font-semibold">True Speaker ID</h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: c.textSecondary }}
@@ -330,15 +320,10 @@ function UnlimitedContextCard() {
   ];
 
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(34,211,238,0.25)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(34, 211, 238, 0.25)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.cyan.base} icon={Infinity} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
-          Unlimited Context
-        </h3>
+        <h3 className="text-[20px] font-semibold">Unlimited Context</h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: c.textSecondary }}
@@ -406,15 +391,10 @@ function LongTermMemoryCard() {
   ];
 
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(167,139,250,0.2)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(167, 139, 250, 0.2)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.purple.base} icon={BrainCircuit} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
-          Long-Term Memory
-        </h3>
+        <h3 className="text-[20px] font-semibold">Long-Term Memory</h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: c.textSecondary }}
@@ -479,15 +459,10 @@ function LongTermMemoryCard() {
    ═══════════════════════════════════════════════════ */
 function PatternCard() {
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(251,191,36,0.22)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(251, 191, 36, 0.22)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.amber.base} icon={TrendingUp} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
-          Pattern Recognition
-        </h3>
+        <h3 className="text-[20px] font-semibold">Pattern Recognition</h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: c.textSecondary }}
@@ -578,15 +553,10 @@ function AgentCard() {
   ];
 
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(34,197,94,0.2)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(34, 197, 94, 0.2)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.green.base} icon={Bot} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
-          Autonomous Agent
-        </h3>
+        <h3 className="text-[20px] font-semibold">Autonomous Agent</h3>
         <p
           className="text-sm leading-relaxed"
           style={{ color: c.textSecondary }}
@@ -625,7 +595,6 @@ function AgentCard() {
                 transition={{
                   delay: i * 0.15 + 0.5,
                   duration: 1.5,
-                  repeat: Infinity,
                 }}
               >
                 <task.icon
@@ -659,13 +628,10 @@ function AgentCard() {
    ═══════════════════════════════════════════════════ */
 function CrossMeetingCard() {
   return (
-    <SpotlightCard className="h-full" spotlightColor="rgba(249,115,22,0.2)">
+    <SpotlightCard className="h-full" spotlightColor="rgba(249, 115, 22, 0.2)">
       <div className="flex flex-col gap-3 h-full">
         <AccentBadge color={accent.orange.base} icon={GitCompareArrows} />
-        <h3
-          className="text-[20px] font-semibold"
-          style={{ color: c.textPrimary }}
-        >
+        <h3 className="text-[20px] font-semibold">
           Cross-Meeting Intelligence
         </h3>
         <p
@@ -792,17 +758,15 @@ function SecurityCard() {
   ];
 
   return (
-    <SpotlightCard className="w-full" spotlightColor="rgba(148,163,184,0.15)">
+    <SpotlightCard
+      className="w-full"
+      spotlightColor="rgba(148, 163, 184, 0.15)"
+    >
       <div className="flex items-center gap-8 flex-col sm:flex-row">
         {/* Left: text */}
         <div className="flex flex-col gap-3 flex-1 min-w-0">
           <AccentBadge color={accent.slate.base} icon={ShieldCheck} />
-          <h3
-            className="text-[20px] font-semibold"
-            style={{ color: c.textPrimary }}
-          >
-            Enterprise Security
-          </h3>
+          <h3 className="text-[20px] font-semibold">Enterprise Security</h3>
           <p
             className="text-sm leading-relaxed"
             style={{ color: c.textSecondary }}
@@ -896,10 +860,7 @@ export default function KeyFeaturesBento() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2
-            className="text-3xl font-bold md:text-4xl lg:text-5xl"
-            style={{ color: c.textPrimary }}
-          >
+          <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Key Features
           </h2>
           <p

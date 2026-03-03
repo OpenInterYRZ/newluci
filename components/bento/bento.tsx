@@ -78,10 +78,7 @@ function VideoCard() {
       spotlightColor="rgba(99, 102, 241, 0.2)"
     >
       <div className="flex flex-col gap-2">
-        <h3
-          className=" text-[22px] font-semibold "
-          style={{ color: c.textPrimary }}
-        >
+        <h3 className=" text-[22px] font-semibold ">
           Video Understanding &amp; Memory
         </h3>
         <p className="text-sm leading-[1.5]" style={{ color: c.textSecondary }}>
@@ -143,10 +140,7 @@ function MemoryCard() {
       spotlightColor="rgba(34, 211, 238, 0.2)"
     >
       <div className="flex flex-col gap-2">
-        <h3
-          className=" text-[22px] font-semibold "
-          style={{ color: c.textPrimary }}
-        >
+        <h3 className=" text-[22px] font-semibold ">
           Unified Memory + Conversation
         </h3>
         <p className="text-sm leading-[1.5]" style={{ color: c.textSecondary }}>
@@ -189,12 +183,7 @@ function InstanceCard() {
       spotlightColor="rgba(232, 90, 79, 0.2)"
     >
       <div className="flex flex-col gap-2">
-        <h3
-          className=" text-[22px] font-semibold "
-          style={{ color: c.textPrimary }}
-        >
-          Truly Yours
-        </h3>
+        <h3 className=" text-[22px] font-semibold ">Truly Yours</h3>
         <p className="text-sm leading-[1.5]" style={{ color: c.textSecondary }}>
           A dedicated VM, data on your disk. Not a shared service — an AI
           instance completely under your control.
@@ -248,12 +237,7 @@ function MessagingCard() {
       spotlightColor="rgba(50, 213, 131, 0.2)"
     >
       <div className="flex flex-col gap-2">
-        <h3
-          className=" text-[22px] font-semibold "
-          style={{ color: c.textPrimary }}
-        >
-          Where You Already Are
-        </h3>
+        <h3 className=" text-[22px] font-semibold ">Where You Already Are</h3>
         <p className="text-sm leading-[1.5]" style={{ color: c.textSecondary }}>
           Connects via Telegram, WhatsApp, and more. No new app to install —
           just talk to your AI.
@@ -311,12 +295,7 @@ function ClosedLoopCard() {
       spotlightColor="rgba(255, 181, 71, 0.2)"
     >
       <div className="flex flex-col gap-2">
-        <h3
-          className=" text-[22px] font-semibold "
-          style={{ color: c.textPrimary }}
-        >
-          From Record to Action
-        </h3>
+        <h3 className=" text-[22px] font-semibold ">From Record to Action</h3>
         <p className="text-sm leading-[1.5]" style={{ color: c.textSecondary }}>
           Not just suggestions — your AI actually executes. Meeting → memory →
           task → done.
@@ -368,10 +347,7 @@ function OpenSourceCard() {
         {/* Left: icon + text */}
         <div className="flex flex-col gap-4 flex-1 min-w-0">
           <div className="flex flex-col gap-2">
-            <h3
-              className=" text-[22px] font-semibold "
-              style={{ color: c.textPrimary }}
-            >
+            <h3 className=" text-[22px] font-semibold ">
               Open Source + Cloud Hosted
             </h3>
             <p
@@ -415,10 +391,7 @@ export default function BentoFeatures() {
       <div className="max-w-[1304px] mx-auto flex flex-col gap-5">
         {/* ── Section Header ── */}
         <div className="flex flex-col  gap-6 pb-5 max-w-xl">
-          <h2
-            className=" text-text-0 text-3xl font-bold md:text-4xl lg:text-5xl "
-            style={{ color: c.textPrimary }}
-          >
+          <h2 className=" text-text-0 text-3xl font-bold md:text-4xl lg:text-5xl ">
             Everything You Need, Nothing You Don&apos;t
           </h2>
 
