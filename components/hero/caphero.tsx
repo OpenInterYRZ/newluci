@@ -6,6 +6,9 @@ import GradientButton from "../ui/GradientButton";
 import GlassButton from "../ui/GlassButton";
 import DashboardMock from "../DashboardMock";
 import Mock from "@/components/mockip/mock";
+import { PhoneChatScreen } from "../mockip/phone/PhoneChatScreen";
+import VMDashboard from "../mockip/vm/VMDashboard";
+import VMShowcase from "../mockip/vm/VMShowcase";
 
 const container = {
   hidden: {},
@@ -35,9 +38,9 @@ export const CapHero = () => {
   return (
     <div className="relative min-h-screen flex flex-col items-center pt-24 pb-16 px-4 overflow-hidden font-sans">
       {/* 背景图 */}
-      <div className="absolute inset-0 w-full h-full z-0">
+      {/* <div className="absolute inset-0 w-full h-full z-0">
         <img
-          src="/q.png"
+          src="/4.webp"
           alt="hero-bg"
           className="w-full h-full object-cover dark:hidden"
         />
@@ -46,32 +49,34 @@ export const CapHero = () => {
           alt="hero-bg"
           className="w-full h-full object-cover hidden dark:block"
         />
-      </div>
+      </div> */}
       {/* 渐变叠加层 */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-bg-0 via-bg-0/30 to-bg-0/90 pointer-events-none dark:hidden"></div>
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#08050c]/80 via-[#08050c]/30 to-[#08050c]/90 pointer-events-none hidden dark:block"></div>
 
       {/* 主要内容区 — stagger 容器 */}
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center w-full max-w-7xl mt-12"
+        className="relative z-10 flex flex-col items-start w-full max-w-7xl mt-12"
         variants={container}
         initial="hidden"
         animate="visible"
       >
         {/* 1. 标题 */}
         <motion.h1
-          className="text-text-0 text-7xl font-bold text-center leading-tight mt-12"
+          className="text-text-0 text-[52px] font-extrabold leading-[1.05] mt-12 tracking-tight font-[Manrope]"
           variants={fadeUp}
         >
-          LUCI sees, understands, and acts.
+          See. Remember. Act.
         </motion.h1>
 
         {/* 2. 副标题 */}
         <motion.p
-          className="text-text-1 font-sans text-md leading-relaxed text-center max-w-3xl mt-6 mb-12"
+          className="text-text-1 font-[Manrope] text-lg leading-[1.6] text-left max-w-[680px] mt-4 mb-8"
           variants={fadeUp}
         >
-          Meet your professional AI assistant that remembers everything.
+          Meet LUCI — your AI assistant that
+          <br /> connects your tools, understands your work, and gets things
+          done.
         </motion.p>
 
         {/* 3. 按钮组 */}
@@ -89,9 +94,15 @@ export const CapHero = () => {
         </motion.p>
 
         {/* 5. 产品截图 */}
-        <motion.div variants={fadeIn}>
-          <Mock />
-        </motion.div>
+        <div className="flex gap-4 w-full">
+          <div className="w-100">
+            {" "}
+            <PhoneChatScreen />{" "}
+          </div>
+          <div className="">
+            <VMDashboard />
+          </div>
+        </div>
       </motion.div>
 
       {/* 底部模糊渐变过渡 */}

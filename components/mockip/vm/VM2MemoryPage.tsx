@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Brain,
-  Bookmark,
-  ChevronRight,
-  Sparkles,
-} from "lucide-react";
+import { Brain, Bookmark, ChevronRight, Sparkles } from "lucide-react";
 
 const font = "font-[family-name:var(--font-manrope)]";
 
@@ -29,8 +24,7 @@ const memoryCards: MemoryCardProps[] = [
   {
     tag: "Thought",
     tagColor: "text-[#FF8C00]",
-    description:
-      "I think I'm tall, good-looking, and funny.",
+    description: "I think I'm tall, good-looking, and funny.",
   },
   {
     tag: "Thought",
@@ -46,7 +40,13 @@ const memoryCards: MemoryCardProps[] = [
   },
 ];
 
-function MemoryCard({ tag, tagColor, title, description, pending }: MemoryCardProps) {
+function MemoryCard({
+  tag,
+  tagColor,
+  title,
+  description,
+  pending,
+}: MemoryCardProps) {
   return (
     <div
       className={`flex flex-col gap-3 rounded-xl border p-4 px-5 w-full ${
@@ -55,33 +55,27 @@ function MemoryCard({ tag, tagColor, title, description, pending }: MemoryCardPr
     >
       {/* Tag + time row */}
       <div className="flex items-center justify-between w-full">
-        <span className={`text-xs font-semibold ${tagColor} ${font}`}>
-          {tag}
-        </span>
+        <span className={`text-xs font-semibold ${tagColor} `}>{tag}</span>
       </div>
 
       {/* Title (optional) */}
       {title && (
-        <span className={`text-sm font-semibold text-[#333] ${font}`}>
-          {title}
-        </span>
+        <span className={`text-sm font-semibold text-[#333] `}>{title}</span>
       )}
 
       {/* Description */}
-      <p className={`text-[13px] leading-[1.65] text-[#555] ${font}`}>
-        {description}
-      </p>
+      <p className={`text-[13px] leading-[1.65] text-[#555] `}>{description}</p>
 
       {/* Action row for pending card */}
       {pending && (
         <div className="flex items-center gap-3 justify-end">
           <button
-            className={`text-xs font-medium text-[#888] ${font} hover:text-[#555] transition-colors`}
+            className={`text-xs font-medium text-[#888]  hover:text-[#555] transition-colors`}
           >
             UNDO
           </button>
           <button
-            className={`text-xs font-semibold text-white bg-[#1A1A1A] rounded-md px-4 py-1.5 ${font} hover:bg-[#333] transition-colors`}
+            className={`text-xs font-semibold text-white bg-[#1A1A1A] rounded-md px-4 py-1.5  hover:bg-[#333] transition-colors`}
           >
             ACCEPT
           </button>
@@ -93,9 +87,7 @@ function MemoryCard({ tag, tagColor, title, description, pending }: MemoryCardPr
 
 export default function VM2MemoryPage() {
   return (
-    <div
-      className={`flex flex-col items-center gap-3 bg-white p-6 rounded-xl w-full ${font}`}
-    >
+    <div className={`flex flex-col gap-3 bg-white p-6 rounded-xl w-full `}>
       {/* Header */}
       <div className="flex items-center justify-between w-full">
         <span className="text-xl font-bold text-[#1A1A1A]">Memory</span>
@@ -106,7 +98,7 @@ export default function VM2MemoryPage() {
       </div>
 
       {/* Log link */}
-      <div className="flex items-center justify-between w-full rounded-lg bg-[#F9F9F9] border border-[#EEE] px-4 py-3">
+      <div className="flex items-center justify-between w-full rounded-lg  border border-[#EEE] px-4 py-3">
         <span className="text-[13px] font-medium text-[#555]">
           View memory update log
         </span>
@@ -121,7 +113,7 @@ export default function VM2MemoryPage() {
       </div>
 
       {/* Floating button */}
-      <div className="flex items-center gap-2 bg-[#1A1A1A] rounded-full px-5 py-2.5 mt-2">
+      <div className="flex items-center justify-center gap-2 bg-[#1A1A1A] rounded-full px-5 py-2.5 mt-2">
         <Sparkles size={16} className="text-white" />
         <span className="text-[13px] font-semibold text-white">
           Memory fine-tuning

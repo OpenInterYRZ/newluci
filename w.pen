@@ -449,60 +449,109 @@
           "id": "sNRO1",
           "name": "Hero",
           "width": "fill_container",
-          "height": 900,
           "fill": "#FAFAFA",
           "layout": "vertical",
-          "justifyContent": "center",
+          "padding": [
+            120,
+            170,
+            60,
+            170
+          ],
           "alignItems": "center",
           "children": [
             {
               "type": "frame",
               "id": "FwfQ4",
               "name": "Hero Content",
-              "width": 820,
+              "width": "fill_container",
               "layout": "vertical",
-              "alignItems": "center",
               "children": [
                 {
+                  "type": "frame",
+                  "id": "kL4Q7",
+                  "name": "Announcement Pill",
+                  "cornerRadius": 100,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#11111115"
+                  },
+                  "gap": 8,
+                  "padding": [
+                    6,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "je7Ei",
+                      "name": "newTag",
+                      "fill": "#FF8C00",
+                      "content": "New",
+                      "fontFamily": "Manrope",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Wd0O7",
+                      "name": "pillText",
+                      "fill": "#666666",
+                      "content": "LUCI Cloud is now available",
+                      "fontFamily": "Manrope",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "5UUwe",
+                      "name": "arrow",
+                      "fill": "#999999",
+                      "content": "→",
+                      "fontFamily": "Manrope",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
                   "type": "text",
-                  "id": "n7lu6",
+                  "id": "jGaGm",
                   "name": "h1",
                   "fill": "#111111",
-                  "textGrowth": "fixed-width",
-                  "width": "fill_container",
-                  "content": "Your AI that sees,\nremembers, and acts.",
-                  "lineHeight": 1.1,
-                  "textAlign": "center",
+                  "content": "See. Remember. Act.",
+                  "lineHeight": 1.05,
                   "fontFamily": "Manrope",
-                  "fontSize": 72,
-                  "fontWeight": "800"
+                  "fontSize": 52,
+                  "fontWeight": "800",
+                  "letterSpacing": -1
                 },
                 {
                   "type": "frame",
-                  "id": "taQXB",
+                  "id": "lTQES",
                   "name": "spacer1",
                   "width": "fill_container",
-                  "height": 28
+                  "height": 16
                 },
                 {
                   "type": "text",
-                  "id": "lotrA",
+                  "id": "wachV",
                   "name": "h2",
                   "fill": "#666666",
                   "textGrowth": "fixed-width",
-                  "width": 700,
-                  "content": "Meet LUCI. The AI assistant that connects your tools, understands your work, and gets things done.",
+                  "width": 680,
+                  "content": "Meet LUCI — your AI assistant that connects your tools, understands your work, and gets things done.",
                   "lineHeight": 1.6,
-                  "textAlign": "center",
                   "fontFamily": "Manrope",
-                  "fontSize": 18
+                  "fontSize": 18,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
-                  "id": "O62q7",
+                  "id": "XZOdw",
                   "name": "spacer2",
                   "width": "fill_container",
-                  "height": 48
+                  "height": 32
                 },
                 {
                   "type": "frame",
@@ -534,23 +583,6 @@
                       }
                     }
                   ]
-                },
-                {
-                  "type": "frame",
-                  "id": "Dds5q",
-                  "name": "spacer3",
-                  "width": "fill_container",
-                  "height": 32
-                },
-                {
-                  "type": "icon_font",
-                  "id": "isKSJ",
-                  "name": "scrollHint",
-                  "width": 24,
-                  "height": 24,
-                  "iconFontName": "chevron-down",
-                  "iconFontFamily": "lucide",
-                  "fill": "#99999940"
                 }
               ]
             }
@@ -560,8 +592,9 @@
           "type": "frame",
           "id": "lIpZJ",
           "name": "Product Showcase",
+          "clip": true,
           "width": "fill_container",
-          "height": 720,
+          "height": 580,
           "fill": {
             "type": "gradient",
             "gradientType": "linear",
@@ -585,13 +618,402 @@
           "children": [
             {
               "type": "frame",
+              "id": "IUz8F",
+              "x": 48,
+              "y": 50,
+              "name": "Phone Mockup",
+              "width": 240,
+              "height": 470,
+              "fill": "#111111",
+              "cornerRadius": 36,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#00000025",
+                "offset": {
+                  "x": 0,
+                  "y": 12
+                },
+                "blur": 40,
+                "spread": 4
+              },
+              "layout": "vertical",
+              "padding": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "h0RMN",
+                  "name": "Notch Bar",
+                  "width": "fill_container",
+                  "height": 28,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "zJI8h",
+                      "name": "notchPill",
+                      "width": 80,
+                      "height": 6,
+                      "fill": "#333333",
+                      "cornerRadius": 3
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "V9V23",
+                  "name": "Phone Screen",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 24,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "3fhwg",
+                      "name": "Chat Header",
+                      "width": "fill_container",
+                      "height": 52,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": [
+                        24,
+                        24,
+                        0,
+                        0
+                      ],
+                      "stroke": {
+                        "thickness": {
+                          "bottom": 1
+                        },
+                        "fill": "#00000008"
+                      },
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000000A",
+                        "offset": {
+                          "x": 0,
+                          "y": 1
+                        },
+                        "blur": 4
+                      },
+                      "gap": 10,
+                      "padding": [
+                        12,
+                        16
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "HLP9q",
+                          "name": "LUCI Avatar",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 135,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#FF8C00",
+                                "position": 0
+                              },
+                              {
+                                "color": "#FFB347",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "width": 32,
+                          "height": 32,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#FF8C0033",
+                            "offset": {
+                              "x": 0,
+                              "y": 2
+                            },
+                            "blur": 6
+                          }
+                        },
+                        {
+                          "type": "frame",
+                          "id": "o2GGZ",
+                          "name": "Name Column",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wY68D",
+                              "name": "nameText",
+                              "fill": "#1A1A1A",
+                              "content": "LUCI",
+                              "fontFamily": "Manrope",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "71ElS",
+                              "name": "statusText",
+                              "fill": "#34C759",
+                              "content": "Online",
+                              "fontFamily": "Manrope",
+                              "fontSize": 11,
+                              "fontWeight": "500",
+                              "letterSpacing": 0.3
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "lzfwL",
+                      "name": "Messages",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 180,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#FFFFFF",
+                            "position": 0
+                          },
+                          {
+                            "color": "#FAFAFA",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "VqFfa",
+                          "name": "User Message Wrapper",
+                          "width": "fill_container",
+                          "justifyContent": "end",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "7kZzr",
+                              "name": "User Bubble",
+                              "width": 240,
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 135,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#FF8C00",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#FFa030",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": [
+                                18,
+                                18,
+                                4,
+                                18
+                              ],
+                              "effect": {
+                                "type": "shadow",
+                                "shadowType": "outer",
+                                "color": "#FF8C0025",
+                                "offset": {
+                                  "x": 0,
+                                  "y": 2
+                                },
+                                "blur": 8
+                              },
+                              "padding": [
+                                10,
+                                16
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "bnQTC",
+                                  "name": "userText",
+                                  "fill": "#FFFFFF",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Help me analyze today's meeting recording",
+                                  "lineHeight": 1.45,
+                                  "fontFamily": "Manrope",
+                                  "fontSize": 13,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mC3bU",
+                          "type": "ref",
+                          "ref": "fwq2g",
+                          "name": "Thinking Instance"
+                        },
+                        {
+                          "id": "9KGP5",
+                          "type": "ref",
+                          "ref": "wEuEl",
+                          "name": "Agent Calling Instance",
+                          "descendants": {
+                            "uWhrc": {
+                              "content": "agent_video"
+                            }
+                          }
+                        },
+                        {
+                          "id": "hk4Hg",
+                          "type": "ref",
+                          "ref": "S1wyZ",
+                          "name": "statusPill",
+                          "descendants": {
+                            "Cl8PC": {
+                              "content": "Analyzing video..."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LWRFz",
+                      "name": "Input Bar",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "thickness": {
+                          "top": 1
+                        },
+                        "fill": "#00000008"
+                      },
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000000A",
+                        "offset": {
+                          "x": 0,
+                          "y": -1
+                        },
+                        "blur": 4
+                      },
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        12
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ysLfD",
+                          "name": "Input Field",
+                          "width": "fill_container",
+                          "height": 36,
+                          "fill": "#F7F7F8",
+                          "cornerRadius": 20,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#E8E8EC"
+                          },
+                          "padding": [
+                            0,
+                            14
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "wNwt8",
+                              "name": "placeholder",
+                              "fill": "#AAAAAA",
+                              "content": "Ask LUCI...",
+                              "fontFamily": "Manrope",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "Zpmpm",
+                          "name": "Send Button",
+                          "fill": {
+                            "type": "gradient",
+                            "gradientType": "linear",
+                            "enabled": true,
+                            "rotation": 135,
+                            "size": {
+                              "height": 1
+                            },
+                            "colors": [
+                              {
+                                "color": "#FF8C00",
+                                "position": 0
+                              },
+                              {
+                                "color": "#FFB347",
+                                "position": 1
+                              }
+                            ]
+                          },
+                          "width": 32,
+                          "height": 32,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#FF8C0033",
+                            "offset": {
+                              "x": 0,
+                              "y": 2
+                            },
+                            "blur": 6
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
               "id": "oHn9V",
-              "x": 369,
-              "y": 39,
+              "x": 320,
+              "y": 50,
               "name": "VM Panel",
               "clip": true,
-              "width": 1116,
-              "height": 600,
+              "width": 780,
+              "height": 500,
               "fill": "#FFFFFF",
               "cornerRadius": 12,
               "stroke": {
@@ -985,393 +1407,6 @@
                             "eKCf3": {
                               "content": "1:1 with Lisa"
                             }
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "IUz8F",
-              "x": 30,
-              "y": 100,
-              "name": "Phone Mockup",
-              "width": 300,
-              "height": 600,
-              "fill": "#111111",
-              "cornerRadius": 36,
-              "effect": {
-                "type": "shadow",
-                "shadowType": "outer",
-                "color": "#00000025",
-                "offset": {
-                  "x": 0,
-                  "y": 12
-                },
-                "blur": 40,
-                "spread": 4
-              },
-              "layout": "vertical",
-              "padding": 12,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "h0RMN",
-                  "name": "Notch Bar",
-                  "width": "fill_container",
-                  "height": 28,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "zJI8h",
-                      "name": "notchPill",
-                      "width": 80,
-                      "height": 6,
-                      "fill": "#333333",
-                      "cornerRadius": 3
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "V9V23",
-                  "name": "Phone Screen",
-                  "clip": true,
-                  "width": "fill_container",
-                  "height": "fill_container",
-                  "fill": "#FFFFFF",
-                  "cornerRadius": 24,
-                  "layout": "vertical",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "3fhwg",
-                      "name": "Chat Header",
-                      "width": "fill_container",
-                      "height": 52,
-                      "fill": "#FFFFFF",
-                      "cornerRadius": [
-                        24,
-                        24,
-                        0,
-                        0
-                      ],
-                      "stroke": {
-                        "thickness": {
-                          "bottom": 1
-                        },
-                        "fill": "#00000008"
-                      },
-                      "effect": {
-                        "type": "shadow",
-                        "shadowType": "outer",
-                        "color": "#0000000A",
-                        "offset": {
-                          "x": 0,
-                          "y": 1
-                        },
-                        "blur": 4
-                      },
-                      "gap": 10,
-                      "padding": [
-                        12,
-                        16
-                      ],
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "ellipse",
-                          "id": "HLP9q",
-                          "name": "LUCI Avatar",
-                          "fill": {
-                            "type": "gradient",
-                            "gradientType": "linear",
-                            "enabled": true,
-                            "rotation": 135,
-                            "size": {
-                              "height": 1
-                            },
-                            "colors": [
-                              {
-                                "color": "#FF8C00",
-                                "position": 0
-                              },
-                              {
-                                "color": "#FFB347",
-                                "position": 1
-                              }
-                            ]
-                          },
-                          "width": 32,
-                          "height": 32,
-                          "effect": {
-                            "type": "shadow",
-                            "shadowType": "outer",
-                            "color": "#FF8C0033",
-                            "offset": {
-                              "x": 0,
-                              "y": 2
-                            },
-                            "blur": 6
-                          }
-                        },
-                        {
-                          "type": "frame",
-                          "id": "o2GGZ",
-                          "name": "Name Column",
-                          "layout": "vertical",
-                          "gap": 2,
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "wY68D",
-                              "name": "nameText",
-                              "fill": "#1A1A1A",
-                              "content": "LUCI",
-                              "fontFamily": "Manrope",
-                              "fontSize": 15,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "71ElS",
-                              "name": "statusText",
-                              "fill": "#34C759",
-                              "content": "Online",
-                              "fontFamily": "Manrope",
-                              "fontSize": 11,
-                              "fontWeight": "500",
-                              "letterSpacing": 0.3
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "lzfwL",
-                      "name": "Messages",
-                      "width": "fill_container",
-                      "height": "fill_container",
-                      "fill": {
-                        "type": "gradient",
-                        "gradientType": "linear",
-                        "enabled": true,
-                        "rotation": 180,
-                        "size": {
-                          "height": 1
-                        },
-                        "colors": [
-                          {
-                            "color": "#FFFFFF",
-                            "position": 0
-                          },
-                          {
-                            "color": "#FAFAFA",
-                            "position": 1
-                          }
-                        ]
-                      },
-                      "layout": "vertical",
-                      "gap": 10,
-                      "padding": 16,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "VqFfa",
-                          "name": "User Message Wrapper",
-                          "width": "fill_container",
-                          "justifyContent": "end",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "7kZzr",
-                              "name": "User Bubble",
-                              "width": 240,
-                              "fill": {
-                                "type": "gradient",
-                                "gradientType": "linear",
-                                "enabled": true,
-                                "rotation": 135,
-                                "size": {
-                                  "height": 1
-                                },
-                                "colors": [
-                                  {
-                                    "color": "#FF8C00",
-                                    "position": 0
-                                  },
-                                  {
-                                    "color": "#FFa030",
-                                    "position": 1
-                                  }
-                                ]
-                              },
-                              "cornerRadius": [
-                                18,
-                                18,
-                                4,
-                                18
-                              ],
-                              "effect": {
-                                "type": "shadow",
-                                "shadowType": "outer",
-                                "color": "#FF8C0025",
-                                "offset": {
-                                  "x": 0,
-                                  "y": 2
-                                },
-                                "blur": 8
-                              },
-                              "padding": [
-                                10,
-                                16
-                              ],
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "bnQTC",
-                                  "name": "userText",
-                                  "fill": "#FFFFFF",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "Help me analyze today's meeting recording",
-                                  "lineHeight": 1.45,
-                                  "fontFamily": "Manrope",
-                                  "fontSize": 13
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "id": "mC3bU",
-                          "type": "ref",
-                          "ref": "fwq2g",
-                          "name": "Thinking Instance"
-                        },
-                        {
-                          "id": "9KGP5",
-                          "type": "ref",
-                          "ref": "wEuEl",
-                          "name": "Agent Calling Instance",
-                          "descendants": {
-                            "uWhrc": {
-                              "content": "agent_video"
-                            }
-                          }
-                        },
-                        {
-                          "id": "hk4Hg",
-                          "type": "ref",
-                          "ref": "S1wyZ",
-                          "name": "statusPill",
-                          "descendants": {
-                            "Cl8PC": {
-                              "content": "Analyzing video..."
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "LWRFz",
-                      "name": "Input Bar",
-                      "width": "fill_container",
-                      "height": 56,
-                      "fill": "#FFFFFF",
-                      "stroke": {
-                        "thickness": {
-                          "top": 1
-                        },
-                        "fill": "#00000008"
-                      },
-                      "effect": {
-                        "type": "shadow",
-                        "shadowType": "outer",
-                        "color": "#0000000A",
-                        "offset": {
-                          "x": 0,
-                          "y": -1
-                        },
-                        "blur": 4
-                      },
-                      "gap": 8,
-                      "padding": [
-                        10,
-                        12
-                      ],
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "ysLfD",
-                          "name": "Input Field",
-                          "width": "fill_container",
-                          "height": 36,
-                          "fill": "#F7F7F8",
-                          "cornerRadius": 20,
-                          "stroke": {
-                            "thickness": 1,
-                            "fill": "#E8E8EC"
-                          },
-                          "padding": [
-                            0,
-                            14
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "wNwt8",
-                              "name": "placeholder",
-                              "fill": "#AAAAAA",
-                              "content": "Ask LUCI...",
-                              "fontFamily": "Manrope",
-                              "fontSize": 13
-                            }
-                          ]
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "Zpmpm",
-                          "name": "Send Button",
-                          "fill": {
-                            "type": "gradient",
-                            "gradientType": "linear",
-                            "enabled": true,
-                            "rotation": 135,
-                            "size": {
-                              "height": 1
-                            },
-                            "colors": [
-                              {
-                                "color": "#FF8C00",
-                                "position": 0
-                              },
-                              {
-                                "color": "#FFB347",
-                                "position": 1
-                              }
-                            ]
-                          },
-                          "width": 32,
-                          "height": 32,
-                          "effect": {
-                            "type": "shadow",
-                            "shadowType": "outer",
-                            "color": "#FF8C0033",
-                            "offset": {
-                              "x": 0,
-                              "y": 2
-                            },
-                            "blur": 6
                           }
                         }
                       ]
@@ -1923,7 +1958,8 @@
                       "content": "Help me analyze today's meeting recording",
                       "lineHeight": 1.45,
                       "fontFamily": "Manrope",
-                      "fontSize": 13
+                      "fontSize": 13,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -2057,7 +2093,8 @@
                   "fill": "#AAAAAA",
                   "content": "Ask LUCI...",
                   "fontFamily": "Manrope",
-                  "fontSize": 13
+                  "fontSize": 13,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -2155,7 +2192,8 @@
                   "fill": "#999999",
                   "content": "6 videos",
                   "fontFamily": "Manrope",
-                  "fontSize": 13
+                  "fontSize": 13,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -2929,7 +2967,8 @@
                   "fill": "#BBBBBB",
                   "content": "Memory updating...",
                   "fontFamily": "Manrope",
-                  "fontSize": 12
+                  "fontSize": 12,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -3050,7 +3089,8 @@
                   "content": "Q3 Budget: $2.4M",
                   "lineHeight": 1.6,
                   "fontFamily": "Manrope",
-                  "fontSize": 14
+                  "fontSize": 14,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -3062,7 +3102,8 @@
                   "content": "I'm a frontend developer with extensive vibecoding experience. Due to company impact, I'm currently also responsible for growth, SEO, and design work. I believe AI is powerful but still needs human oversight, and I'd like to share my workflow experience with Claude Code and Open Claw across industries.",
                   "lineHeight": 1.65,
                   "fontFamily": "Manrope",
-                  "fontSize": 13
+                  "fontSize": 13,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "frame",
@@ -3096,7 +3137,8 @@
                           "fill": "#CCCCCC",
                           "content": "Private memory",
                           "fontFamily": "Manrope",
-                          "fontSize": 12
+                          "fontSize": 12,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -3365,7 +3407,8 @@
                   "content": "I'm interested in the rapid development of AI and want to stay updated on the latest advancements in frontend technology, development workflows, and productivity tools.",
                   "lineHeight": 1.65,
                   "fontFamily": "Manrope",
-                  "fontSize": 13
+                  "fontSize": 13,
+                  "fontWeight": "normal"
                 }
               ]
             }
@@ -4357,7 +4400,8 @@
               "fill": "#AAAAAA",
               "content": "刚刚",
               "fontFamily": "Manrope",
-              "fontSize": 11
+              "fontSize": 11,
+              "fontWeight": "normal"
             }
           ]
         },
@@ -4379,7 +4423,8 @@
               "content": "我提取了记忆点 我是一名拥有大量vibe...",
               "lineHeight": 1.4,
               "fontFamily": "Manrope",
-              "fontSize": 12
+              "fontSize": 12,
+              "fontWeight": "normal"
             },
             {
               "type": "text",

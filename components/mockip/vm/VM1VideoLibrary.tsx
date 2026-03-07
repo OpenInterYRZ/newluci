@@ -40,7 +40,7 @@ function VideoSection({
 }) {
   return (
     <div className="flex flex-col gap-2.5 w-full">
-      <span className="text-[#999] text-xs font-semibold tracking-wide font-[family-name:var(--font-manrope)]">
+      <span className="text-text-3 text-xs font-semibold tracking-wide">
         {label}
       </span>
       <div className="flex gap-4 w-full">
@@ -54,10 +54,10 @@ function VideoSection({
 
 export default function VM1VideoLibrary() {
   return (
-    <div className="flex flex-col gap-5 bg-white p-6 rounded-xl w-full font-[family-name:var(--font-manrope)]">
+    <div className="flex flex-col gap-5 p-6 rounded-xl w-full">
       {/* Header */}
       <div className="flex items-center justify-between w-full">
-        <span className="text-[#333] text-base font-semibold">
+        <span className="text-text-0 text-base font-semibold">
           Video Library
         </span>
         <div className="flex items-center gap-1.5">

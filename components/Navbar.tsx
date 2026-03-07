@@ -111,7 +111,7 @@ export default function Navbar() {
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${isDropdownOpen || scrolled ? "bg-web-bg-0" : "bg-transparent border-transparent"}`}
       >
-        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-10">
+        <div className="mx-auto flex h-13 max-w-[1400px] items-center justify-between px-6 lg:px-10">
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image
@@ -135,7 +135,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-1 rounded-md px-3.5 py-2 text-[14px] font-medium text-text-1 transition-colors duration-150 hover:text-text-0"
+                    className="group flex items-center gap-1 rounded-md px-3.5 py-2 text-sm font-medium text-text-1 transition-colors duration-150 hover:text-text-0"
                   >
                     {link.label}
                     <ChevronDown
@@ -147,7 +147,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group flex items-center gap-1 rounded-md px-3.5 py-2 text-[14px] font-medium text-text-1 transition-colors duration-150 hover:text-text-0"
+                  className="group flex items-center gap-1 rounded-md px-3.5 py-2 text-sm font-medium text-text-1 transition-colors duration-150 hover:text-text-0"
                   onMouseEnter={closeDropdown}
                 >
                   {link.label}
@@ -208,7 +208,7 @@ export default function Navbar() {
                   <div className="mx-auto flex max-w-[1400px] gap-16 px-6 py-10 lg:px-10">
                     {link.dropdownColumns!.map((col, colIdx) => (
                       <div key={col.title} className="min-w-[180px]">
-                        <p className="mb-4 text-[12px] font-semibold uppercase tracking-wider text-text-3">
+                        <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-3">
                           {col.title}
                         </p>
                         <div className="flex flex-col gap-1">

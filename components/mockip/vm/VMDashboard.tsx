@@ -1,64 +1,48 @@
 "use client";
 
-import { useState } from "react";
 import { Video, Brain, FileText, MessageCircle } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import VM1VideoLibrary from "./VM1VideoLibrary";
 import VM2MemoryPage from "./VM2MemoryPage";
 import VM3TaskExecution from "./VM3TaskExecution";
 import VM4ChatScreen from "./VM4ChatScreen";
 
 const tabs = [
-  { key: "video", label: "Video", icon: Video },
-  { key: "memory", label: "Memory", icon: Brain },
-  { key: "task", label: "Task", icon: FileText },
-  { key: "chat", label: "Chat", icon: MessageCircle },
+  { key: "video", label: "Video", icon: Video, component: VM1VideoLibrary },
+  { key: "memory", label: "Memory", icon: Brain, component: VM2MemoryPage },
+  { key: "task", label: "Task", icon: FileText, component: VM3TaskExecution },
+  { key: "chat", label: "Chat", icon: MessageCircle, component: VM4ChatScreen },
 ] as const;
 
-type TabKey = (typeof tabs)[number]["key"];
-
 export default function VMDashboard() {
-  const [active, setActive] = useState<TabKey>("video");
-
   return (
-    <div className="font-[family-name:var(--font-manrope)] flex flex-col w-full h-screen bg-white overflow-hidden">
-      {/* Tab bar */}
-      <div className="flex shrink-0 border-b border-[#F0F0F0]">
-        {tabs.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = active === tab.key;
-          return (
-            <button
+    <div className="w-full">
+      <Tabs defaultValue="video" className="flex flex-col ">
+        <TabsList variant="line" className="w-full shrink-0">
+          {tabs.map((tab) => (
+            <TabsTrigger
               key={tab.key}
-              onClick={() => setActive(tab.key)}
-              className={`flex-1 flex items-center justify-center gap-1.5 py-3 text-[13px] font-medium transition-colors relative ${
-                isActive ? "text-[#FF8C00]" : "text-[#999] hover:text-[#666]"
-              }`}
+              value={tab.key}
+              className="flex-1 py-3 text-[13px]"
             >
-              <Icon size={16} />
+              <tab.icon size={16} />
               {tab.label}
-              {isActive && (
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-[#FF8C00] rounded-full" />
-              )}
-            </button>
-          );
-        })}
-      </div>
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-      {/* Pages — all mounted, toggle visibility to avoid re-render */}
-      <div className="flex-1 overflow-hidden relative">
-        <div className={`absolute inset-0 overflow-y-auto ${active === "video" ? "" : "hidden"}`}>
-          <VM1VideoLibrary />
-        </div>
-        <div className={`absolute inset-0 overflow-y-auto ${active === "memory" ? "" : "hidden"}`}>
-          <VM2MemoryPage />
-        </div>
-        <div className={`absolute inset-0 overflow-y-auto ${active === "task" ? "" : "hidden"}`}>
-          <VM3TaskExecution />
-        </div>
-        <div className={`absolute inset-0 overflow-y-auto ${active === "chat" ? "" : "hidden"}`}>
-          <VM4ChatScreen />
-        </div>
-      </div>
+        {/* forceMount keeps all panels in DOM; data-[state=inactive]:hidden toggles visibility */}
+        {tabs.map((tab) => (
+          <TabsContent
+            key={tab.key}
+            value={tab.key}
+            forceMount
+            className="relative data-[state=inactive]:hidden h-full w-5xl"
+          >
+            <tab.component />
+          </TabsContent>
+        ))}
+      </Tabs>
     </div>
   );
 }
