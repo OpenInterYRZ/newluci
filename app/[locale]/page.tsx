@@ -21,7 +21,7 @@ export default function Home() {
       {/* Section Divider */}
       <PainPointsSection />
       <FeatureShowcase />
-      <AccordionFeatures /> <FeaturesTimeline />
+      {/* <AccordionFeatures /> <FeaturesTimeline /> */}
       {/* Section Divider */}
       <BentoFeatures />
       <KeyFeaturesBento />
