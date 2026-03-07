@@ -266,11 +266,11 @@
       "y": 50,
       "name": "CTA Primary",
       "reusable": true,
-      "fill": "#FF8C00",
+      "fill": "#111111",
       "cornerRadius": 8,
       "padding": [
-        14,
-        32
+        10,
+        24
       ],
       "justifyContent": "center",
       "alignItems": "center",
@@ -279,10 +279,10 @@
           "type": "text",
           "id": "4MML2",
           "name": "ctaPrimaryText",
-          "fill": "#0A0A0A",
+          "fill": "#FFFFFF",
           "content": "Button",
           "fontFamily": "Manrope",
-          "fontSize": 16,
+          "fontSize": 14,
           "fontWeight": "600"
         }
       ]
@@ -300,8 +300,8 @@
         "fill": "#11111133"
       },
       "padding": [
-        14,
-        32
+        10,
+        24
       ],
       "justifyContent": "center",
       "alignItems": "center",
@@ -313,7 +313,7 @@
           "fill": "#111111",
           "content": "Button",
           "fontFamily": "Manrope",
-          "fontSize": 16,
+          "fontSize": 14,
           "fontWeight": "500"
         }
       ]
@@ -461,126 +461,128 @@
           "children": [
             {
               "type": "frame",
-              "id": "FwfQ4",
-              "name": "Hero Content",
-              "width": "fill_container",
+              "id": "P8hZW",
+              "name": "Hero — Black & White Buttons",
+              "width": 1440,
+              "fill": "#FAFAFA",
               "layout": "vertical",
+              "padding": [
+                120,
+                170,
+                60,
+                170
+              ],
+              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
-                  "id": "kL4Q7",
-                  "name": "Announcement Pill",
-                  "cornerRadius": 100,
-                  "stroke": {
-                    "thickness": 1,
-                    "fill": "#11111115"
-                  },
-                  "gap": 8,
-                  "padding": [
-                    6,
-                    16
-                  ],
-                  "alignItems": "center",
+                  "id": "LQ5Vk",
+                  "name": "Hero Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
                   "children": [
                     {
                       "type": "text",
-                      "id": "je7Ei",
-                      "name": "newTag",
-                      "fill": "#FF8C00",
-                      "content": "New",
+                      "id": "k4RfC",
+                      "name": "h1",
+                      "fill": "#111111",
+                      "content": "See. Remember. Act.",
+                      "lineHeight": 1.05,
                       "fontFamily": "Manrope",
-                      "fontSize": 13,
-                      "fontWeight": "700"
+                      "fontSize": 46,
+                      "fontWeight": "600",
+                      "letterSpacing": -1
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DmnkZ",
+                      "name": "spacer1",
+                      "width": "fill_container",
+                      "height": 16
                     },
                     {
                       "type": "text",
-                      "id": "Wd0O7",
-                      "name": "pillText",
+                      "id": "Ep4r0",
+                      "name": "h2",
                       "fill": "#666666",
-                      "content": "LUCI Cloud is now available",
+                      "effect": {
+                        "type": "background_blur",
+                        "radius": 4
+                      },
+                      "textGrowth": "fixed-width",
+                      "width": 680,
+                      "content": "Meet LUCI — your AI assistant that connects your tools, understands your work, and gets things done.",
+                      "lineHeight": 1.6,
                       "fontFamily": "Manrope",
-                      "fontSize": 13,
-                      "fontWeight": "500"
+                      "fontSize": 16,
+                      "fontWeight": "normal"
                     },
                     {
-                      "type": "text",
-                      "id": "5UUwe",
-                      "name": "arrow",
-                      "fill": "#999999",
-                      "content": "→",
-                      "fontFamily": "Manrope",
-                      "fontSize": 13,
-                      "fontWeight": "500"
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "id": "jGaGm",
-                  "name": "h1",
-                  "fill": "#111111",
-                  "content": "See. Remember. Act.",
-                  "lineHeight": 1.05,
-                  "fontFamily": "Manrope",
-                  "fontSize": 52,
-                  "fontWeight": "800",
-                  "letterSpacing": -1
-                },
-                {
-                  "type": "frame",
-                  "id": "lTQES",
-                  "name": "spacer1",
-                  "width": "fill_container",
-                  "height": 16
-                },
-                {
-                  "type": "text",
-                  "id": "wachV",
-                  "name": "h2",
-                  "fill": "#666666",
-                  "textGrowth": "fixed-width",
-                  "width": 680,
-                  "content": "Meet LUCI — your AI assistant that connects your tools, understands your work, and gets things done.",
-                  "lineHeight": 1.6,
-                  "fontFamily": "Manrope",
-                  "fontSize": 18,
-                  "fontWeight": "normal"
-                },
-                {
-                  "type": "frame",
-                  "id": "XZOdw",
-                  "name": "spacer2",
-                  "width": "fill_container",
-                  "height": 32
-                },
-                {
-                  "type": "frame",
-                  "id": "0EX4y",
-                  "name": "CTA Row",
-                  "gap": 16,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "id": "awJ3G",
-                      "type": "ref",
-                      "ref": "JyzJa",
-                      "name": "primaryBtn",
-                      "descendants": {
-                        "4MML2": {
-                          "content": "Sign up for Cloud"
-                        }
-                      }
+                      "type": "frame",
+                      "id": "OwjBU",
+                      "name": "spacer2",
+                      "width": "fill_container",
+                      "height": 32
                     },
                     {
-                      "id": "KpoH8",
-                      "type": "ref",
-                      "ref": "a7apm",
-                      "name": "secondaryBtn",
-                      "descendants": {
-                        "p0IHw": {
-                          "content": "Download Local"
+                      "type": "frame",
+                      "id": "4W8Gi",
+                      "name": "CTA Row",
+                      "gap": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "X8ZeK",
+                          "name": "bwPrimary",
+                          "fill": "#111111",
+                          "cornerRadius": 8,
+                          "padding": [
+                            10,
+                            24
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cyMYZ",
+                              "fill": "#FFFFFF",
+                              "content": "Sign up for Cloud",
+                              "fontFamily": "Manrope",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OEzNo",
+                          "name": "bwSecondary",
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": "#11111133"
+                          },
+                          "padding": [
+                            10,
+                            24
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "klQ8x",
+                              "fill": "#111111",
+                              "content": "Download Local",
+                              "fontFamily": "Manrope",
+                              "fontSize": 14,
+                              "fontWeight": "500"
+                            }
+                          ]
                         }
-                      }
+                      ]
                     }
                   ]
                 }
@@ -619,8 +621,8 @@
             {
               "type": "frame",
               "id": "IUz8F",
-              "x": 48,
-              "y": 50,
+              "x": 253,
+              "y": 16,
               "name": "Phone Mockup",
               "width": 240,
               "height": 470,
@@ -1008,8 +1010,8 @@
             {
               "type": "frame",
               "id": "oHn9V",
-              "x": 320,
-              "y": 50,
+              "x": 578,
+              "y": -14,
               "name": "VM Panel",
               "clip": true,
               "width": 780,
@@ -1414,6 +1416,47 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "4wwwI",
+          "name": "Text Statement Block",
+          "width": "fill_container",
+          "fill": "#0A0A0A",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            120,
+            170
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "0CInT",
+              "name": "h1",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 900,
+              "content": "Every tool promises to save you time. None of them talk to each other.",
+              "lineHeight": 1.15,
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "e1KdF",
+              "name": "h2",
+              "fill": "#666666",
+              "textGrowth": "fixed-width",
+              "width": 900,
+              "content": "Your tools are siloed. LUCI connects them to help you close the deals.",
+              "lineHeight": 1.15,
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "500"
             }
           ]
         }
@@ -4884,6 +4927,104 @@
           "iconFontName": "chevron-right",
           "iconFontFamily": "lucide",
           "fill": "#AAAAAA"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "flSbE",
+      "x": 266,
+      "y": -195,
+      "name": "Hero — Orange Buttons",
+      "width": 1440,
+      "fill": "#FAFAFA",
+      "layout": "vertical",
+      "padding": [
+        120,
+        170,
+        60,
+        170
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "iVG1y",
+          "name": "Hero Content",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "KjqzB",
+              "name": "h1",
+              "fill": "#111111",
+              "content": "See. Remember. Act.",
+              "lineHeight": 1.05,
+              "fontFamily": "Manrope",
+              "fontSize": 52,
+              "fontWeight": "800",
+              "letterSpacing": -1
+            },
+            {
+              "type": "frame",
+              "id": "DIylS",
+              "name": "spacer1",
+              "width": "fill_container",
+              "height": 16
+            },
+            {
+              "type": "text",
+              "id": "86eSC",
+              "name": "h2",
+              "fill": "#666666",
+              "textGrowth": "fixed-width",
+              "width": 680,
+              "content": "Meet LUCI — your AI assistant that connects your tools, understands your work, and gets things done.",
+              "lineHeight": 1.6,
+              "fontFamily": "Manrope",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "zhKhk",
+              "name": "spacer2",
+              "width": "fill_container",
+              "height": 32
+            },
+            {
+              "type": "frame",
+              "id": "HA1Oh",
+              "name": "CTA Row",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "ITriF",
+                  "type": "ref",
+                  "ref": "JyzJa",
+                  "name": "primaryBtn",
+                  "descendants": {
+                    "4MML2": {
+                      "content": "Sign up for Cloud"
+                    }
+                  }
+                },
+                {
+                  "id": "h1GCA",
+                  "type": "ref",
+                  "ref": "a7apm",
+                  "name": "secondaryBtn",
+                  "descendants": {
+                    "p0IHw": {
+                      "content": "Download Local"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     }

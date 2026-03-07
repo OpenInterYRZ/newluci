@@ -111,7 +111,7 @@ export default function Navbar() {
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${isDropdownOpen || scrolled ? "bg-web-bg-0" : "bg-transparent border-transparent"}`}
       >
-        <div className="mx-auto flex h-13 max-w-[1400px] items-center justify-between px-6 lg:px-10">
+        <div className="mx-auto flex h-13 max-w-[1400px] items-center justify-between px-5 lg:px-5">
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image

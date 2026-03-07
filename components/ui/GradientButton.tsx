@@ -14,9 +14,9 @@ export default function GradientButton({
   return (
     <Link
       href={href}
-      className={`bg-gradient-to-r from-[#ff9b26] to-[#ff0c00] rounded-2xl py-4 px-8 hover:scale-105 transition-all inline-block ${className}`}
+      className={`bg-text-0 rounded-lg py-2.5 px-6 hover:opacity-90 transition-all inline-block ${className}`}
     >
-      <span className="text-white font-sans text-base font-bold">{text}</span>
+      <span className="text-bg-0 text-sm font-semibold">{text}</span>
     </Link>
   );
 }

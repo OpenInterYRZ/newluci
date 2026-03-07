@@ -36,7 +36,7 @@ const fadeIn: Variants = {
 
 export const CapHero = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center pt-24 pb-16 px-4 overflow-hidden font-sans">
+    <div className="relative flex flex-col items-center pt-24 pb-16 px-5 overflow-hidden bg-web-bg-0">
       {/* 背景图 */}
       {/* <div className="absolute inset-0 w-full h-full z-0">
         <img
@@ -51,8 +51,8 @@ export const CapHero = () => {
         />
       </div> */}
       {/* 渐变叠加层 */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-bg-0 via-bg-0/30 to-bg-0/90 pointer-events-none dark:hidden"></div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#08050c]/80 via-[#08050c]/30 to-[#08050c]/90 pointer-events-none hidden dark:block"></div>
+      {/* <div className="absolute inset-0 z-[1] bg-gradient-to-b from-bg-0 via-bg-0/30 to-bg-0/90 pointer-events-none dark:hidden"></div>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#08050c]/80 via-[#08050c]/30 to-[#08050c]/90 pointer-events-none hidden dark:block"></div> */}
 
       {/* 主要内容区 — stagger 容器 */}
       <motion.div
@@ -63,7 +63,7 @@ export const CapHero = () => {
       >
         {/* 1. 标题 */}
         <motion.h1
-          className="text-text-0 text-[52px] font-extrabold leading-[1.05] mt-12 tracking-tight font-[Manrope]"
+          className="text-text-0 text-[56px] font-semibold leading-[1.05] mt-12 tracking-tight "
           variants={fadeUp}
         >
           See. Remember. Act.
@@ -71,42 +71,19 @@ export const CapHero = () => {
 
         {/* 2. 副标题 */}
         <motion.p
-          className="text-text-1 font-[Manrope] text-lg leading-[1.6] text-left max-w-[680px] mt-4 mb-8"
+          className="text-text-1  text-base leading-[1.6] text-left max-w-[680px] mt-4 mb-8"
           variants={fadeUp}
         >
-          Meet LUCI — your AI assistant that
-          <br /> connects your tools, understands your work, and gets things
-          done.
+          Meet LUCI — your AI assistant that connects your tools, <br />
+          understands your work, and gets things done.
         </motion.p>
 
         {/* 3. 按钮组 */}
         <motion.div className="flex gap-4" variants={fadeUp}>
-          <GradientButton href="/signup" text="Sign Up for Cloud →" />
-          <GlassButton href="/download" text="Download Local ↓" />
+          <GradientButton href="/signup" text="Sign up for Cloud" />
+          <GlassButton href="/download" text="Download Local" />
         </motion.div>
-
-        {/* 4. 提示文字 */}
-        <motion.p
-          className="text-text-3 text-sm mb-24 text-center mt-6"
-          variants={fadeUp}
-        >
-          No credit card required
-        </motion.p>
-
-        {/* 5. 产品截图 */}
-        <div className="flex gap-4 w-full">
-          <div className="w-100">
-            {" "}
-            <PhoneChatScreen />{" "}
-          </div>
-          <div className="">
-            <VMDashboard />
-          </div>
-        </div>
       </motion.div>
-
-      {/* 底部模糊渐变过渡 */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent via-bg-0/60 to-bg-0 pointer-events-none" />
     </div>
   );
 };

@@ -1,0 +1,389 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "vLD1Q",
+      "x": 0,
+      "y": 0,
+      "name": "Feature Showcase Section",
+      "width": 1440,
+      "fill": "#111111",
+      "layout": "vertical",
+      "gap": 60,
+      "padding": 80,
+      "children": [
+        {
+          "type": "frame",
+          "id": "J6W3z",
+          "name": "Header",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "children": [
+            {
+              "type": "text",
+              "id": "TVutb",
+              "name": "Headline",
+              "fill": "#FFFFFF",
+              "fontFamily": "Inter",
+              "fontSize": 40,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "inpjb",
+              "name": "Subtitle",
+              "fill": "#999999",
+              "content": "Speak your ideas into existence with a high degree of creative control.",
+              "fontFamily": "Inter",
+              "fontSize": 20
+            },
+            {
+              "type": "frame",
+              "id": "b5InO",
+              "name": "CTA Button",
+              "cornerRadius": 100,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#555555"
+              },
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "c4si0",
+                  "name": "ctaLabel",
+                  "fill": "#FFFFFF",
+                  "content": "Contact sales",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "8mmwi",
+                  "name": "ctaIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "arrow-up-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "8eDmm",
+          "name": "Cards Row",
+          "width": "fill_container",
+          "height": 520,
+          "gap": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "hYzYR",
+              "name": "Card 01 Ideate",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#1A1A1A",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#2A2A2A"
+              },
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 40,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WcjcB",
+                  "name": "Card 1 Title Row",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2v3Ho",
+                      "name": "card1Num",
+                      "fill": "#555555",
+                      "content": "01",
+                      "fontFamily": "Inter",
+                      "fontSize": 36,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AgmXR",
+                      "name": "card1Title",
+                      "fill": "#FFFFFF",
+                      "content": "Ideate",
+                      "fontFamily": "Inter",
+                      "fontSize": 36,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bliX6",
+                  "name": "Card 1 Image",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "./images/generated-1772874042280.png",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 12
+                },
+                {
+                  "type": "frame",
+                  "id": "Kk1JV",
+                  "name": "Card 1 Desc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oYBhS",
+                      "name": "card1DescTitle",
+                      "fill": "#FFFFFF",
+                      "content": "Explore 100s of possibilities",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "oZ9Wc",
+                      "name": "card1DescText",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Text, image, and video models in one place. No tab-switching, no limits.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "CMBPN",
+                      "name": "card1Desc2",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Follow every spark of inspiration on\nan intelligent canvas built for flow.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "F9joY",
+              "name": "Card 02 Iterate",
+              "width": 300,
+              "height": "fill_container",
+              "fill": "#1A1A1A",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#2A2A2A"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "v4ueM",
+                  "name": "Card 2 Title Row",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8AXD5",
+                      "name": "card2Num",
+                      "fill": "#555555",
+                      "content": "02",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "X5zaJ",
+                      "name": "card2Title",
+                      "fill": "#FFFFFF",
+                      "content": "Iterate",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tTzy3",
+                  "name": "Card 2 Image",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "./images/generated-1772874060581.png",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 12
+                },
+                {
+                  "type": "frame",
+                  "id": "2CBXN",
+                  "name": "Card 2 Desc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "manJA",
+                      "name": "card2DescTitle",
+                      "fill": "#FFFFFF",
+                      "content": "Get to “final” faster",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "eHAds",
+                      "name": "card2DescText",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Iterate in real-time\nwith the whole team.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MjL1x",
+              "name": "Card 03 Scale",
+              "width": 300,
+              "height": "fill_container",
+              "fill": "#1A1A1A",
+              "cornerRadius": 16,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#2A2A2A"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 32,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "QRvpX",
+                  "name": "Card 3 Title Row",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "5lDFp",
+                      "name": "card3Num",
+                      "fill": "#555555",
+                      "content": "03",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "300"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GNMik",
+                      "name": "card3Title",
+                      "fill": "#FFFFFF",
+                      "content": "Scale",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hcB6m",
+                  "name": "Card 3 Image",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "./images/generated-1772874078263.png",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 12
+                },
+                {
+                  "type": "frame",
+                  "id": "pJZtf",
+                  "name": "Card 3 Desc",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QN3O6",
+                      "name": "card3DescTitle",
+                      "fill": "#FFFFFF",
+                      "content": "Create scalable\nworkflows",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zx7y2",
+                      "name": "card3DescText",
+                      "fill": "#888888",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Turn a single concept into hundreds\nof production-grade assets.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 13
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

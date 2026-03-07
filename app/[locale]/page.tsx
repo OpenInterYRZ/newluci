@@ -1,3 +1,5 @@
+import ProductShowcase from "@/components/showcase/ProductShowcase";
+import FeatureShowcase from "@/components/showcase/FeatureShowcase";
 import PainPointsSection from "@/components/painpoint/PainPointsSection";
 import CtaBanner from "@/components/CTA/CtaBanner";
 import Footer from "@/components/Footer";
@@ -15,8 +17,10 @@ export default function Home() {
   return (
     <div className="w-full h-full  mx-auto">
       <CapHero />
+      <ProductShowcase />
       {/* Section Divider */}
       <PainPointsSection />
+      <FeatureShowcase />
       <AccordionFeatures /> <FeaturesTimeline />
       {/* Section Divider */}
       <BentoFeatures />

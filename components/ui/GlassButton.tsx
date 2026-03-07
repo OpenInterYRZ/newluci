@@ -14,9 +14,9 @@ export default function GlassButton({
   return (
     <Link
       href={href}
-      className={`backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 rounded-xl py-4 px-8 hover:bg-white/20 dark:hover:bg-black/30 transition-all inline-block ${className}`}
+      className={`border border-grey-9/20 dark:border-white/20 rounded-lg py-2.5 px-6 hover:bg-grey-9/5 dark:hover:bg-white/5 transition-all inline-block ${className}`}
     >
-      <span className="text-text-0 font-sans text-base font-semibold">
+      <span className="text-grey-9 dark:text-white font-[Manrope] text-sm font-medium">
         {text}
       </span>
     </Link>
