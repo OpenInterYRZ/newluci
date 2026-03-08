@@ -115,11 +115,18 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="shrink-0">
             <Image
+              src="/lucilogo-black.svg"
+              alt="LUCI"
+              width={80}
+              height={30}
+              className="block dark:hidden"
+            />
+            <Image
               src="/lucilogo.svg"
               alt="LUCI"
               width={80}
               height={30}
-              className="dark:invert-0"
+              className="hidden dark:block"
             />
           </Link>
 

@@ -41,27 +41,18 @@ export default function FAQSection() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? -1 : i);
 
   return (
-    <section
-      className="w-full"
-      style={{ backgroundColor: "#FAFAF8" }}
-    >
+    <section className="w-full bg-web-bg-0">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-12 px-6 py-16 md:flex-row md:gap-[100px] md:px-[100px] md:py-24">
         {/* Left — Title Column */}
         <div className="flex shrink-0 flex-col gap-4 md:w-[400px]">
-          <h2
-            className="text-[36px] font-medium leading-[1.15] tracking-tight md:text-[52px]"
-            style={{ color: "#1A1A1A", fontFamily: "var(--font-sans)" }}
-          >
+          <h2 className="text-[36px] font-medium leading-[1.15] tracking-tight md:text-[52px]">
             Frequently
             <br />
             Asked
             <br />
             Questions.
           </h2>
-          <p
-            className="max-w-[360px] text-[15px] leading-relaxed md:text-base"
-            style={{ color: "#8C8780" }}
-          >
+          <p className="max-w-[360px] text-[15px] leading-relaxed md:text-base">
             Everything you need to know about Luci
           </p>
         </div>
@@ -69,7 +60,7 @@ export default function FAQSection() {
         {/* Right — Accordion */}
         <div className="min-w-0 flex-1">
           {/* Top divider */}
-          <div className="h-px w-full" style={{ backgroundColor: "#E5E2DD" }} />
+          <div className="h-px w-full bg-grey-1" />
 
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
@@ -79,10 +70,7 @@ export default function FAQSection() {
                   onClick={() => toggle(i)}
                   className="group flex w-full items-center justify-between gap-4 py-5 text-left"
                 >
-                  <span
-                    className="text-base font-medium leading-snug transition-colors duration-200"
-                    style={{ color: "#1A1A1A" }}
-                  >
+                  <span className="text-base font-medium leading-snug transition-colors duration-200">
                     {faq.q}
                   </span>
                   <span className="flex size-5 shrink-0 items-center justify-center">
@@ -92,9 +80,9 @@ export default function FAQSection() {
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
                       {isOpen ? (
-                        <Minus size={20} style={{ color: "#E8600A" }} />
+                        <Minus size={20} className="text-primary" />
                       ) : (
-                        <Plus size={20} style={{ color: "#E8600A" }} />
+                        <Plus size={20} className="text-primary" />
                       )}
                     </motion.div>
                   </span>
@@ -112,10 +100,7 @@ export default function FAQSection() {
                       }}
                       className="overflow-hidden"
                     >
-                      <p
-                        className="whitespace-pre-line pb-4 text-sm leading-[1.6]"
-                        style={{ color: "#6B6560" }}
-                      >
+                      <p className="whitespace-pre-line pb-4 text-sm leading-[1.6]">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -123,10 +108,7 @@ export default function FAQSection() {
                 </AnimatePresence>
 
                 {/* Divider */}
-                <div
-                  className="h-px w-full"
-                  style={{ backgroundColor: "#E5E2DD" }}
-                />
+                <div className="h-px w-full bg-grey-1" />
               </div>
             );
           })}

@@ -77,7 +77,7 @@ export default function TestimonialCarousel() {
   );
 
   return (
-    <section className="w-full" style={{ backgroundColor: "#FAFAF8" }}>
+    <section className="w-full bg-web-bg-0">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-10 px-6 py-16 md:px-[100px] md:py-24">
         {/* Title */}
         <h2 className="text-[32px] font-bold text-text-0 max-w-3xl leading-[1.1] tracking-tight md:text-[44px]">
@@ -95,11 +95,9 @@ export default function TestimonialCarousel() {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="flex shrink-0 flex-col justify-between rounded-2xl border p-8 md:p-10"
+                className="flex shrink-0 flex-col bg-bg-0 justify-between rounded-2xl border border-grey-2/30 p-8 md:p-10"
                 style={{
                   width: cardWidth,
-                  backgroundColor: "#FFFFFF",
-                  borderColor: "#E8E5E0",
                   minHeight: 380,
                 }}
               >
@@ -112,18 +110,10 @@ export default function TestimonialCarousel() {
                 <div className="mt-10 flex items-center gap-3">
                   <Avatar name={t.name} color={t.color} />
                   <div className="flex flex-col">
-                    <span
-                      className="text-[14px] font-semibold leading-tight"
-                      style={{ color: "#1A1A1A" }}
-                    >
+                    <span className="text-[14px] font-semibold leading-tight">
                       {t.name}
                     </span>
-                    <span
-                      className="text-[13px] leading-tight"
-                      style={{ color: "#9B958E" }}
-                    >
-                      {t.role}
-                    </span>
+                    <span className="text-[13px] leading-tight">{t.role}</span>
                   </div>
                 </div>
               </div>
