@@ -23,17 +23,20 @@ export function LuciCenter({
   return (
     <div
       ref={containerRef}
-      className={`flex items-center justify-center bg-white ${className}`}
+      className={`flex items-center justify-center bg-black  ${className}`}
       style={{
-        width: size,
+        width: size * 2,
         height: size,
         borderRadius: size * 0.25,
-        boxShadow: glowStyles[glowIntensity],
       }}
     >
-      <svg width={size * 0.4} height={size * 0.4} viewBox="0 0 36 36">
-        <polygon points="18,2 32,30 4,30" fill="#0a0a0f" />
-      </svg>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/lucilogo.svg"
+        alt="LUCI"
+        width={size * 0.95}
+        height={size * 0.95}
+      />
     </div>
   );
 }

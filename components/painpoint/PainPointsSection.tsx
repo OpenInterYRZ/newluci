@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -12,7 +12,12 @@ import {
   siZoom,
 } from "simple-icons";
 import { LuciCenter } from "./LuciCenter";
-import { CategoryCards } from "./CategoryCards";
+import { ClientTimelineDashboard } from "../cards/ClientTimelineDashboard";
+import DotGrid from "../ui/DotGrid";
+import { NotionNotesCard } from "../cards/NotionNotesCard";
+import { ZoomMeetingCard } from "../cards/ZoomMeetingCard";
+import { ZoomRecordingCard } from "../cards/ZoomRecordingCard";
+import { GmailInboxCard } from "../cards/GmailInboxCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +26,10 @@ type SvgIconProps = React.SVGProps<SVGSVGElement> & {
   "data-icon-svg"?: boolean;
 };
 
-function makeSimpleIcon(icon: { path: string; hex: string }, fillOverride?: string) {
+function makeSimpleIcon(
+  icon: { path: string; hex: string },
+  fillOverride?: string,
+) {
   const Comp = (props: SvgIconProps) => (
     <svg
       role="img"
@@ -40,11 +48,28 @@ function makeSimpleIcon(icon: { path: string; hex: string }, fillOverride?: stri
 // Slack SVG (not in simple-icons v16)
 function SlackIcon(props: SvgIconProps) {
   return (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path fill="#E01E5A" d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" />
-      <path fill="#36C5F0" d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" />
-      <path fill="#2EB67D" d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.27 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.163 0a2.528 2.528 0 0 1 2.523 2.522v6.312z" />
-      <path fill="#ECB22E" d="M15.163 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.163 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.27a2.527 2.527 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.315A2.528 2.528 0 0 1 24 15.163a2.528 2.528 0 0 1-2.522 2.523h-6.315z" />
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fill="#E01E5A"
+        d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z"
+      />
+      <path
+        fill="#36C5F0"
+        d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z"
+      />
+      <path
+        fill="#2EB67D"
+        d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.27 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.163 0a2.528 2.528 0 0 1 2.523 2.522v6.312z"
+      />
+      <path
+        fill="#ECB22E"
+        d="M15.163 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.163 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.27a2.527 2.527 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.315A2.528 2.528 0 0 1 24 15.163a2.528 2.528 0 0 1-2.522 2.523h-6.315z"
+      />
     </svg>
   );
 }
@@ -201,14 +226,24 @@ const GRID_INIT = [
 ];
 
 // After shrink: 1×8 row (same vertical level as initial top row)
-const ROW_Y_PCT = 28;
+const ROW_Y_PCT = 16;
 const ROW_FINAL = tools.map((_, i) => ({
   xPct: 20 + (i * 60) / (tools.length - 1), // 20% to 80% evenly
   yPct: ROW_Y_PCT,
 }));
 
 const ICON_BIG = 100;
-const ICON_SMALL = 80;
+const ICON_SMALL = 100;
+
+/* ─── Scattered cards initial positions (percentage) ──── */
+const SCATTERED_CARDS = [
+  // Left side
+  { id: "notion", xPct: 14, yPct: 15 },
+  { id: "zoom-rec", xPct: 13, yPct: 45 },
+  // Right side
+  { id: "gmail", xPct: 75, yPct: 12 },
+  { id: "zoom-mtg", xPct: 76, yPct: 48 },
+];
 
 /* ─── SVG geometry for the wiring diagram ─────────────── */
 // SVG covers from just below icons to just above cards
@@ -224,54 +259,50 @@ const UPPER_JUNCTION_Y = 60; // horizontal routing layer
 const LUCI_Y = 150; // where LUCI sits in SVG coords
 
 // Lower wiring: LUCI → 3 categories
-const LOWER_JUNCTION_Y = 260; // horizontal routing layer below LUCI
-const LOWER_END_Y = 380; // where category cards connect
+const LOWER_END_Y = 250; // where category cards connect
 
 // Icon X positions mapped into SVG coords
 // SVG covers full container width (0–100%), so containerPct maps directly
 // svgX = (pct / 100) * SVG_W
 const iconSvgXs = ROW_FINAL.map((p) => (p.xPct / 100) * SVG_W);
 
-// Category X positions mapped same way (20%, 50%, 80% of container)
-const catXs = [SVG_W * 0.2, SVG_W * 0.5, SVG_W * 0.8];
-
 // Line style
-const LINE_COLOR = "rgba(255,255,255,0.2)";
+const LINE_COLOR = "rgba(255,255,255,0.5)";
 const LINE_W = 1.5;
-const DOT_R = 3.5;
-const DOT_FILL = "rgba(255,255,255,0.6)";
+
+// Data pulse style (glowing dot traveling along lines)
+const PULSE_COLOR = "rgba(255,255,255,0.8)";
+const PULSE_DOT = 8; // length of the bright dash
+const PULSE_W = 2; // slightly thicker than base line
 
 /* ─── Build SVG paths for upper wiring ─────────────────── */
-// Pattern: icon bottom → vertical down → horizontal to center → vertical to LUCI
+// Pattern: icon bottom → vertical down → rounded bend → horizontal to center → rounded bend → vertical to LUCI
+const BEND_R = 20; // corner radius in SVG units
+
 function buildUpperPath(iconX: number): string {
-  // Vertical down from icon to junction row
-  // Then horizontal from iconX to center
-  // Then vertical down to LUCI
+  const r = BEND_R;
+  const dir = iconX < SVG_CX ? 1 : -1; // 1 = icon is left of center, -1 = right
+
+  // For the icon at exact center, just go straight down
+  if (Math.abs(iconX - SVG_CX) < r * 2) {
+    return `M ${iconX} 0 L ${iconX} ${LUCI_Y}`;
+  }
+
+  // Corner 1: vertical → horizontal at (iconX, UPPER_JUNCTION_Y)
+  // Corner 2: horizontal → vertical at (SVG_CX, UPPER_JUNCTION_Y)
   return [
     `M ${iconX} 0`,
-    `L ${iconX} ${UPPER_JUNCTION_Y}`,
-    `L ${SVG_CX} ${UPPER_JUNCTION_Y}`,
+    `L ${iconX} ${UPPER_JUNCTION_Y - r}`,
+    `A ${r} ${r} 0 0 ${dir > 0 ? 0 : 1} ${iconX + dir * r} ${UPPER_JUNCTION_Y}`,
+    `L ${SVG_CX - dir * r} ${UPPER_JUNCTION_Y}`,
+    `A ${r} ${r} 0 0 ${dir > 0 ? 1 : 0} ${SVG_CX} ${UPPER_JUNCTION_Y + r}`,
     `L ${SVG_CX} ${LUCI_Y}`,
   ].join(" ");
 }
 
-// Junction dots for upper paths: at the bend point and at the horizontal meet
-function upperDots(iconX: number): { cx: number; cy: number }[] {
-  return [{ cx: iconX, cy: UPPER_JUNCTION_Y }];
-}
-
-/* ─── Build SVG paths for lower wiring ────────────────── */
-function buildLowerPath(catX: number): string {
-  return [
-    `M ${SVG_CX} ${LUCI_Y}`,
-    `L ${SVG_CX} ${LOWER_JUNCTION_Y}`,
-    `L ${catX} ${LOWER_JUNCTION_Y}`,
-    `L ${catX} ${LOWER_END_Y}`,
-  ].join(" ");
-}
-
-function lowerDots(catX: number): { cx: number; cy: number }[] {
-  return [{ cx: catX, cy: LOWER_JUNCTION_Y }];
+/* ─── Build SVG path for lower wiring (single line) ───── */
+function buildLowerPath(): string {
+  return `M ${SVG_CX} ${LUCI_Y} L ${SVG_CX} ${LOWER_END_Y}`;
 }
 
 /* ─── Tool Icon with Tooltip ─────────────────────────── */
@@ -289,7 +320,6 @@ function ToolIconItem({
   iconBig: number;
   setToolRef: (idx: number) => (el: HTMLDivElement | null) => void;
 }) {
-  const [hovered, setHovered] = useState(false);
   const IconComp = t.Icon;
 
   return (
@@ -302,8 +332,6 @@ function ToolIconItem({
         top: `${pos.yPct}%`,
         rotate: `${pos.rotate}deg`,
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div className="relative">
         {/* iOS-style app icon */}
@@ -330,37 +358,6 @@ function ToolIconItem({
                 {t.badgeText}
               </span>
             )}
-          </div>
-        )}
-
-        {/* Tooltip bubble */}
-        {t.notifications.length > 0 && (
-          <div
-            data-notifs
-            className="absolute left-1/2 -translate-x-1/2 flex flex-col gap-1.5 px-3 py-2.5 rounded-xl border border-[#2a2a34] bg-[#16161a]/95 backdrop-blur-sm shadow-lg shadow-black/40 pointer-events-none"
-            style={{
-              bottom: `calc(100% + 12px)`,
-              opacity: hovered ? 1 : 0,
-              transform: `translateX(-50%) translateY(${hovered ? "0px" : "6px"})`,
-              transition: "opacity 0.2s ease, transform 0.2s ease",
-              minWidth: "max-content",
-            }}
-          >
-            {/* Arrow */}
-            <div
-              className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-2.5 h-2.5 rotate-45 border-r border-b border-[#2a2a34] bg-[#16161a]"
-            />
-            {t.notifications.map((n, j) => (
-              <div
-                key={j}
-                className="text-[10px] whitespace-nowrap leading-tight"
-                style={{
-                  color: (n as { color?: string }).color || "#6f6e78",
-                }}
-              >
-                {n.text}
-              </div>
-            ))}
           </div>
         )}
       </div>
@@ -409,6 +406,19 @@ export default function PainPointsSection() {
   const processingRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const toolRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scatteredCardsRef = useRef<HTMLDivElement>(null);
+  const sortsTextRef = useRef<HTMLDivElement>(null);
+
+  // Scale the inner layout container based on viewport height
+  const DESIGN_H = 1200;
+  const [layoutScale, setLayoutScale] = useState(1);
+  useEffect(() => {
+    const update = () =>
+      setLayoutScale(Math.min(window.innerHeight / DESIGN_H, 1));
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const setToolRef = useCallback(
     (idx: number) => (el: HTMLDivElement | null) => {
@@ -422,7 +432,17 @@ export default function PainPointsSection() {
     const pinned = pinnedRef.current;
     if (!section || !pinned) return;
 
+    // Track pulse state to avoid redundant play/pause calls
+    let upperPulsesActive = false;
+    let lowerPulseActive = false;
+
     const ctx = gsap.context(() => {
+      // Forward-declare pulse tweens so onUpdate can access them
+      let upperPulseTweens: gsap.core.Tween[] = [];
+      let lowerPulseTween: gsap.core.Tween | null = null;
+      let upperPulseEls: NodeListOf<Element> | null = null;
+      let lowerPulseEl: SVGPathElement | null = null;
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -430,13 +450,107 @@ export default function PainPointsSection() {
           scrub: 1,
           start: "top top",
           end: "bottom bottom",
+          onUpdate: (self) => {
+            const p = self.progress;
+            // Upper pulses: active when progress >= 0.49 (shifted from 0.39)
+            if (p >= 0.49 && !upperPulsesActive) {
+              upperPulsesActive = true;
+              if (upperPulseEls) gsap.set(upperPulseEls, { opacity: 0.9 });
+              upperPulseTweens.forEach((tw) => tw.play());
+            } else if (p < 0.49 && upperPulsesActive) {
+              upperPulsesActive = false;
+              upperPulseTweens.forEach((tw) => tw.pause());
+              if (upperPulseEls) gsap.set(upperPulseEls, { opacity: 0 });
+            }
+            // Lower pulse: active when progress >= 0.67 (shifted from 0.57)
+            if (p >= 0.67 && !lowerPulseActive) {
+              lowerPulseActive = true;
+              if (lowerPulseEl) gsap.set(lowerPulseEl, { opacity: 0.9 });
+              lowerPulseTween?.play();
+            } else if (p < 0.67 && lowerPulseActive) {
+              lowerPulseActive = false;
+              lowerPulseTween?.pause();
+              if (lowerPulseEl) gsap.set(lowerPulseEl, { opacity: 0 });
+            }
+          },
         },
       });
 
-      /* ── Phase 1 (0–10%): Hold static ── */
-      tl.to({}, { duration: 0.1 });
+      /* ── NEW Phase (0–15%): push to edges first, then text appears ── */
 
-      /* ── Phase 2 (10–35%): Badges/notifs fade → shrink → reposition to 1×8 ── */
+      // Push tool icons to edges of screen (starts immediately)
+      toolRefs.current.forEach((toolEl, i) => {
+        if (!toolEl) return;
+        const init = GRID_INIT[i];
+        const pushX =
+          init.xPct < 50
+            ? init.xPct - 15 // push further left
+            : init.xPct + 15; // push further right
+        // Bottom row pushes down more
+        const pushY =
+          init.yPct < 40
+            ? init.yPct - 10 // push further up
+            : init.yPct + 28; // push further down
+
+        tl.to(
+          toolEl,
+          {
+            left: `${pushX}%`,
+            top: `${pushY}%`,
+            rotate: init.rotate * 1.5,
+            duration: 0.06,
+            ease: "power2.out",
+          },
+          0,
+        );
+      });
+
+      // Push scattered cards to edges (starts immediately)
+      if (scatteredCardsRef.current) {
+        const cardEls = scatteredCardsRef.current.children;
+        for (let i = 0; i < cardEls.length; i++) {
+          const cardEl = cardEls[i] as HTMLElement;
+          const cardConfig = SCATTERED_CARDS[i];
+          if (!cardConfig) continue;
+          const pushX =
+            cardConfig.xPct < 50 ? cardConfig.xPct - 12 : cardConfig.xPct + 12;
+          // Bottom cards push down more
+          const pushY =
+            cardConfig.yPct < 40 ? cardConfig.yPct - 8 : cardConfig.yPct + 24;
+
+          tl.to(
+            cardEl,
+            {
+              left: `${pushX}%`,
+              top: `${pushY}%`,
+              duration: 0.06,
+              ease: "power2.out",
+            },
+            0,
+          );
+        }
+      }
+
+      // Text fades in AFTER elements have pushed to edges
+      if (sortsTextRef.current) {
+        tl.fromTo(
+          sortsTextRef.current,
+          { opacity: 0, y: 20, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out" },
+          0.05,
+        );
+      }
+
+      // Text fades out (transition to Phase 1)
+      if (sortsTextRef.current) {
+        tl.to(
+          sortsTextRef.current,
+          { opacity: 0, y: -15, duration: 0.05, ease: "power2.in" },
+          0.12,
+        );
+      }
+
+      /* ── Phase 1 (15–35%): Badges/notifs fade → shrink → reposition to 1×8 ── */
       toolRefs.current.forEach((toolEl, i) => {
         if (!toolEl) return;
         const target = ROW_FINAL[i];
@@ -450,18 +564,18 @@ export default function PainPointsSection() {
           tl.to(
             badge,
             { opacity: 0, scale: 0.3, duration: 0.06, ease: "power2.in" },
-            0.1 + i * 0.005,
+            0.15 + i * 0.005,
           );
         }
         if (notifs) {
           tl.to(
             notifs,
             { opacity: 0, y: -10, duration: 0.06, ease: "power2.in" },
-            0.1 + i * 0.005,
+            0.15 + i * 0.005,
           );
         }
         if (label) {
-          tl.to(label, { opacity: 0, duration: 0.05, ease: "power2.in" }, 0.14);
+          tl.to(label, { opacity: 0, duration: 0.05, ease: "power2.in" }, 0.19);
         }
         // Move to row position and reset rotation
         tl.to(
@@ -473,7 +587,7 @@ export default function PainPointsSection() {
             duration: 0.18,
             ease: "power2.inOut",
           },
-          0.16,
+          0.21,
         );
         // Shrink
         if (iconBox) {
@@ -486,14 +600,14 @@ export default function PainPointsSection() {
               duration: 0.18,
               ease: "power2.inOut",
             },
-            0.16,
+            0.21,
           );
         }
         if (iconSvg) {
           tl.to(
             iconSvg,
             { width: 28, height: 28, duration: 0.18, ease: "power2.inOut" },
-            0.16,
+            0.21,
           );
         }
       });
@@ -502,14 +616,29 @@ export default function PainPointsSection() {
       tl.to(
         headerRef.current,
         { opacity: 0, duration: 0.12, ease: "power2.in" },
-        0.12,
+        0.17,
       );
 
-      /* ── Phase 3 (35–50%): LUCI appears + upper wiring draws ── */
+      // Scattered cards fade out
+      if (scatteredCardsRef.current) {
+        tl.to(
+          scatteredCardsRef.current,
+          { opacity: 0, scale: 0.92, duration: 0.14, ease: "power2.in" },
+          0.15,
+        );
+      }
+
+      /* ── Phase 2 (35–50%): LUCI appears + upper wiring draws ── */
       tl.fromTo(
         luciRef.current,
-        { opacity: 0, scale: 0.5 },
-        { opacity: 1, scale: 1, duration: 0.1, ease: "back.out(1.7)" },
+        { opacity: 0, scale: 0.5, visibility: "hidden" },
+        {
+          opacity: 1,
+          scale: 1,
+          visibility: "visible",
+          duration: 0.1,
+          ease: "back.out(1.7)",
+        },
         0.35,
       );
 
@@ -522,7 +651,7 @@ export default function PainPointsSection() {
 
       // Draw upper paths
       const upperPaths = svgRef.current?.querySelectorAll(".upper-path");
-      const upperDotsEls = svgRef.current?.querySelectorAll(".upper-dot");
+      const upperPulses = svgRef.current?.querySelectorAll(".upper-pulse");
       if (upperPaths?.length) {
         upperPaths.forEach((path) => {
           const el = path as SVGPathElement;
@@ -544,21 +673,30 @@ export default function PainPointsSection() {
           0.37,
         );
       }
-      if (upperDotsEls?.length) {
-        gsap.set(upperDotsEls, { opacity: 0 });
-        tl.to(
-          upperDotsEls,
-          {
-            opacity: 1,
-            duration: 0.06,
-            stagger: 0.01,
-            ease: "power2.out",
-          },
-          0.42,
-        );
+      // Set up upper data pulses (paused, controlled by ScrollTrigger progress)
+      upperPulseEls = upperPulses || null;
+      if (upperPulses?.length) {
+        upperPulses.forEach((pulse, i) => {
+          const el = pulse as SVGPathElement;
+          const len = el.getTotalLength();
+          gsap.set(el, {
+            strokeDasharray: `${PULSE_DOT} ${len}`,
+            strokeDashoffset: 0,
+            opacity: 0,
+          });
+          upperPulseTweens.push(
+            gsap.to(el, {
+              strokeDashoffset: -(len + PULSE_DOT),
+              duration: 2 + i * 0.15,
+              ease: "none",
+              repeat: -1,
+              paused: true,
+            }),
+          );
+        });
       }
 
-      /* ── Phase 4 (50–70%): LUCI glow + lower wiring draws ── */
+      /* ── Phase 3 (50–70%): LUCI glow + lower wiring draws ── */
       tl.to(
         luciRef.current,
         {
@@ -572,44 +710,48 @@ export default function PainPointsSection() {
 
       tl.to(processingRef.current, { opacity: 0, duration: 0.05 }, 0.62);
 
-      const lowerPaths = svgRef.current?.querySelectorAll(".lower-path");
-      const lowerDotsEls = svgRef.current?.querySelectorAll(".lower-dot");
-      if (lowerPaths?.length) {
-        lowerPaths.forEach((path) => {
-          const el = path as SVGPathElement;
-          const len = el.getTotalLength();
-          gsap.set(el, {
-            strokeDasharray: len,
-            strokeDashoffset: len,
-            opacity: 1,
-          });
+      const lowerPath = svgRef.current?.querySelector(
+        ".lower-path",
+      ) as SVGPathElement | null;
+      const lowerPulse = svgRef.current?.querySelector(
+        ".lower-pulse",
+      ) as SVGPathElement | null;
+      if (lowerPath) {
+        const len = lowerPath.getTotalLength();
+        gsap.set(lowerPath, {
+          strokeDasharray: len,
+          strokeDashoffset: len,
+          opacity: 1,
         });
         tl.to(
-          lowerPaths,
+          lowerPath,
           {
             strokeDashoffset: 0,
             duration: 0.12,
-            stagger: 0.02,
             ease: "power2.out",
           },
           0.55,
         );
       }
-      if (lowerDotsEls?.length) {
-        gsap.set(lowerDotsEls, { opacity: 0 });
-        tl.to(
-          lowerDotsEls,
-          {
-            opacity: 1,
-            duration: 0.06,
-            stagger: 0.02,
-            ease: "power2.out",
-          },
-          0.6,
-        );
+      // Set up lower data pulse (paused, controlled by ScrollTrigger progress)
+      lowerPulseEl = lowerPulse;
+      if (lowerPulse) {
+        const len = lowerPulse.getTotalLength();
+        gsap.set(lowerPulse, {
+          strokeDasharray: `${PULSE_DOT} ${len}`,
+          strokeDashoffset: 0,
+          opacity: 0,
+        });
+        lowerPulseTween = gsap.to(lowerPulse, {
+          strokeDashoffset: -(len + PULSE_DOT),
+          duration: 1.5,
+          ease: "none",
+          repeat: -1,
+          paused: true,
+        });
       }
 
-      /* ── Phase 5 (70–90%): Category cards ── */
+      /* ── Phase 4 (70–85%): Category cards ── */
       tl.fromTo(
         cardsRef.current,
         { opacity: 0, y: 40 },
@@ -632,142 +774,198 @@ export default function PainPointsSection() {
   }, []);
 
   /* ─── Compute LUCI DOM position from SVG coords ────── */
-  // SVG: top=26%, height=52% of viewport
-  const SVG_TOP_PCT = 32;
-  const SVG_HEIGHT_PCT = 50;
+  // SVG starts just below the icon row (ROW_Y_PCT=20% + icon height ~4%)
+  const SVG_TOP_PCT = 20;
+  const SVG_HEIGHT_PCT = 54;
   const luciTopPct = SVG_TOP_PCT + SVG_HEIGHT_PCT * (LUCI_Y / SVG_H);
 
   return (
     <section
       ref={sectionRef}
       className="relative w-full"
-      style={{ height: "300vh", background: "#0a0a0f" }}
+      style={{ height: "350vh", background: "#0a0a0f" }}
     >
       <div
         ref={pinnedRef}
         className="h-screen w-full overflow-hidden relative"
         style={{ background: "#0a0a0f" }}
       >
-        {/* ── Header ── */}
-        <div
-          ref={headerRef}
-          className="absolute z-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-center"
-          style={{ top: "8%" }}
-        >
-          <h2 className="text-white font-extrabold text-3xl md:text-4xl lg:text-[42px] leading-[1.15] font-[family-name:var(--font-manrope,Manrope)]">
-            Every tool promises to save you time.
-            <br />
-            None of them talk to each other.
-          </h2>
-          <p className="text-[#5a5864] text-base font-[family-name:var(--font-manrope,Manrope)]">
-            Your tools are siloed. LUCI connects them so nothing falls through
-            the cracks.
-          </p>
+        {/* ── Dot Grid Background ── */}
+        <div className="absolute inset-0 z-0 opacity-30">
+          <DotGrid
+            dotSize={2}
+            gap={11}
+            baseColor="#6b6b6b"
+            activeColor="#d6d6d6"
+            proximity={110}
+            shockRadius={200}
+            shockStrength={4}
+            resistance={1350}
+            returnDuration={1.8}
+          />
         </div>
 
-        {/* ── Tool icons (absolute positioned) ── */}
-        <ToolIcons tools={tools} gridInit={GRID_INIT} iconBig={ICON_BIG} setToolRef={setToolRef} />
-
-        {/* ── SVG wiring diagram ── */}
-        <svg
-          ref={svgRef}
-          viewBox={`0 0 ${SVG_W} ${SVG_H}`}
-          className="absolute pointer-events-none z-10"
+        {/* ── Scaled inner container (fixed 900px design height) ── */}
+        <div
+          className="absolute inset-0 origin-center"
           style={{
-            left: 0,
-            top: `${SVG_TOP_PCT}%`,
             width: "100%",
-            height: `${SVG_HEIGHT_PCT}%`,
-          }}
-          fill="none"
-          preserveAspectRatio="none"
-        >
-          {/* Upper wiring: each icon → junction row → center → LUCI */}
-          {iconSvgXs.map((iconX, i) => (
-            <React.Fragment key={`up-${i}`}>
-              <path
-                className="upper-path"
-                d={buildUpperPath(iconX)}
-                stroke={LINE_COLOR}
-                strokeWidth={LINE_W}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                opacity={0}
-              />
-              {upperDots(iconX).map((dot, j) => (
-                <circle
-                  key={j}
-                  className="upper-dot"
-                  cx={dot.cx}
-                  cy={dot.cy}
-                  r={DOT_R}
-                  fill={DOT_FILL}
-                  opacity={0}
-                />
-              ))}
-            </React.Fragment>
-          ))}
-
-          {/* Lower wiring: LUCI → junction row → each category */}
-          {catXs.map((catX, i) => (
-            <React.Fragment key={`low-${i}`}>
-              <path
-                className="lower-path"
-                d={buildLowerPath(catX)}
-                stroke={LINE_COLOR}
-                strokeWidth={LINE_W}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                opacity={0}
-              />
-              {lowerDots(catX).map((dot, j) => (
-                <circle
-                  key={j}
-                  className="lower-dot"
-                  cx={dot.cx}
-                  cy={dot.cy}
-                  r={DOT_R}
-                  fill={DOT_FILL}
-                  opacity={0}
-                />
-              ))}
-            </React.Fragment>
-          ))}
-        </svg>
-
-        {/* ── LUCI Center ── */}
-        <div
-          ref={luciRef}
-          className="absolute z-20 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{ opacity: 0, top: `${luciTopPct}%` }}
-        >
-          <LuciCenter size={100} glowIntensity="high" />
-        </div>
-
-        {/* ── Processing badge ── */}
-        <div
-          ref={processingRef}
-          className="absolute z-20 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full left-1/2 -translate-x-1/2"
-          style={{
-            opacity: 0,
-            top: `${luciTopPct + 5}%`,
-            backgroundColor: "rgba(255,92,0,0.12)",
-            border: "1px solid rgba(255,92,0,0.25)",
+            height: `${DESIGN_H}px`,
+            top: "50%",
+            transform: `translateY(-50%) scale(${layoutScale})`,
           }}
         >
-          <span className="w-2 h-2 rounded-full bg-[#ff5c00] animate-pulse" />
-          <span className="text-[#ff5c00] text-[11px] font-bold tracking-widest font-[family-name:var(--font-manrope,Manrope)]">
-            PROCESSING
-          </span>
-        </div>
+          {/* ── "LUCI organizes all tasks for you" centered text ── */}
+          <div
+            ref={sortsTextRef}
+            className="absolute z-30 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            style={{ opacity: 0 }}
+          >
+            <h2
+              className="text-white font-extrabold text-[36px] md:text-[42px] lg:text-[48px] leading-[1.15] text-center whitespace-nowrap"
+              style={{ fontFamily: "var(--font-manrope, Manrope), sans-serif" }}
+            >
+              LUCI organizes all tasks for you
+            </h2>
+          </div>
 
-        {/* ── Category Cards ── */}
-        <div
-          ref={cardsRef}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
-          style={{ opacity: 0 }}
-        >
-          <CategoryCards />
+          {/* ── Header ── */}
+          {/* <div
+            ref={headerRef}
+            className="absolute z-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-center"
+            style={{ top: "8%" }}
+          >
+            <h2 className="text-white font-extrabold text-3xl md:text-4xl lg:text-[42px] leading-[1.15] font-[family-name:var(--font-manrope,Manrope)]">
+              Every tool promises to save you time.
+              <br />
+              None of them talk to each other.
+            </h2>
+            <p className="text-[#5a5864] text-base font-[family-name:var(--font-manrope,Manrope)]">
+              Your tools are siloed. LUCI connects them so nothing falls through
+              the cracks.
+            </p>
+          </div> */}
+
+          {/* ── Tool icons (absolute positioned) ── */}
+          <ToolIcons
+            tools={tools}
+            gridInit={GRID_INIT}
+            iconBig={ICON_BIG}
+            setToolRef={setToolRef}
+          />
+
+          {/* ── Scattered cards (initial state) ── */}
+          <div
+            ref={scatteredCardsRef}
+            className="absolute inset-0 z-10 pointer-events-none"
+          >
+            {SCATTERED_CARDS.map((card) => (
+              <div
+                key={card.id}
+                className="absolute pointer-events-auto"
+                style={{ left: `${card.xPct}%`, top: `${card.yPct}%` }}
+              >
+                {card.id === "notion" && <NotionNotesCard />}
+                {card.id === "zoom-mtg" && <ZoomMeetingCard />}
+                {card.id === "zoom-rec" && <ZoomRecordingCard />}
+                {card.id === "gmail" && <GmailInboxCard />}
+              </div>
+            ))}
+          </div>
+
+          {/* ── SVG wiring diagram ── */}
+          <svg
+            ref={svgRef}
+            viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+            className="absolute pointer-events-none z-10"
+            style={{
+              left: 0,
+              top: `${SVG_TOP_PCT}%`,
+              width: "100%",
+              height: `${SVG_HEIGHT_PCT}%`,
+            }}
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            {/* Upper wiring: each icon → junction row → center → LUCI */}
+            {iconSvgXs.map((iconX, i) => (
+              <React.Fragment key={`up-${i}`}>
+                <path
+                  className="upper-path"
+                  d={buildUpperPath(iconX)}
+                  stroke={LINE_COLOR}
+                  strokeWidth={LINE_W}
+                  strokeLinecap="butt"
+                  strokeLinejoin="round"
+                  opacity={0}
+                />
+                {/* Data pulse overlay */}
+                <path
+                  className="upper-pulse"
+                  d={buildUpperPath(iconX)}
+                  stroke={PULSE_COLOR}
+                  strokeWidth={PULSE_W}
+                  strokeLinecap="butt"
+                  strokeLinejoin="round"
+                  opacity={0}
+                />
+              </React.Fragment>
+            ))}
+
+            {/* Lower wiring: single line from LUCI straight down */}
+            <path
+              className="lower-path"
+              d={buildLowerPath()}
+              stroke={LINE_COLOR}
+              strokeWidth={LINE_W}
+              strokeLinecap="butt"
+              opacity={0}
+            />
+            {/* Lower data pulse overlay */}
+            <path
+              className="lower-pulse"
+              d={buildLowerPath()}
+              stroke={PULSE_COLOR}
+              strokeWidth={PULSE_W}
+              strokeLinecap="butt"
+              opacity={0}
+            />
+          </svg>
+
+          {/* ── LUCI Center ── */}
+          <div
+            ref={luciRef}
+            className="absolute z-20 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+            style={{ opacity: 0, visibility: "hidden", top: `${luciTopPct}%` }}
+          >
+            <LuciCenter size={100} glowIntensity="high" />
+          </div>
+
+          {/* ── Processing badge ── */}
+          <div
+            ref={processingRef}
+            className="absolute z-20 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full left-1/2 -translate-x-1/2"
+            style={{
+              opacity: 0,
+              top: `${luciTopPct + 5}%`,
+              backgroundColor: "rgba(255,92,0,0.12)",
+              border: "1px solid rgba(255,92,0,0.25)",
+            }}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#ff5c00] animate-pulse" />
+            <span className="text-[#ff5c00] text-[11px] font-bold tracking-widest font-[family-name:var(--font-manrope,Manrope)]">
+              PROCESSING
+            </span>
+          </div>
+
+          {/* ── Client Timeline Dashboard ── */}
+          <div
+            ref={cardsRef}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20"
+            style={{ opacity: 0, transform: "scale(0.65)" }}
+          >
+            <ClientTimelineDashboard />
+          </div>
         </div>
       </div>
     </section>

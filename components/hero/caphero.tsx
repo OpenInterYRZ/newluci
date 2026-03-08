@@ -56,7 +56,7 @@ export const CapHero = () => {
 
       {/* 主要内容区 — stagger 容器 */}
       <motion.div
-        className="relative z-10 flex flex-col items-start w-full max-w-7xl mt-12"
+        className="relative z-10 flex flex-col items-start w-full max-w-7xl mt-2"
         variants={container}
         initial="hidden"
         animate="visible"

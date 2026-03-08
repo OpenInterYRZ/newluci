@@ -24,7 +24,12 @@ export function MemoryNotification({
         }}
       >
         <Gem size={16} className="text-[#4A6CF7]" />
-        <span className="text-lg font-bold text-[#1A1A2E]">{title}</span>
+        <span
+          className="font-bold text-[#1A1A2E]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
+          {title}
+        </span>
         <div className="flex-1" />
         <ChevronDown size={16} className="rotate-[-90deg] text-[#AAAAAA]" />
       </div>
@@ -43,27 +48,46 @@ export function MemoryNotification({
       {/* Top row */}
       <div className="flex w-full items-center gap-1.5">
         <Gem size={16} className="text-[#4A6CF7]" />
-        <span className="text-lg font-bold text-[#1A1A2E]">{title}</span>
+        <span
+          className="font-bold text-[#1A1A2E]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
+          {title}
+        </span>
         <div className="flex-1" />
         <ChevronDown size={16} className="text-[#AAAAAA]" />
       </div>
 
       {/* Body */}
-      <p className="text-lg font-normal leading-[1.5] text-[#4A6CF7]">{body}</p>
+      <p
+        className="font-normal leading-[1.5] text-[#4A6CF7]"
+        style={{ fontSize: "var(--phone-chat-fs)" }}
+      >
+        {body}
+      </p>
 
       {/* Buttons */}
       <div className="flex w-full gap-2.5">
-        <button className="flex h-9 flex-1 items-center justify-center rounded-lg border border-[#E0E0E8] bg-white text-lg font-semibold tracking-[0.5px] text-[#666666]">
+        <button
+          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-[#E0E0E8] bg-white font-semibold tracking-[0.5px] text-[#666666]"
+          style={{ fontSize: "var(--phone-chat-fs-sm)" }}
+        >
           UNDO
         </button>
-        <button className="flex h-9 flex-1 items-center justify-center rounded-lg border border-[#E0E0E8] bg-white text-lg font-semibold tracking-[0.5px] text-[#666666]">
+        <button
+          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-[#E0E0E8] bg-white font-semibold tracking-[0.5px] text-[#666666]"
+          style={{ fontSize: "var(--phone-chat-fs-sm)" }}
+        >
           ACCEPT
         </button>
       </div>
 
       {/* View link */}
       <div className="flex w-full justify-center">
-        <span className="text-lg font-medium text-[#4A6CF7]">
+        <span
+          className="font-medium text-[#4A6CF7]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
           View Memories
         </span>
       </div>

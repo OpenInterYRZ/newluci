@@ -27,17 +27,33 @@ export function MemoryUpdateCard({
         <div className="flex h-6 w-6 items-center justify-center rounded-[12px] bg-[#E8E8EC]">
           <MessageCircle size={13} className="text-[#999999]" />
         </div>
-        <span className="text-lg font-semibold text-[#333333]">{title}</span>
+        <span
+          className="font-semibold text-[#333333]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
+          {title}
+        </span>
         <div className="flex-1" />
-        <span className="text-lg font-normal text-[#AAAAAA]">{timestamp}</span>
+        <span
+          className="font-normal text-[#AAAAAA]"
+          style={{ fontSize: "var(--phone-chat-fs-sm)" }}
+        >
+          {timestamp}
+        </span>
       </div>
 
       {/* Bottom row */}
       <div className="flex w-full items-center gap-2">
-        <span className="flex-1 truncate text-lg font-normal leading-[1.4] text-[#666666]">
+        <span
+          className="flex-1 truncate font-normal leading-[1.4] text-[#666666]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
           {summary}
         </span>
-        <span className="shrink-0 text-lg font-medium text-[#FF8C00]">
+        <span
+          className="shrink-0 font-medium text-[#FF8C00]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
           Expand
         </span>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import { Send } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowUp, ChevronLeft, Ellipsis, Plus } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UserBubble } from "./UserBubble";
 import { AssistantBubble } from "./AssistantBubble";
@@ -26,15 +26,18 @@ const TIMELINE = [
 
 export function PhoneChatScreen() {
   const [visibleCount, setVisibleCount] = useState(0);
+  const [extraMessages, setExtraMessages] = useState<ReactNode[]>([]);
+  const [inputValue, setInputValue] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  // Scroll only the messages container (not the page)
+  // Scroll to bottom when messages change
   useEffect(() => {
     const el = scrollAreaRef.current;
-    if (el && visibleCount > 0) {
+    if (el) {
       el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
     }
-  }, [visibleCount]);
+  }, [visibleCount, extraMessages]);
 
   // Start timeline immediately on mount
   useEffect(() => {
@@ -44,7 +47,33 @@ export function PhoneChatScreen() {
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  const messages = [
+  const handleSend = () => {
+    const text = inputValue.trim();
+    if (!text || isSending) return;
+
+    setIsSending(true);
+    setInputValue("");
+
+    // Add user message immediately
+    setExtraMessages((prev) => [
+      ...prev,
+      <UserBubble key={`user-extra-${prev.length}`} text={text} />,
+    ]);
+
+    // Add assistant reply after a short delay
+    setTimeout(() => {
+      setExtraMessages((prev) => [
+        ...prev,
+        <AssistantBubble
+          key={`assist-extra-${prev.length}`}
+          text="To use LUCI, please download the app. 📲"
+        />,
+      ]);
+      setIsSending(false);
+    }, 1200);
+  };
+
+  const presetMessages = [
     <UserBubble key="user" text="Help me analyze today's meeting recording" />,
     <ThinkingPill key="thinking" />,
     <AgentCallingPill key="agent" agentName="agent_video" />,
@@ -64,18 +93,28 @@ export function PhoneChatScreen() {
   ];
 
   return (
-    <div className="flex h-[680px] w-100 flex-col overflow-hidden rounded-3xl bg-white my-6 text-left">
+    <div className="flex h-full w-full flex-col overflow-hidden bg-white text-left">
       {/* ── Chat Header ── */}
       <div
-        className="flex shrink-0 items-center gap-2.5 border-b border-black/[0.03] px-4 py-3"
-        style={{ boxShadow: "0 1px 4px rgba(0, 0, 0, 0.04)" }}
+        className="flex shrink-0 items-center gap-2 border-b border-black/[0.04] bg-white px-3 py-2"
+        style={{ height: 44 }}
       >
-        <div className="flex flex-col gap-0.5">
-          <span className="text-lg font-bold text-[#1A1A1A]">LUCI</span>
-          <span className="text-lg font-medium tracking-[0.3px] text-[#34C759]">
+        <ChevronLeft size={18} className="shrink-0 text-[#1A1A1A]" />
+        <div className="flex flex-1 flex-col gap-[1px]">
+          <span
+            className="text-xs font-bold text-[#1A1A1A]"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            LUCI
+          </span>
+          <span
+            className="text-[8px] font-medium text-[#34C759]"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
             Online
           </span>
         </div>
+        <Ellipsis size={16} className="shrink-0 text-[#1A1A1A]" />
       </div>
 
       {/* ── Messages ── */}
@@ -88,9 +127,19 @@ export function PhoneChatScreen() {
         }}
       >
         <AnimatePresence>
-          {messages.slice(0, visibleCount).map((msg, i) => (
+          {presetMessages.slice(0, visibleCount).map((msg, i) => (
             <motion.div
-              key={i}
+              key={`preset-${i}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {msg}
+            </motion.div>
+          ))}
+          {extraMessages.map((msg, i) => (
+            <motion.div
+              key={`extra-${i}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
@@ -101,25 +150,40 @@ export function PhoneChatScreen() {
         </AnimatePresence>
       </div>
 
-      {/* ── Input Bar ── */}
+      {/* ── Input Bar (always visible) ── */}
       <div
-        className="flex shrink-0 items-center gap-2 border-t border-black/[0.03] bg-white px-3 py-2.5 mb-10"
-        style={{ boxShadow: "0 -1px 4px rgba(0, 0, 0, 0.04)" }}
+        className="flex shrink-0 items-center gap-2 border-t border-black/[0.04] bg-white px-2.5 py-2"
+        style={{ height: 44 }}
       >
-        <div className="flex h-9 flex-1 items-center rounded-[20px] border border-[#E8E8EC] bg-[#F7F7F8] px-3.5">
-          <span className="text-lg font-normal text-[#AAAAAA]">
-            Ask LUCI...
-          </span>
-        </div>
+        <Plus size={18} className="shrink-0 text-[#888888]" />
         <div
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+          className="flex flex-1 items-center rounded-2xl border border-[#E8E8EC] bg-[#F5F5F5] px-3"
+          style={{ height: 28 }}
+        >
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSend();
+            }}
+            placeholder="Archive a new build for app store connect so I can test!"
+            className="w-full bg-transparent text-[8px] font-normal text-[#333] placeholder:text-[#333] outline-none"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          />
+        </div>
+        <button
+          onClick={handleSend}
+          disabled={!inputValue.trim() || isSending}
+          className="flex shrink-0 items-center justify-center rounded-full transition-opacity disabled:opacity-40"
           style={{
+            width: 26,
+            height: 26,
             background: "linear-gradient(135deg, #FF8C00 0%, #FFB347 100%)",
-            boxShadow: "0 2px 6px rgba(255, 140, 0, 0.2)",
           }}
         >
-          <Send size={14} className="text-white" />
-        </div>
+          <ArrowUp size={14} className="text-white" />
+        </button>
       </div>
     </div>
   );

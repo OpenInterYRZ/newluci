@@ -12,28 +12,32 @@ import scaleImg from "@/images/generated-1772874078263.png";
 const cards = [
   {
     number: "01",
-    title: "Ideate",
+    title: "Sees",
     image: ideateImg,
-    descTitle: "Explore 100s of possibilities",
-    descTexts: [
-      "Text, image, and video models in one place. No tab-switching, no limits.",
-      "Follow every spark of inspiration on an intelligent canvas built for flow.",
-    ],
+    descTitle:
+      "LUCI quietly observes your workflow across meetings, messages, documents, and tools.",
+    descTexts: ["You don't press record.", "You just work.", "Video brief"],
   },
   {
     number: "02",
-    title: "Iterate",
+    title: "Remembers",
     image: iterateImg,
-    descTitle: 'Get to "final" faster',
-    descTexts: ["Iterate in real-time with the whole team."],
+    descTitle: "Decisions captured. Tasks tracked. Deals closed.",
+    descTexts: [
+      "Over time, LUCI builds a memory of your work.",
+      "Turning everything into searchable knowledge.",
+      "Video brief",
+    ],
   },
   {
     number: "03",
-    title: "Scale",
+    title: "Acts",
     image: scaleImg,
-    descTitle: "Create scalable workflows",
+    descTitle: "LUCI doesn't just understand your work. LUCI does the work.",
     descTexts: [
-      "Turn a single concept into hundreds of production-grade assets.",
+      "Just name it and LUCI will do it.",
+      "Saving you time. And your sanity.",
+      "Video brief",
     ],
   },
 ];
@@ -56,13 +60,12 @@ export default function FeatureShowcase() {
       <div className="max-w-[1440px] mx-auto px-20 py-20">
         {/* Header */}
         <div className="flex flex-col gap-5 mb-[60px]">
-          <h2 className="text-[40px] font-medium leading-tight text-text-0 max-w-3xl">
-            Speak your ideas into existence with a high degree of creative
-            control.
-          </h2>
+          <h1 className="text-[40px] font-medium leading-tight text-text-0 max-w-3xl">
+            How LUCI Works
+          </h1>
           <p className="text-xl text-text-1 max-w-2xl">
-            Speak your ideas into existence with a high degree of creative
-            control.
+            LUCI sees your workflow, remembers the context, and acts (so you
+            don&apos;t have to).
           </p>
           <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-text-1 text-text-0 text-sm w-fit mt-2 hover:border-text-2 transition-colors cursor-pointer">
             Contact sales
@@ -72,7 +75,7 @@ export default function FeatureShowcase() {
 
         {/* Cards Row */}
         <div
-          className="flex gap-5 h-[520px]"
+          className="flex flex-col md:flex-row gap-5 h-[520px]"
           onMouseLeave={() => setHovered(null)}
         >
           {cards.map((card, index) => (
@@ -89,7 +92,7 @@ export default function FeatureShowcase() {
               style={{ minWidth: 0 }}
             >
               {/* Title Row */}
-              <div className="flex items-end gap-3 shrink-0">
+              <div className="flex items-end gap-3 shrink-0 py-4">
                 <motion.span
                   className="font-light text-text-3 leading-none"
                   animate={{

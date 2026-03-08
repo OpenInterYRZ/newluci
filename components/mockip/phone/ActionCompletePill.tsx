@@ -19,7 +19,10 @@ export function ActionCompletePill({
       }}
     >
       <CircleCheck size={14} className="text-[#555555]" />
-      <span className="text-lg font-medium tracking-[0.2px] text-[#555555]">
+      <span
+        className="font-medium tracking-[0.2px] text-[#555555]"
+        style={{ fontSize: "var(--phone-chat-fs)" }}
+      >
         {label}
       </span>
       <ChevronDown size={12} className="text-[#999999]" />

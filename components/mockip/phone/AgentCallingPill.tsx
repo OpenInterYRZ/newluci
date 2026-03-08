@@ -22,7 +22,12 @@ export function AgentCallingPill({
         <Bot size={12} className="text-[#555555]" />
       </div>
 
-      <span className="text-lg font-semibold text-[#333333]">{agentName}</span>
+      <span
+        className="font-semibold text-[#333333]"
+        style={{ fontSize: "var(--phone-chat-fs)" }}
+      >
+        {agentName}
+      </span>
 
       {/* Loading dots */}
       <div className="flex items-center gap-[3px]">

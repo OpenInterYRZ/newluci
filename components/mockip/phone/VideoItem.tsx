@@ -23,12 +23,22 @@ export function VideoItem({
       >
         {/* Duration badge */}
         <div className="absolute right-2 bottom-2 rounded bg-black/60 px-2 py-[3px]">
-          <span className="text-lg font-medium text-white">{duration}</span>
+          <span
+            className="font-medium text-white"
+            style={{ fontSize: "var(--phone-chat-fs-sm)" }}
+          >
+            {duration}
+          </span>
         </div>
       </div>
 
       {/* Title */}
-      <span className="text-lg font-semibold text-[#222222]">{title}</span>
+      <span
+        className="font-semibold text-[#222222]"
+        style={{ fontSize: "var(--phone-chat-fs)" }}
+      >
+        {title}
+      </span>
     </div>
   );
 }

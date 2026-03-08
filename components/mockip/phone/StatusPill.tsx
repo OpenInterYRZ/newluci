@@ -19,7 +19,10 @@ export function StatusPill({ text = "Analyzing video..." }: StatusPillProps) {
       {/* Orange status dot */}
       <span className="h-[7px] w-[7px] rounded-full bg-[#FF8C00]" />
 
-      <span className="text-lg font-medium tracking-[0.2px] text-[#555555]">
+      <span
+        className="font-medium tracking-[0.2px] text-[#555555]"
+        style={{ fontSize: "var(--phone-chat-fs)" }}
+      >
         {text}
       </span>
 

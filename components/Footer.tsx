@@ -3,7 +3,7 @@ import { VideoText } from "./ui/video-text";
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-0 w-full">
+    <footer className="bg-web-bg-0 w-full">
       <div className="py-[40px] px-[20px] md:py-[60px] md:px-[80px] flex flex-col gap-[32px] md:gap-[40px]">
         {/* Footer Top */}
         <div className="flex flex-col md:flex-row gap-[32px] md:gap-[80px]">
@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="text-primary font-mono text-[24px] font-bold tracking-[2px]">
               LUCI
             </div>
-            <p className="text-text-3 font-sans text-[13px] leading-[1.6]">
+            <p className="text-text-3  text-[13px] leading-[1.6]">
               See, Remember & Act
               <br />
               Remember everything, get things done
@@ -23,30 +23,30 @@ export default function Footer() {
           <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-[24px] md:gap-[60px]">
             {/* Column 1 - Product */}
             <div className="flex flex-col gap-[12px]">
-              <h3 className="text-text-0 font-sans text-[14px] font-semibold">
+              <h3 className="text-text-0  text-[14px] font-semibold">
                 Product
               </h3>
               <a
                 href="#features"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Features
               </a>
               <a
                 href="#pricing"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Pricing
               </a>
               <a
                 href="#download"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Download
               </a>
               <a
                 href="#changelog"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Changelog
               </a>
@@ -54,30 +54,30 @@ export default function Footer() {
 
             {/* Column 2 - Resources */}
             <div className="flex flex-col gap-[12px]">
-              <h3 className="text-text-0 font-sans text-[14px] font-semibold">
+              <h3 className="text-text-0  text-[14px] font-semibold">
                 Resources
               </h3>
               <a
                 href="#docs"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Docs
               </a>
               <a
                 href="#api"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 API Reference
               </a>
               <a
                 href="#community"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Community
               </a>
               <a
                 href="#blog"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Blog
               </a>
@@ -85,30 +85,30 @@ export default function Footer() {
 
             {/* Column 3 - Company */}
             <div className="flex flex-col gap-[12px]">
-              <h3 className="text-text-0 font-sans text-[14px] font-semibold">
+              <h3 className="text-text-0  text-[14px] font-semibold">
                 Company
               </h3>
               <a
                 href="#about"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 About
               </a>
               <a
                 href="#team"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Team
               </a>
               <a
                 href="#careers"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Careers
               </a>
               <a
                 href="#contact"
-                className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+                className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
               >
                 Contact
               </a>
@@ -121,31 +121,31 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-[16px] md:gap-[40px] pt-[20px] border-t border-grey-2">
-          <span className="text-text-3 font-sans text-[13px]">
+          <span className="text-text-3  text-[13px]">
             © 2026 LUCI. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-[16px] md:gap-[20px] md:ml-auto">
             <a
               href="#twitter"
-              className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+              className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
             >
               Twitter
             </a>
             <a
               href="#github"
-              className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+              className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
             >
               GitHub
             </a>
             <a
               href="#discord"
-              className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+              className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
             >
               Discord
             </a>
             <a
               href="#linkedin"
-              className="text-text-1 font-sans text-[13px] hover:text-text-0 transition-colors"
+              className="text-text-1  text-[13px] hover:text-text-0 transition-colors"
             >
               LinkedIn
             </a>
