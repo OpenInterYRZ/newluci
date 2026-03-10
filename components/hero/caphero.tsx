@@ -36,7 +36,7 @@ const fadeIn: Variants = {
 
 export const CapHero = () => {
   return (
-    <div className="relative flex flex-col items-center pt-24 pb-16 px-5 overflow-hidden bg-web-bg-0">
+    <div className="relative max-w-[1300px] mx-auto flex flex-col items-center pt-24 pb-16 px-5 overflow-hidden bg-web-bg-0">
       {/* 背景图 */}
       {/* <div className="absolute inset-0 w-full h-full z-0">
         <img

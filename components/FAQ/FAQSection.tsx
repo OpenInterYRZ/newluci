@@ -42,17 +42,17 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-web-bg-0">
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-12 px-6 py-16 md:flex-row md:gap-[100px] md:px-[100px] md:py-24">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-12 px-6 py-16 md:flex-row md:gap-[100px] md:px-5 md:py-24">
         {/* Left — Title Column */}
         <div className="flex shrink-0 flex-col gap-4 md:w-[400px]">
-          <h2 className="text-[36px] font-medium leading-[1.15] tracking-tight md:text-[52px]">
+          <h2 className="text-2xl md:text-4xl font-semibold leading-[1.15] tracking-tight">
             Frequently
             <br />
             Asked
             <br />
             Questions.
           </h2>
-          <p className="max-w-[360px] text-[15px] leading-relaxed md:text-base">
+          <p className="max-w-[360px] text-base leading-relaxed">
             Everything you need to know about Luci
           </p>
         </div>

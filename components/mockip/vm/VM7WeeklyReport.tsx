@@ -1,0 +1,309 @@
+"use client";
+
+import { useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
+import { Check } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+/* ── data ───────────────────────────────────────────── */
+
+const budgetData = [
+  { quarter: "Q1", actual: 1.2, projected: 0.85 },
+  { quarter: "Q2", actual: 1.8, projected: 1.35 },
+  { quarter: "Q3", actual: 2.4, projected: 1.9 },
+];
+
+type Status = "Overdue" | "In Review" | "On Track";
+
+interface ActionItem {
+  id: number;
+  task: string;
+  avatar: string;
+  name: string;
+  dueDate: string;
+  status: Status;
+  done: boolean;
+}
+
+const initialActions: ActionItem[] = [
+  {
+    id: 1,
+    task: "Complete design handoff document",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    name: "Alex",
+    dueDate: "Mar 1",
+    status: "Overdue",
+    done: true,
+  },
+  {
+    id: 2,
+    task: "Review API integration specs",
+    avatar:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    name: "James",
+    dueDate: "Mar 3",
+    status: "In Review",
+    done: false,
+  },
+  {
+    id: 3,
+    task: "Update client presentation deck",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    name: "David",
+    dueDate: "Mar 5",
+    status: "Overdue",
+    done: false,
+  },
+  {
+    id: 4,
+    task: "Finalize frontend component library",
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    name: "Maria",
+    dueDate: "Mar 7",
+    status: "On Track",
+    done: false,
+  },
+];
+
+const statusStyles: Record<Status, { bg: string; text: string }> = {
+  Overdue: { bg: "bg-red-50", text: "text-red-500" },
+  "In Review": { bg: "bg-blue-50", text: "text-blue-500" },
+  "On Track": { bg: "bg-emerald-50", text: "text-emerald-500" },
+};
+
+/* ── sub-components ─────────────────────────────────── */
+
+function ProgressBar({ value }: { value: number }) {
+  return (
+    <div className="h-[6px] w-full rounded-full bg-[#E8E2D9]">
+      <div
+        className="h-full rounded-full bg-[#1A1A1A] transition-all duration-700"
+        style={{ width: `${value}%` }}
+      />
+    </div>
+  );
+}
+
+function StatusTag({ status }: { status: Status }) {
+  const s = statusStyles[status];
+  return (
+    <span
+      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-medium leading-none ${s.bg} ${s.text}`}
+    >
+      {status}
+    </span>
+  );
+}
+
+function Checkbox({
+  checked,
+  onChange,
+}: {
+  checked: boolean;
+  onChange: () => void;
+}) {
+  return (
+    <button
+      onClick={onChange}
+      className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded transition-colors ${
+        checked
+          ? "bg-[#1A1A1A]"
+          : "border-[1.5px] border-[#D0D0D0] hover:border-[#999]"
+      }`}
+    >
+      {checked && <Check size={12} className="text-white" strokeWidth={2.5} />}
+    </button>
+  );
+}
+
+/* ── main component ─────────────────────────────────── */
+
+export default function VM7WeeklyReport() {
+  const [actions, setActions] = useState(initialActions);
+
+  const toggleDone = (id: number) =>
+    setActions((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, done: !a.done } : a)),
+    );
+
+  return (
+    <div
+      data-lenis-prevent
+      className="flex h-full w-full flex-col gap-4 bg-[#F7F6F3] p-4 overflow-auto"
+    >
+      {/* ── Header ── */}
+      <div className="flex flex-col gap-1.5">
+        <h1
+          className="text-2xl font-medium tracking-tight text-[#1A1A1A]"
+          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+        >
+          Exquisite AI Weekly Report Dashboard
+        </h1>
+        <p className="text-[14px] text-[#999]">Week of March 3–7, 2026</p>
+      </div>
+
+      {/* ── Body grid ── */}
+      <div className="flex flex-1 gap-4 min-h-0">
+        {/* ── Left column ── */}
+        <div className="flex w-[44%] shrink-0 flex-col gap-4">
+          {/* Project Status card */}
+          <div className="flex flex-col gap-4 rounded-2xl border border-[#E8E2D9] bg-white p-5">
+            <h2 className="text-[16px] font-bold text-[#1A1A1A]">
+              Project Status
+            </h2>
+            <ProgressBar value={65} />
+            <p className="text-[13px] leading-[1.65] text-[#555]">
+              Mobile app redesign is on track. Design review completed with
+              Lisa. Frontend implementation begins next week.
+            </p>
+          </div>
+
+          {/* Budget Summary card */}
+          <div
+            className="flex flex-1 flex-col gap-4 rounded-2xl border border-[#E8DED2] p-5"
+            style={{
+              background: "linear-gradient(to top, #F5EDE2, #FAF5EE)",
+            }}
+          >
+            <h2 className="text-[16px] font-bold text-[#1A1A1A]">
+              Budget Summary
+            </h2>
+
+            <div className="flex gap-5">
+              {/* Recharts bar chart */}
+              <div className="w-[170px] shrink-0">
+                <ResponsiveContainer width="100%" height={130}>
+                  <BarChart data={budgetData} barCategoryGap="25%" barGap={3}>
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      vertical={false}
+                      stroke="#E0D8CE"
+                    />
+                    <XAxis
+                      dataKey="quarter"
+                      axisLine={false}
+                      tickLine={false}
+                      tick={{ fontSize: 11, fill: "#999" }}
+                    />
+                    <YAxis
+                      axisLine={false}
+                      tickLine={false}
+                      tick={{ fontSize: 9, fill: "#AAA" }}
+                      tickFormatter={(v: number) =>
+                        v >= 1 ? `$${v}M` : `${v * 1000}K`
+                      }
+                      width={38}
+                      domain={[0, 3]}
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        background: "#fff",
+                        border: "1px solid #E8E2D9",
+                        borderRadius: 8,
+                        fontSize: 12,
+                      }}
+                    />
+                    <Bar
+                      dataKey="actual"
+                      fill="#2C2C2C"
+                      radius={[3, 3, 0, 0]}
+                      maxBarSize={18}
+                    />
+                    <Bar
+                      dataKey="projected"
+                      fill="#C9A96E"
+                      radius={[3, 3, 0, 0]}
+                      maxBarSize={18}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div className="flex flex-col gap-3 text-[13px] leading-[1.6] text-[#555]">
+                <p>
+                  Q3 budget confirmed at $2.4M (source: team standup, Mar 5).
+                </p>
+                <p>
+                  Approval pending — deadline Friday. Previous estimate was
+                  $2.1M.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Right column — Action Items table ── */}
+        <div className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-[#E8E2D9] bg-white">
+          {/* Dark header */}
+          <div className="flex items-center px-5 py-3.5 bg-[#2C2C2C]">
+            <span className="text-[15px] font-semibold text-white">
+              Action Items
+            </span>
+          </div>
+
+          {/* Column labels */}
+          <div className="grid grid-cols-[20px_1fr_36px_72px_76px] items-center gap-3 border-b border-[#E8E2D9] bg-[#FAFAF9] px-5 py-2">
+            <div />
+            <span className="text-[11px] font-medium uppercase tracking-wider text-[#AAA]">
+              Task
+            </span>
+            <div />
+            <span className="text-[11px] font-medium uppercase tracking-wider text-[#AAA] text-center">
+              Due
+            </span>
+            <span className="text-[11px] font-medium uppercase tracking-wider text-[#AAA] text-center">
+              Status
+            </span>
+          </div>
+
+          {/* Rows */}
+          <div className="flex flex-1 flex-col">
+            {actions.map((item) => (
+              <div
+                key={item.id}
+                className="grid grid-cols-[20px_1fr_36px_72px_76px] items-center gap-3 border-b border-[#F0F0F0] px-5 py-3.5 last:border-b-0 hover:bg-[#FAFAF9] transition-colors"
+              >
+                <Checkbox
+                  checked={item.done}
+                  onChange={() => toggleDone(item.id)}
+                />
+                <span
+                  className={`text-[13px] leading-snug truncate ${
+                    item.done ? "line-through text-[#AAAAAA]" : "text-[#1A1A1A]"
+                  }`}
+                >
+                  {item.task}
+                </span>
+                <div className="flex justify-center">
+                  <Avatar size="sm">
+                    <AvatarImage src={item.avatar} alt={item.name} />
+                    <AvatarFallback>
+                      {item.name.slice(0, 2).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+                <span className="text-center text-[12px] text-[#888]">
+                  {item.dueDate}
+                </span>
+                <div className="flex justify-center">
+                  <StatusTag status={item.status} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

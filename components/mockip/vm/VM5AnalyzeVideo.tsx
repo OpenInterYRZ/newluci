@@ -1,78 +1,67 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
-  ExternalLink,
-  Copy,
   Play,
-  FileText,
-  CircleCheck,
+  SkipForward,
+  Volume2,
+  Settings,
+  Maximize,
   Square,
-  SquareCheck,
-  Share2,
-  Coins,
-  Brain,
 } from "lucide-react";
+import ShinyText from "@/components/ui/ShinyText";
+import VM7AnalysisReport from "./VM7AnalysisReport";
 
-const font = "font-[family-name:var(--font-manrope)]";
+const ANALYSIS_PHASES = [
+  "✨ Extracting keywords…",
+  "✨ Transcribing audio…",
+  "✨ Analyzing sentiment…",
+  "✨ Generating summary…",
+  "✨ Identifying action items…",
+  "✨ Computing embeddings…",
+];
+
+function RotatingStatus() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % ANALYSIS_PHASES.length);
+    }, 2500);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <ShinyText
+      text={ANALYSIS_PHASES[index]}
+      speed={2}
+      delay={0}
+      color="#4f4f4f"
+      shineColor="#b3b3b3"
+      spread={120}
+      direction="left"
+      yoyo={false}
+      pauseOnHover={false}
+      disabled={false}
+    />
+  );
+}
 
 /* ─── sub-components ──────────────────────────── */
 
-function ProgressBar({ width }: { width: string }) {
+function EmbeddingBar({ width, delay }: { width: string; delay: string }) {
   return (
-    <div className="h-2.5 w-full rounded-full bg-[#EDEDED]">
+    <div className="h-[18px] w-full rounded-full bg-[#F0ECE8]">
       <div
-        className="h-full rounded-full"
+        className="h-full rounded-full animate-pulse"
         style={{
           width,
+          animationDelay: delay,
           background:
-            "linear-gradient(90deg, #FF6B35 0%, #FFBE98 70%, #FFE4D6 100%)",
+            "linear-gradient(90deg, #E8713A 0%, #F4A76E 40%, #FCDCC8 85%, #FFF0E4 100%)",
         }}
       />
     </div>
-  );
-}
-
-function ActionItem({
-  done,
-  text,
-}: {
-  done?: boolean;
-  text: string;
-}) {
-  return (
-    <div className="flex items-start gap-2">
-      {done ? (
-        <SquareCheck size={14} className="text-[#34A853] mt-0.5 shrink-0" />
-      ) : (
-        <Square size={14} className="text-[#CCC] mt-0.5 shrink-0" />
-      )}
-      <span
-        className={`text-xs leading-relaxed ${done ? "text-[#999]" : "text-[#555]"}`}
-      >
-        {text}
-      </span>
-    </div>
-  );
-}
-
-function SentimentBadge({
-  emoji,
-  label,
-  color,
-  bg,
-}: {
-  emoji: string;
-  label: string;
-  color: string;
-  bg: string;
-}) {
-  return (
-    <span
-      className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-[11px] font-medium"
-      style={{ color, background: bg }}
-    >
-      {emoji} {label}
-    </span>
   );
 }
 
@@ -80,158 +69,82 @@ function SentimentBadge({
 
 export default function VM5AnalyzeVideo() {
   return (
-    <div className={`flex gap-8 p-8 w-full ${font}`}>
+    <div className="flex gap-5 p-5 w-full h-full  bg-[#F7F6F3]">
       {/* ── Left Column ── */}
-      <div className="flex flex-col gap-6 flex-1 min-w-0">
-        {/* Video Card */}
-        <div className="flex flex-col gap-4 rounded-xl border border-[#E0E0E0] bg-white p-5">
-          {/* filename */}
-          <span className="text-[#1A1A1A] text-base font-semibold">
-            The_Underdogs__Apple_at_Work.mp4
-          </span>
+      <div className="flex flex-col gap-5 min-w-0">
+        {/* Video Player */}
+        <div className="relative w-full rounded-2xl bg-text-0 aspect-video overflow-hidden min-h-[280px]">
+          {/* Placeholder video area */}
+          <div className="absolute inset-0 bg-gradient-to-b from-text-1 via-text-2 to-text-0" />
 
-          {/* button row */}
-          <div className="flex items-center justify-between">
-            <button className="inline-flex items-center gap-1.5 rounded-md border border-[#D0D0D0] px-3 py-1.5 text-xs font-medium text-[#333]">
-              Select Another Video <ExternalLink size={12} className="text-[#666]" />
-            </button>
-            <button className="inline-flex items-center gap-1.5 rounded-md border border-[#D0D0D0] px-3 py-1.5 text-xs font-medium text-[#333]">
-              Video ID <Copy size={12} className="text-[#666]" />
-            </button>
+          {/* Center play button */}
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors cursor-pointer">
+              <Play
+                size={26}
+                className="text-white ml-1"
+                fill="white"
+                fillOpacity={0.9}
+              />
+            </div>
           </div>
 
-          {/* video player placeholder */}
-          <div className="relative w-full aspect-video rounded bg-[#0A0A0A] overflow-hidden">
-            {/* letterbox bars */}
-            <div className="absolute inset-x-0 top-0 h-7 bg-black" />
-            <div className="absolute inset-x-0 bottom-0 h-7 bg-black" />
-            {/* play button */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/25 border border-white/50">
-                <Play size={20} className="text-white" />
+          {/* Bottom controls overlay */}
+          <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 px-5 pb-4 pt-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+            {/* Progress bar */}
+            <div className="relative w-full h-1 bg-white/25 rounded-full group cursor-pointer">
+              <div className="h-full rounded-full bg-white w-[35%]" />
+              <div
+                className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-md"
+                style={{ left: "35%" }}
+              />
+            </div>
+
+            {/* Controls row */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3.5">
+                <Play
+                  size={18}
+                  className="text-white cursor-pointer hover:text-white/80"
+                  fill="white"
+                  fillOpacity={0.9}
+                />
+                <SkipForward
+                  size={16}
+                  className="text-white cursor-pointer hover:text-white/80"
+                />
+                <Volume2
+                  size={16}
+                  className="text-white cursor-pointer hover:text-white/80"
+                />
+              </div>
+              <div className="flex items-center gap-3.5">
+                <Settings
+                  size={15}
+                  className="text-white/60 cursor-pointer hover:text-white/80"
+                />
+                <Square
+                  size={15}
+                  className="text-white/60 cursor-pointer hover:text-white/80"
+                />
+                <Maximize
+                  size={15}
+                  className="text-white/60 cursor-pointer hover:text-white/80"
+                />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Prompt Card */}
-        <div className="flex flex-col gap-4 rounded-xl border-[1.5px] border-[#FF8C00] bg-white p-5">
-          <span className="text-[#1A1A1A] text-base font-medium">2</span>
-          <div className="h-16" />
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#F0F0F0] px-2 py-1 text-[10px] text-[#888]">
-                <Brain size={12} /> 6/5000 tokens available
-              </span>
-              <Coins size={14} className="text-[#AAA]" />
-            </div>
-            <Share2 size={16} className="text-[#AAA]" />
-          </div>
+        {/* Loading / Embedding State */}
+        <div className="flex flex-col gap-5 rounded-2xl bg-bg-0 p-6 border border-grey-2">
+          <RotatingStatus />
         </div>
       </div>
 
-      {/* ── Right Column ── */}
-      <div className="flex flex-col gap-6 flex-1 min-w-0">
-        {/* Pegasus Status */}
-        <div className="flex flex-col gap-5 rounded-xl bg-[#F5F5F5] p-6">
-          <div className="flex items-center gap-2.5">
-            <span className="text-base">🐦</span>
-            <span className="text-sm">
-              <strong className="text-[#1A1A1A]">Luci</strong>{" "}
-              <span className="text-[#666]">
-                is retrieving video embeddings…
-              </span>
-            </span>
-          </div>
-          <div className="flex flex-col gap-2">
-            <ProgressBar width="65%" />
-            <ProgressBar width="50%" />
-            <ProgressBar width="80%" />
-          </div>
-        </div>
-
-        {/* Analysis Document */}
-        <div className="flex flex-col gap-4 rounded-xl border border-[#E5E5E5] bg-white p-5 px-6">
-          {/* header */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <FileText size={16} className="text-[#FF8C00]" />
-              <span className="text-sm font-semibold text-[#1A1A1A]">
-                Analysis Report
-              </span>
-            </div>
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#F0FFF0] px-2 py-0.5 text-[10px] font-medium text-[#34A853]">
-              <CircleCheck size={11} /> Generated
-            </span>
-          </div>
-
-          <div className="h-px bg-[#F0F0F0]" />
-
-          {/* markdown body */}
-          <div className="flex flex-col gap-3 text-xs leading-relaxed">
-            <h3 className="text-sm font-bold text-[#1A1A1A]">
-              # Meeting Summary
-            </h3>
-            <p className="text-[11px] text-[#999]">
-              The Underdogs: Apple at Work &nbsp;•&nbsp; 4 min 16 sec &nbsp;•&nbsp; Mar
-              5, 2026
-            </p>
-
-            <h4 className="text-[13px] font-semibold text-[#333] mt-1">
-              ## Key Points
-            </h4>
-            <ul className="flex flex-col gap-1.5 text-[#555]">
-              <li>
-                • &nbsp;The team proposed a round pizza box design to reduce
-                packaging waste by 15%.
-              </li>
-              <li>
-                • &nbsp;Initial pushback from management on feasibility, but the
-                group persisted with a working prototype.
-              </li>
-              <li>
-                • &nbsp;Cross-functional collaboration between design,
-                engineering, and supply chain teams was highlighted.
-              </li>
-            </ul>
-
-            <h4 className="text-[13px] font-semibold text-[#333] mt-1">
-              ## Action Items
-            </h4>
-            <div className="flex flex-col gap-1.5">
-              <ActionItem text="Finalize prototype specs and share with supplier — @Dave" />
-              <ActionItem text="Schedule follow-up review with leadership — @Sarah" />
-              <ActionItem
-                done
-                text="Upload revised CAD files to shared drive — @Mike"
-              />
-            </div>
-
-            <h4 className="text-[13px] font-semibold text-[#333] mt-1">
-              ## Sentiment
-            </h4>
-            <div className="flex gap-3">
-              <SentimentBadge
-                emoji="😊"
-                label="Positive 68%"
-                color="#2D8A4E"
-                bg="#F0FFF4"
-              />
-              <SentimentBadge
-                emoji="😐"
-                label="Neutral 24%"
-                color="#B45309"
-                bg="#FFFBEB"
-              />
-              <SentimentBadge
-                emoji="😟"
-                label="Negative 8%"
-                color="#DC2626"
-                bg="#FFF1F0"
-              />
-            </div>
-          </div>
-        </div>
+      {/* ── Right Column — Analysis Report ── */}
+      <div className="flex-1 w-[42%] min-w-[360px] shrink-0 overflow-hidden">
+        <VM7AnalysisReport />
       </div>
     </div>
   );

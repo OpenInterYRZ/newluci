@@ -78,9 +78,9 @@ export default function TestimonialCarousel() {
 
   return (
     <section className="w-full bg-web-bg-0">
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-10 px-6 py-16 md:px-[100px] md:py-24">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-10 px-6 py-16 md:px-5 md:py-24">
         {/* Title */}
-        <h2 className="text-[32px] font-bold text-text-0 max-w-3xl leading-[1.1] tracking-tight md:text-[44px]">
+        <h2 className="text-2xl md:text-4xl font-semibold text-text-0 max-w-3xl leading-[1.1] tracking-tight">
           What our users say
         </h2>
 
@@ -110,10 +110,10 @@ export default function TestimonialCarousel() {
                 <div className="mt-10 flex items-center gap-3">
                   <Avatar name={t.name} color={t.color} />
                   <div className="flex flex-col">
-                    <span className="text-[14px] font-semibold leading-tight">
+                    <span className="text-base font-semibold leading-tight">
                       {t.name}
                     </span>
-                    <span className="text-[13px] leading-tight">{t.role}</span>
+                    <span className="text-sm leading-tight">{t.role}</span>
                   </div>
                 </div>
               </div>

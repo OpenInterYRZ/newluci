@@ -171,9 +171,7 @@ function PricingCard({
               ${price}
             </motion.span>
           </AnimatePresence>
-          {price > 0 && (
-            <span className="text-sm text-grey-4">/mo</span>
-          )}
+          {price > 0 && <span className="text-sm text-grey-4">/mo</span>}
         </div>
 
         {/* CTA */}
@@ -197,9 +195,7 @@ function PricingCard({
               {feature.included ? (
                 <div
                   className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                    isPopular
-                      ? "bg-primary-light-default"
-                      : "bg-grey-0"
+                    isPopular ? "bg-primary-light-default" : "bg-grey-0"
                   }`}
                 >
                   <Check
@@ -235,7 +231,7 @@ export default function PricingSection() {
         {/* Header */}
         <div className="mb-14 flex flex-col items-center gap-4 text-center">
           <motion.h2
-            className="text-[40px] font-bold leading-tight text-text-0"
+            className="text-2xl md:text-4xl font-semibold leading-tight text-text-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -244,7 +240,7 @@ export default function PricingSection() {
             Simple, transparent pricing
           </motion.h2>
           <motion.p
-            className="max-w-md text-[16px] text-text-2"
+            className="max-w-md text-base text-text-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

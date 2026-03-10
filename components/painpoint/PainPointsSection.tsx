@@ -272,7 +272,7 @@ const LINE_W = 1.5;
 
 // Data pulse style (glowing dot traveling along lines)
 const PULSE_COLOR = "rgba(255,255,255,0.8)";
-const PULSE_DOT = 8; // length of the bright dash
+const PULSE_DOT = 12; // length of the bright dash
 const PULSE_W = 2; // slightly thicker than base line
 
 /* ─── Build SVG paths for upper wiring ─────────────────── */

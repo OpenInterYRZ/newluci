@@ -14,17 +14,30 @@ import VM2MemoryPage from "./VM2MemoryPage";
 import VM3TaskExecution from "./VM3TaskExecution";
 import VM4ChatScreen from "./VM4ChatScreen";
 import VM5AnalyzeVideo from "./VM5AnalyzeVideo";
+import VM6CognitiveSync from "./VM6CognitiveSync";
+import VM7WeeklyReport from "./VM7WeeklyReport";
+import VM7AnalysisReport from "./VM7AnalysisReport";
 
 const tabs = [
   { key: "video", label: "Video", icon: Video, component: VM1VideoLibrary },
-  { key: "memory", label: "Memory", icon: Brain, component: VM2MemoryPage },
   {
     key: "analyze",
     label: "Analyze",
     icon: Sparkles,
     component: VM5AnalyzeVideo,
   },
-  { key: "task", label: "Task", icon: FileText, component: VM3TaskExecution },
+  {
+    key: "cognitive",
+    label: "Memories",
+    icon: Brain,
+    component: VM6CognitiveSync,
+  },
+  {
+    key: "report",
+    label: "Report",
+    icon: FileText,
+    component: VM7WeeklyReport,
+  },
 ] as const;
 
 export default function VMDashboard() {
