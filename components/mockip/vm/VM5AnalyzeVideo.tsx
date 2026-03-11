@@ -74,8 +74,8 @@ export default function VM5AnalyzeVideo() {
       <div className="flex flex-col gap-5 min-w-0">
         {/* Video Player */}
         <div className="relative w-full rounded-2xl bg-text-0 aspect-video overflow-hidden min-h-[280px]">
-          {/* Placeholder video area */}
-          <div className="absolute inset-0 bg-gradient-to-b from-text-1 via-text-2 to-text-0" />
+          {/* Video thumbnail */}
+          <img src="/hero/lib3.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
 
           {/* Center play button */}
           <div className="absolute inset-0 flex items-center justify-center z-10">

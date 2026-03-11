@@ -16,19 +16,19 @@ export default function ProductShowcase() {
   const [phoneWindow, setPhoneWindow] = useState<WindowState>({
     x: 40,
     y: 80,
-    width: 340,
+    width: 320,
     height: 620,
   });
 
   const [desktopWindow, setDesktopWindow] = useState<WindowState>({
     x: 320,
     y: 30,
-    width: 780,
-    height: 520,
+    width: 880,
+    height: 620,
   });
 
   // z-index 管理：点击的窗口到前面
-  const [topWindow, setTopWindow] = useState<"phone" | "desktop">("desktop");
+  const [topWindow, setTopWindow] = useState<"phone" | "desktop">("phone");
 
   const bringToFront = useCallback((id: "phone" | "desktop") => {
     setTopWindow(id);

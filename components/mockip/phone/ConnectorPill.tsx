@@ -1,49 +1,41 @@
 "use client";
 
-import { Calendar } from "lucide-react";
+import { useEffect, useState } from "react";
+import ShinyText from "@/components/ui/ShinyText";
 
 interface ConnectorPillProps {
   name?: string;
+  resolvedText?: string;
+  resolveDelay?: number;
 }
 
 export function ConnectorPill({
   name = "Google Calendar",
+  resolvedText,
+  resolveDelay = 1000,
 }: ConnectorPillProps) {
+  const [resolved, setResolved] = useState(false);
+
+  useEffect(() => {
+    if (resolvedText) {
+      const t = setTimeout(() => setResolved(true), resolveDelay);
+      return () => clearTimeout(t);
+    }
+  }, [resolvedText, resolveDelay]);
+
   return (
-    <div
-      className="inline-flex items-center gap-2 rounded-full border border-[#C4D7FB] py-1.5 pr-3.5 pl-2.5"
-      style={{
-        background: "#E8F0FE",
-        fontFamily: "Manrope, sans-serif",
-      }}
-    >
-      <Calendar size={14} className="text-[#4A6CF7]" strokeWidth={2} />
-      <span
-        className="font-medium text-[#4A6CF7]"
-        style={{ fontSize: "var(--phone-chat-fs)" }}
-      >
-        {name} connecting
-      </span>
-      <div className="flex items-center gap-[3px]">
-        <span
-          className="h-1 w-1 rounded-full bg-[#4A6CF7]"
-          style={{ animation: "connDot 1.4s ease-in-out infinite" }}
+    <span style={{ fontFamily: "Manrope, sans-serif", fontSize: "calc(var(--phone-chat-fs) - 2px)" }}>
+      {resolved ? (
+        <span className="font-medium text-[#555555]">{resolvedText}</span>
+      ) : (
+        <ShinyText
+          text={`${name} connecting...`}
+          speed={1.5}
+          color="#bbbbbb"
+          shineColor="#888888"
+          className="font-medium"
         />
-        <span
-          className="h-1 w-1 rounded-full bg-[#7B9CF7]"
-          style={{ animation: "connDot 1.4s ease-in-out 0.2s infinite" }}
-        />
-        <span
-          className="h-1 w-1 rounded-full bg-[#A8BFF7]"
-          style={{ animation: "connDot 1.4s ease-in-out 0.4s infinite" }}
-        />
-      </div>
-      <style jsx>{`
-        @keyframes connDot {
-          0%, 80%, 100% { transform: scale(1); opacity: 0.4; }
-          40% { transform: scale(1.3); opacity: 1; }
-        }
-      `}</style>
-    </div>
+      )}
+    </span>
   );
 }

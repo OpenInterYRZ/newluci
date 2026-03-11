@@ -104,7 +104,7 @@ export default function VM7AnalysisReport() {
       style={{ backgroundImage: "url('/hero/hero-m1.webp')" }}
     >
       <div
-        className="flex flex-col gap-4 w-full rounded-2xl bg-[#F7F6F3] px-4"
+        className="flex flex-col gap-4 w-full bg-[#F7F6F3] px-4"
         style={{
           boxShadow: "0 12px 40px -4px rgba(0,0,0,0.06)",
         }}

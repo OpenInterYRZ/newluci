@@ -1,76 +1,67 @@
 "use client";
 
-import { Video, CircleCheckBig, Mail, Brain } from "lucide-react";
-
 export function SummaryCard() {
   const metrics = [
-    { icon: Video, label: "Meetings", value: "3", sub: "2.5 hrs" },
-    { icon: CircleCheckBig, label: "Tasks Done", value: "7", sub: "of 9" },
-    { icon: Mail, label: "Emails", value: "12", sub: "3 urgent" },
-    { icon: Brain, label: "Memories", value: "5", sub: "new" },
+    { label: "Meetings", value: "3", sub: "2.5 hrs" },
+    { label: "Tasks Done", value: "7", sub: "of 9" },
+    { label: "Emails", value: "12", sub: "3 urgent" },
+    { label: "Memories", value: "5", sub: "new" },
   ];
 
   return (
     <div className="flex w-full justify-start">
       <div
-        className="flex w-[85%] flex-col gap-2.5"
-        style={{
-          padding: "14px 16px",
-          borderRadius: "18px 18px 18px 4px",
-          background: "#F7F7F8",
-          boxShadow: "0 1px 4px rgba(0, 0, 0, 0.06)",
-          fontFamily: "Manrope, sans-serif",
-        }}
+        className="flex w-[88%] flex-col gap-2"
+        style={{ fontFamily: "Manrope, sans-serif" }}
       >
-        {/* Title */}
-        <div className="flex items-center justify-between">
-          <span
-            className="font-semibold text-[#333]"
-            style={{ fontSize: "var(--phone-chat-fs)" }}
-          >
-            Yesterday&apos;s Overview
-          </span>
-        </div>
+        <span
+          className="font-semibold text-[#333]"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
+          Yesterday&apos;s Overview
+        </span>
 
-        {/* 2x2 Grid */}
-        <div className="grid grid-cols-2 gap-2">
-          {metrics.map((m) => {
-            const Icon = m.icon;
-            return (
-              <div
+        <table
+          className="w-full border-collapse"
+          style={{ fontSize: "var(--phone-chat-fs)" }}
+        >
+          <thead>
+            <tr
+              className="text-left text-[#aaa]"
+              style={{
+                fontSize: "calc(var(--phone-chat-fs) - 2px)",
+                borderBottom: "1px solid #eee",
+              }}
+            >
+              <th className="pb-1 font-medium">Category</th>
+              <th className="pb-1 text-right font-medium">Count</th>
+              <th className="pb-1 text-right font-medium">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {metrics.map((m) => (
+              <tr
                 key={m.label}
-                className="flex flex-col gap-0.5 rounded-xl bg-white/60 px-3 py-2.5"
+                style={{ borderBottom: "1px solid #f5f5f5" }}
               >
-                <Icon size={13} className="text-[#888]" strokeWidth={2.2} />
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className="font-bold text-[#333]"
-                    style={{ fontSize: "calc(var(--phone-chat-fs) + 4px)" }}
-                  >
-                    {m.value}
-                  </span>
-                  <span
-                    className="text-[#aaa]"
-                    style={{ fontSize: "calc(var(--phone-chat-fs) - 3px)" }}
-                  >
-                    {m.sub}
-                  </span>
-                </div>
-                <span
-                  className="font-medium text-[#666]"
+                <td className="py-[3px] text-[#555]">{m.label}</td>
+                <td className="py-[3px] text-right font-semibold text-[#333]">
+                  {m.value}
+                </td>
+                <td
+                  className="py-[3px] text-right text-[#bbb]"
                   style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
                 >
-                  {m.label}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+                  {m.sub}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-        {/* Footer */}
         <div
-          className="border-t border-black/[0.04] pt-1.5 text-[#aaa]"
-          style={{ fontSize: "calc(var(--phone-chat-fs) - 4px)" }}
+          className="text-[#bbb]"
+          style={{ fontSize: "calc(var(--phone-chat-fs) - 3px)" }}
         >
           Updated 2 min ago
         </div>

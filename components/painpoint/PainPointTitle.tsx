@@ -91,12 +91,12 @@ export default function PainPointTitle() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full pt-24 px-6 md:px-20"
+      className="relative w-full pt-16 md:pt-24 px-5 md:px-20"
       style={{ background: "#0a0a0f" }}
     >
       <div className="max-w-[1200px] mx-auto flex flex-col gap-5">
         <h2
-          className="text-[36px] md:text-[48px] font-extrabold leading-[1.2]"
+          className="text-[28px] md:text-[48px] font-extrabold leading-[1.2]"
           style={{ fontFamily: "Manrope, sans-serif" }}
         >
           <span className="inline">
@@ -109,7 +109,7 @@ export default function PainPointTitle() {
         </h2>
         <p
           ref={subtitleRef}
-          className="text-base md:text-lg leading-relaxed max-w-[600px]"
+          className="text-sm md:text-lg leading-relaxed max-w-full md:max-w-[600px]"
           style={{ fontFamily: "Manrope, sans-serif" }}
         >
           <SplitChars text={SUBTITLE} className="char-sub" />

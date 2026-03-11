@@ -4,11 +4,8 @@ export function MeetingBriefingCard() {
   return (
     <div className="flex w-full justify-start">
       <div
-        className="flex max-w-[270px] flex-col p-[14px_16px]"
+        className="flex max-w-[270px] flex-col"
         style={{
-          background: "#F7F7F8",
-          borderRadius: "18px 18px 18px 4px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
           fontFamily: "Manrope, sans-serif",
         }}
       >
@@ -46,9 +43,9 @@ export function MeetingBriefingCard() {
           <span className="mb-1 font-semibold text-[#333]" style={{ fontSize: "var(--phone-chat-fs)" }}>
             Related context from memory:
           </span>
-          <span className="leading-[1.6] text-[#555]">• Series B closed at $42M — 30-month runway confirmed</span>
-          <span className="leading-[1.6] text-[#555]">• v2.4 smart search demo showed strong results</span>
-          <span className="leading-[1.6] text-[#555]">• Mobile nav reduced to 4 tabs per Design Review</span>
+          <span className="leading-[1.6] text-[#555]">- Series B closed at $42M — 30-month runway confirmed</span>
+          <span className="leading-[1.6] text-[#555]">- v2.4 smart search demo showed strong results</span>
+          <span className="leading-[1.6] text-[#555]">- Mobile nav reduced to 4 tabs per Design Review</span>
         </div>
 
         {/* Suggested talking points */}

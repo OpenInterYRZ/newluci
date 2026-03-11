@@ -1,32 +1,41 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import ShinyText from "@/components/ui/ShinyText";
 
 interface StatusPillProps {
   text?: string;
+  resolvedText?: string;
+  resolveDelay?: number;
 }
 
-export function StatusPill({ text = "Analyzing video..." }: StatusPillProps) {
+export function StatusPill({
+  text = "Analyzing video...",
+  resolvedText,
+  resolveDelay = 1200,
+}: StatusPillProps) {
+  const [resolved, setResolved] = useState(false);
+
+  useEffect(() => {
+    if (resolvedText) {
+      const t = setTimeout(() => setResolved(true), resolveDelay);
+      return () => clearTimeout(t);
+    }
+  }, [resolvedText, resolveDelay]);
+
   return (
-    <div
-      className="inline-flex items-center gap-[7px] rounded-full border border-[#FFE0B2] py-[5px] pr-2.5 pl-3"
-      style={{
-        background: "#F7F7F8",
-        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
-        fontFamily: "Manrope, sans-serif",
-      }}
-    >
-      {/* Orange status dot */}
-      <span className="h-[7px] w-[7px] rounded-full bg-[#FF8C00]" />
-
-      <span
-        className="font-medium tracking-[0.2px] text-[#555555]"
-        style={{ fontSize: "var(--phone-chat-fs)" }}
-      >
-        {text}
-      </span>
-
-      <ChevronRight size={12} className="text-[#FF8C00]" />
-    </div>
+    <span style={{ fontFamily: "Manrope, sans-serif", fontSize: "calc(var(--phone-chat-fs) - 2px)" }}>
+      {resolved ? (
+        <span className="font-medium text-[#555555]">{resolvedText}</span>
+      ) : (
+        <ShinyText
+          text={text}
+          speed={1.5}
+          color="#bbbbbb"
+          shineColor="#888888"
+          className="font-medium"
+        />
+      )}
+    </span>
   );
 }

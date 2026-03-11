@@ -79,9 +79,9 @@ function ConfirmedCard({
   footer,
 }: MemoryCard) {
   return (
-    <div className="flex w-full min-w-0 flex-1 flex-col justify-between rounded-[14px] border border-grey-2 bg-bg-0 p-6">
+    <div className="flex w-full min-w-0 flex-1 flex-col justify-between rounded-[14px] border border-grey-2 bg-bg-0 p-4">
       {/* Top */}
-      <div className="flex flex-col gap-3.5">
+      <div className="flex flex-col gap-2">
         <Badge label={badge} />
         <h3 className={` text-[12px] font-bold tracking-[-0.2px] text-[#111]`}>
           {title}
@@ -122,19 +122,18 @@ export default function VM6CognitiveSync() {
                 Pending Memories
               </span>
             </h1>
-            <span className="text-[10px] font-normal italic text-[#999]">
-              3 items awaiting approval
-            </span>
           </div>
         </div>
 
         {/* Pending Card */}
         <div className="flex w-full overflow-hidden rounded-2xl border border-grey-2 bg-bg-0">
-          <img
-            src="/vm6/pending-card.png"
-            alt="Pending Card"
-            className="w-full h-full object-cover"
-          />
+          <div className="flex-1">
+            <img
+              src="/hero/me2.webp"
+              alt="Pending Card"
+              className="flex-1 object-cover"
+            />
+          </div>
           {/* Right Content */}
           <div className="flex flex-1 flex-col justify-center gap-5 p-4">
             {/* Title */}

@@ -1,7 +1,5 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
-
 interface MemoryUpdateCardProps {
   title?: string;
   summary?: string;
@@ -15,18 +13,13 @@ export function MemoryUpdateCard({
 }: MemoryUpdateCardProps) {
   return (
     <div
-      className="flex w-full flex-col gap-1.5 rounded-xl border border-[#E8E8EC] p-[10px_14px]"
+      className="flex w-full flex-col gap-1.5"
       style={{
-        background: "#F7F7F8",
-        boxShadow: "0 1px 4px rgba(0, 0, 0, 0.04)",
         fontFamily: "Manrope, sans-serif",
       }}
     >
       {/* Top row */}
       <div className="flex w-full items-center gap-2">
-        <div className="flex h-6 w-6 items-center justify-center rounded-[12px] bg-[#E8E8EC]">
-          <MessageCircle size={13} className="text-[#999999]" />
-        </div>
         <span
           className="font-semibold text-[#333333]"
           style={{ fontSize: "var(--phone-chat-fs)" }}

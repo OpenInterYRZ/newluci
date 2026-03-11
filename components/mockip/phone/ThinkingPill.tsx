@@ -1,29 +1,39 @@
 "use client";
 
-import { Sparkles, ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import ShinyText from "@/components/ui/ShinyText";
 
 interface ThinkingPillProps {
   label?: string;
+  resolvedText?: string;
+  resolveDelay?: number;
 }
 
-export function ThinkingPill({ label = "Thinking..." }: ThinkingPillProps) {
+export function ThinkingPill({
+  label = "Thinking...",
+  resolvedText = "Thinking completed",
+  resolveDelay = 1000,
+}: ThinkingPillProps) {
+  const [resolved, setResolved] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setResolved(true), resolveDelay);
+    return () => clearTimeout(t);
+  }, [resolveDelay]);
+
   return (
-    <div
-      className="inline-flex items-center gap-[7px] rounded-full px-3 py-[5px] pl-2.5"
-      style={{
-        background: "#F7F7F8",
-        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
-        fontFamily: "Manrope, sans-serif",
-      }}
-    >
-      <Sparkles size={14} className="text-[#555555]" />
-      <span
-        className="font-medium tracking-[0.2px] text-[#555555]"
-        style={{ fontSize: "var(--phone-chat-fs)" }}
-      >
-        {label}
-      </span>
-      <ChevronDown size={12} className="text-[#999999]" />
-    </div>
+    <span style={{ fontFamily: "Manrope, sans-serif", fontSize: "calc(var(--phone-chat-fs) - 2px)" }}>
+      {resolved ? (
+        <span className="font-medium text-[#555555]">{resolvedText}</span>
+      ) : (
+        <ShinyText
+          text={label}
+          speed={1.5}
+          color="#bbbbbb"
+          shineColor="#888888"
+          className="font-medium"
+        />
+      )}
+    </span>
   );
 }

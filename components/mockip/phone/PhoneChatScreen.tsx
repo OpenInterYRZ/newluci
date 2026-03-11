@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, ChevronLeft, Ellipsis, Paperclip, Smile } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import {
   useCallback,
   useEffect,
@@ -41,7 +41,7 @@ export function PhoneChatScreen() {
   const [pickerDismissed, setPickerDismissed] = useState(false);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [phase3Count, setPhase3Count] = useState(0);
-  const [extraMessages, setExtraMessages] = useState<ReactNode[]>([]);
+  const [extraMessages, setExtraMessages] = useState<{ afterIndex: number; node: ReactNode }[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isSending, setIsSending] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -82,6 +82,13 @@ export function PhoneChatScreen() {
     setPickerDismissed(true);
   }, []);
 
+  const getScriptedCount = useCallback(() => {
+    const visibleP12 = phase12Messages.filter((m, i) => i < phase12Count && m !== null).length;
+    const visibleP3 = pickerDismissed ? Math.min(phase3Count, phase3Messages.length) : 0;
+    return visibleP12 + visibleP3;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase12Count, phase3Count, pickerDismissed]);
+
   const handleSend = () => {
     const text = inputValue.trim();
     if (!text || isSending) return;
@@ -89,18 +96,25 @@ export function PhoneChatScreen() {
     setIsSending(true);
     setInputValue("");
 
+    const insertAt = getScriptedCount();
+
     setExtraMessages((prev) => [
       ...prev,
-      <UserBubble key={`user-extra-${prev.length}`} text={text} />,
+      { afterIndex: insertAt, node: <UserBubble key={`user-extra-${prev.length}`} text={text} /> },
     ]);
 
     setTimeout(() => {
       setExtraMessages((prev) => [
         ...prev,
-        <AssistantBubble
-          key={`assist-extra-${prev.length}`}
-          text="To try LUCI, download Luci Desktop."
-        />,
+        {
+          afterIndex: insertAt,
+          node: (
+            <AssistantBubble
+              key={`assist-extra-${prev.length}`}
+              text="To try LUCI, download Luci Desktop."
+            />
+          ),
+        },
       ]);
       setIsSending(false);
     }, 1200);
@@ -132,8 +146,18 @@ export function PhoneChatScreen() {
           // ① 分析会议视频
           <UserBubble key="user-choice" text={USER_OPTION_LABELS[0]} />,
           <ThinkingPill key="thinking" />,
-          <AgentCallingPill key="agent" agentName="agent_video" />,
-          <StatusPill key="status" text="Analyzing 3 meeting recordings..." />,
+          <AgentCallingPill
+            key="agent"
+            agentName="agent_video"
+            resolvedText="agent_video"
+            resolveDelay={800}
+          />,
+          <StatusPill
+            key="status"
+            text="Analyzing 3 meeting recordings..."
+            resolvedText="Analyzed 3 videos"
+            resolveDelay={1200}
+          />,
           <MeetingSummaryCard key="meeting-summary" />,
           <ActionCompletePill
             key="complete"
@@ -149,9 +173,19 @@ export function PhoneChatScreen() {
             // ② 跟进待办任务
             <UserBubble key="user-choice" text={USER_OPTION_LABELS[1]} />,
             <ThinkingPill key="thinking" />,
-            <AgentCallingPill key="agent" agentName="agent_tasks" />,
+            <AgentCallingPill
+              key="agent"
+              agentName="agent_tasks"
+              resolvedText="agent_tasks"
+              resolveDelay={800}
+            />,
             <TodoListBubble key="todos" />,
-            <StatusPill key="status" text="Executing follow-ups..." />,
+            <StatusPill
+              key="status"
+              text="Executing follow-ups..."
+              resolvedText="3 follow-ups executed"
+              resolveDelay={1200}
+            />,
             <FileAttachmentBubble
               key="email"
               fileName="Smart Search QA Checklist"
@@ -168,9 +202,24 @@ export function PhoneChatScreen() {
             // ③ 准备下次会议
             <UserBubble key="user-choice" text={USER_OPTION_LABELS[2]} />,
             <ThinkingPill key="thinking" />,
-            <ConnectorPill key="connector" name="Google Calendar" />,
-            <AgentCallingPill key="agent" agentName="agent_prep" />,
-            <StatusPill key="status" text="Compiling meeting materials..." />,
+            <ConnectorPill
+              key="connector"
+              name="Google Calendar"
+              resolvedText="Google Calendar connected"
+              resolveDelay={800}
+            />,
+            <AgentCallingPill
+              key="agent"
+              agentName="agent_prep"
+              resolvedText="agent_prep"
+              resolveDelay={800}
+            />,
+            <StatusPill
+              key="status"
+              text="Compiling meeting materials..."
+              resolvedText="Meeting materials compiled"
+              resolveDelay={1200}
+            />,
             <MeetingBriefingCard key="briefing" />,
             <FileAttachmentBubble
               key="file"
@@ -192,10 +241,9 @@ export function PhoneChatScreen() {
     <div className="flex h-full w-full flex-col overflow-hidden bg-white text-left">
       {/* ── Chat Header ── */}
       <div
-        className="flex shrink-0 items-center gap-2 border-b border-black/[0.04] bg-white px-3 py-2"
+        className="flex shrink-0 items-center gap-2 border-b border-black/[0.04] bg-white px-4 py-2"
         style={{ height: 44 }}
       >
-        <ChevronLeft size={18} className="shrink-0 text-[#1A1A1A]" />
         <div className="flex flex-1 flex-col gap-[1px]">
           <span
             className="text-xs font-bold text-[#1A1A1A]"
@@ -210,71 +258,73 @@ export function PhoneChatScreen() {
             Online
           </span>
         </div>
-        <Ellipsis size={16} className="shrink-0 text-[#1A1A1A]" />
       </div>
 
       {/* ── Messages ── */}
       <div
         ref={scrollAreaRef}
         data-lenis-prevent
-        className="flex min-h-0 flex-1 flex-col gap-2.5 overflow-y-auto pr-4 pl-5 py-4 phone-scroll"
+        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-4 pl-5 py-4 phone-scroll"
         style={{
           background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)",
         }}
       >
         <AnimatePresence>
-          {/* Phase 1+2 */}
-          {phase12Messages.slice(0, phase12Count).map(
-            (msg, i) =>
-              msg && (
-                <motion.div
-                  key={`p12-${i}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  {msg}
-                </motion.div>
-              ),
-          )}
-          {/* Phase 3 — only after picker dismissed */}
-          {pickerDismissed &&
-            phase3Messages.slice(0, phase3Count).map((msg, i) => (
+          {(() => {
+            // Build the scripted timeline
+            const scripted: ReactNode[] = [];
+            phase12Messages.slice(0, phase12Count).forEach((msg) => {
+              if (msg) scripted.push(msg);
+            });
+            if (pickerDismissed) {
+              phase3Messages.slice(0, phase3Count).forEach((msg) => {
+                scripted.push(msg);
+              });
+            }
+
+            // Group extras by their insert index
+            const extrasMap = new Map<number, ReactNode[]>();
+            for (const em of extraMessages) {
+              const list = extrasMap.get(em.afterIndex) ?? [];
+              list.push(em.node);
+              extrasMap.set(em.afterIndex, list);
+            }
+
+            // Merge: after each scripted[i], splice in any extras tagged for that position
+            const merged: ReactNode[] = [];
+            for (let i = 0; i < scripted.length; i++) {
+              merged.push(scripted[i]);
+              const after = extrasMap.get(i + 1);
+              if (after) merged.push(...after);
+            }
+            // Extras inserted at index 0 (before any scripted) or beyond scripted length
+            const before = extrasMap.get(0);
+            if (before && scripted.length === 0) merged.push(...before);
+            // Extras at positions beyond current scripted length go at the end
+            for (const [idx, nodes] of extrasMap) {
+              if (idx > scripted.length) merged.push(...nodes);
+            }
+
+            return merged.map((msg, i) => (
               <motion.div
-                key={`p3-${i}`}
+                key={`msg-${i}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
               >
                 {msg}
               </motion.div>
-            ))}
-          {/* User-typed messages */}
-          {extraMessages.map((msg, i) => (
-            <motion.div
-              key={`extra-${i}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              {msg}
-            </motion.div>
-          ))}
+            ));
+          })()}
         </AnimatePresence>
       </div>
 
       {/* ── Input Bar (always visible) ── */}
       <div className="flex shrink-0 items-center gap-1.5 bg-white px-2 py-1.5">
-        {/* Light pill container */}
         <div
-          className="flex flex-1 items-center gap-2 rounded-full border border-[#E5E5EA] px-2.5"
+          className="flex flex-1 items-center rounded-full border border-[#E5E5EA] px-3"
           style={{ height: 34, background: "#F2F2F7" }}
         >
-          <Smile
-            size={18}
-            strokeWidth={1.5}
-            className="shrink-0 text-[#AEAEB2]"
-          />
           <input
             type="text"
             value={inputValue}
@@ -286,13 +336,7 @@ export function PhoneChatScreen() {
             className="min-w-0 flex-1 bg-transparent text-xs font-normal text-[#1C1C1E] placeholder:text-[#AEAEB2] outline-none"
             style={{ fontFamily: "Manrope, sans-serif" }}
           />
-          <Paperclip
-            size={15}
-            strokeWidth={1.8}
-            className="shrink-0 text-[#AEAEB2]"
-          />
         </div>
-        {/* Purple send button */}
         <button
           onClick={handleSend}
           disabled={!inputValue.trim() || isSending}
@@ -300,7 +344,7 @@ export function PhoneChatScreen() {
           style={{
             width: 32,
             height: 32,
-            background: "#7B61FF",
+            background: "linear-gradient(135deg, #FF8C00 0%, #FFa030 100%)",
           }}
         >
           <ArrowUp

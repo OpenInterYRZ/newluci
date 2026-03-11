@@ -37,11 +37,8 @@ export function MeetingSummaryCard() {
   return (
     <div className="flex w-full justify-start">
       <div
-        className="flex max-w-[270px] flex-col p-[14px_16px]"
+        className="flex max-w-[270px] flex-col"
         style={{
-          background: "#F7F7F8",
-          borderRadius: "18px 18px 18px 4px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
           fontFamily: "Manrope, sans-serif",
         }}
       >
@@ -65,7 +62,7 @@ export function MeetingSummaryCard() {
                 {m.name} · {m.duration}
               </span>
               {m.points.map((p, i) => (
-                <span key={i} className="text-[#555] leading-[1.5]">• {p}</span>
+                <span key={i} className="text-[#555] leading-[1.5]">- {p}</span>
               ))}
               <span className="text-[#555] leading-[1.5]">
                 <span className="font-medium text-[#FF8C00]">Action:</span> {m.action}

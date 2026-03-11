@@ -9,7 +9,7 @@ interface MemoryNotificationProps {
 }
 
 export function MemoryNotification({
-  title = "Memory update",
+  title = "New Memory Update",
   body = "I believe that at this stage, while AI-assisted development has reduced repetitive CRUD work, frequent context switching has significantly increased cognitive load.",
   collapsed = false,
 }: MemoryNotificationProps) {

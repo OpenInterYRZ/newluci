@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const OPTIONS = [
   "Analyze meeting videos",
@@ -82,8 +81,11 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
                     : "transparent",
                 }}
               >
-                <span className="flex h-4.5 w-4.5 text-text-1 shrink-0 items-center justify-center rounded border text-[11px] border-grey-2">
-                  {i + 1}
+                <span
+                  className="shrink-0 text-[#999]"
+                  style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
+                >
+                  {i + 1}.
                 </span>
                 <span
                   className="font-normal"
