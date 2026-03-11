@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowDown, Check, Play, ArrowUp } from "lucide-react";
 
 const steps = [
@@ -29,17 +26,7 @@ const arrowColors = ["#D9770640", "#22C55E40"];
 
 export default function RecordToExecuteCard() {
   return (
-    <motion.div
-      className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.15,
-      }}
-    >
+    <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10">
       {/* ─── Left: Title + Desc ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
         <h3 className="text-[28px] font-bold leading-tight text-text-0">
@@ -175,17 +162,7 @@ export default function RecordToExecuteCard() {
           >
             {steps.map((step, i) => (
               <div key={step.num}>
-                <motion.div
-                  className="flex items-center gap-2.5"
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    ease: [0.22, 1, 0.36, 1],
-                    delay: 0.15 + i * 0.12,
-                  }}
-                >
+                <div className="flex items-center gap-2.5">
                   <div
                     className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
                     style={{ backgroundColor: step.dotBg }}
@@ -205,7 +182,7 @@ export default function RecordToExecuteCard() {
                       <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} />
                     </div>
                   )}
-                </motion.div>
+                </div>
                 {i < steps.length - 1 && (
                   <div className="py-0.5 pl-3">
                     <ArrowDown
@@ -220,6 +197,6 @@ export default function RecordToExecuteCard() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

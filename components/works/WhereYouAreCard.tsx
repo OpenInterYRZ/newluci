@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 const platforms = [
@@ -16,17 +13,7 @@ const platforms = [
 
 export default function WhereYouAreCard() {
   return (
-    <motion.div
-      className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.1,
-      }}
-    >
+    <div className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10">
       {/* ─── Title + Desc ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
         <h3 className="text-[28px] font-bold leading-tight text-text-0">
@@ -51,17 +38,9 @@ export default function WhereYouAreCard() {
         <div className="rounded-2xl bg-web-bg-0 px-10 py-8 ">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {platforms.map((p, i) => (
-              <motion.div
+              <div
                 key={p.name}
                 className="group flex flex-col items-center gap-2.5"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                  delay: 0.08 * i,
-                }}
               >
                 <div
                   className="flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-110"
@@ -78,11 +57,11 @@ export default function WhereYouAreCard() {
                 <span className="text-xs font-medium text-text-0">
                   {p.name}
                 </span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

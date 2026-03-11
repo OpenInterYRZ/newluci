@@ -56,14 +56,14 @@ export default function FeatureShowcase() {
   };
 
   return (
-    <section className="w-full bg-web-bg-0">
-      <div className="max-w-[1440px] mx-auto px-20 py-20">
+    <section className="w-full bg-web-bg-0 my-20">
+      <div className="max-w-[1400px] mx-auto px-20 py-20">
         {/* Header */}
-        <div className="flex flex-col gap-5 mb-[60px]">
-          <h1 className="text-2xl md:text-4xl font-semibold leading-tight text-text-0 max-w-3xl">
+        <div className="flex flex-col gap-5 mb-15 items-center">
+          <h2 className="text-2xl md:text-5xl font-semibold leading-tight text-text-0 text-center max-w-3xl">
             How LUCI Works
-          </h1>
-          <p className="text-base text-text-1 max-w-2xl">
+          </h2>
+          <p className="text-base text-text-1 max-w-2xl text-center">
             LUCI sees your workflow, remembers the context, and acts (so you
             don&apos;t have to).
           </p>

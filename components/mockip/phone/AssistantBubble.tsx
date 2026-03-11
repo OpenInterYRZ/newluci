@@ -1,22 +1,32 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 interface AssistantBubbleProps {
-  text: string;
+  text?: string;
+  children?: ReactNode;
+  noBg?: boolean;
 }
 
-export function AssistantBubble({ text }: AssistantBubbleProps) {
+export function AssistantBubble({
+  text,
+  children,
+  noBg,
+}: AssistantBubbleProps) {
   return (
     <div className="flex w-full justify-start">
       <div
-        className="max-w-[240px] rounded-[18px_18px_18px_4px] px-4 py-2.5 font-normal leading-[1.45] text-[#333333]"
+        className="max-w-[85%] font-normal leading-[1.45] text-[#333333]"
         style={{
           fontSize: "var(--phone-chat-fs)",
-          background: "#F7F7F8",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
+          padding: noBg ? 0 : "10px 14px",
+          borderRadius: noBg ? 0 : "18px 18px 18px 4px",
+          background: noBg ? "transparent" : "#F7F7F8",
+          boxShadow: noBg ? "none" : "0 1px 4px rgba(0, 0, 0, 0.06)",
           fontFamily: "Manrope, sans-serif",
         }}
       >
-        {text}
+        {children ?? text}
       </div>
     </div>
   );

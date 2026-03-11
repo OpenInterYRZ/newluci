@@ -18,7 +18,7 @@ export default function CtaBanner() {
       >
         <div className="flex flex-col items-center px-10 py-24 text-center">
           {/* Heading */}
-          <h2 className="text-[44px] font-bold leading-tight text-text-0 max-w-3xl mb-4">
+          <h2 className="text-2xl md:text-5xl font-semibold leading-tight text-text-0 max-w-3xl mb-4">
             Ready to meet LUCI?
           </h2>
 

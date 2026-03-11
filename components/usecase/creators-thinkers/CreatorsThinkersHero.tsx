@@ -48,8 +48,8 @@ export default function CreatorsThinkersHero() {
             variants={fadeUp}
           >
             LUCI captures every fleeting idea from conversations, notes, and
-            meetings — then connects them into a living knowledge graph you
-            can think with.
+            meetings — then connects them into a living knowledge graph you can
+            think with.
           </motion.p>
 
           <motion.div
@@ -59,7 +59,11 @@ export default function CreatorsThinkersHero() {
             <span className="text-[12px] tracking-wide">Scroll to explore</span>
             <motion.div
               animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
               <ArrowDown className="h-4 w-4" />
             </motion.div>

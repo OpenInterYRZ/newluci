@@ -100,7 +100,8 @@ export default function VM7AnalysisReport() {
   return (
     <div
       data-lenis-prevent
-      className="flex items-start justify-center w-full h-full overflow-auto bg-[#F7F6F3]"
+      className="flex items-start justify-center w-full h-full overflow-auto bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/hero/hero-m1.webp')" }}
     >
       <div
         className="flex flex-col gap-4 w-full rounded-2xl bg-[#F7F6F3] px-4"

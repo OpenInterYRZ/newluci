@@ -318,22 +318,40 @@ export default function Navbar() {
             {nav.key === "usecases" && (
               <>
                 <div className="flex gap-6">
-                  {/* Left — Promo card */}
-                  <div className="w-[220px] shrink-0">
-                    <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border border-grey-1 bg-grey-0 p-5">
-                      <div>
-                        <h4 className="text-[15px] font-semibold text-text-0 mb-2">
-                          See LUCI in Action
-                        </h4>
-                        <p className="text-[12px] leading-relaxed text-text-2">
-                          Watch how LUCI remembers your meetings, captures
-                          ideas, and executes tasks — all in one flow.
-                        </p>
-                      </div>
-                      <div className="mt-4 flex items-center gap-1.5 text-[13px] font-medium text-primary">
-                        Watch demo <ArrowUpRight className="h-3.5 w-3.5" />
-                      </div>
-                    </div>
+                  {/* Left — Two product cards stacked */}
+                  <div className="w-[220px] shrink-0 flex flex-col gap-3">
+                    <Link
+                      href="/cloud"
+                      onClick={closeDropdown}
+                      className="relative h-[100px] overflow-hidden rounded-xl border border-grey-1"
+                    >
+                      <Image
+                        src="/luci-cloud.png"
+                        alt="LUCI Cloud"
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40" />
+                      <span className="absolute bottom-3 left-4 text-[14px] font-semibold text-white">
+                        LUCI Cloud
+                      </span>
+                    </Link>
+                    <Link
+                      href="/desktop"
+                      onClick={closeDropdown}
+                      className="relative h-[100px] overflow-hidden rounded-xl border border-grey-1"
+                    >
+                      <Image
+                        src="/luci-desktop.png"
+                        alt="LUCI Desktop"
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40" />
+                      <span className="absolute bottom-3 left-4 text-[14px] font-semibold text-white">
+                        LUCI Desktop
+                      </span>
+                    </Link>
                   </div>
                   {/* Right — Persona list */}
                   <div className="flex-1">

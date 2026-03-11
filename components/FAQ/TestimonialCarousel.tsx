@@ -80,7 +80,7 @@ export default function TestimonialCarousel() {
     <section className="w-full bg-web-bg-0">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-10 px-6 py-16 md:px-5 md:py-24">
         {/* Title */}
-        <h2 className="text-2xl md:text-4xl font-semibold text-text-0 max-w-3xl leading-[1.1] tracking-tight">
+        <h2 className="text-2xl md:text-5xl font-semibold text-text-0 max-w-3xl leading-[1.1] tracking-tight">
           What our users say
         </h2>
 

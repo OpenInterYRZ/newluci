@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 
 /* ── mock data ─────────────────────────────── */
@@ -51,13 +48,7 @@ const actionItems = [
 /* ── component ─────────────────────────────── */
 export default function VideoMemoryCard() {
   return (
-    <motion.div
-      className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10">
       {/* ─── Left: Title + Desc (no box) ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
         <h3 className="text-[28px] font-bold leading-tight text-text-0">
@@ -226,6 +217,6 @@ export default function VideoMemoryCard() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

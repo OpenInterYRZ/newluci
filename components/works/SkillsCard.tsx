@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Upload, MoreVertical } from "lucide-react";
 
 const skills = [
@@ -14,17 +11,7 @@ const skills = [
 
 export default function SkillsCard() {
   return (
-    <motion.div
-      className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-        delay: 0.1,
-      }}
-    >
+    <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10">
       {/* ─── Left: Title + Desc ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
         <h3 className="text-[28px] font-bold leading-tight text-text-0">
@@ -104,6 +91,6 @@ export default function SkillsCard() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

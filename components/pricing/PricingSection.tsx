@@ -230,24 +230,12 @@ export default function PricingSection() {
       <div className="mx-auto max-w-[1200px]">
         {/* Header */}
         <div className="mb-14 flex flex-col items-center gap-4 text-center">
-          <motion.h2
-            className="text-2xl md:text-4xl font-semibold leading-tight text-text-0"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <h2 className="text-2xl md:text-5xl font-semibold leading-tight text-text-0">
             Simple, transparent pricing
-          </motion.h2>
-          <motion.p
-            className="max-w-md text-base text-text-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-          >
+          </h2>
+          <p className="max-w-md text-base text-text-2">
             Start free. Upgrade when you need more power.
-          </motion.p>
+          </p>
           <BillingToggle
             isYearly={isYearly}
             onToggle={() => setIsYearly(!isYearly)}

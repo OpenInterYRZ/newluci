@@ -68,90 +68,9 @@ export default function ProductShowcase() {
             className="rounded-[2.5rem] shadow-xl"
           >
             <div className="flex flex-col h-full bg-white rounded-[2.5rem] overflow-hidden border-[2px] border-grey-2 relative">
-              {/* iPhone status bar — drag handle */}
-              <div className="drag-handle relative flex items-end justify-between px-6 pt-3 pb-2 bg-white cursor-grab active:cursor-grabbing select-none shrink-0">
-                {/* Time */}
-                <span className="text-[13px] font-semibold text-text-0 leading-none">
-                  9:41
-                </span>
-                {/* Status icons */}
-                <div className="flex items-center gap-1.5">
-                  {/* Signal bars */}
-                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                    <rect
-                      x="0"
-                      y="9"
-                      width="3"
-                      height="3"
-                      rx="0.5"
-                      fill="#000"
-                    />
-                    <rect
-                      x="4"
-                      y="6"
-                      width="3"
-                      height="6"
-                      rx="0.5"
-                      fill="#000"
-                    />
-                    <rect
-                      x="8"
-                      y="3"
-                      width="3"
-                      height="9"
-                      rx="0.5"
-                      fill="#000"
-                    />
-                    <rect
-                      x="12"
-                      y="0"
-                      width="3"
-                      height="12"
-                      rx="0.5"
-                      fill="#000"
-                    />
-                  </svg>
-                  {/* WiFi */}
-                  <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
-                    <path
-                      d="M7 10.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-                      fill="#000"
-                    />
-                    <path
-                      d="M4.17 7.33a4 4 0 0 1 5.66 0"
-                      stroke="#000"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M1.76 4.93a7 7 0 0 1 10.48 0"
-                      stroke="#000"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  {/* Battery */}
-                  <svg width="24" height="12" viewBox="0 0 24 12" fill="none">
-                    <rect
-                      x="0.5"
-                      y="0.5"
-                      width="20"
-                      height="11"
-                      rx="2"
-                      stroke="#000"
-                      strokeWidth="1"
-                    />
-                    <rect
-                      x="2"
-                      y="2"
-                      width="16"
-                      height="8"
-                      rx="1"
-                      fill="#000"
-                    />
-                    <path d="M22 4.5v3a1.5 1.5 0 0 0 0-3Z" fill="#000" />
-                  </svg>
-                </div>
+              {/* Drag handle bar */}
+              <div className="drag-handle flex justify-center pt-3 pb-2 bg-web-bg-0 cursor-grab active:cursor-grabbing select-none shrink-0">
+                <div className="w-[80px] h-[5px] bg-black/20 rounded-full" />
               </div>
               {/* Content */}
               <div className="flex-1 overflow-hidden">

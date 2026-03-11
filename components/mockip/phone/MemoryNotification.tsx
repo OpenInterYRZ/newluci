@@ -23,15 +23,15 @@ export function MemoryNotification({
           fontFamily: "Manrope, sans-serif",
         }}
       >
-        <Gem size={16} className="text-[#4A6CF7]" />
+        <Gem size={16} className="text-text-0" />
         <span
-          className="font-bold text-[#1A1A2E]"
+          className="font-bold text-text-0"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
           {title}
         </span>
         <div className="flex-1" />
-        <ChevronDown size={16} className="rotate-[-90deg] text-[#AAAAAA]" />
+        <ChevronDown size={16} className="rotate-[-90deg] text-text-2" />
       </div>
     );
   }
@@ -47,20 +47,20 @@ export function MemoryNotification({
     >
       {/* Top row */}
       <div className="flex w-full items-center gap-1.5">
-        <Gem size={16} className="text-[#4A6CF7]" />
+        <Gem size={16} className="text-text-0" />
         <span
-          className="font-bold text-[#1A1A2E]"
+          className="font-bold text-text-0"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
           {title}
         </span>
         <div className="flex-1" />
-        <ChevronDown size={16} className="text-[#AAAAAA]" />
+        <ChevronDown size={16} className="text-text-2" />
       </div>
 
       {/* Body */}
       <p
-        className="font-normal leading-[1.5] text-[#4A6CF7]"
+        className="font-normal leading-[1.5] text-text-0"
         style={{ fontSize: "var(--phone-chat-fs)" }}
       >
         {body}
@@ -69,13 +69,13 @@ export function MemoryNotification({
       {/* Buttons */}
       <div className="flex w-full gap-2.5">
         <button
-          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-[#E0E0E8] bg-white font-semibold tracking-[0.5px] text-[#666666]"
+          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-grey-2 bg-white font-semibold tracking-[0.5px] text-text-2"
           style={{ fontSize: "var(--phone-chat-fs-sm)" }}
         >
           UNDO
         </button>
         <button
-          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-[#E0E0E8] bg-white font-semibold tracking-[0.5px] text-[#666666]"
+          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-grey-2 bg-white font-semibold tracking-[0.5px] text-text-0"
           style={{ fontSize: "var(--phone-chat-fs-sm)" }}
         >
           ACCEPT
@@ -85,7 +85,7 @@ export function MemoryNotification({
       {/* View link */}
       <div className="flex w-full justify-center">
         <span
-          className="font-medium text-[#4A6CF7]"
+          className="font-medium text-text-0"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
           View Memories
