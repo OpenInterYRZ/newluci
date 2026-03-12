@@ -22,8 +22,7 @@ export const CapHero = () => {
 
         {/* 3. 按钮组 */}
         <div className="flex gap-4">
-          <GradientButton href="/signup" text="Sign up for Cloud" />
-          <GlassButton href="/download" text="Download Local" />
+          <GradientButton href="/signup" text="Download for macOS" />
         </div>
       </div>
     </div>

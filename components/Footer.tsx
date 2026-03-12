@@ -222,7 +222,7 @@ export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden">
       {/* Background video */}
-      <video
+      {/* <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         muted
@@ -231,10 +231,10 @@ export default function Footer() {
         preload="auto"
       >
         <source src="/videos/footervid.mp4" />
-      </video>
+      </video> */}
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-[#1A1A19]" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-[1300px] px-8 py-10 flex flex-col gap-8">

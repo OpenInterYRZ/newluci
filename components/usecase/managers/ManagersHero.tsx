@@ -27,34 +27,48 @@ export default function ManagersHero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
           <motion.div variants={fadeUp}>
             <span className="inline-flex items-center gap-2 rounded-full border border-grey-1 bg-grey-0 px-4 py-1.5 text-[12px] font-medium text-text-2">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Use Case — Managers
+              LUCI for Managers
             </span>
           </motion.div>
 
-          {/* Title */}
           <motion.h1
             className="mt-6 text-[40px] md:text-[56px] font-semibold leading-[1.08] tracking-tight text-text-0 max-w-3xl"
             variants={fadeUp}
           >
-            Never Forget
-            <br />
-            A Meeting Again
+            Transform Video Chaos Into
+            <br />a Searchable Knowledge Base
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             className="mt-5 text-base md:text-lg leading-relaxed text-text-2 max-w-[600px]"
             variants={fadeUp}
           >
-            LUCI automatically records, extracts key insights, and tracks
-            follow-ups — from meeting to execution, so managers can focus on leading.
+            Stop wasting hours sifting through footage. LUCI automates video
+            understanding, so your team can focus on insights, not playback.
           </motion.p>
 
-          {/* Scroll hint */}
+          <motion.div className="mt-8 flex gap-3" variants={fadeUp}>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover"
+            >
+              Start for Free
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 rounded-full border border-grey-1 bg-white px-6 py-2.5 text-[14px] font-semibold text-text-0 transition-colors hover:bg-grey-0"
+            >
+              Request a Demo
+            </a>
+          </motion.div>
+          <img
+            src="/usecase-manage/mana.webp"
+            alt="Managers Hero"
+            className="w-full h-full object-cover mt-10"
+          />
           <motion.div
             className="mt-12 flex flex-col items-center gap-2 text-text-2"
             variants={fadeUp}
@@ -62,7 +76,11 @@ export default function ManagersHero() {
             <span className="text-[12px] tracking-wide">Scroll to explore</span>
             <motion.div
               animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
               <ArrowDown className="h-4 w-4" />
             </motion.div>
