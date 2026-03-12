@@ -16,6 +16,7 @@ import KeyFeaturesBento from "@/components/bento/KeyFeaturesBento";
 import AccordionFeatures from "@/components/features/AccordionFeatures";
 import FeaturesTimeline from "@/components/features/FeaturesTimeline";
 import CodexFeature from "@/components/works/codexfeature";
+import UseCaseTabs from "@/components/usecase/UseCaseTabs";
 export default function Home() {
   return (
     <div className="w-full h-full  mx-auto">
@@ -26,7 +27,7 @@ export default function Home() {
       <PainPointsSection />
       <FeatureShowcase />
       <CodexFeature />
-
+      <UseCaseTabs />
       <PricingSection />
       <TestimonialCarousel />
       <FAQSection />

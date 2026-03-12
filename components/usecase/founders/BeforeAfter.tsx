@@ -4,15 +4,17 @@ const comparisons = [
   {
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <path d="m21 21-4.3-4.3" />
+        <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+        <rect width="18" height="18" x="3" y="4" rx="2" />
+        <circle cx="12" cy="10" r="2" />
+        <path d="M8 2v2" /><path d="M16 2v2" />
       </svg>
     ),
-    title: "Find something you saw but forgot where",
+    title: "Follow up with a client from 3 months ago",
     without:
-      "Dig through folders, search emails, scrub video timelines — 30 minutes minimum.",
+      "Scroll through WeChat history, dig through emails, ask colleagues \"what did they say again?\"",
     withLuci:
-      "Describe it in natural language. Get the source file and exact position in 3 seconds.",
+      "Search the client's name. Every past conversation, commitment you made, and open thread — one page.",
     metric: { before: "30 min", after: "3 sec" },
   },
   {
@@ -24,25 +26,27 @@ const comparisons = [
         <path d="m15 9 6-6" />
       </svg>
     ),
-    title: "Piece together the full context",
+    title: "Confirm who does what after a meeting",
     without:
-      "Manually reconstruct from meetings, emails, and docs — a painful jigsaw puzzle.",
+      "Send \"does everyone remember their action items?\" in the group chat. No one replies.",
     withLuci:
-      "AI auto-connects all related context. See the complete picture in one thread.",
-    metric: { before: "Hours", after: "Instant" },
+      "Action items auto-extracted from the meeting, assigned to people with deadlines. No chasing needed.",
+    metric: { before: "Ignored", after: "Tracked" },
   },
   {
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.3-4.3" />
+        <path d="M11 8v6" /><path d="M8 11h6" />
       </svg>
     ),
-    title: "Capture a fleeting idea",
+    title: "Revisit why a past decision was made",
     without:
-      "Save to notes app or bookmarks. Never open it again.",
+      "\"Why did we go with this approach?\" \"...no idea.\"",
     withLuci:
-      "Say it in Telegram. Auto-linked to context, written to memory, searchable anytime.",
-    metric: { before: "Lost", after: "Saved" },
+      "Search the keyword, trace back to the original meeting discussion — verbatim.",
+    metric: { before: "Forgotten", after: "On record" },
   },
   {
     icon: (
@@ -51,12 +55,12 @@ const comparisons = [
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     ),
-    title: "Keep sensitive data safe",
+    title: "Keep sensitive business data safe",
     without:
-      "Scattered across 5 SaaS platforms, each claiming \"we're secure.\"",
+      "Client data scattered across Feishu, Notion, and WeChat groups — out of your control.",
     withLuci:
       "Self-hosted instance. Data stays in your environment. Open-source and fully auditable.",
-    metric: { before: "5 SaaS", after: "You own it" },
+    metric: { before: "Scattered", after: "You own it" },
   },
 ];
 

@@ -12,19 +12,19 @@ import ChatVisual from "./ChatVisual";
 
 const features = [
   {
-    title: "Instant Video-to-Knowledge",
-    desc: "LUCI watches videos, lectures, and webinars for you — extracting key concepts, arguments, and references into structured notes you can search and cite instantly.",
+    title: "You Saw It Once. Never Hunt for It Again.",
+    desc: "You know you read that growth number somewhere — but was it a report? A slide deck? A video? Instead of re-opening every file, just describe what you vaguely remember in plain language. LUCI pinpoints the exact source, page, and paragraph so you never waste time retracing your steps.",
     bg: "/landscape/lan2.webp",
   },
   {
-    title: "Ask anything about what you've watched",
-    desc: "Query your entire video library in natural language. Find that one stat from a conference talk, a quote from an interview, or a step from a tutorial — in seconds.",
+    title: "Capture a Thought. Use It When It Matters.",
+    desc: "A spark during your commute podcast, a line worth flagging mid-meeting, a late-night connection between two ideas — these used to vanish or rot in a note app you'd never reopen. Now just drop a message in Telegram or WhatsApp. LUCI tags it with context and writes it into long-term memory, searchable whenever you need it.",
     bg: "/landscape/lan7.webp",
     reverse: true,
   },
   {
-    title: "A Memory That Never Forgets",
-    desc: "Every video you watch becomes permanent, searchable memory. LUCI connects ideas across content so you can discover patterns and build on prior research effortlessly.",
+    title: "Scattered Pieces, Automatically Connected",
+    desc: "The same topic lives in a meeting recording, two emails, a PDF, and a quick note you fired off in Telegram. You used to piece it together yourself. Now LUCI recognizes these fragments belong to the same context — search from any entry point and the entire information chain surfaces.",
     bg: "/landscape/lan4.webp",
   },
   {
@@ -152,10 +152,11 @@ function VideoSummaryMockup() {
                 Summary
               </span>
               <p className="text-[11px] leading-relaxed text-text-1">
-                This lecture covered the fundamentals of transformer architectures,
-                focusing on attention mechanisms and positional encoding. Key
-                topics included self-attention vs cross-attention and practical
-                tips for fine-tuning pre-trained models on domain-specific data.
+                This lecture covered the fundamentals of transformer
+                architectures, focusing on attention mechanisms and positional
+                encoding. Key topics included self-attention vs cross-attention
+                and practical tips for fine-tuning pre-trained models on
+                domain-specific data.
               </p>
             </div>
 
@@ -197,8 +198,8 @@ export default function FeatureDeepDive() {
             How LUCI Empowers Knowledge Workers
           </h2>
           <p className="text-base text-text-2 max-w-2xl mx-auto text-center leading-relaxed">
-            From auto-summarized lectures to cross-source knowledge linking, LUCI
-            handles the grunt work so you can focus on deep thinking.
+            From auto-summarized lectures to cross-source knowledge linking,
+            LUCI handles the grunt work so you can focus on deep thinking.
           </p>
         </div>
 

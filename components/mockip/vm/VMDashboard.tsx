@@ -19,19 +19,19 @@ import VM7WeeklyReport from "./VM7WeeklyReport";
 import VM7AnalysisReport from "./VM7AnalysisReport";
 
 const tabs = [
-  { key: "video", label: "Video", icon: Video, component: VM1VideoLibrary },
-  {
-    key: "analyze",
-    label: "Analyze",
-    icon: Sparkles,
-    component: VM5AnalyzeVideo,
-  },
   {
     key: "cognitive",
     label: "Memories",
     icon: Brain,
     component: VM6CognitiveSync,
   },
+  {
+    key: "analyze",
+    label: "Analyze",
+    icon: Sparkles,
+    component: VM5AnalyzeVideo,
+  },
+  { key: "video", label: "Video", icon: Video, component: VM1VideoLibrary },
   {
     key: "report",
     label: "Report",
@@ -41,7 +41,7 @@ const tabs = [
 ] as const;
 
 export default function VMDashboard() {
-  const [activeTab, setActiveTab] = useState<string>("video");
+  const [activeTab, setActiveTab] = useState<string>("cognitive");
 
   const ActiveComponent =
     tabs.find((t) => t.key === activeTab)?.component ?? VM1VideoLibrary;

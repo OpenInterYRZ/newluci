@@ -47,14 +47,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-3 pt-3 pb-1.5">
-          <span
-            className="font-normal text-[#999]"
-            style={{ fontSize: "calc(var(--phone-chat-fs) - 3px)" }}
-          >
-            Actions
-          </span>
-        </div>
+        <div className="flex items-center justify-between px-3 pt-3 pb-1.5"></div>
 
         {/* Question */}
         <div className="px-3 pb-2">
@@ -62,7 +55,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
             className="font-semibold text-[#333]"
             style={{ fontSize: "var(--phone-chat-fs)" }}
           >
-            What are you planning next?
+            What are my priorities today?
           </span>
         </div>
 
@@ -70,15 +63,38 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         <div className="flex flex-col gap-px px-2 pb-2.5">
           {OPTIONS.map((opt, i) => {
             const isSelected = selectedIndex === i;
+            const showHint = selectedIndex === null && i === 0;
             return (
-              <div
+              <motion.div
                 key={i}
                 onClick={() => handleSelect(i)}
-                className="flex cursor-pointer text-text-2 items-center gap-2.5 rounded-lg px-2 py-1 transition-colors  hover:text-text-0"
+                animate={
+                  showHint
+                    ? {
+                        backgroundColor: [
+                          "rgba(255, 140, 0, 0)",
+                          "rgba(255, 140, 0, 0.08)",
+                          "rgba(255, 140, 0, 0)",
+                        ],
+                      }
+                    : {
+                        backgroundColor: isSelected
+                          ? "rgba(255, 140, 0, 0.08)"
+                          : "rgba(255, 140, 0, 0)",
+                      }
+                }
+                transition={
+                  showHint
+                    ? {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1,
+                      }
+                    : { duration: 0.2 }
+                }
+                className="flex cursor-pointer text-text-2 items-center gap-2.5 rounded-lg px-2 py-1 transition-colors hover:text-text-0"
                 style={{
-                  background: isSelected
-                    ? "rgba(255, 140, 0, 0.08)"
-                    : "transparent",
                   color: isSelected ? "text-text-0" : "text-text-2",
                 }}
               >
@@ -96,7 +112,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
                 >
                   {opt}
                 </span>
-              </div>
+              </motion.div>
             );
           })}
         </div>

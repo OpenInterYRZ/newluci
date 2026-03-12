@@ -16,7 +16,7 @@ const rows = [
   {
     feature: "Finding references",
     before:
-      "\"Someone said something brilliant…\" Then an hour of scrolling to track it down.",
+      '"Someone said something brilliant…" Then an hour of scrolling to track it down.',
     after:
       "Fuzzy search. Three seconds. Pinpointed to the exact minute in the source video.",
   },
@@ -38,13 +38,13 @@ const rows = [
 
 export default function BeforeAfter() {
   return (
-    <section className="w-full bg-[#f6f5f3]">
+    <section className="w-full">
       <div className="max-w-[1200px] mx-auto px-6 md:px-20 py-20 md:py-32">
         {/* Header */}
         <h2 className="text-[28px] md:text-[44px] font-semibold leading-tight text-text-0 text-center mb-16 md:mb-20">
           The workflow comparison
           <br />
-          <span className="text-text-3">you&apos;ll feel instantly</span>
+          you&apos;ll feel instantly
         </h2>
 
         {/* Table */}
@@ -58,8 +58,19 @@ export default function BeforeAfter() {
               <div className="py-5 px-7 rounded-t-[16px] bg-[#eeedeb]">
                 <div className="flex items-center gap-3">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#dddcd9]">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-text-2">
-                      <path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      className="text-text-2"
+                    >
+                      <path
+                        d="M2.5 2.5l7 7M9.5 2.5l-7 7"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </span>
                   <span className="text-[14px] font-semibold text-text-1 tracking-[-0.01em]">
@@ -70,8 +81,20 @@ export default function BeforeAfter() {
               <div className="py-5 px-7 rounded-t-[16px] bg-brand-0">
                 <div className="flex items-center gap-3">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-2">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-primary">
-                      <path d="M2.5 6.5L5 9l4.5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      className="text-primary"
+                    >
+                      <path
+                        d="M2.5 6.5L5 9l4.5-6"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </span>
                   <span className="text-[14px] font-semibold text-text-0 tracking-[-0.01em]">

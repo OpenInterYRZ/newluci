@@ -58,9 +58,9 @@ const useCasePersonas: NavItemData[] = [
     icon: <Lightbulb className="h-4 w-4" />,
   },
   {
-    label: "Privacy-First Users",
-    href: "/use-cases/privacy",
-    desc: "Own your data, private VM, full control",
+    label: "Founders",
+    href: "/use-cases/founders",
+    desc: "Never lose client context, keep your lean team aligned",
     icon: <Shield className="h-4 w-4" />,
   },
 ];
@@ -232,7 +232,7 @@ export default function Navbar() {
 
   /* ── Dropdown width per tab ── */
   const dropdownWidth: Record<string, string> = {
-    usecases: "w-[680px]",
+    usecases: "w-[520px]",
     features: "w-[760px]",
     resources: "w-[520px]",
     about: "w-[440px]",
@@ -290,7 +290,7 @@ export default function Navbar() {
 
         {/* Right Side Actions — absolute */}
         <div className="absolute right-5 top-1/2 hidden -translate-y-1/2 items-center gap-3 md:flex">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
           <Link
             href="/download"
@@ -335,26 +335,34 @@ export default function Navbar() {
             {nav.key === "usecases" && (
               <>
                 <div className="flex gap-6">
+                  {/* Left — Highlight card */}
+                  <div className="w-[180px] shrink-0 flex flex-col justify-between rounded-xl bg-grey-0 border border-grey-1 p-4">
+                    <div>
+                      <Users className="h-5 w-5 text-primary mb-2" />
+                      <h3 className="text-[14px] font-semibold text-text-0 leading-snug">
+                        Built for how you actually work
+                      </h3>
+                      <p className="mt-1.5 text-[12px] leading-snug text-text-2">
+                        Pick your role and see what LUCI can do for you.
+                      </p>
+                    </div>
+                    <Link
+                      href="/use-cases"
+                      onClick={closeDropdown}
+                      className="mt-4 flex items-center gap-1 text-[12px] font-medium text-primary hover:underline"
+                    >
+                      All use cases
+                      <ArrowUpRight className="h-3 w-3" />
+                    </Link>
+                  </div>
                   {/* Right — Persona list */}
                   <div className="flex-1">
-                    <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">
-                      Who is LUCI for?
-                    </h3>
                     <div className="flex flex-col gap-0.5">
                       {useCasePersonas.map((item) => (
                         <IconLink key={item.href} item={item} />
                       ))}
                     </div>
                   </div>
-                </div>
-                <div className="mt-5 flex gap-4">
-                  <Link
-                    href="/use-cases"
-                    onClick={closeDropdown}
-                    className="flex-1 rounded-xl border border-grey-1 py-2.5 text-center text-[13px] font-medium text-text-0 transition-colors duration-150 hover:bg-grey-0"
-                  >
-                    See all use cases
-                  </Link>
                 </div>
               </>
             )}
