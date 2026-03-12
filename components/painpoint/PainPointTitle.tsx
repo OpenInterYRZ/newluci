@@ -91,6 +91,7 @@ export default function PainPointTitle() {
   return (
     <section
       ref={sectionRef}
+      data-navbar-dark
       className="relative w-full pt-16 md:pt-24 px-5 md:px-20"
       style={{ background: "#0a0a0f" }}
     >

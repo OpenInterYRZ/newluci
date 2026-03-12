@@ -61,7 +61,7 @@ function ActionItem({
   done?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-3.5">
+    <div className="flex items-center gap-3">
       {/* Checkbox */}
       <div
         className={`shrink-0 w-5 h-5 rounded flex items-center justify-center transition-colors ${
@@ -152,7 +152,7 @@ export default function VM7AnalysisReport() {
 
         {/* ── Action Items Card ── */}
         <div
-          className="flex flex-col gap-5 rounded-2xl border p-4"
+          className="flex flex-col gap-3 rounded-2xl border p-4"
           style={{
             background: "linear-gradient(180deg, #FAF5EE 0%, #FEFCFA 100%)",
             borderColor: "#EDE5DA",

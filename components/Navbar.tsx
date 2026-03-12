@@ -148,10 +148,29 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkSection, setIsDarkSection] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const NAVBAR_H = 56; // h-14 = 56px
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
+
+      // Check if navbar overlaps any dark section
+      const darkSections = document.querySelectorAll("[data-navbar-dark]");
+      let inDark = false;
+      darkSections.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        // Section top is above navbar bottom AND section bottom is below navbar top
+        if (rect.top < NAVBAR_H && rect.bottom > 0) {
+          inDark = true;
+        }
+      });
+      setIsDarkSection(inDark);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -191,7 +210,7 @@ export default function Navbar() {
     <Link
       href={item.href}
       onClick={closeDropdown}
-      className="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors duration-150 hover:bg-grey-0"
+      className="flex items-start gap-3 rounded-lg py-2.5 transition-colors duration-150 hover:bg-grey-0"
     >
       {item.icon && (
         <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-grey-1 bg-grey-0 text-text-2">
@@ -221,13 +240,16 @@ export default function Navbar() {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isDarkSection ? "nav-dark" : ""
+      } ${
         activeDropdown || scrolled
-          ? "bg-web-bg-0/80 backdrop-blur-2xl border-b border-grey-1"
+          ? "bg-web-bg-0 border-b border-grey-1"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-14 max-w-[1300px] items-center justify-between px-5 lg:px-5">
+      <div className="relative mx-auto flex h-14 max-w-[1300px] items-center justify-between px-5 lg:px-5">
         {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
@@ -235,19 +257,19 @@ export default function Navbar() {
             alt="LUCI"
             width={80}
             height={30}
-            className="block dark:hidden"
+            className={`dark:hidden transition-opacity duration-300 ${isDarkSection ? "hidden" : "block"}`}
           />
           <Image
             src="/lucilogo.svg"
             alt="LUCI"
             width={80}
             height={30}
-            className="hidden dark:block"
+            className={`hidden dark:block transition-opacity duration-300 ${isDarkSection ? "!block" : ""}`}
           />
         </Link>
 
-        {/* Desktop Center Nav — pill style */}
-        <div className="hidden md:flex items-center">
+        {/* Desktop Center Nav — pill style, 居中 */}
+        <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:flex items-center">
           <div className="flex items-center gap-1">
             {navItems.map((item) => (
               <button
@@ -266,8 +288,8 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Right Side Actions */}
-        <div className="hidden items-center gap-3 md:flex">
+        {/* Right Side Actions — absolute */}
+        <div className="absolute right-5 top-1/2 hidden -translate-y-1/2 items-center gap-3 md:flex">
           <ThemeToggle />
           <Link
             href="/"
@@ -318,41 +340,6 @@ export default function Navbar() {
             {nav.key === "usecases" && (
               <>
                 <div className="flex gap-6">
-                  {/* Left — Two product cards stacked */}
-                  <div className="w-[220px] shrink-0 flex flex-col gap-3">
-                    <Link
-                      href="/cloud"
-                      onClick={closeDropdown}
-                      className="relative h-[100px] overflow-hidden rounded-xl border border-grey-1"
-                    >
-                      <Image
-                        src="/luci-cloud.png"
-                        alt="LUCI Cloud"
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40" />
-                      <span className="absolute bottom-3 left-4 text-[14px] font-semibold text-white">
-                        LUCI Cloud
-                      </span>
-                    </Link>
-                    <Link
-                      href="/desktop"
-                      onClick={closeDropdown}
-                      className="relative h-[100px] overflow-hidden rounded-xl border border-grey-1"
-                    >
-                      <Image
-                        src="/luci-desktop.png"
-                        alt="LUCI Desktop"
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40" />
-                      <span className="absolute bottom-3 left-4 text-[14px] font-semibold text-white">
-                        LUCI Desktop
-                      </span>
-                    </Link>
-                  </div>
                   {/* Right — Persona list */}
                   <div className="flex-1">
                     <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">

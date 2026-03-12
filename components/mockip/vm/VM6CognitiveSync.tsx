@@ -119,7 +119,7 @@ export default function VM6CognitiveSync() {
               <span
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Pending Memories
+                Personal Memories
               </span>
             </h1>
           </div>

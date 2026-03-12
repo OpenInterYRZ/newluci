@@ -13,6 +13,7 @@ import {
 } from "simple-icons";
 import { LuciCenter } from "./LuciCenter";
 import { ClientTimelineDashboard } from "../cards/ClientTimelineDashboard";
+import FeatureCards from "./ProductCarousel";
 import DotGrid from "../ui/DotGrid";
 import { NotionNotesCard } from "../cards/NotionNotesCard";
 import { ZoomMeetingCard } from "../cards/ZoomMeetingCard";
@@ -408,6 +409,7 @@ export default function PainPointsSection() {
   const toolRefs = useRef<(HTMLDivElement | null)[]>([]);
   const scatteredCardsRef = useRef<HTMLDivElement>(null);
   const sortsTextRef = useRef<HTMLDivElement>(null);
+  const clarityTextRef = useRef<HTMLDivElement>(null);
 
   // Scale the inner layout container based on viewport height
   const DESIGN_H = 1200;
@@ -462,16 +464,16 @@ export default function PainPointsSection() {
               upperPulseTweens.forEach((tw) => tw.pause());
               if (upperPulseEls) gsap.set(upperPulseEls, { opacity: 0 });
             }
-            // Lower pulse: active when progress >= 0.67 (shifted from 0.57)
-            if (p >= 0.67 && !lowerPulseActive) {
-              lowerPulseActive = true;
-              if (lowerPulseEl) gsap.set(lowerPulseEl, { opacity: 0.9 });
-              lowerPulseTween?.play();
-            } else if (p < 0.67 && lowerPulseActive) {
-              lowerPulseActive = false;
-              lowerPulseTween?.pause();
-              if (lowerPulseEl) gsap.set(lowerPulseEl, { opacity: 0 });
-            }
+            // Lower pulse: disabled (lower wiring commented out)
+            // if (p >= 0.67 && !lowerPulseActive) {
+            //   lowerPulseActive = true;
+            //   if (lowerPulseEl) gsap.set(lowerPulseEl, { opacity: 0.9 });
+            //   lowerPulseTween?.play();
+            // } else if (p < 0.67 && lowerPulseActive) {
+            //   lowerPulseActive = false;
+            //   lowerPulseTween?.pause();
+            //   if (lowerPulseEl) gsap.set(lowerPulseEl, { opacity: 0 });
+            // }
           },
         },
       });
@@ -710,63 +712,84 @@ export default function PainPointsSection() {
 
       tl.to(processingRef.current, { opacity: 0, duration: 0.05 }, 0.62);
 
-      const lowerPath = svgRef.current?.querySelector(
-        ".lower-path",
-      ) as SVGPathElement | null;
-      const lowerPulse = svgRef.current?.querySelector(
-        ".lower-pulse",
-      ) as SVGPathElement | null;
-      if (lowerPath) {
-        const len = lowerPath.getTotalLength();
-        gsap.set(lowerPath, {
-          strokeDasharray: len,
-          strokeDashoffset: len,
-          opacity: 1,
-        });
-        tl.to(
-          lowerPath,
-          {
-            strokeDashoffset: 0,
-            duration: 0.12,
-            ease: "power2.out",
-          },
-          0.55,
-        );
-      }
-      // Set up lower data pulse (paused, controlled by ScrollTrigger progress)
-      lowerPulseEl = lowerPulse;
-      if (lowerPulse) {
-        const len = lowerPulse.getTotalLength();
-        gsap.set(lowerPulse, {
-          strokeDasharray: `${PULSE_DOT} ${len}`,
-          strokeDashoffset: 0,
-          opacity: 0,
-        });
-        lowerPulseTween = gsap.to(lowerPulse, {
-          strokeDashoffset: -(len + PULSE_DOT),
-          duration: 1.5,
-          ease: "none",
-          repeat: -1,
-          paused: true,
-        });
-      }
+      // const lowerPath = svgRef.current?.querySelector(
+      //   ".lower-path",
+      // ) as SVGPathElement | null;
+      // const lowerPulse = svgRef.current?.querySelector(
+      //   ".lower-pulse",
+      // ) as SVGPathElement | null;
+      // if (lowerPath) {
+      //   const len = lowerPath.getTotalLength();
+      //   gsap.set(lowerPath, {
+      //     strokeDasharray: len,
+      //     strokeDashoffset: len,
+      //     opacity: 1,
+      //   });
+      //   tl.to(
+      //     lowerPath,
+      //     {
+      //       strokeDashoffset: 0,
+      //       duration: 0.12,
+      //       ease: "power2.out",
+      //     },
+      //     0.55,
+      //   );
+      // }
+      // // Set up lower data pulse (paused, controlled by ScrollTrigger progress)
+      // lowerPulseEl = lowerPulse;
+      // if (lowerPulse) {
+      //   const len = lowerPulse.getTotalLength();
+      //   gsap.set(lowerPulse, {
+      //     strokeDasharray: `${PULSE_DOT} ${len}`,
+      //     strokeDashoffset: 0,
+      //     opacity: 0,
+      //   });
+      //   lowerPulseTween = gsap.to(lowerPulse, {
+      //     strokeDashoffset: -(len + PULSE_DOT),
+      //     duration: 1.5,
+      //     ease: "none",
+      //     repeat: -1,
+      //     paused: true,
+      //   });
+      // }
 
-      /* ── Phase 4 (70–85%): Category cards ── */
+      /* ── Phase 4 (55–90%): Hide wiring/LUCI/icons → show h2 + cards ── */
+
+      // Fade out tool icons row
+      toolRefs.current.forEach((toolEl) => {
+        if (!toolEl) return;
+        tl.to(toolEl, { opacity: 0, duration: 0.06, ease: "power2.in" }, 0.55);
+      });
+
+      // Fade out SVG wiring
+      tl.to(
+        svgRef.current,
+        { opacity: 0, duration: 0.06, ease: "power2.in" },
+        0.55,
+      );
+
+      // Fade out LUCI + processing
+      tl.to(
+        luciRef.current,
+        { opacity: 0, scale: 0.8, duration: 0.06, ease: "power2.in" },
+        0.55,
+      );
+      tl.to(processingRef.current, { opacity: 0, duration: 0.04 }, 0.55);
+
+      // Fade in h2 "From chaos to clarity."
+      tl.fromTo(
+        clarityTextRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.08, ease: "power2.out" },
+        0.63,
+      );
+
+      // Fade in cards
       tl.fromTo(
         cardsRef.current,
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.15, ease: "power2.out" },
-        0.7,
-      );
-
-      tl.to(
-        luciRef.current,
-        {
-          boxShadow:
-            "0 0 60px rgba(255,92,0,0.2), 0 0 120px rgba(255,92,0,0.08)",
-          duration: 0.1,
-        },
-        0.8,
+        { opacity: 1, y: 0, duration: 0.1, ease: "power2.out" },
+        0.67,
       );
     }, section);
 
@@ -782,8 +805,9 @@ export default function PainPointsSection() {
   return (
     <section
       ref={sectionRef}
+      data-navbar-dark
       className="relative w-full"
-      style={{ height: "350vh", background: "#0a0a0f" }}
+      style={{ height: "500vh", background: "#0a0a0f" }}
     >
       <div
         ref={pinnedRef}
@@ -791,7 +815,7 @@ export default function PainPointsSection() {
         style={{ background: "#0a0a0f" }}
       >
         {/* ── Dot Grid Background ── */}
-        <div className="absolute inset-0 z-0 opacity-30">
+        {/* <div className="absolute inset-0 z-0 opacity-30">
           <DotGrid
             dotSize={2}
             gap={11}
@@ -803,7 +827,7 @@ export default function PainPointsSection() {
             resistance={1350}
             returnDuration={1.8}
           />
-        </div>
+        </div> */}
 
         {/* ── Scaled inner container (fixed 900px design height) ── */}
         <div
@@ -913,23 +937,23 @@ export default function PainPointsSection() {
             ))}
 
             {/* Lower wiring: single line from LUCI straight down */}
-            <path
+            {/* <path
               className="lower-path"
               d={buildLowerPath()}
               stroke={LINE_COLOR}
               strokeWidth={LINE_W}
               strokeLinecap="butt"
               opacity={0}
-            />
+            /> */}
             {/* Lower data pulse overlay */}
-            <path
+            {/* <path
               className="lower-pulse"
               d={buildLowerPath()}
               stroke={PULSE_COLOR}
               strokeWidth={PULSE_W}
               strokeLinecap="butt"
               opacity={0}
-            />
+            /> */}
           </svg>
 
           {/* ── LUCI Center ── */}
@@ -958,13 +982,30 @@ export default function PainPointsSection() {
             </span>
           </div>
 
-          {/* ── Client Timeline Dashboard ── */}
+          {/* ── "From chaos to clarity." h2 ── */}
+          <div
+            ref={clarityTextRef}
+            className="absolute z-30 left-1/2 -translate-x-1/2 pointer-events-none"
+            style={{ opacity: 0, top: "22%" }}
+          >
+            <h2
+              className="text-white font-extrabold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.15] text-center"
+              style={{ fontFamily: "var(--font-manrope, Manrope), sans-serif" }}
+            >
+              From chaos to clarity.
+            </h2>
+            <p className="text-white text-base mt-6 font-[family-name:var(--font-manrope,Manrope)]">
+              Your tools are siloed. LUCI connects them so nothing falls through
+              the cracks.
+            </p>
+          </div>
+
+          {/* ── Feature Cards ── */}
           <div
             ref={cardsRef}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20"
-            style={{ opacity: 0, transform: "scale(0.65)" }}
+            className="absolute bottom-50 left-1/2 -translate-x-1/2 z-20 w-[90%] max-w-[1200px]"
           >
-            <ClientTimelineDashboard />
+            <FeatureCards />
           </div>
         </div>
       </div>

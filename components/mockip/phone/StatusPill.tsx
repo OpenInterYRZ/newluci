@@ -26,7 +26,7 @@ export function StatusPill({
   return (
     <span style={{ fontFamily: "Manrope, sans-serif", fontSize: "calc(var(--phone-chat-fs) - 2px)" }}>
       {resolved ? (
-        <span className="font-medium text-[#555555]">{resolvedText}</span>
+        <span className="font-medium text-text-2">{resolvedText}</span>
       ) : (
         <ShinyText
           text={text}

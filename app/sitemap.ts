@@ -4,7 +4,14 @@ import {getAllSlugs} from '@/lib/blog';
 
 const baseUrl = 'https://luci.com';
 
-const pages = ['', '/gradient-demo', '/light-demo', '/sre'];
+const pages = [
+  '',
+  '/gradient-demo',
+  '/light-demo',
+  '/sre',
+  '/privacy-policy',
+  '/terms-of-service',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pageEntries = pages.flatMap((page) =>

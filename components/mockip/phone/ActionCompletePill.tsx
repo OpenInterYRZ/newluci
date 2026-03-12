@@ -15,7 +15,7 @@ export function ActionCompletePill({
       }}
     >
       <span
-        className="font-medium tracking-[0.2px] text-[#555555]"
+        className="font-medium tracking-[0.2px] text-text-2"
         style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
       >
         {label}

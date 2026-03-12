@@ -41,7 +41,9 @@ export function PhoneChatScreen() {
   const [pickerDismissed, setPickerDismissed] = useState(false);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [phase3Count, setPhase3Count] = useState(0);
-  const [extraMessages, setExtraMessages] = useState<{ afterIndex: number; node: ReactNode }[]>([]);
+  const [extraMessages, setExtraMessages] = useState<
+    { afterIndex: number; node: ReactNode }[]
+  >([]);
   const [inputValue, setInputValue] = useState("");
   const [isSending, setIsSending] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -83,8 +85,12 @@ export function PhoneChatScreen() {
   }, []);
 
   const getScriptedCount = useCallback(() => {
-    const visibleP12 = phase12Messages.filter((m, i) => i < phase12Count && m !== null).length;
-    const visibleP3 = pickerDismissed ? Math.min(phase3Count, phase3Messages.length) : 0;
+    const visibleP12 = phase12Messages.filter(
+      (m, i) => i < phase12Count && m !== null,
+    ).length;
+    const visibleP3 = pickerDismissed
+      ? Math.min(phase3Count, phase3Messages.length)
+      : 0;
     return visibleP12 + visibleP3;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase12Count, phase3Count, pickerDismissed]);
@@ -100,7 +106,10 @@ export function PhoneChatScreen() {
 
     setExtraMessages((prev) => [
       ...prev,
-      { afterIndex: insertAt, node: <UserBubble key={`user-extra-${prev.length}`} text={text} /> },
+      {
+        afterIndex: insertAt,
+        node: <UserBubble key={`user-extra-${prev.length}`} text={text} />,
+      },
     ]);
 
     setTimeout(() => {
@@ -241,22 +250,36 @@ export function PhoneChatScreen() {
     <div className="flex h-full w-full flex-col overflow-hidden bg-white text-left">
       {/* ── Chat Header ── */}
       <div
-        className="flex shrink-0 items-center gap-2 border-b border-black/[0.04] bg-white px-4 py-2"
-        style={{ height: 44 }}
+        className="flex shrink-0 items-center gap-2.5 border-b border-black/[0.04] py-1  px-4"
+        style={{ height: 44, fontFamily: "Manrope, sans-serif" }}
       >
-        <div className="flex flex-1 flex-col gap-[1px]">
+        {/* Avatar */}
+        <div
+          className="relative flex shrink-0 items-center justify-center rounded-full"
+          style={{
+            width: 28,
+            height: 28,
+            background: "linear-gradient(135deg, #FF6B1A 0%, #FF8C00 100%)",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/lucilogo.svg" alt="" style={{ width: 18, height: 18 }} />
+          {/* Online dot */}
           <span
-            className="text-xs font-bold text-[#1A1A1A]"
-            style={{ fontFamily: "Manrope, sans-serif" }}
-          >
+            className="absolute right-0 bottom-0 block rounded-full border-[1.5px] border-white"
+            style={{
+              width: 8,
+              height: 8,
+              background: "#34C759",
+            }}
+          />
+        </div>
+        {/* Name + status */}
+        <div className="flex flex-1 flex-col gap-[1px]">
+          <span className="text-base font-bold tracking-[0.3px] text-text-0">
             LUCI
           </span>
-          <span
-            className="text-[8px] font-medium text-[#34C759]"
-            style={{ fontFamily: "Manrope, sans-serif" }}
-          >
-            Online
-          </span>
+          <span className="text-xs font-medium text-text-2">Online</span>
         </div>
       </div>
 
@@ -264,7 +287,7 @@ export function PhoneChatScreen() {
       <div
         ref={scrollAreaRef}
         data-lenis-prevent
-        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-4 pl-5 py-4 phone-scroll"
+        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-4 pl-4 py-4 phone-scroll"
         style={{
           background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)",
         }}
@@ -347,12 +370,7 @@ export function PhoneChatScreen() {
             background: "linear-gradient(135deg, #FF8C00 0%, #FFa030 100%)",
           }}
         >
-          <ArrowUp
-            size={16}
-            strokeWidth={2.5}
-            className="text-white"
-            style={{ transform: "rotate(45deg)" }}
-          />
+          <ArrowUp size={16} strokeWidth={2.5} className="text-white" />
         </button>
       </div>
     </div>

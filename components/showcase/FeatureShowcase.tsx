@@ -67,10 +67,6 @@ export default function FeatureShowcase() {
             LUCI sees your workflow, remembers the context, and acts (so you
             don&apos;t have to).
           </p>
-          <button className="flex items-center gap-2 px-6 py-3 rounded-full border border-text-1 text-text-0 text-sm w-fit mt-2 hover:border-text-2 transition-colors cursor-pointer">
-            Contact sales
-            <ArrowUpRight size={16} />
-          </button>
         </div>
 
         {/* Cards Row */}

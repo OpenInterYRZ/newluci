@@ -4,9 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const OPTIONS = [
-  "Analyze meeting videos",
-  "Follow up on tasks",
-  "Prepare next meeting",
+  "Analyze yesterday's meeting videos",
+  "Follow up on remaining tasks",
+  "Prepare for tomorrow's meeting",
 ];
 
 interface QuickActionPickerProps {
@@ -47,7 +47,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-3.5 pt-3 pb-1.5">
+        <div className="flex items-center justify-between px-3 pt-3 pb-1.5">
           <span
             className="font-normal text-[#999]"
             style={{ fontSize: "calc(var(--phone-chat-fs) - 3px)" }}
@@ -57,12 +57,12 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         </div>
 
         {/* Question */}
-        <div className="px-3.5 pb-2">
+        <div className="px-3 pb-2">
           <span
             className="font-semibold text-[#333]"
             style={{ fontSize: "var(--phone-chat-fs)" }}
           >
-            What should I work on?
+            What are you planning next?
           </span>
         </div>
 
@@ -74,15 +74,16 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
               <div
                 key={i}
                 onClick={() => handleSelect(i)}
-                className="flex cursor-pointer items-center gap-2.5 rounded-lg px-2.5 py-1 transition-colors hover:bg-[#F5F5F5]"
+                className="flex cursor-pointer text-text-2 items-center gap-2.5 rounded-lg px-2 py-1 transition-colors  hover:text-text-0"
                 style={{
                   background: isSelected
                     ? "rgba(255, 140, 0, 0.08)"
                     : "transparent",
+                  color: isSelected ? "text-text-0" : "text-text-2",
                 }}
               >
                 <span
-                  className="shrink-0 text-[#999]"
+                  className="shrink-0"
                   style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
                 >
                   {i + 1}.
@@ -91,7 +92,6 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
                   className="font-normal"
                   style={{
                     fontSize: "calc(var(--phone-chat-fs) - 1px)",
-                    color: isSelected ? "#FF8C00" : "#555",
                   }}
                 >
                   {opt}
@@ -103,7 +103,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
 
         {/* Footer */}
         <div
-          className="flex items-center justify-end gap-3 px-3.5 py-2"
+          className="flex items-center justify-end gap-3 px-3 py-2"
           style={{ borderTop: "1px solid #F0F0F0" }}
         >
           <span

@@ -49,16 +49,16 @@ export default function VMDashboard() {
   return (
     <div className="flex h-full w-full flex-col bg-web-bg-0">
       {/* VSCode-style tab bar */}
-      <div className="flex shrink-0 items-end bg-web-bg-0 overflow-x-auto">
+      <div className="flex shrink-0 items-end bg-web-bg-0 overflow-x-auto pl-1">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.key;
           return (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`group relative flex items-center gap-1.5 px-3 py-[7px] text-[11px] font-medium  transition-colors select-none ${
+              className={`group relative flex items-center gap-1.5 px-3 py-[7px] text-xs font-medium  transition-colors select-none ${
                 isActive
-                  ? "bg-web-bg-0 text-text-0"
+                  ? "bg-[#F7F6F3] text-text-0"
                   : "bg-web-bg-0 text-text-2 hover:bg-web-bg-0/80"
               }`}
               style={{ minWidth: 0 }}

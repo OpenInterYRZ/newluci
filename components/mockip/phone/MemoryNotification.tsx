@@ -1,6 +1,7 @@
 "use client";
 
-import { Gem, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { Gem, ChevronDown, Check, Undo2 } from "lucide-react";
 
 interface MemoryNotificationProps {
   title?: string;
@@ -13,6 +14,7 @@ export function MemoryNotification({
   body = "I believe that at this stage, while AI-assisted development has reduced repetitive CRUD work, frequent context switching has significantly increased cognitive load.",
   collapsed = false,
 }: MemoryNotificationProps) {
+  const [status, setStatus] = useState<"idle" | "accepted" | "undone">("idle");
   if (collapsed) {
     return (
       <div
@@ -68,18 +70,45 @@ export function MemoryNotification({
 
       {/* Buttons */}
       <div className="flex w-full gap-2.5">
-        <button
-          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-grey-2 bg-white font-semibold tracking-[0.5px] text-text-2"
-          style={{ fontSize: "var(--phone-chat-fs-sm)" }}
-        >
-          UNDO
-        </button>
-        <button
-          className="flex h-9 flex-1 items-center justify-center rounded-lg border border-grey-2 bg-white font-semibold tracking-[0.5px] text-text-0"
-          style={{ fontSize: "var(--phone-chat-fs-sm)" }}
-        >
-          ACCEPT
-        </button>
+        {status === "idle" ? (
+          <>
+            <button
+              onClick={() => setStatus("undone")}
+              className="flex h-9 flex-1 items-center justify-center rounded-lg border border-grey-2 bg-white font-semibold tracking-[0.5px] text-text-2 transition-all duration-200 hover:border-grey-3 hover:bg-grey-1 hover:text-text-1 active:scale-[0.98]"
+              style={{ fontSize: "var(--phone-chat-fs-sm)" }}
+            >
+              UNDO
+            </button>
+            <button
+              onClick={() => setStatus("accepted")}
+              className="flex h-9 flex-1 items-center justify-center rounded-lg border border-grey-2 bg-white font-semibold tracking-[0.5px] text-text-0 transition-all duration-200 hover:border-primary hover:bg-primary-light-default hover:text-primary active:scale-[0.98]"
+              style={{ fontSize: "var(--phone-chat-fs-sm)" }}
+            >
+              ACCEPT
+            </button>
+          </>
+        ) : (
+          <div
+            className="flex h-9 w-full items-center justify-center gap-1.5 rounded-lg font-semibold tracking-[0.5px]"
+            style={{
+              fontSize: "var(--phone-chat-fs-sm)",
+              background: status === "accepted" ? "#E8F5E9" : "#FFF3E0",
+              color: status === "accepted" ? "#2E7D32" : "#E65100",
+            }}
+          >
+            {status === "accepted" ? (
+              <>
+                <Check size={14} />
+                ACCEPTED
+              </>
+            ) : (
+              <>
+                <Undo2 size={14} />
+                UNDONE
+              </>
+            )}
+          </div>
+        )}
       </div>
 
       {/* View link */}

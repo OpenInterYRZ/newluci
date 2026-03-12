@@ -77,9 +77,7 @@ export default function ProductShowcase() {
                 <PhoneChatScreen />
               </div>
               {/* Home indicator */}
-              <div className="shrink-0 flex justify-center pb-2 pt-1 bg-white">
-                <div className="w-[120px] h-[5px] bg-black/20 rounded-full" />
-              </div>
+              <div className="shrink-0 flex justify-center pb-2 pt-1 bg-white"></div>
             </div>
           </Rnd>
 
@@ -102,7 +100,7 @@ export default function ProductShowcase() {
               });
             }}
             bounds="parent"
-            minWidth={500}
+            minWidth={700}
             minHeight={350}
             maxWidth={1000}
             maxHeight={680}
@@ -111,18 +109,26 @@ export default function ProductShowcase() {
             style={{ zIndex: topWindow === "desktop" ? 20 : 10 }}
             className="rounded-2xl shadow-xl"
           >
-            <div className="flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-black/5">
+            <div className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-black/5">
               {/* 窗口标题栏 - 拖拽把手 */}
-              <div className="drag-handle flex items-center gap-2 px-4 bg-[#f8f8f8] border-b border-black/5 cursor-grab active:cursor-grabbing select-none shrink-0">
-                <div className="flex gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                  <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-                  <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+              <div className="drag-handle flex items-center px-4 bg-[#f8f8f8] border-b border-black/5 cursor-grab active:cursor-grabbing select-none shrink-0">
+                <div className="flex-1 flex items-center gap-1.5 min-w-0">
+                  <span className="w-3 h-3 rounded-full bg-[#FF5F57] shrink-0" />
+                  <span className="w-3 h-3 rounded-full bg-[#FEBC2E] shrink-0" />
+                  <span className="w-3 h-3 rounded-full bg-[#28C840] shrink-0" />
                 </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="flex items-center gap-2 bg-white rounded-md px-3 py-1 border border-black/5">
-                    <span className="text-xs text-[#999]">app.luci.ai</span>
+                <div className="shrink-0">
+                  <div className="flex items-center rounded-md px-3 py-2">
+                    <span className="text-xs text-text-2">LUCI Desktop</span>
                   </div>
+                </div>
+                <div className="flex-1 flex justify-end min-w-0">
+                  <a
+                    href="/download"
+                    className="text-xs text-text-2 hover:text-text-0 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+                  >
+                    Download LUCI
+                  </a>
                 </div>
               </div>
               {/* 内容 */}

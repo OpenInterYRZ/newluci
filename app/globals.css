@@ -167,6 +167,24 @@
   --nav-btn2: #f7f7f7;
   --nav-btn2-hover: #ffffff;
 
+}
+
+/* Navbar dark override — applied via JS when scrolling over dark sections */
+.nav-dark {
+  --bg-0: #0a0a0f;
+  --web-bg-0: #0a0a0f;
+  --text-0: #eeedef;
+  --text-1: rgba(249, 249, 249, 0.8);
+  --text-2: rgba(249, 249, 249, 0.6);
+  --grey-0: #201f26;
+  --grey-1: #32313b;
+  --nav-btn1: #303030;
+  --nav-btn1-hover: #222222;
+  --nav-btn2: #f7f7f7;
+  --nav-btn2-hover: #ffffff;
+}
+
+.dark {
   /* PainPoint window tokens — dark mode */
   --win-bg: #1e1e1e;
   --win-border: #333333;
@@ -564,4 +582,26 @@
 }
 .phone-scroll:hover::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3);
+}
+
+/* Thin scrollbar for dark backgrounds */
+.dark-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+.dark-scroll:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+.dark-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+.dark-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dark-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.dark-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
 }

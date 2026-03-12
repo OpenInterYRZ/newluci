@@ -3,7 +3,7 @@
 const MEETINGS = [
   {
     name: "Product Demo Recording",
-    duration: "5 min",
+    duration: "45 min",
     color: "#FF8C00",
     points: [
       "v2.4 features demoed: smart search, batch exports, onboarding flow",
@@ -13,7 +13,7 @@ const MEETINGS = [
   },
   {
     name: "Weekly All-Hands",
-    duration: "12 min",
+    duration: "58 min",
     color: "#4A6CF7",
     points: [
       "Series B closed — $42M led by Accel, 30-month runway",
@@ -23,7 +23,7 @@ const MEETINGS = [
   },
   {
     name: "Design Review — Mobile",
-    duration: "8 min",
+    duration: "37 min",
     color: "#34C759",
     points: [
       "Bottom tab bar reduced from 5 to 4 tabs with adaptive icons",
@@ -37,13 +37,13 @@ export function MeetingSummaryCard() {
   return (
     <div className="flex w-full justify-start">
       <div
-        className="flex max-w-[270px] flex-col"
+        className="flex flex-col"
         style={{
           fontFamily: "Manrope, sans-serif",
         }}
       >
         <span
-          className="mb-2.5 font-semibold text-[#333]"
+          className="mb-2.5 font-semibold text-text-0"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
           Yesterday&apos;s Meeting Summary
@@ -58,14 +58,20 @@ export function MeetingSummaryCard() {
                 fontSize: "calc(var(--phone-chat-fs) - 2px)",
               }}
             >
-              <span className="font-semibold text-[#333]" style={{ fontSize: "var(--phone-chat-fs)" }}>
+              <span
+                className="font-semibold text-text-0"
+                style={{ fontSize: "var(--phone-chat-fs)" }}
+              >
                 {m.name} · {m.duration}
               </span>
               {m.points.map((p, i) => (
-                <span key={i} className="text-[#555] leading-[1.5]">- {p}</span>
+                <span key={i} className="text-text-1 leading-[1.5]">
+                  - {p}
+                </span>
               ))}
-              <span className="text-[#555] leading-[1.5]">
-                <span className="font-medium text-[#FF8C00]">Action:</span> {m.action}
+              <span className="text-text-1 leading-[1.5]">
+                <span className="font-medium text-[#FF8C00]">Action:</span>{" "}
+                {m.action}
               </span>
             </div>
           ))}
