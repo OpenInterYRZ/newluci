@@ -69,21 +69,21 @@ const useCasePersonas: NavItemData[] = [
 
 const coreFeatures: NavItemData[] = [
   {
-    label: "Video Understanding",
-    href: "/features/video",
-    desc: "Long & bulk video comprehension, searchable memory",
-    icon: <Video className="h-4 w-4" />,
+    label: "Chat",
+    href: "/features/chat",
+    desc: "Chat with LUCI to get things done",
+    icon: <MessageCircle className="h-4 w-4" />,
   },
   {
-    label: "Memory + Chat Unified",
-    href: "/features/memory",
+    label: "Memories",
+    href: "/features/memories",
     desc: "Meetings, notes, chats all in one continuous memory",
     icon: <Brain className="h-4 w-4" />,
   },
   {
-    label: "Your Own AI Instance",
-    href: "/features/instance",
-    desc: "Dedicated VM, data on your disk, not a shared service",
+    label: "Integrations",
+    href: "/features/integrations",
+    desc: "Connect your tools, Telegram, WhatsApp & more",
     icon: <Server className="h-4 w-4" />,
   },
 ];
@@ -113,11 +113,11 @@ const moreFeatures: NavItemData[] = [
 
 const resourceItems: NavItemData[] = [
   { label: "Blog", href: "/blog", icon: <Rss className="h-4 w-4" /> },
-  {
-    label: "Documentation",
-    href: "/docs",
-    icon: <FileText className="h-4 w-4" />,
-  },
+  // {
+  //   label: "Documentation",
+  //   href: "/docs",
+  //   icon: <FileText className="h-4 w-4" />,
+  // },
   {
     label: "Changelog",
     href: "/changelog",
@@ -293,7 +293,7 @@ export default function Navbar() {
           {/* <ThemeToggle /> */}
           <Link
             href="/download"
-            className="rounded-[10px] bg-nav-btn2 px-5 py-2 text-[13px] font-semibold text-bg-0 transition-colors duration-150 hover:bg-nav-btn2-hover"
+            className="rounded-[10px] bg-nav-btn1 px-5 py-2 text-[13px] font-semibold text-text-1 transition-colors duration-150 hover:bg-nav-btn1-hover"
           >
             Contact sales
           </Link>
@@ -333,33 +333,12 @@ export default function Navbar() {
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-2 pointer-events-none"
           }`}
-          style={{ top: "calc(100% + 8px)" }}
         >
           <div className="rounded-2xl border border-grey-1 bg-web-bg-0 p-6 shadow-2xl">
             {/* ── Use Cases ── */}
             {nav.key === "usecases" && (
               <>
                 <div className="flex gap-6">
-                  {/* Left — Highlight card */}
-                  <div className="w-[180px] shrink-0 flex flex-col justify-between rounded-xl bg-grey-0 border border-grey-1 p-4">
-                    <div>
-                      <Users className="h-5 w-5 text-primary mb-2" />
-                      <h3 className="text-[14px] font-semibold text-text-0 leading-snug">
-                        Built for how you actually work
-                      </h3>
-                      <p className="mt-1.5 text-[12px] leading-snug text-text-2">
-                        Pick your role and see what LUCI can do for you.
-                      </p>
-                    </div>
-                    <Link
-                      href="/use-cases"
-                      onClick={closeDropdown}
-                      className="mt-4 flex items-center gap-1 text-[12px] font-medium text-primary hover:underline"
-                    >
-                      All use cases
-                      <ArrowUpRight className="h-3 w-3" />
-                    </Link>
-                  </div>
                   {/* Right — Persona list */}
                   <div className="flex-1">
                     <div className="flex flex-col gap-0.5">
@@ -367,6 +346,15 @@ export default function Navbar() {
                         <IconLink key={item.href} item={item} />
                       ))}
                     </div>
+                  </div>
+                  {/* Left — Image */}
+                  <div className="relative w-[220px] shrink-0 self-stretch overflow-hidden rounded-xl">
+                    <Image
+                      src="/landscape/lan16.webp"
+                      alt=""
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
               </>
@@ -389,14 +377,19 @@ export default function Navbar() {
                   </div>
                   {/* Right — More */}
                   <div className="flex-1">
-                    <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">
+                    {/* <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">
                       Connect & Control
                     </h3>
                     <div className="flex flex-col gap-0.5">
                       {moreFeatures.map((item) => (
                         <IconLink key={item.href} item={item} />
                       ))}
-                    </div>
+                    </div> */}
+                    <img
+                      src="/landscape/lan8.webp"
+                      alt="Integrations"
+                      className="w-full h-full object-cover rounded-xl"
+                    />
                   </div>
                 </div>
                 <div className="mt-5 flex gap-4">
@@ -407,13 +400,13 @@ export default function Navbar() {
                   >
                     All features
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/pricing"
                     onClick={closeDropdown}
                     className="flex-1 rounded-xl border border-grey-1 py-2.5 text-center text-[13px] font-medium text-text-0 transition-colors duration-150 hover:bg-grey-0"
                   >
                     Pricing
-                  </Link>
+                  </Link> */}
                 </div>
               </>
             )}
@@ -422,15 +415,13 @@ export default function Navbar() {
             {nav.key === "resources" && (
               <div className="flex gap-6">
                 {/* Left — Image */}
-                <div className="w-[220px] shrink-0">
-                  <div className="relative h-full w-full overflow-hidden rounded-xl bg-grey-0 border border-grey-1">
-                    <Image
-                      src="/lindy-screenshot.png"
-                      alt="Resources"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <div className="relative w-[220px] shrink-0 self-stretch overflow-hidden rounded-xl">
+                  <Image
+                    src="/landscape/lan12.webp"
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 {/* Right — Links */}
                 <div className="flex-1 flex flex-col gap-0.5 py-1">
@@ -464,15 +455,13 @@ export default function Navbar() {
             {nav.key === "about" && (
               <div className="flex gap-6">
                 {/* Left — Image */}
-                <div className="w-[180px] shrink-0">
-                  <div className="relative h-full w-full overflow-hidden rounded-xl bg-grey-0 border border-grey-1">
-                    <Image
-                      src="/lindy-screenshot.png"
-                      alt="About LUCI"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <div className="relative w-[180px] shrink-0 self-stretch overflow-hidden rounded-xl">
+                  <Image
+                    src="/landscape/lan14.webp"
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 {/* Right — Simple links */}
                 <div className="flex-1 flex flex-col gap-0.5 py-1">

@@ -10,10 +10,10 @@ export type CtaBannerConfig = {
 const defaultConfig: Required<Omit<CtaBannerConfig, "subtext">> & {
   subtext: string | React.ReactNode;
 } = {
-  heading: "Ready to work smarter with LUCI?",
+  heading: "Get started with LUCI",
   subtext: (
     <>
-      Download LUCI for free and get started in minutes.
+      Download LUCI for free and start accelerating your work.
       <br /> No setup or integrations required.
     </>
   ),

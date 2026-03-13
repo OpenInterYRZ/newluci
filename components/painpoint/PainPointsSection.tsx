@@ -429,6 +429,11 @@ export default function PainPointsSection() {
     [],
   );
 
+  // Refresh ScrollTrigger when layoutScale changes (e.g. after resize)
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [layoutScale]);
+
   useEffect(() => {
     const section = sectionRef.current;
     const pinned = pinnedRef.current;
@@ -784,11 +789,11 @@ export default function PainPointsSection() {
         0.63,
       );
 
-      // Fade in cards
+      // Fade in cards (also enable pointer-events once visible)
       tl.fromTo(
         cardsRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.1, ease: "power2.out" },
+        { opacity: 0, y: 40, pointerEvents: "none" },
+        { opacity: 1, y: 0, pointerEvents: "auto", duration: 0.1, ease: "power2.out" },
         0.67,
       );
     }, section);
@@ -1004,6 +1009,7 @@ export default function PainPointsSection() {
           <div
             ref={cardsRef}
             className="absolute bottom-50 left-1/2 -translate-x-1/2 z-20 w-[90%] max-w-[1200px]"
+            style={{ opacity: 0, pointerEvents: "none" }}
           >
             <FeatureCards />
           </div>

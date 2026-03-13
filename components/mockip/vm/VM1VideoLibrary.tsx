@@ -323,7 +323,7 @@ function TranscriptPanel({
   return (
     <div className="flex flex-col h-full bg-[#FAFAF9]">
       {/* Header */}
-      <div className="flex flex-col gap-3 p-5 pb-0">
+      <div className="flex flex-col gap-3 p-3 pb-0">
         <div className="flex items-center gap-3">
           <button
             onClick={onClose}
