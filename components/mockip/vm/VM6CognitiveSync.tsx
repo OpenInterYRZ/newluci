@@ -108,23 +108,10 @@ export default function VM6CognitiveSync() {
   return (
     <div
       data-lenis-prevent
-      className={` flex w-full flex-col gap-4 bg-[#F7F6F3] p-4 overflow-auto h-full`}
+      className={` flex w-full flex-col gap-4 bg-bg-0 p-4 overflow-auto h-full`}
     >
       {/* ─── Pending Section ─────────────────────────────────────── */}
       <section className="flex w-full flex-col gap-5">
-        {/* Header */}
-        <div className="flex flex-col gap-2">
-          <div className="flex w-full items-end justify-between">
-            <h1 className="text-2xl font-medium tracking-tight text-[#111]">
-              <span
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                Personal Memories
-              </span>
-            </h1>
-          </div>
-        </div>
-
         {/* Pending Card */}
         <div className="flex w-full overflow-hidden rounded-2xl border border-grey-2 bg-bg-0">
           <div className="flex-1">

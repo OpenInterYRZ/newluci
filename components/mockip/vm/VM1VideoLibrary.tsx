@@ -321,7 +321,7 @@ function TranscriptPanel({
   );
 
   return (
-    <div className="flex flex-col h-full bg-[#FAFAF9]">
+    <div className="flex flex-col h-full bg-bg-0">
       {/* Header */}
       <div className="flex flex-col gap-3 p-3 pb-0">
         <div className="flex items-center gap-3">
@@ -379,7 +379,7 @@ function TranscriptPanel({
           (transcriptsByVideo[video.title]?.entries ?? []).map((entry, i) => (
             <div
               key={i}
-              className="flex flex-col gap-3 bg-white rounded-[12px] p-4"
+              className="flex flex-col gap-3 bg-grey-0 rounded-[12px] p-4"
               style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
             >
               <div className="flex items-center gap-3">
@@ -403,7 +403,7 @@ function TranscriptPanel({
             </div>
           ))
         ) : (
-          <div className="flex flex-col gap-3 bg-white rounded-[12px] p-4">
+          <div className="flex flex-col gap-3 bg-grey-0 rounded-[12px] p-4">
             <p className="text-[13px] text-[#4A4A4A] leading-[1.6]">
               {transcriptsByVideo[video.title]?.summary ??
                 "No summary available."}
@@ -431,33 +431,13 @@ export default function VM1VideoLibrary() {
   return (
     <div
       data-lenis-prevent
-      className="flex w-full h-full bg-[#F7F6F3] overflow-hidden"
+      className="flex w-full h-full bg-bg-0 overflow-hidden"
     >
       {/* Video grid — shrinks when panel opens */}
       <div
         className="flex flex-col gap-2 h-full overflow-auto p-4 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] phone-scroll"
         style={{ flex: selected ? "1 1 0%" : "1 1 100%" }}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between w-full">
-          <div className="flex flex-col gap-1">
-            <h1
-              className="text-2xl font-medium tracking-[-0.8px] text-[#2D2D2D]"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              Video Library
-            </h1>
-            <span className="text-[13px] text-[#8E8E93]">
-              Your recorded meetings and sessions
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 text-[13px] text-[#8E8E93]">
-            <span>Sort by</span>
-            <span className="font-semibold text-text-0">Recent recordings</span>
-            <ChevronLeft size={14} className="text-[#8E8E93] rotate-[-90deg]" />
-          </div>
-        </div>
-
         <VideoSection
           label="Today"
           videos={todayVideos}

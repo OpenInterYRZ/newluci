@@ -35,7 +35,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 10 }}
       transition={{ duration: visible ? 0.4 : 0.3, ease: "easeOut" }}
-      className="w-full "
+      className="w-full"
       style={{ fontFamily: "Manrope, sans-serif" }}
     >
       <div
@@ -47,7 +47,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-3 pt-3 pb-1.5"></div>
+        <div className="flex items-center justify-between px-3 pt-3"></div>
 
         {/* Question */}
         <div className="px-3 pb-2">

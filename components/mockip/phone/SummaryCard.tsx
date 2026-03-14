@@ -1,5 +1,7 @@
 "use client";
 
+import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+
 export function SummaryCard() {
   const metrics = [
     { label: "Meetings", value: "3", sub: "2.5 hrs" },
@@ -9,11 +11,13 @@ export function SummaryCard() {
   ];
 
   return (
-    <div className="flex w-full justify-start">
+    <div className="flex w-full items-start gap-2 justify-start">
+      <AssistantAvatar />
       <div
         className="flex w-[88%] flex-col gap-2"
         style={{ fontFamily: "Manrope, sans-serif" }}
       >
+        <AssistantNameTime />
         <span
           className="font-semibold text-[#333]"
           style={{ fontSize: "var(--phone-chat-fs)" }}

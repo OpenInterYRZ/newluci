@@ -1,5 +1,7 @@
 "use client";
 
+import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+
 interface FileAttachmentBubbleProps {
   fileName?: string;
   fileSize?: string;
@@ -12,7 +14,10 @@ export function FileAttachmentBubble({
   iconColor = "#F5A623",
 }: FileAttachmentBubbleProps) {
   return (
-    <div className="flex w-full justify-start">
+    <div className="flex w-full items-start gap-2 justify-start">
+      <AssistantAvatar />
+      <div className="flex flex-col gap-1">
+        <AssistantNameTime time="2:17 PM" />
       <div
         className="flex max-w-[240px] items-center gap-3 rounded-[18px_18px_18px_4px] px-4 py-3"
         style={{
@@ -77,6 +82,7 @@ export function FileAttachmentBubble({
             {fileSize}
           </span>
         </div>
+      </div>
       </div>
     </div>
   );

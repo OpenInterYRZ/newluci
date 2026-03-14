@@ -47,9 +47,9 @@ export default function VMDashboard() {
     tabs.find((t) => t.key === activeTab)?.component ?? VM1VideoLibrary;
 
   return (
-    <div className="flex h-full w-full flex-col bg-web-bg-0">
+    <div className="flex h-full w-full flex-col bg-bg-0">
       {/* VSCode-style tab bar */}
-      <div className="flex shrink-0 items-end bg-web-bg-0 overflow-x-auto pl-1">
+      <div className="flex shrink-0 items-end bg-bg-0 overflow-x-auto pl-1">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.key;
           return (
@@ -58,8 +58,8 @@ export default function VMDashboard() {
               onClick={() => setActiveTab(tab.key)}
               className={`group relative flex items-center gap-1.5 px-3 py-[7px] text-xs font-medium  transition-colors select-none ${
                 isActive
-                  ? "bg-[#F7F6F3] text-text-0"
-                  : "bg-web-bg-0 text-text-2 hover:bg-web-bg-0/80"
+                  ? "bg-web-bg-0 text-text-0"
+                  : "bg-bg-0 text-text-2 hover:bg-[#FAFAF8]"
               }`}
               style={{ minWidth: 0 }}
             >
@@ -69,15 +69,6 @@ export default function VMDashboard() {
               )}
               <tab.icon size={14} className="shrink-0" />
               <span className="truncate">{tab.label}</span>
-              {/* Close icon (decorative) */}
-              <X
-                size={12}
-                className={`shrink-0 ml-1 rounded-sm transition-colors ${
-                  isActive
-                    ? "text-text-2 hover:text-text-0 hover:bg-web-bg-0/80"
-                    : "text-transparent group-hover:text-text-2"
-                }`}
-              />
             </button>
           );
         })}

@@ -89,7 +89,9 @@ function ProgressBar({ value }: { value: number }) {
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center justify-between">
         <span className="text-[11px] font-medium text-text-2">Progress</span>
-        <span className="text-[11px] font-semibold tabular-nums text-text-0">{value}%</span>
+        <span className="text-[11px] font-semibold tabular-nums text-text-0">
+          {value}%
+        </span>
       </div>
       <div className="h-[5px] w-full overflow-hidden rounded-full bg-grey-1">
         <div
@@ -149,17 +151,11 @@ export default function VM7WeeklyReport() {
   return (
     <div
       data-lenis-prevent
-      className="flex h-full w-full flex-col gap-4 bg-grey-0 p-4 overflow-auto"
+      className="flex h-full w-full flex-col gap-4 bg-bg-0 p-4 overflow-auto"
     >
       {/* ── Header ── */}
       <div className="flex items-end justify-between">
         <div className="flex flex-col gap-1">
-          <h1
-            className="text-2xl font-medium tracking-tight text-text-0"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-          >
-            Weekly Report
-          </h1>
           <p className="text-[13px] text-text-2">March 3 – 7, 2026</p>
         </div>
         <span className="rounded-full bg-grey-0 px-3 py-1 text-[11px] font-medium text-text-2 border border-grey-1">
@@ -263,7 +259,9 @@ export default function VM7WeeklyReport() {
 
               <div className="flex flex-col gap-3 text-[13px] leading-[1.6] text-text-2">
                 <p>
-                  Q3 budget confirmed at <span className="font-semibold text-text-0">$2.4M</span> (source: team standup, Mar 5).
+                  Q3 budget confirmed at{" "}
+                  <span className="font-semibold text-text-0">$2.4M</span>{" "}
+                  (source: team standup, Mar 5).
                 </p>
                 <p>
                   Approval pending — deadline Friday. Previous estimate was

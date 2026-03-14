@@ -133,7 +133,7 @@ export function PhoneChatScreen() {
   const phase12Messages: (ReactNode | null)[] = [
     <AssistantBubble
       key="greeting"
-      text="Good morning! Here's your work overview from yesterday:"
+      text="Good morning, Alex! Here's your work overview from yesterday:"
     />,
     <SummaryCard key="summary" />,
     !pickerDismissed ? (
@@ -247,47 +247,14 @@ export function PhoneChatScreen() {
           ];
 
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden bg-white text-left">
+    <div className="flex h-full w-full flex-col overflow-hidden bg-bg-0 text-left">
       {/* ── Chat Header ── */}
-      <div
-        className="flex shrink-0 items-center gap-2.5 border-b border-black/[0.04] py-1  px-4"
-        style={{ height: 44, fontFamily: "Manrope, sans-serif" }}
-      >
-        {/* Avatar */}
-        <div
-          className="relative flex shrink-0 items-center justify-center rounded-full"
-          style={{
-            width: 28,
-            height: 28,
-            background: "linear-gradient(135deg, #FF6B1A 0%, #FF8C00 100%)",
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/lucilogo.svg" alt="" style={{ width: 18, height: 18 }} />
-          {/* Online dot */}
-          <span
-            className="absolute right-0 bottom-0 block rounded-full border-[1.5px] border-white"
-            style={{
-              width: 8,
-              height: 8,
-              background: "#34C759",
-            }}
-          />
-        </div>
-        {/* Name + status */}
-        <div className="flex flex-1 flex-col gap-[1px]">
-          <span className="text-base font-bold tracking-[0.3px] text-text-0">
-            LUCI
-          </span>
-          <span className="text-xs font-medium text-text-2">Online</span>
-        </div>
-      </div>
 
       {/* ── Messages ── */}
       <div
         ref={scrollAreaRef}
         data-lenis-prevent
-        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-4 pl-4 py-4 phone-scroll"
+        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-4 pl-3 py-4 phone-scroll"
         style={{
           background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)",
         }}
@@ -343,9 +310,9 @@ export function PhoneChatScreen() {
       </div>
 
       {/* ── Input Bar (always visible) ── */}
-      <div className="flex shrink-0 items-center gap-1.5 bg-white px-2 py-1.5">
+      <div className="flex shrink-0 items-center gap-1.5 bg-bg-0 px-4 py-1.5">
         <div
-          className="flex flex-1 items-center rounded-full border border-[#E5E5EA] px-3"
+          className="flex flex-1 items-center rounded-lg border border-grey-1 px-3"
           style={{ height: 34, background: "#F2F2F7" }}
         >
           <input

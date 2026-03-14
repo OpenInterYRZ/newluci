@@ -69,13 +69,17 @@ function EmbeddingBar({ width, delay }: { width: string; delay: string }) {
 
 export default function VM5AnalyzeVideo() {
   return (
-    <div className="flex gap-5 p-5 w-full h-full  bg-[#F7F6F3]">
+    <div className="flex gap-5 p-5 w-full h-full  bg-bg-0">
       {/* ── Left Column ── */}
       <div className="flex flex-col gap-5 min-w-0">
         {/* Video Player */}
         <div className="relative w-full rounded-2xl bg-text-0 aspect-video overflow-hidden min-h-[280px]">
           {/* Video thumbnail */}
-          <img src="/hero/lib3.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img
+            src="/hero/lib3.webp"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
           {/* Center play button */}
           <div className="absolute inset-0 flex items-center justify-center z-10">

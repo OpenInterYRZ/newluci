@@ -16,7 +16,6 @@ export default function Home() {
   return (
     <div className="w-full h-full  mx-auto">
       <CapHero />
-      <ProductShowcase />
       {/* Section Divider */}
       <PainPointTitle />
       <PainPointsSection />

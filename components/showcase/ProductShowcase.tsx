@@ -16,7 +16,7 @@ interface WindowState {
 export default function ProductShowcase() {
   const [phoneWindow, setPhoneWindow] = useState<WindowState>({
     x: 40,
-    y: 80,
+    y: 60,
     width: 320,
     height: 620,
   });
@@ -28,25 +28,29 @@ export default function ProductShowcase() {
     height: 620,
   });
 
-
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   return (
-    <section className="relative w-full bg-web-bg-0 mb-24">
+    <section className="relative w-full mb-24">
       <div className="max-w-7xl mx-auto">
         {/* 有界展示区域 */}
         <div
           ref={containerRef}
-          className="relative w-full rounded-2xl border border-grey-2/30 overflow-hidden bg-cover bg-center bg-no-repeat"
-          style={{ height: 680, backgroundImage: "url('/pb.webp')" }}
+          className="relative w-full rounded-2xl overflow-hidden bg-cover bg-center bg-no-repeat"
+          style={{ height: 680 }}
         >
           {/* 手机窗口 */}
           <motion.div
-            initial={{ y: 200, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 200, opacity: 0 }}
+            initial={{ y: 250, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: 250, opacity: 0 }}
             transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            style={{ position: "absolute", inset: 0, zIndex: 20, pointerEvents: "none" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 20,
+              pointerEvents: "none",
+            }}
           >
             <Rnd
               size={{ width: phoneWindow.width, height: phoneWindow.height }}
@@ -73,7 +77,7 @@ export default function ProductShowcase() {
             >
               <div className="flex flex-col h-full bg-white rounded-[2.5rem] overflow-hidden border-[2px] border-grey-2 relative">
                 {/* Drag handle bar */}
-                <div className="drag-handle flex justify-center pt-3 pb-2 bg-web-bg-0 cursor-grab active:cursor-grabbing select-none shrink-0">
+                <div className="drag-handle flex justify-center pt-3 pb-2 bg-bg-0 cursor-grab active:cursor-grabbing select-none shrink-0">
                   <div className="w-[80px] h-[5px] bg-black/20 rounded-full" />
                 </div>
                 {/* Content */}
@@ -90,8 +94,18 @@ export default function ProductShowcase() {
           <motion.div
             initial={{ y: 200, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 200, opacity: 0 }}
-            transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.3 }}
-            style={{ position: "absolute", inset: 0, zIndex: 10, pointerEvents: "none" }}
+            transition={{
+              type: "spring",
+              damping: 20,
+              stiffness: 100,
+              delay: 0.3,
+            }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 10,
+              pointerEvents: "none",
+            }}
           >
             <Rnd
               size={{

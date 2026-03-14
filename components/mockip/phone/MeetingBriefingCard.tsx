@@ -1,16 +1,20 @@
 "use client";
 
+import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+
 export function MeetingBriefingCard() {
   return (
-    <div className="flex w-full justify-start">
+    <div className="flex w-full items-start gap-2 justify-start">
+      <AssistantAvatar />
       <div
         className="flex max-w-[270px] flex-col"
         style={{
           fontFamily: "Manrope, sans-serif",
         }}
       >
+        <AssistantNameTime time="2:17 PM" />
         <span
-          className="mb-2.5 font-semibold text-[#333]"
+          className="mt-1 mb-2.5 font-semibold text-[#333]"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
           Next Meeting Briefing
