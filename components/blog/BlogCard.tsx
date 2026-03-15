@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import type { BlogPost } from '@/lib/blog';
 
 export default function BlogCard({ post }: { post: BlogPost }) {

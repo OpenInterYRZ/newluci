@@ -4,10 +4,9 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getPostBySlug, getAllSlugs, extractHeadings } from '@/lib/blog';
 import { getMdxComponents } from '@/components/blog/MdxComponents';
 import BlogLayout from '@/components/blog/BlogLayout';
-import { routing } from '@/i18n/routing';
 
 type Props = {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -15,7 +14,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
+  const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
 
@@ -35,17 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         images: [{ url: `${baseUrl}${post.frontmatter.image}` }],
       }),
     },
-    alternates: {
-      canonical: `${baseUrl}/${locale}/blog/${slug}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${baseUrl}/${l}/blog/${slug}`])
-      ),
-    },
   };
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const { locale, slug } = await params;
+  const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
@@ -69,7 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
     ...(post.frontmatter.image && {
       image: `https://luci.com${post.frontmatter.image}`,
     }),
-    inLanguage: locale,
+    inLanguage: 'en',
   };
 
   return (

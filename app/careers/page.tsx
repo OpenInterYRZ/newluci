@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { jobs } from '@/data/careers';
 import type { Metadata } from 'next';
 import Footer from '@/components/Footer';

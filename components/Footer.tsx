@@ -1,10 +1,5 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
 
 /* ── Footer link data ── */
 
@@ -93,117 +88,6 @@ function DiscordIcon() {
   );
 }
 
-const locales: { code: string; label: string; flag: string }[] = [
-  { code: "en", label: "English", flag: "🇺🇸" },
-  { code: "zh", label: "中文", flag: "🇨🇳" },
-  { code: "ja", label: "日本語", flag: "🇯🇵" },
-  { code: "ko", label: "한국어", flag: "🇰🇷" },
-  { code: "de", label: "Deutsch", flag: "🇩🇪" },
-];
-
-function LanguageSwitcher() {
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const current = locales.find((l) => l.code === locale) ?? locales[0];
-
-  useEffect(() => {
-    function onDown(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node))
-        setOpen(false);
-    }
-    document.addEventListener("mousedown", onDown);
-    return () => document.removeEventListener("mousedown", onDown);
-  }, []);
-
-  function pick(code: string) {
-    setOpen(false);
-    if (code !== locale) router.replace(pathname, { locale: code });
-  }
-
-  return (
-    <div ref={ref} className="relative">
-      {/* trigger */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="group flex items-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-2 text-[13px] text-white/60 backdrop-blur-sm border border-white/[0.08] transition-all duration-300 hover:bg-white/[0.1] hover:border-white/[0.16] hover:text-white/90"
-      >
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className="opacity-50 group-hover:opacity-80 transition-opacity duration-300"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        </svg>
-        <span className="font-medium">{current.label}</span>
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 12 12"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={`opacity-40 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-        >
-          <path d="M3 4.5L6 7.5L9 4.5" />
-        </svg>
-      </button>
-
-      {/* dropdown */}
-      <div
-        className={`absolute bottom-full mb-2 right-0 w-[180px] rounded-xl border border-white/[0.08] bg-[#1a1a1f]/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-300 origin-bottom-right ${
-          open
-            ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 scale-95 translate-y-1 pointer-events-none"
-        }`}
-      >
-        <div className="p-1.5">
-          {locales.map((l) => {
-            const active = l.code === locale;
-            return (
-              <button
-                key={l.code}
-                onClick={() => pick(l.code)}
-                className={`group/item w-full flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] transition-all duration-200 ${
-                  active
-                    ? "bg-white/[0.08] text-white"
-                    : "text-white/50 hover:bg-white/[0.05] hover:text-white/80"
-                }`}
-              >
-                <span className="text-base leading-none">{l.flag}</span>
-                <span className="flex-1 text-left font-medium">{l.label}</span>
-                {active && (
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-white/60"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 const socialLinks = [
   { icon: <XIcon />, href: "https://x.com", label: "X" },
@@ -298,7 +182,6 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <LanguageSwitcher />
         </div>
       </div>
     </footer>

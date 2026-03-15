@@ -1,14 +1,13 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { jobs, getJobById } from '@/data/careers';
-import { routing } from '@/i18n/routing';
 import Footer from '@/components/Footer';
 import Sidebar from './Sidebar';
 
 type Props = {
-  params: Promise<{ locale: string; id: string }>;
+  params: Promise<{ id: string }>;
 };
 
 export function generateStaticParams() {
@@ -16,21 +15,13 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, id } = await params;
+  const { id } = await params;
   const job = getJobById(id);
   if (!job) return {};
-
-  const baseUrl = 'https://luci.com';
 
   return {
     title: `${job.title} | Careers | LUCI`,
     description: `${job.title} - ${job.type} position in ${job.department} at LUCI. ${job.location}.`,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/careers/${id}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${baseUrl}/${l}/careers/${id}`])
-      ),
-    },
   };
 }
 

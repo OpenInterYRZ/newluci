@@ -233,10 +233,10 @@ export default function Navbar() {
 
   /* ── Dropdown width per tab ── */
   const dropdownWidth: Record<string, string> = {
-    usecases: "w-[520px]",
-    features: "w-[760px]",
-    resources: "w-[520px]",
-    about: "w-[440px]",
+    usecases: "w-[400px]",
+    features: "w-[400px]",
+    resources: "w-[320px]",
+    about: "w-[280px]",
   };
 
   return (
@@ -352,60 +352,23 @@ export default function Navbar() {
           <div className="rounded-2xl border border-grey-1 bg-web-bg-0 p-6 shadow-2xl">
             {/* ── Use Cases ── */}
             {nav.key === "usecases" && (
-              <>
-                <div className="flex gap-6">
-                  {/* Right — Persona list */}
-                  <div className="flex-1">
-                    <div className="flex flex-col gap-0.5">
-                      {useCasePersonas.map((item) => (
-                        <IconLink key={item.href} item={item} />
-                      ))}
-                    </div>
-                  </div>
-                  {/* Left — Image */}
-                  <div className="relative w-[220px] shrink-0 self-stretch overflow-hidden rounded-xl">
-                    <Image
-                      src="/landscape/lan16.webp"
-                      alt=""
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </>
+              <div className="flex flex-col gap-0.5">
+                {useCasePersonas.map((item) => (
+                  <IconLink key={item.href} item={item} />
+                ))}
+              </div>
             )}
 
             {/* ── Features ── */}
             {nav.key === "features" && (
               <>
-                <div className="flex gap-6">
-                  {/* Left — Core capabilities */}
-                  <div className="flex-1">
-                    <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">
-                      Core Capabilities
-                    </h3>
-                    <div className="flex flex-col gap-0.5">
-                      {coreFeatures.map((item) => (
-                        <IconLink key={item.href} item={item} />
-                      ))}
-                    </div>
-                  </div>
-                  {/* Right — More */}
-                  <div className="flex-1">
-                    {/* <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">
-                      Connect & Control
-                    </h3>
-                    <div className="flex flex-col gap-0.5">
-                      {moreFeatures.map((item) => (
-                        <IconLink key={item.href} item={item} />
-                      ))}
-                    </div> */}
-                    <img
-                      src="/landscape/lan8.webp"
-                      alt="Integrations"
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="mb-3 text-[13px] font-medium tracking-wide text-text-2">
+                    Core Capabilities
+                  </h3>
+                  {coreFeatures.map((item) => (
+                    <IconLink key={item.href} item={item} />
+                  ))}
                 </div>
                 <div className="mt-5 flex gap-4">
                   <Link
@@ -415,72 +378,42 @@ export default function Navbar() {
                   >
                     All features
                   </Link>
-                  {/* <Link
-                    href="/pricing"
-                    onClick={closeDropdown}
-                    className="flex-1 rounded-xl border border-grey-1 py-2.5 text-center text-[13px] font-medium text-text-0 transition-colors duration-150 hover:bg-grey-0"
-                  >
-                    Pricing
-                  </Link> */}
                 </div>
               </>
             )}
 
             {/* ── Resources ── */}
             {nav.key === "resources" && (
-              <div className="flex gap-6">
-                {/* Left — Image */}
-                <div className="relative w-[220px] shrink-0 self-stretch overflow-hidden rounded-xl">
-                  <Image
-                    src="/landscape/lan12.webp"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Right — Links */}
-                <div className="flex-1 flex flex-col gap-0.5 py-1">
-                  {resourceItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={closeDropdown}
-                      className="flex items-center gap-3 rounded-lg px-3 py-3 transition-colors duration-150 hover:bg-grey-0"
-                    >
-                      {item.icon && (
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-grey-1 bg-grey-0 text-text-2">
-                          {item.icon}
-                        </span>
-                      )}
-                      <span className="text-[14px] font-medium text-text-0">
-                        {item.label}
+              <div className="flex flex-col gap-0.5 py-1">
+                {resourceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeDropdown}
+                    className="flex items-center gap-3 rounded-lg px-3 py-3 transition-colors duration-150 hover:bg-grey-0"
+                  >
+                    {item.icon && (
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-grey-1 bg-grey-0 text-text-2">
+                        {item.icon}
                       </span>
-                      {item.badge && (
-                        <span className="rounded-full border border-grey-1 bg-grey-0 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-text-2">
-                          {item.badge}
-                        </span>
-                      )}
-                    </Link>
-                  ))}
-                </div>
+                    )}
+                    <span className="text-[14px] font-medium text-text-0">
+                      {item.label}
+                    </span>
+                    {item.badge && (
+                      <span className="rounded-full border border-grey-1 bg-grey-0 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-text-2">
+                        {item.badge}
+                      </span>
+                    )}
+                  </Link>
+                ))}
               </div>
             )}
 
             {/* ── About ── */}
             {nav.key === "about" && (
-              <div className="flex gap-6">
-                {/* Left — Image */}
-                <div className="relative w-[180px] shrink-0 self-stretch overflow-hidden rounded-xl">
-                  <Image
-                    src="/landscape/lan14.webp"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Right — Simple links */}
-                <div className="flex-1 flex flex-col gap-0.5 py-1">
-                  {aboutItems.map((item) => (
+              <div className="flex flex-col gap-0.5 py-1">
+                {aboutItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -498,7 +431,6 @@ export default function Navbar() {
                     </Link>
                   ))}
                 </div>
-              </div>
             )}
           </div>
         </div>

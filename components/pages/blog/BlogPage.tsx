@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import BlogCard from '@/components/blog/BlogCard';
 import Footer from '@/components/Footer';
 import type { BlogPost } from '@/lib/blog';
