@@ -11,7 +11,7 @@ export default function CodexFeature() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-20 py-16 md:py-28">
         {/* ─── Header ─── */}
         <div className="flex flex-col gap-4 mb-16">
-          <h2 className="text-2xl md:text-5xl font-semibold leading-[1.15] text-center text-text-0">
+          <h2 className="text-4xl md:text-5xl font-semibold leading-[1.15] text-center text-text-0">
             Your AI-Powered Second Brain for Work
           </h2>
           <p className="text-base text-text-2 max-w-2xl mx-auto text-center leading-relaxed">

@@ -132,7 +132,7 @@ export default function PricingSection() {
       <div className="mx-auto max-w-[1100px]">
         {/* Header */}
         <div className="mb-14 flex flex-col items-center gap-5 text-center">
-          <h2 className="text-3xl md:text-[42px] font-bold leading-tight text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-semibold leading-[1.15] text-text-0">
             Upgrade your plan
           </h2>
           <BillingToggle

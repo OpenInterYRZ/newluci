@@ -527,7 +527,7 @@ export default function FeatureCards({
 
           {/* Text area */}
           <div className="p-6">
-            <h3 className="text-text-1 text-lg font-bold leading-tight mb-1.5">
+            <h3 className="text-text-0 text-lg font-bold leading-tight mb-1.5">
               {card.title}
             </h3>
             <p className="text-text-2 text-sm leading-relaxed mb-3">

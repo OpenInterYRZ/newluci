@@ -212,7 +212,7 @@ export default function FeatureDeepDive() {
             >
               {/* Text */}
               <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
-                <h3 className="text-[28px] font-bold leading-tight text-text-0">
+                <h3 className="text-2xl md:text-[28px] font-semibold md:font-bold leading-tight text-text-0">
                   {f.title}
                 </h3>
                 <p className="text-[15px] leading-relaxed text-text-2">

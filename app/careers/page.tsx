@@ -1,31 +1,29 @@
-import Link from 'next/link';
-import { jobs } from '@/data/careers';
-import type { Metadata } from 'next';
-import Footer from '@/components/Footer';
+import Link from "next/link";
+import { jobs } from "@/data/careers";
+import type { Metadata } from "next";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: 'Careers | LUCI',
+  title: "Careers | LUCI",
   description:
-    'Join the LUCI team. Explore open positions in AI research, engineering, product, and more.',
+    "Join the LUCI team. Explore open positions in AI research, engineering, product, and more.",
 };
 
 export default function CareersPage() {
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-web-bg-0">
       {/* Hero */}
       <section className="pt-40 pb-16 px-6 text-center">
         <p className="text-sm font-semibold tracking-[3px] text-[var(--primary)] uppercase">
           CAREERS
         </p>
-        <h1 className="mt-4 text-5xl md:text-6xl font-bold font-['DM_Serif_Display',serif] text-grey-9">
+        <h1 className="mt-4 text-5xl md:text-6xl font-semibold text-text-0">
           Build What&apos;s Next
         </h1>
         <p className="mt-4 text-lg text-grey-5 max-w-xl mx-auto">
           We&apos;re looking for exceptional people to shape the future of AI.
         </p>
-        <p className="mt-6 text-sm text-grey-4">
-          {jobs.length} Positions
-        </p>
+        <p className="mt-6 text-sm text-grey-4">{jobs.length} Positions</p>
       </section>
 
       {/* Job List */}

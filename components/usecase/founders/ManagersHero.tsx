@@ -33,7 +33,7 @@ export default function ManagersHero() {
               Start for Free
             </a>
             <a
-              href="#"
+              href="/contact-sales"
               className="inline-flex items-center gap-2 rounded-full border border-grey-1 bg-white px-6 py-2.5 text-[14px] font-semibold text-text-0 transition-colors hover:bg-grey-0"
             >
               Request a Demo

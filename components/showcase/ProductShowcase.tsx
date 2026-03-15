@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Rnd } from "react-rnd";
 import { PhoneChatScreen } from "../mockip/phone/PhoneChatScreen";
@@ -13,20 +13,41 @@ interface WindowState {
   height: number;
 }
 
-export default function ProductShowcase() {
-  const [phoneWindow, setPhoneWindow] = useState<WindowState>({
-    x: 40,
-    y: 60,
-    width: 320,
-    height: 620,
-  });
+const DESKTOP_DEFAULTS = {
+  phone: { x: 40, y: 60, width: 320, height: 620 },
+  desktop: { x: 320, y: 30, width: 880, height: 620 },
+  container: 680,
+};
 
-  const [desktopWindow, setDesktopWindow] = useState<WindowState>({
-    x: 320,
-    y: 30,
-    width: 880,
-    height: 620,
-  });
+const MOBILE_DEFAULTS = {
+  phone: { x: 0, y: 125, width: 280, height: 472 },
+  desktop: { x: 0, y: 0, width: 700, height: 508 },
+  container: 620,
+};
+
+function getDefaults() {
+  if (typeof window === "undefined") return DESKTOP_DEFAULTS;
+  return window.innerWidth < 768 ? MOBILE_DEFAULTS : DESKTOP_DEFAULTS;
+}
+
+export default function ProductShowcase() {
+  const defaults = getDefaults();
+
+  const [phoneWindow, setPhoneWindow] = useState<WindowState>(defaults.phone);
+  const [desktopWindow, setDesktopWindow] = useState<WindowState>(defaults.desktop);
+  const [containerHeight, setContainerHeight] = useState(defaults.container);
+
+  useEffect(() => {
+    function handleResize() {
+      const d = window.innerWidth < 768 ? MOBILE_DEFAULTS : DESKTOP_DEFAULTS;
+      setPhoneWindow(d.phone);
+      setDesktopWindow(d.desktop);
+      setContainerHeight(d.container);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
@@ -38,7 +59,7 @@ export default function ProductShowcase() {
         <div
           ref={containerRef}
           className="relative w-full rounded-2xl overflow-hidden bg-cover bg-center bg-no-repeat"
-          style={{ height: 680 }}
+          style={{ height: containerHeight }}
         >
           {/* 手机窗口 */}
           <motion.div
@@ -56,15 +77,19 @@ export default function ProductShowcase() {
               size={{ width: phoneWindow.width, height: phoneWindow.height }}
               position={{ x: phoneWindow.x, y: phoneWindow.y }}
               onDragStop={(_e, d) => {
-                setPhoneWindow((prev) => ({ ...prev, x: d.x, y: d.y }));
+                const next = { ...phoneWindow, x: d.x, y: d.y };
+                console.log("[Phone] pos:", next);
+                setPhoneWindow(next);
               }}
               onResizeStop={(_e, _dir, ref, _delta, position) => {
-                setPhoneWindow({
+                const next = {
                   width: parseInt(ref.style.width, 10),
                   height: parseInt(ref.style.height, 10),
                   x: position.x,
                   y: position.y,
-                });
+                };
+                console.log("[Phone] resize:", next);
+                setPhoneWindow(next);
               }}
               bounds="parent"
               minWidth={280}
@@ -114,15 +139,19 @@ export default function ProductShowcase() {
               }}
               position={{ x: desktopWindow.x, y: desktopWindow.y }}
               onDragStop={(_e, d) => {
-                setDesktopWindow((prev) => ({ ...prev, x: d.x, y: d.y }));
+                const next = { ...desktopWindow, x: d.x, y: d.y };
+                console.log("[Desktop] pos:", next);
+                setDesktopWindow(next);
               }}
               onResizeStop={(_e, _dir, ref, _delta, position) => {
-                setDesktopWindow({
+                const next = {
                   width: parseInt(ref.style.width, 10),
                   height: parseInt(ref.style.height, 10),
                   x: position.x,
                   y: position.y,
-                });
+                };
+                console.log("[Desktop] resize:", next);
+                setDesktopWindow(next);
               }}
               bounds="parent"
               minWidth={700}

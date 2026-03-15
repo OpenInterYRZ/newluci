@@ -3,12 +3,36 @@ import { ChevronLeft } from "lucide-react";
 
 /* ── FeatureChannels data ─── */
 const memories = [
-  { title: "Brainstorming Session", date: "02/04 15:00", thumbnail: "/hero/lib1.webp" },
-  { title: "Q1 Strategy Review", date: "02/04 15:00", thumbnail: "/hero/lib2.webp" },
-  { title: "Project Phoenix Kickoff", date: "02/04 15:00", thumbnail: "/hero/lib3.webp" },
-  { title: "Marketing Strategy Review", date: "02/04 15:00", thumbnail: "/hero/lib4.webp" },
-  { title: "Quarterly Alignment Meeting", date: "02/04 15:00", thumbnail: "/hero/lib5.webp" },
-  { title: "Project Zenith Review", date: "02/04 15:00", thumbnail: "/hero/lib6.webp" },
+  {
+    title: "Brainstorming Session",
+    date: "02/04 15:00",
+    thumbnail: "/hero/lib1.webp",
+  },
+  {
+    title: "Q1 Strategy Review",
+    date: "02/04 15:00",
+    thumbnail: "/hero/lib2.webp",
+  },
+  {
+    title: "Project Phoenix Kickoff",
+    date: "02/04 15:00",
+    thumbnail: "/hero/lib3.webp",
+  },
+  {
+    title: "Marketing Strategy Review",
+    date: "02/04 15:00",
+    thumbnail: "/hero/lib4.webp",
+  },
+  {
+    title: "Quarterly Alignment Meeting",
+    date: "02/04 15:00",
+    thumbnail: "/hero/lib5.webp",
+  },
+  {
+    title: "Project Zenith Review",
+    date: "02/04 15:00",
+    thumbnail: "/hero/lib6.webp",
+  },
 ];
 
 /* ── FeatureVideoSearch data ─── */
@@ -35,7 +59,7 @@ export default function VideoMemoryCard() {
     <div className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10">
       {/* ─── Text ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
-        <h3 className="text-[28px] font-bold leading-tight text-text-0">
+        <h3 className="text-2xl md:text-[28px] font-semibold md:font-bold leading-tight text-text-0">
           Video Understanding Memory
         </h3>
         <p className="text-[15px] leading-relaxed text-text-2">
@@ -91,7 +115,9 @@ export default function VideoMemoryCard() {
                   <span className="text-[10px] font-semibold text-neutral-800">
                     {entry.speaker}
                   </span>
-                  <span className="text-[10px] text-neutral-400">{entry.time}</span>
+                  <span className="text-[10px] text-neutral-400">
+                    {entry.time}
+                  </span>
                 </div>
                 <p className="text-[10px] leading-relaxed text-neutral-600 line-clamp-2">
                   {entry.text}

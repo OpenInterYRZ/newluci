@@ -2,12 +2,12 @@ const beliefs = [
   {
     number: "01",
     title: "Memory Is the Foundation, Not a Feature",
-    body: "An AI without memory is just a tool. An AI with memory becomes an assistant. LUCI unifies your meetings, videos, notes, and conversations into a long-term memory \u2014 a knowledge base that keeps growing.",
+    body: "An AI without memory is just a tool. An AI with memory becomes an assistant. LUCI unifies your meetings, videos, notes, and conversations into a long-term memory that keeps growing.",
   },
   {
     number: "02",
     title: "Your Data Is Yours. No Exceptions.",
-    body: "Every LUCI user gets their own dedicated VM instance. Your memory lives on your disk, shared with no one, never used to train models. We chose open source because trust should come from transparency, not promises.",
+    body: "Every LUCI user gets their own dedicated VM instance. Your memory lives on your disk, shared with no one, never used to train models. Trust comes from transparency, not promises.",
   },
   {
     number: "03",
@@ -23,27 +23,35 @@ const beliefs = [
 
 export default function OurBeliefs() {
   return (
-    <section className="px-6 py-28 sm:py-36 bg-web-bg-0 overflow-hidden">
+    <section className="px-6 py-28 sm:py-20 bg-web-bg-0">
       <div className="max-w-6xl mx-auto">
         <span className="inline-block text-xs font-mono tracking-[0.25em] uppercase text-text-2 mb-5">
           03 &mdash; Our Beliefs
         </span>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-text-0 leading-[1.08] tracking-tight max-w-2xl">
+        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-text-0 leading-[1.08] tracking-tight max-w-2xl mb-16">
           A Few Things We Hold True
         </h2>
 
-        {/* Belief grid — 2×2 on desktop */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-black/[0.06] rounded-3xl overflow-hidden border border-black/[0.06]">
+        {/* Stacked belief rows */}
+        <div className="space-y-0 divide-y divide-grey-1">
           {beliefs.map((b) => (
-            <div key={b.number} className="bg-web-bg-0 px-8 py-10 sm:px-10 sm:py-12">
-              <span className="text-xs font-mono text-primary tracking-widest">
+            <div
+              key={b.number}
+              className="group grid grid-cols-1 md:grid-cols-[80px_1fr_1.4fr] gap-4 md:gap-8 py-10 first:pt-0 last:pb-0 items-baseline"
+            >
+              {/* Number */}
+              <span className="text-[2rem] font-bold text-grey-2 font-mono leading-none md:pt-1 transition-colors duration-300 group-hover:text-primary">
                 {b.number}
               </span>
-              <h3 className="mt-3 text-lg sm:text-xl font-semibold text-text-0 leading-snug">
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-text-0 leading-snug">
                 {b.title}
               </h3>
-              <p className="mt-4 text-[0.95rem] text-text-1 leading-[1.8]">
+
+              {/* Body */}
+              <p className="text-[0.95rem] text-text-1 leading-[1.8]">
                 {b.body}
               </p>
             </div>

@@ -24,6 +24,7 @@ import {
   ExternalLink,
   ArrowUpRight,
 } from "lucide-react";
+import GradientButton from "./ui/GradientButton";
 
 /* ─── Types ─── */
 
@@ -131,8 +132,7 @@ const resourceItems: NavItemData[] = [
 const aboutItems: NavItemData[] = [
   { label: "About Us", href: "/about" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/about/contact" },
-  { label: "Open Source", href: "https://github.com", external: true },
+  { label: "Contact", href: "/contact-sales" },
 ];
 
 /* ─── Nav items ─── */
@@ -140,9 +140,10 @@ const aboutItems: NavItemData[] = [
 const navItems = [
   { label: "Use Cases", key: "usecases" },
   { label: "Features", key: "features" },
-  { label: "Pricing", key: "pricing", href: "/pricing" },
+
   { label: "Resources", key: "resources" },
   { label: "About", key: "about" },
+  { label: "Pricing", key: "pricing", href: "/pricing" },
 ];
 
 export default function Navbar() {
@@ -395,17 +396,12 @@ export default function Navbar() {
         <div className="absolute right-5 top-1/2 hidden -translate-y-1/2 items-center gap-3 md:flex">
           {/* <ThemeToggle /> */}
           <Link
-            href="/download"
+            href="/contact-sales"
             className="rounded-[10px] bg-nav-btn1 px-5 py-2 text-[13px] font-semibold text-text-1 transition-colors duration-150 hover:bg-nav-btn1-hover"
           >
             Contact sales
           </Link>
-          <Link
-            href="/download"
-            className="rounded-[10px] bg-nav-btn2 px-5 py-2 text-[13px] font-semibold text-bg-0 transition-colors duration-150 hover:bg-nav-btn2-hover"
-          >
-            Download
-          </Link>
+          <GradientButton href="/download" text="Download" download />
         </div>
 
         {/* Mobile Menu Button */}

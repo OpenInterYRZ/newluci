@@ -1,12 +1,37 @@
 import { Upload, MoreVertical } from "lucide-react";
 
 const skills = [
-  { name: "Video Understanding", desc: "Analyze and extract insights from any video — transcribe, summarize, and identify key moments automatically", on: true, icon: "/memorieslogo.svg" },
-  { name: "Meeting Summarizer", desc: "Auto-extract key decisions, action items, and follow-ups from any meeting recording", on: true },
-  { name: "Email Drafter", desc: "Generate context-aware email replies based on your communication style and history", on: true },
-  { name: "Daily Briefing", desc: "Compile a morning overview of your calendar, pending tasks, and important updates", on: true },
-  { name: "Contract Reviewer", desc: "Highlight key clauses, risks, and obligations in legal documents automatically", on: false },
-  { name: "Expense Tracker", desc: "Capture receipts from photos and conversations, auto-categorize spending", on: true },
+  {
+    name: "Video Understanding",
+    desc: "Analyze and extract insights from any video — transcribe, summarize, and identify key moments automatically",
+    on: true,
+    icon: "/memorieslogo.svg",
+  },
+  {
+    name: "Meeting Summarizer",
+    desc: "Auto-extract key decisions, action items, and follow-ups from any meeting recording",
+    on: true,
+  },
+  {
+    name: "Email Drafter",
+    desc: "Generate context-aware email replies based on your communication style and history",
+    on: true,
+  },
+  {
+    name: "Daily Briefing",
+    desc: "Compile a morning overview of your calendar, pending tasks, and important updates",
+    on: true,
+  },
+  {
+    name: "Contract Reviewer",
+    desc: "Highlight key clauses, risks, and obligations in legal documents automatically",
+    on: false,
+  },
+  {
+    name: "Expense Tracker",
+    desc: "Capture receipts from photos and conversations, auto-categorize spending",
+    on: true,
+  },
 ];
 
 export default function SkillsCard() {
@@ -14,12 +39,12 @@ export default function SkillsCard() {
     <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10">
       {/* ─── Left: Title + Desc ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
-        <h3 className="text-[28px] font-bold leading-tight text-text-0">
+        <h3 className="text-2xl md:text-[28px] font-semibold md:font-bold leading-tight text-text-0">
           Extensible Skills
         </h3>
         <p className="text-[15px] leading-relaxed text-text-2">
-          Pre-built, reusable capabilities that LUCI runs on your behalf.
-          Toggle them on, or create your own with a single slash command.
+          Pre-built, reusable capabilities that LUCI runs on your behalf. Toggle
+          them on, or create your own with a single slash command.
         </p>
       </div>
 
@@ -43,7 +68,8 @@ export default function SkillsCard() {
               <p className="text-[11px] leading-relaxed text-[#9CA3AF]">
                 Pre-built, reusable best practices and tools for your agent.
                 <br />
-                Skills triggered using &quot;/&quot; (e.g., /skill-creator). Turn on the toggle to let LUCI run them automatically.
+                Skills triggered using &quot;/&quot; (e.g., /skill-creator).
+                Turn on the toggle to let LUCI run them automatically.
               </p>
             </div>
             <button className="flex shrink-0 items-center gap-2 rounded-lg border border-[#E5E7EB] bg-white px-4 py-2 text-[12px] font-medium text-[#1A1A2E] transition-colors hover:bg-[#F9FAFB]">
@@ -60,7 +86,11 @@ export default function SkillsCard() {
                 className="relative flex items-center gap-4 border-t border-[#F0F0F0] px-6 py-4"
               >
                 {skill.icon && (
-                  <img src={skill.icon} alt={skill.name} className="h-5 w-auto shrink-0" />
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="h-5 w-auto shrink-0"
+                  />
                 )}
                 <div className="flex flex-1 flex-col gap-0.5 overflow-hidden">
                   <span className="text-[13px] font-medium text-[#1A1A2E]">
@@ -88,7 +118,6 @@ export default function SkillsCard() {
 
                 {/* More menu */}
                 <MoreVertical className="h-4 w-4 shrink-0 text-[#C4C4C4]" />
-
               </div>
             ))}
           </div>

@@ -34,7 +34,7 @@ export default function ContactSalesPage() {
     return (
       e: React.ChangeEvent<
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
+      >,
     ) => setForm((f) => ({ ...f, [field]: e.target.value }));
   }
 
@@ -55,7 +55,7 @@ export default function ContactSalesPage() {
           <p className="text-sm font-semibold tracking-[3px] text-[var(--primary)] uppercase">
             Contact Sales
           </p>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold font-['DM_Serif_Display',serif] text-grey-9 leading-[1.15]">
+          <h1 className="mt-4 text-4xl md:text-5xl font-semibold text-text-0 leading-[1.15]">
             Let&apos;s find the right plan for your team
           </h1>
           <p className="mt-5 text-base leading-relaxed text-grey-5">
@@ -88,8 +88,9 @@ export default function ContactSalesPage() {
                 </h2>
                 <p className="text-grey-5 leading-relaxed">
                   We&apos;ve received your request. A member of our sales team
-                  will reach out to <strong className="text-grey-8">{form.workEmail}</strong> within
-                  one business day.
+                  will reach out to{" "}
+                  <strong className="text-grey-8">{form.workEmail}</strong>{" "}
+                  within one business day.
                 </p>
               </div>
             ) : (
@@ -290,7 +291,10 @@ function SideBlock({ title, items }: { title: string; items: string[] }) {
       </h3>
       <ul className="space-y-2.5">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-sm text-grey-5">
+          <li
+            key={item}
+            className="flex items-start gap-2.5 text-sm text-grey-5"
+          >
             <svg
               width="16"
               height="16"

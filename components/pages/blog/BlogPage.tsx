@@ -32,7 +32,7 @@ export default function BlogPage({
         <header className="mb-12">
           <p className="text-sm text-text-2 mb-2">News &amp; Blogs</p>
           <h1 className="font-serif font-normal text-5xl sm:text-6xl lg:text-7xl text-text-0">
-            Latest Articles
+            {currentPage === 1 ? 'Latest Articles' : `Articles — Page ${currentPage}`}
           </h1>
         </header>
 

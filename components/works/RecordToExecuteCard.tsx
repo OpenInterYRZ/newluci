@@ -29,7 +29,7 @@ export default function RecordToExecuteCard() {
     <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-10">
       {/* ─── Left: Title + Desc ─── */}
       <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
-        <h3 className="text-[28px] font-bold leading-tight text-text-0">
+        <h3 className="text-2xl md:text-[28px] font-semibold md:font-bold leading-tight text-text-0">
           Closed Loop from Record to Execute
         </h3>
         <p className="text-[15px] leading-relaxed text-text-2">
@@ -80,9 +80,11 @@ export default function RecordToExecuteCard() {
               {/* LUCI response bubble */}
               <div className="flex flex-col gap-2 rounded-lg bg-[#2a2840] px-3.5 py-3">
                 <p className="text-[11px] leading-[1.65] text-[#c4c3ce]">
-                  I found <span className="font-medium text-white">3 decisions</span> and{" "}
-                  <span className="font-medium text-white">2 action items</span> in
-                  this recording.
+                  I found{" "}
+                  <span className="font-medium text-white">3 decisions</span>{" "}
+                  and{" "}
+                  <span className="font-medium text-white">2 action items</span>{" "}
+                  in this recording.
                 </p>
 
                 {/* Extracted items as inline tags */}
@@ -92,35 +94,45 @@ export default function RecordToExecuteCard() {
                     <span className="text-[10px] text-[#a5a4b4]">
                       Q4 budget approved
                     </span>
-                    <span className="ml-auto text-[9px] text-[#5a5970]">05:12</span>
+                    <span className="ml-auto text-[9px] text-[#5a5970]">
+                      05:12
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-1 w-1 rounded-full bg-[#E8622C]" />
                     <span className="text-[10px] text-[#a5a4b4]">
                       Li Ming → draft RFC by Friday
                     </span>
-                    <span className="ml-auto text-[9px] text-[#5a5970]">12:38</span>
+                    <span className="ml-auto text-[9px] text-[#5a5970]">
+                      12:38
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-1 w-1 rounded-full bg-[#8B5CF6]" />
                     <span className="text-[10px] text-[#a5a4b4]">
                       Launch moved Q3 → Q2
                     </span>
-                    <span className="ml-auto text-[9px] text-[#5a5970]">25:40</span>
+                    <span className="ml-auto text-[9px] text-[#5a5970]">
+                      25:40
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-1 w-1 rounded-full bg-[#E8622C]" />
                     <span className="text-[10px] text-[#a5a4b4]">
                       Wang Lei → review marketing spend
                     </span>
-                    <span className="ml-auto text-[9px] text-[#5a5970]">32:05</span>
+                    <span className="ml-auto text-[9px] text-[#5a5970]">
+                      32:05
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-1 w-1 rounded-full bg-[#3B82F6]" />
                     <span className="text-[10px] text-[#a5a4b4]">
                       Team prefers microservice
                     </span>
-                    <span className="ml-auto text-[9px] text-[#5a5970]">41:20</span>
+                    <span className="ml-auto text-[9px] text-[#5a5970]">
+                      41:20
+                    </span>
                   </div>
                 </div>
               </div>
@@ -132,14 +144,20 @@ export default function RecordToExecuteCard() {
                   <span className="text-[10px] font-medium text-[#c4c3ce]">
                     meeting-notes-oct15.md
                   </span>
-                  <Check className="ml-auto h-3 w-3 text-[#22C55E]" strokeWidth={2.5} />
+                  <Check
+                    className="ml-auto h-3 w-3 text-[#22C55E]"
+                    strokeWidth={2.5}
+                  />
                 </div>
                 <div className="flex items-center gap-2 rounded-md bg-[#222133] px-3 py-1.5">
                   <span className="text-[10px] text-[#6b6a7a]">Synced</span>
                   <span className="text-[10px] font-medium text-[#c4c3ce]">
                     2 tasks → project board
                   </span>
-                  <Check className="ml-auto h-3 w-3 text-[#22C55E]" strokeWidth={2.5} />
+                  <Check
+                    className="ml-auto h-3 w-3 text-[#22C55E]"
+                    strokeWidth={2.5}
+                  />
                 </div>
               </div>
 
@@ -179,7 +197,10 @@ export default function RecordToExecuteCard() {
                   </span>
                   {step.done && (
                     <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#22C55E]">
-                      <Check className="h-2.5 w-2.5 text-white" strokeWidth={3} />
+                      <Check
+                        className="h-2.5 w-2.5 text-white"
+                        strokeWidth={3}
+                      />
                     </div>
                   )}
                 </div>

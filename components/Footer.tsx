@@ -7,33 +7,27 @@ const footerColumns = [
   {
     title: "Company",
     links: [
+      { label: "About", href: "/about" },
       { label: "Blog", href: "/blog" },
-      { label: "Updates", href: "/updates" },
       { label: "Careers", href: "/careers" },
-      { label: "Community", href: "/community" },
-      { label: "Manifesto", href: "/manifesto" },
+      { label: "Changelog", href: "/changelog" },
     ],
   },
   {
     title: "Product",
     links: [
+      { label: "Features", href: "/features" },
+      { label: "Use Cases", href: "/use-cases" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Teams", href: "/teams" },
-      { label: "Sales", href: "/sales" },
-      { label: "Capabilities", href: "/capabilities" },
-      { label: "Affiliates", href: "/affiliates" },
+      { label: "Download", href: "/download" },
+      { label: "Contact Sales", href: "/contact-sales" },
     ],
   },
   {
-    title: "Resources",
+    title: "Legal",
     links: [
-      { label: "Articles", href: "/articles" },
-      { label: "Docs", href: "/docs" },
-      { label: "Support", href: "/support" },
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms of Service", href: "/terms-of-service" },
-      { label: "Brand", href: "/brand" },
-      { label: "Status", href: "/status" },
     ],
   },
 ];
@@ -88,7 +82,6 @@ function DiscordIcon() {
   );
 }
 
-
 const socialLinks = [
   { icon: <XIcon />, href: "https://x.com", label: "X" },
   {
@@ -125,14 +118,8 @@ export default function Footer() {
         {/* ── Top row ── */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-0 md:items-start">
           {/* Left: Logo + copyright */}
-          <div className="flex items-start gap-3 md:w-[340px] shrink-0">
-            <Image
-              src="/lucilogo.svg"
-              alt="LUCI"
-              width={36}
-              height={36}
-              className="opacity-80"
-            />
+          <div className="flex flex-col items-start gap-3 md:w-[340px] shrink-0">
+            <img src="/lucilogo.svg" alt="LUCI" className="w-20" />
             <div className="flex flex-col gap-0.5">
               <span className="text-[13px] text-white/70">
                 Copyright © 2026

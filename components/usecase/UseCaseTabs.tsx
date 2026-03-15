@@ -34,7 +34,7 @@ const TABS: UseCaseTab[] = [
       { label: "Team Progress Agent" },
     ],
     cta: "Start managing smarter",
-    image: "/usecase-manage/mana.webp",
+    image: "/usecase-manage/mana1.webp",
   },
   {
     id: "knowledge",
@@ -112,7 +112,7 @@ export default function UseCaseTabs() {
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 sm:px-12">
         {/* Header */}
         <div className="mb-14 flex flex-col items-center gap-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-semibold text-text-0 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-semibold text-text-0 leading-[1.15]">
             Built for every role
           </h2>
           <p className="text-base text-text-2 max-w-xl">
