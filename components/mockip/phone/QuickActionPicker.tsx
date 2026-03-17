@@ -4,9 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const OPTIONS = [
-  "Analyze yesterday's meeting videos",
-  "Follow up on remaining tasks",
-  "Prepare for tomorrow's meeting",
+  "Analyze yesterday's 3 meeting recordings",
+  "Follow up on 2 remaining action items",
+  "Prepare briefing for today's Sprint Review",
 ];
 
 interface QuickActionPickerProps {
@@ -55,7 +55,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
             className="font-semibold text-[#333]"
             style={{ fontSize: "var(--phone-chat-fs)" }}
           >
-            What are my priorities today?
+            Based on yesterday&apos;s activity, here are your top priorities:
           </span>
         </div>
 

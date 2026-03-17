@@ -4,10 +4,10 @@ import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
 
 export function SummaryCard() {
   const metrics = [
-    { label: "Meetings", value: "3", sub: "2.5 hrs" },
-    { label: "Tasks Done", value: "7", sub: "of 9" },
-    { label: "Emails", value: "12", sub: "3 urgent" },
-    { label: "Memories", value: "5", sub: "new" },
+    { label: "Meetings", value: "3", sub: "2h 20min" },
+    { label: "Tasks Done", value: "7", sub: "of 9 (78%)" },
+    { label: "Emails", value: "12", sub: "3 urgent flagged" },
+    { label: "Memories", value: "5", sub: "new saved" },
   ];
 
   return (

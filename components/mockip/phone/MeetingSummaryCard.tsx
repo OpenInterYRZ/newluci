@@ -30,7 +30,7 @@ export function MeetingSummaryCard() {
           className="mt-1 flex flex-col gap-1 text-text-0 leading-[1.6]"
           style={{ fontSize: "calc(var(--phone-chat-fs) - 1px)" }}
         >
-          <p>Yesterday&apos;s Meeting Summary</p>
+          <p>Here&apos;s what happened in yesterday&apos;s 3 meetings (2h 20min total):</p>
 
           {/* All meetings with single left border */}
           <div
@@ -40,48 +40,57 @@ export function MeetingSummaryCard() {
             {/* Product Demo Recording */}
             <div className="flex flex-col gap-0.5">
               <p>
-                <span className="font-bold">Product Demo</span> · 45 min
+                <span className="font-bold">Product Demo</span> · 45 min · 6 attendees
               </p>
               <p className="text-text-1">
-                - v2.4: smart search, batch exports, new onboarding
+                - v2.4 highlights: smart search with AI ranking, batch export for enterprise, redesigned onboarding flow (3 steps → 1)
+              </p>
+              <p className="text-text-1">
+                - Client feedback: &quot;search speed improved 4x&quot; — demo well received
               </p>
               <p>
                 <span className="font-medium" style={{ color: "#FF8C00" }}>
                   Action:
                 </span>{" "}
-                QA verify smart search before release
+                QA team to verify smart search edge cases before Thursday release
               </p>
             </div>
 
             {/* Weekly All-Hands */}
             <div className="flex flex-col gap-0.5">
               <p>
-                <span className="font-bold">All-Hands</span> · 58 min
+                <span className="font-bold">All-Hands</span> · 58 min · Company-wide
               </p>
               <p className="text-text-1">
-                - Series B closed — $42M, 30-month runway
+                - Series B closed at $42M (lead: Accel) — 30-month runway secured
+              </p>
+              <p className="text-text-1">
+                - MAU crossed 50K milestone, enterprise pipeline at 8 late-stage deals
               </p>
               <p>
                 <span className="font-medium" style={{ color: "#FF8C00" }}>
                   Action:
                 </span>{" "}
-                London office next month — check relocation info
+                London office opening next month — review relocation packages by Friday
               </p>
             </div>
 
             {/* Design Review — Mobile */}
             <div className="flex flex-col gap-0.5">
               <p>
-                <span className="font-bold">Design Review</span> · 37 min
+                <span className="font-bold">Design Review</span> · 37 min · Design + iOS team
               </p>
               <p className="text-text-1">
-                - Tab bar reduced to 4 tabs, adaptive icons
+                - Mobile tab bar consolidated from 5 → 4 tabs, new adaptive icon system approved
+              </p>
+              <p className="text-text-1">
+                - Prototype tested with 12 users — task completion rate up 18%
               </p>
               <p>
                 <span className="font-medium" style={{ color: "#FF8C00" }}>
                   Action:
                 </span>{" "}
-                @iOS implement 4-tab navigation
+                @iOS Dev to implement 4-tab navigation, target next Friday
               </p>
             </div>
           </div>

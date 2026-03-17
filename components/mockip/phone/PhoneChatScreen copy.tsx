@@ -133,7 +133,7 @@ export function PhoneChatScreen() {
   const phase12Messages: (ReactNode | null)[] = [
     <AssistantBubble
       key="greeting"
-      text="Good morning, Alex! ☀️ Here's your work overview from yesterday:"
+      text="Good morning, Alex! ☀️ You had a packed day yesterday — 3 meetings, 12 emails, and 7 tasks completed. Here's your full overview:"
     />,
     <SummaryCard key="summary" />,
     !pickerDismissed ? (
@@ -143,9 +143,9 @@ export function PhoneChatScreen() {
 
   /* User echo bubble — shows the selected option as a user message */
   const USER_OPTION_LABELS = [
-    "Analyze meeting videos 🎬",
-    "Follow up on tasks ✅",
-    "Prepare next meeting 📋",
+    "Help me analyze yesterday's 3 meeting recordings 🎬",
+    "Follow up on remaining tasks from yesterday ✅",
+    "Prepare the briefing for today's Sprint Review 📋",
   ];
 
   /* Phase 3 messages — different per selected option */
@@ -163,18 +163,18 @@ export function PhoneChatScreen() {
           />,
           <StatusPill
             key="status"
-            text="Analyzing 3 meeting recordings..."
-            resolvedText="Analyzed 3 videos"
+            text="Analyzing 3 meeting recordings (2h 20min total)..."
+            resolvedText="Analyzed 3 recordings · 2h 20min processed"
             resolveDelay={1200}
           />,
           <MeetingSummaryCard key="meeting-summary" />,
           <ActionCompletePill
             key="complete"
-            label="Video analysis complete · 3 action items extracted 🎉"
+            label="Analysis complete · 3 action items extracted across all meetings 🎉"
           />,
           <MemoryNotification
             key="memory"
-            body="Saved: Series B $42M closed (Accel), MAU hit 50K, v2.4 smart search ready, mobile nav redesigned to 4 tabs"
+            body="Saved: Series B $42M closed (lead: Accel), MAU 50K milestone confirmed, v2.4 smart search passed internal demo, mobile nav consolidated from 5 to 4 tabs"
           />,
         ]
       : selectedOption === 1
@@ -191,23 +191,23 @@ export function PhoneChatScreen() {
             <TodoListBubble key="todos" />,
             <StatusPill
               key="status"
-              text="Executing follow-ups..."
-              resolvedText="3 follow-ups executed"
+              text="Executing follow-ups on 3 action items..."
+              resolvedText="3 follow-ups executed · notified 4 people"
               resolveDelay={1200}
             />,
             <FileAttachmentBubble
               key="email"
-              fileName="Smart Search QA Checklist"
-              fileSize="Sent to QA Team"
+              fileName="v2.4 Smart Search QA Checklist"
+              fileSize="Sent to QA Team · 8 test cases"
               iconColor="#FF8C00"
             />,
             <ActionCompletePill
               key="complete"
-              label="3 tasks followed up 💪"
+              label="All 3 tasks followed up · QA notified, relocation info sent, iOS ticket created 💪"
             />,
             <MemoryNotification
               key="memory"
-              body="Saved: QA checklist sent for v2.4, relocation info forwarded to you, 4-tab nav ticket created for @iOS Dev"
+              body="Saved: QA checklist with 8 test cases sent for v2.4 smart search, London relocation FAQ forwarded to your inbox, 4-tab navigation Jira ticket assigned to @iOS Dev with design specs attached"
             />,
           ]
         : [
@@ -228,24 +228,24 @@ export function PhoneChatScreen() {
             />,
             <StatusPill
               key="status"
-              text="Compiling meeting materials..."
-              resolvedText="Meeting materials compiled"
+              text="Compiling briefing from calendar, notes, and memory..."
+              resolvedText="Briefing compiled · 3 talking points prepared"
               resolveDelay={1200}
             />,
             <MeetingBriefingCard key="briefing" />,
             <FileAttachmentBubble
               key="file"
-              fileName="Sprint Review Briefing"
-              fileSize="12 KB · Saved to notes"
+              fileName="Sprint Review Briefing Pack"
+              fileSize="12 KB · Saved to Notes & shared with @PM Team"
               iconColor="#4A6CF7"
             />,
             <ActionCompletePill
               key="complete"
-              label="Meeting prep done · Reminder set 15 min before 👍"
+              label="Meeting prep complete · Briefing saved & calendar reminder set 15 min before 👍"
             />,
             <MemoryNotification
               key="memory"
-              body="Saved: Sprint Review briefing generated with v2.4 status, enterprise pipeline update, and mobile nav timeline"
+              body="Saved: Sprint Review briefing generated — includes v2.4 release readiness, 8 enterprise deals in late-stage pipeline, mobile 4-tab nav ETA next Friday"
             />,
           ];
 

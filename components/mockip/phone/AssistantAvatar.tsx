@@ -3,7 +3,7 @@
 export function AssistantAvatar() {
   return (
     <div
-      className="shrink-0 overflow-hidden rounded-[6px] border-2 border-[#FFa030]"
+      className="shrink-0 overflow-hidden rounded-[6px]"
       style={{ width: 36, height: 36 }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}

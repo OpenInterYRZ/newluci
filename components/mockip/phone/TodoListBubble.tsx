@@ -3,12 +3,12 @@
 import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
 
 const TODOS = [
-  { text: "QA smart search before v2.4 release", source: "from Product Demo" },
+  { text: "QA team to verify smart search edge cases before Thursday's v2.4 release", source: "from Product Demo" },
   {
-    text: "Review London office relocation packages",
+    text: "Review London office relocation packages and benefits — deadline Friday",
     source: "from All-Hands",
   },
-  { text: "Implement 4-tab mobile navigation", source: "from Design Review" },
+  { text: "iOS team to implement 4-tab navigation with adaptive icons — target next Friday", source: "from Design Review" },
 ];
 
 export function TodoListBubble() {
@@ -26,7 +26,7 @@ export function TodoListBubble() {
           className="mt-1 mb-2 font-semibold text-[#333]"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
-          Extracted 3 action items from yesterday&apos;s meetings:
+          I found 3 unresolved action items from yesterday&apos;s meetings that need follow-up:
         </span>
         <div className="flex flex-col gap-1.5">
           {TODOS.map((todo, i) => (
