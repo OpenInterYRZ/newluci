@@ -9,7 +9,7 @@ interface UserBubbleProps {
 export function UserBubble({
   text,
   name = "You",
-  time = "2:16 PM",
+  time = "8:16 AM",
 }: UserBubbleProps) {
   return (
     <div className="flex w-full items-start gap-2 justify-end">

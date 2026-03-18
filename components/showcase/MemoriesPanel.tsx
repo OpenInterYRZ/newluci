@@ -233,7 +233,6 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
 
   const selected = MEMORIES[selectedIdx];
 
-  // 首次变为可见时触发 analyzing → 打字
   useEffect(() => {
     if (!isActive || hasTriggeredRef.current) return;
     hasTriggeredRef.current = true;
@@ -246,7 +245,6 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
     return () => clearTimeout(timer);
   }, [isActive]);
 
-  // 切换选中卡片时重新触发打字动画
   useEffect(() => {
     if (prevSelectedRef.current === selectedIdx) return;
     prevSelectedRef.current = selectedIdx;
@@ -278,8 +276,8 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
 
   return (
     <div className="flex h-full w-full bg-white text-left overflow-hidden">
-      {/* 左侧 - Memories */}
-      <div className="shrink-0 flex flex-2 flex-col overflow-hidden border-r border-black/5">
+      {/* Left — Memory list */}
+      <div className="shrink-0 flex flex-2 flex-col overflow-hidden border-r border-grey-1">
         <div className="flex items-center justify-between px-5 py-3 shrink-0">
           <h3 className="text-sm font-bold text-text-0">Memories</h3>
           <span className="text-[10px] text-text-2">
@@ -287,53 +285,42 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
           </span>
         </div>
 
-        <div className="flex-1 px-4 pb-4 space-y-2.5 phone-scroll">
-          {MEMORIES.map((mem, i) => (
-            <div
-              key={i}
-              onClick={() => setSelectedIdx(i)}
-              className={`rounded-lg border overflow-hidden cursor-pointer transition-all ${
-                i === selectedIdx
-                  ? "border-[#FF8C00]/40 ring-1 ring-[#FF8C00]/20 shadow-sm"
-                  : "border-black/5 hover:border-black/10"
-              }`}
-            >
-              {/* 引用的关键帧 */}
-              <div className="relative h-16 overflow-hidden">
-                <img
-                  src={mem.thumbnail}
-                  alt={mem.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-1.5 left-2.5 flex items-center gap-1.5">
-                  <Play size={8} fill="white" className="text-white" />
-                  <span className="text-[9px] text-white/90 font-mono">
-                    {mem.sourceTime}
-                  </span>
+        <div className="flex-1 px-4 pb-4 phone-scroll">
+          {MEMORIES.map((mem, i) => {
+            const isSelected = i === selectedIdx;
+            return (
+              <div
+                key={i}
+                onClick={() => setSelectedIdx(i)}
+                className={`flex items-start gap-3 py-3 px-2 cursor-pointer transition-all duration-150 ${
+                  i > 0 ? "border-t border-grey-1" : ""
+                } ${
+                  isSelected
+                    ? "border-l-2 border-l-primary bg-primary/[0.04]"
+                    : "border-l-2 border-l-transparent hover:bg-grey-0"
+                }`}
+              >
+                <div className="shrink-0 mt-0.5 flex items-center justify-center w-7 h-7 rounded-full bg-grey-0">
+                  <Play size={10} className="text-text-2 ml-0.5" />
                 </div>
-                <span className="absolute bottom-1.5 right-2.5 text-[9px] text-white/70">
-                  {mem.source}
-                </span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] font-semibold text-text-0 leading-snug truncate">
+                    {mem.title}
+                  </p>
+                  <p className="text-[10px] text-text-3 mt-0.5">
+                    {mem.source} &middot; {mem.sourceTime}
+                  </p>
+                </div>
               </div>
-              {/* 记忆内容 */}
-              <div className="p-3">
-                <p className="text-[11px] font-semibold text-text-0 leading-snug">
-                  {mem.title}
-                </p>
-                <p className="text-[10px] text-text-2 mt-1 leading-relaxed">
-                  {mem.detail}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
-      {/* 右侧 - 选中记忆的展开详情 */}
+      {/* Right — Selected memory detail */}
       <div className="flex flex-col flex-3 min-w-0 overflow-y-auto phone-scroll">
-        {/* 标题 + 来源 */}
-        <div className="px-6 py-4">
+        {/* Title + source */}
+        <div className="px-6 pt-5 pb-3">
           <AnimatePresence mode="wait">
             <motion.h3
               key={selectedIdx}
@@ -350,8 +337,9 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
             {selected.source} &middot; {selected.sourceTime}
           </p>
         </div>
-        {/* 视频缩略图 */}
-        <div className="px-4 pb-2">
+
+        {/* Video thumbnail */}
+        <div className="px-4 pb-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedIdx}
@@ -359,7 +347,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full aspect-[16/8] shrink-0 overflow-hidden rounded-xl"
+              className="relative w-full aspect-[2/1] shrink-0 overflow-hidden rounded-xl"
             >
               <img
                 src={selected.thumbnail}
@@ -368,7 +356,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-white/10" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-[#FF8C00] flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
                   <Play size={20} fill="white" className="text-white ml-0.5" />
                 </div>
               </div>
@@ -376,8 +364,8 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
           </AnimatePresence>
         </div>
 
-        {/* Tab 切换: Summary / Transcription / Actions */}
-        <div className="px-6 flex gap-0 border-b border-black/5 shrink-0">
+        {/* Sub-tabs */}
+        <div className="px-6 flex gap-0 border-b border-grey-1 shrink-0">
           {(["summary", "transcription", "actions"] as SubTab[]).map((tab) => (
             <button
               key={tab}
@@ -390,7 +378,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
               {subTab === tab && (
                 <motion.div
                   layoutId="memories-sub-tab"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF8C00] rounded-full"
+                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary rounded-full"
                   transition={{ type: "spring", stiffness: 500, damping: 35 }}
                 />
               )}
@@ -398,8 +386,8 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
           ))}
         </div>
 
-        {/* Tab 内容 */}
-        <div className="px-6 py-4 space-y-4 flex-1">
+        {/* Tab content */}
+        <div className="px-6 py-5 flex-1">
           {subTab === "summary" && (
             <AnimatePresence mode="wait">
               {analyzing ? (
@@ -413,7 +401,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
                 >
                   <Loader2 size={14} className="text-text-2 animate-spin" />
                   <span className="text-sm text-text-2">
-                    Luci is analyzing...
+                    LUCI is analyzing...
                   </span>
                 </motion.div>
               ) : (
@@ -422,20 +410,21 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.15 }}
-                  className="space-y-2"
+                  className="space-y-4"
                 >
-                  <h2 className="text-lg font-bold text-text-0">
-                    Executive Summary
-                  </h2>
-
-                  <p className="text-[13px] leading-relaxed text-text-1">
-                    {summaryText}
-                    {!done && cursorSegment === 0 && cursor}
-                  </p>
+                  <div>
+                    <h2 className="text-base font-bold text-text-0 mb-2">
+                      Executive Summary
+                    </h2>
+                    <p className="text-[13px] leading-relaxed text-text-1">
+                      {summaryText}
+                      {!done && cursorSegment === 0 && cursor}
+                    </p>
+                  </div>
 
                   {takeawayTexts.some((t) => t.length > 0) && (
-                    <div className="flex gap-8 pt-1">
-                      <div className="flex-1 min-w-0">
+                    <div className="flex gap-6 pt-2">
+                      <div className="flex-1 min-w-0 border-l-2 border-primary/30 pl-4">
                         <h4 className="text-[10px] font-semibold text-text-2 uppercase tracking-wider mb-2.5">
                           Key Takeaways
                         </h4>
@@ -448,7 +437,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
                               >
                                 <CheckCircle2
                                   size={14}
-                                  className="text-[#FF8C00] shrink-0 mt-0.5"
+                                  className="text-primary shrink-0 mt-0.5"
                                 />
                                 <span>
                                   {text}
@@ -461,7 +450,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
                       </div>
 
                       {nextStepTexts.some((t) => t.length > 0) && (
-                        <div className="flex-1 min-w-0">
+                        <div className="flex-1 min-w-0 border-l-2 border-grey-2 pl-4">
                           <h4 className="text-[10px] font-semibold text-text-2 uppercase tracking-wider mb-2.5">
                             Next Steps
                           </h4>
@@ -474,7 +463,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
                                 >
                                   <Circle
                                     size={14}
-                                    className="text-[#FF8C00] shrink-0 mt-0.5"
+                                    className="text-primary shrink-0 mt-0.5"
                                   />
                                   <span>
                                     {text}
@@ -501,9 +490,9 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
               {selected.transcript.map((line, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 py-2 hover:bg-black/[0.015] rounded-lg px-2 -mx-2 transition-colors"
+                  className="flex items-start gap-3 py-2 hover:bg-grey-0 rounded-lg px-2 -mx-2 transition-colors"
                 >
-                  <span className="text-[10px] font-mono text-text-2/50 mt-0.5 shrink-0 w-10">
+                  <span className="text-[10px] font-mono text-text-3 mt-0.5 shrink-0 w-10">
                     {line.time}
                   </span>
                   <div className="flex-1 min-w-0">
@@ -520,27 +509,31 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
           )}
 
           {subTab === "actions" && (
-            <div className="space-y-3">
-              <h2 className="text-lg font-bold text-text-0">Action Items</h2>
-              <p className="text-[12px] text-text-2">
+            <div>
+              <h2 className="text-base font-bold text-text-0">Action Items</h2>
+              <p className="text-[12px] text-text-2 mt-1 mb-4">
                 {selected.actions.length} tasks extracted from this memory
               </p>
-              <ul className="space-y-2">
+              <ul>
                 {selected.actions.map((action, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 p-3 rounded-lg border border-black/5 hover:border-black/10 transition-colors"
+                    className={`flex items-start gap-3 py-3 ${
+                      i < selected.actions.length - 1
+                        ? "border-b border-grey-1"
+                        : ""
+                    }`}
                   >
-                    <div className="mt-0.5 w-4 h-4 rounded border-2 border-[#FF8C00]/40 shrink-0" />
+                    <div className="mt-0.5 w-4 h-4 rounded border-2 border-primary/40 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <p className="text-[12px] font-medium text-text-0 leading-snug">
                         {action.text}
                       </p>
                       <div className="flex items-center gap-3 mt-1.5">
-                        <span className="text-[10px] text-text-2 bg-black/[0.03] rounded-full px-2 py-0.5">
+                        <span className="text-[10px] text-text-2 bg-grey-0 rounded-full px-2 py-0.5">
                           {action.assignee}
                         </span>
-                        <span className="text-[10px] text-text-2/60">
+                        <span className="text-[10px] text-text-3">
                           {action.due}
                         </span>
                       </div>
@@ -548,13 +541,7 @@ export default function MemoriesPanel({ isActive }: { isActive: boolean }) {
                   </li>
                 ))}
               </ul>
-              <button
-                className="w-full mt-2 py-2.5 rounded-lg text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #FF8C00 0%, #FFa030 100%)",
-                }}
-              >
+              <button className="w-full mt-4 py-2.5 rounded-lg bg-primary text-[13px] font-semibold text-white transition-all duration-150 hover:brightness-110 active:scale-[0.98]">
                 Ask LUCI to Act
               </button>
             </div>

@@ -14,7 +14,7 @@ export function AssistantAvatar() {
 
 export function AssistantNameTime({
   name = "LUCI",
-  time = "2:15 PM",
+  time = "8:15 AM",
 }: {
   name?: string;
   time?: string;
@@ -28,7 +28,7 @@ export function AssistantNameTime({
         {name}
       </span>
       <span
-        className="inline-flex items-center rounded-[4px] px-1.5 py-px font-semibold text-[#FFa030] bg-[#fdf2e5]"
+        className="inline-flex items-center rounded-[4px] px-1.5 py-px font-semibold text-primary bg-primary/[0.08]"
         style={{
           fontSize: "calc(var(--phone-chat-fs) - 4px)",
           lineHeight: 1.4,

@@ -10,14 +10,9 @@ export function ActionCompletePill({
   return (
     <div
       className="inline-flex items-center"
-      style={{
-        fontFamily: "Manrope, sans-serif",
-      }}
+      style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
     >
-      <span
-        className="font-medium tracking-[0.2px] text-text-2"
-        style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
-      >
+      <span className="font-medium tracking-[0.2px] text-text-2">
         {label}
       </span>
     </div>

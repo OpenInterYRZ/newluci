@@ -25,11 +25,11 @@ export default function OurBeliefs() {
   return (
     <section className="px-6 py-28 sm:py-20 bg-web-bg-0">
       <div className="max-w-6xl mx-auto">
-        <span className="inline-block text-xs font-mono tracking-[0.25em] uppercase text-text-2 mb-5">
-          02 &mdash; Our Beliefs
+        <span className="inline-block text-xs tracking-[0.25em] uppercase text-text-2 mb-5">
+          Our Beliefs
         </span>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-text-0 leading-[1.08] tracking-tight max-w-2xl mb-16">
+        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-text-0 leading-[1.08] tracking-tight max-w-2xl mb-16">
           A Few Things We Hold True
         </h2>
 

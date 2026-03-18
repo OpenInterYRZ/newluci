@@ -15,15 +15,10 @@ export function TodoListBubble() {
   return (
     <div className="flex w-full items-start gap-2 justify-start">
       <AssistantAvatar />
-      <div
-        className="flex max-w-120 flex-col"
-        style={{
-          fontFamily: "Manrope, sans-serif",
-        }}
-      >
-        <AssistantNameTime time="2:16 PM" />
+      <div className="flex max-w-120 flex-col">
+        <AssistantNameTime time="8:16 AM" />
         <span
-          className="mt-1 mb-2 font-semibold text-[#333]"
+          className="mt-1 mb-2 font-semibold text-text-0"
           style={{ fontSize: "var(--phone-chat-fs)" }}
         >
           I found 3 unresolved action items from yesterday&apos;s meetings that need follow-up:
@@ -35,12 +30,12 @@ export function TodoListBubble() {
               className="flex gap-1.5"
               style={{ fontSize: "var(--phone-chat-fs)" }}
             >
-              <span className="shrink-0 font-semibold text-[#FF8C00]">
+              <span className="shrink-0 font-semibold text-primary">
                 {i + 1}.
               </span>
-              <span className="text-[#333]">
+              <span className="text-text-0">
                 {todo.text} —{" "}
-                <span className="text-[#FF8C00]">{todo.source}</span>
+                <span className="text-primary">{todo.source}</span>
               </span>
             </div>
           ))}

@@ -1,14 +1,22 @@
 "use client";
 
 import React, { useRef, useState, useCallback } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import GradientButton from "../ui/GradientButton";
 import GlassButton from "../ui/GlassButton";
 import ProductShowcase from "../showcase/ProductShowcase";
 import ProductShowcaseDesktop from "../showcase/ProductShowcaseDesktop";
 
-const LANDSCAPES = Array.from({ length: 16 }, (_, i) => `/landscape/lan${i + 1}.webp`);
+const LANDSCAPES = Array.from(
+  { length: 33 },
+  (_, i) => `/landscape/lan${i + 1}.webp`,
+);
 
 export const CapHero = () => {
   const ref = useRef<HTMLDivElement>(null);

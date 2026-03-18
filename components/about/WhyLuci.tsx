@@ -27,10 +27,10 @@ export default function WhyLuci() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-20">
-          <span className="inline-block text-xs font-mono tracking-[0.25em] uppercase text-text-2 mb-5">
-            01 &mdash; Why we built LUCI
+          <span className="inline-block text-xs tracking-[0.25em] uppercase text-text-2 mb-5">
+            Why we built LUCI
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-text-0 leading-[1.08] tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-text-0 leading-[1.08] tracking-tight">
             The Problem Is Simple
           </h2>
         </div>
@@ -57,7 +57,7 @@ export default function WhyLuci() {
             {painPoints.map((item, i) => (
               <div
                 key={i}
-                className="group relative flex items-center rounded-xl bg-white border border-grey-1 overflow-hidden transition-shadow duration-300 hover:shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
+                className="group relative flex items-center rounded-xl bg-bg-0 border border-grey-1 overflow-hidden transition-shadow duration-300 hover:shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
               >
                 {/* Image */}
                 <div className="relative w-40 h-[140px] shrink-0">

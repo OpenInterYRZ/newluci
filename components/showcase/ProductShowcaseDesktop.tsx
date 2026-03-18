@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 import { Rnd } from "react-rnd";
-import { MessageSquare, BookCopy, Settings } from "lucide-react";
+import { MessageSquare, BookCopy, Settings, RotateCcw } from "lucide-react";
 import { PhoneChatScreen } from "../mockip/phone/PhoneChatScreen copy";
 import MemoriesPanel from "./MemoriesPanel";
 import SettingsPanel from "./SettingsPanel";
@@ -19,7 +19,7 @@ interface WindowState {
 }
 
 const DESKTOP_DEFAULTS = {
-  window: { x: 60, y: 30, width: 1100, height: 620 },
+  window: { x: 60, y: 30, width: 900, height: 620 },
   container: 680,
 };
 
@@ -39,6 +39,7 @@ export default function ProductShowcaseDesktop() {
   const [windowState, setWindowState] = useState<WindowState>(defaults.window);
   const [containerHeight, setContainerHeight] = useState(defaults.container);
   const [activeTab, setActiveTab] = useState<TabId>("ask");
+  const [chatKey, setChatKey] = useState(0);
 
   const handleTabChange = useCallback(
     (newTab: TabId) => {
@@ -195,6 +196,20 @@ export default function ProductShowcaseDesktop() {
                         </button>
                       );
                     })}
+                    {/* Replay button — only when Ask tab is active */}
+                    {activeTab === "ask" && (
+                      <button
+                        onClick={() => setChatKey((k) => k + 1)}
+                        className="mt-auto flex flex-col items-center gap-1.5"
+                      >
+                        <div className="w-11 h-11 rounded-full flex items-center justify-center bg-white border border-black/10 text-text-2 hover:border-black/20 transition-all">
+                          <RotateCcw size={18} />
+                        </div>
+                        <span className="text-[10px] font-medium text-text-2">
+                          Replay
+                        </span>
+                      </button>
+                    )}
                   </div>
                   {/* 面板区域 - iOS 风格滑动切换，所有面板始终挂载 */}
                   <div className="flex-1 overflow-hidden relative">
@@ -221,8 +236,10 @@ export default function ProductShowcaseDesktop() {
                             backfaceVisibility: "hidden",
                           }}
                         >
-                          {tabId === "ask" && <PhoneChatScreen />}
-                          {tabId === "memories" && <MemoriesPanel isActive={isActive} />}
+                          {tabId === "ask" && <PhoneChatScreen key={chatKey} />}
+                          {tabId === "memories" && (
+                            <MemoriesPanel isActive={isActive} />
+                          )}
                           {tabId === "settings" && <SettingsPanel />}
                         </motion.div>
                       );

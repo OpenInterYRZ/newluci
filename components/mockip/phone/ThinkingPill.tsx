@@ -22,7 +22,7 @@ export function ThinkingPill({
   }, [resolveDelay]);
 
   return (
-    <span style={{ fontFamily: "Manrope, sans-serif", fontSize: "calc(var(--phone-chat-fs) - 2px)" }}>
+    <span style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}>
       {resolved ? (
         <span className="font-medium text-text-2">{resolvedText}</span>
       ) : (

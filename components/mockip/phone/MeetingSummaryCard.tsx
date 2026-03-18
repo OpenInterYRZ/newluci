@@ -5,23 +5,19 @@ import { AssistantAvatar } from "./AssistantAvatar";
 export function MeetingSummaryCard() {
   return (
     <div
-      className="flex w-full items-start gap-2 justify-start"
-      style={{
-        fontFamily: "Manrope, sans-serif",
-        fontSize: "var(--phone-chat-fs)",
-      }}
+      className="flex w-full items-start gap-2 justify-start max-w-[75%]"
+      style={{ fontSize: "var(--phone-chat-fs)" }}
     >
       <AssistantAvatar />
       <div className="flex flex-col gap-0.5">
         {/* Header: Name + Badge + Time */}
         <div className="flex items-center gap-1.5">
           <span className="font-bold text-text-0">LUCI</span>
-
           <span
             className="text-text-2"
             style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
           >
-            2:15 PM
+            8:15 AM
           </span>
         </div>
 
@@ -30,64 +26,74 @@ export function MeetingSummaryCard() {
           className="mt-1 flex flex-col gap-1 text-text-0 leading-[1.6]"
           style={{ fontSize: "calc(var(--phone-chat-fs) - 1px)" }}
         >
-          <p>Here&apos;s what happened in yesterday&apos;s 3 meetings (2h 20min total):</p>
+          <p>
+            Here&apos;s what happened in yesterday&apos;s 3 meetings (2h 20min
+            total):
+          </p>
 
           {/* All meetings with single left border */}
-          <div
-            className="flex flex-col gap-2 pl-2.5"
-            style={{ borderLeft: "3px solid #E0E0E0" }}
-          >
+          <div className="flex flex-col gap-2 pl-2.5 border-l-[3px] border-grey-2">
             {/* Product Demo Recording */}
-            <div className="flex flex-col gap-0.5">
+            <div className="flex flex-col gap-0.5 ">
               <p>
-                <span className="font-bold">Product Demo</span> · 45 min · 6 attendees
+                <span className="font-bold">Product Demo</span> · 45 min · 6
+                attendees
               </p>
               <p className="text-text-1">
-                - v2.4 highlights: smart search with AI ranking, batch export for enterprise, redesigned onboarding flow (3 steps → 1)
+                - v2.4 highlights: smart search with AI ranking, batch export
+                for enterprise, redesigned onboarding flow (3 steps → 1)
               </p>
               <p className="text-text-1">
-                - Client feedback: &quot;search speed improved 4x&quot; — demo well received
+                - Client feedback: &quot;search speed improved 4x&quot; — demo
+                well received
               </p>
               <p>
-                <span className="font-medium" style={{ color: "#FF8C00" }}>
+                <span className="font-medium text-primary">
                   Action:
                 </span>{" "}
-                QA team to verify smart search edge cases before Thursday release
+                QA team to verify smart search edge cases before Thursday
+                release
               </p>
             </div>
 
             {/* Weekly All-Hands */}
             <div className="flex flex-col gap-0.5">
               <p>
-                <span className="font-bold">All-Hands</span> · 58 min · Company-wide
+                <span className="font-bold">All-Hands</span> · 58 min ·
+                Company-wide
               </p>
               <p className="text-text-1">
-                - Series B closed at $42M (lead: Accel) — 30-month runway secured
+                - Series B closed at $42M (lead: Accel) — 30-month runway
+                secured
               </p>
               <p className="text-text-1">
-                - MAU crossed 50K milestone, enterprise pipeline at 8 late-stage deals
+                - MAU crossed 50K milestone, enterprise pipeline at 8 late-stage
+                deals
               </p>
               <p>
-                <span className="font-medium" style={{ color: "#FF8C00" }}>
+                <span className="font-medium text-primary">
                   Action:
                 </span>{" "}
-                London office opening next month — review relocation packages by Friday
+                London office opening next month — review relocation packages by
+                Friday
               </p>
             </div>
 
             {/* Design Review — Mobile */}
             <div className="flex flex-col gap-0.5">
               <p>
-                <span className="font-bold">Design Review</span> · 37 min · Design + iOS team
+                <span className="font-bold">Design Review</span> · 37 min ·
+                Design + iOS team
               </p>
               <p className="text-text-1">
-                - Mobile tab bar consolidated from 5 → 4 tabs, new adaptive icon system approved
+                - Mobile tab bar consolidated from 5 → 4 tabs, new adaptive icon
+                system approved
               </p>
               <p className="text-text-1">
                 - Prototype tested with 12 users — task completion rate up 18%
               </p>
               <p>
-                <span className="font-medium" style={{ color: "#FF8C00" }}>
+                <span className="font-medium text-primary">
                   Action:
                 </span>{" "}
                 @iOS Dev to implement 4-tab navigation, target next Friday
@@ -98,11 +104,8 @@ export function MeetingSummaryCard() {
 
         {/* Bottom links */}
         <div
-          className="mt-1.5 flex items-center gap-3"
-          style={{
-            fontSize: "calc(var(--phone-chat-fs) - 2px)",
-            color: "#1264A3",
-          }}
+          className="mt-1.5 flex items-center gap-3 text-[#1264A3]"
+          style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
         >
           <span className="flex items-center gap-1">
             <svg
@@ -142,7 +145,7 @@ export function MeetingSummaryCard() {
                 width="3"
                 height="13"
                 rx="0.5"
-                fill="#FF8C00"
+                fill="var(--primary)"
               />
             </svg>
             Usage data

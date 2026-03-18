@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -40,7 +41,7 @@ const TABS: UseCaseTab[] = [
     id: "knowledge",
     label: "Knowledge Workers",
     href: "/use-cases/knowledge-workers",
-    title: "Learning notes,require video understanding",
+    title: "Learning notes, require video understanding",
     description:
       "Turn hours of video into structured notes in seconds. LUCI watches, understands, and organizes knowledge so you can learn faster and recall anything instantly.",
     agents: [
@@ -86,19 +87,8 @@ const TABS: UseCaseTab[] = [
   },
 ];
 
-const TAB_DURATION = 5000;
-
 export default function UseCaseTabs() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const advanceTab = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % TABS.length);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(advanceTab, TAB_DURATION);
-    return () => clearTimeout(timer);
-  }, [activeIndex, advanceTab]);
 
   const handleTabClick = (index: number) => {
     if (index === activeIndex) return;
@@ -121,7 +111,7 @@ export default function UseCaseTabs() {
           </p>
         </div>
 
-        {/* Tabs */}
+        {/* Tabs with progress indicators */}
         <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
           {TABS.map((t, i) => {
             const isActive = i === activeIndex;
@@ -129,27 +119,27 @@ export default function UseCaseTabs() {
               <button
                 key={t.id}
                 onClick={() => handleTabClick(i)}
-                className={`relative rounded-full min-w-[140px] px-6 py-2.5 text-sm font-medium transition-all cursor-pointer ${
+                className={`relative overflow-hidden rounded-full px-6 py-2.5 text-sm font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? "bg-orange-400 text-text-0 shadow-md"
-                    : "text-text-2 bg-bg-2 hover:bg-text-2/25 backdrop-blur-md"
+                    ? "bg-primary text-white shadow-md"
+                    : "text-text-2 bg-grey-0 dark:bg-grey-8 hover:bg-grey-1 dark:hover:bg-grey-7"
                 }`}
               >
-                {t.label}
+                <span className="relative z-10">{t.label}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Content Card — white background, left text + right image */}
-        <div className="relative w-full rounded-3xl overflow-hidden bg-bg-0">
+        {/* Content Card */}
+        <div className="relative w-full rounded-3xl overflow-hidden bg-bg-0 shadow-sm ring-1 ring-grey-1 dark:ring-grey-7">
           <AnimatePresence mode="wait">
             <motion.div
               key={tab.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]"
             >
               {/* Left — Text content */}
@@ -163,22 +153,23 @@ export default function UseCaseTabs() {
                   </p>
                 </div>
 
-                {/* Agent pills */}
+                {/* Agent pills — brand-tinted with dot indicator */}
                 <div className="grid grid-cols-2 gap-2.5">
                   {tab.agents.map((agent) => (
                     <div
                       key={agent.label}
-                      className="flex items-center gap-2.5 rounded-full bg-gray-50 px-4 py-2.5 text-sm text-gray-700"
+                      className="flex items-center gap-2.5 rounded-full bg-brand-0 dark:bg-brand-9/30 px-4 py-2.5 text-sm text-text-1"
                     >
+                      <span className="size-1.5 shrink-0 rounded-full bg-primary" />
                       <span className="truncate">{agent.label}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* CTA */}
+                {/* CTA — brand orange */}
                 <Link
                   href={tab.href}
-                  className="inline-flex items-center gap-2 w-fit rounded-full bg-gray-900 text-white px-5 py-2.5 text-sm font-medium hover:bg-gray-800 transition-colors"
+                  className="inline-flex items-center gap-2 w-fit rounded-full bg-primary text-white px-5 py-2.5 text-sm font-medium hover:bg-primary-hover transition-colors"
                 >
                   {tab.cta}
                   <svg
@@ -201,10 +192,12 @@ export default function UseCaseTabs() {
 
               {/* Right — Image */}
               <div className="relative min-h-[300px] md:min-h-0">
-                <img
+                <Image
                   src={tab.image}
-                  alt={tab.title}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  alt={`${tab.label} use case — ${tab.title}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </motion.div>

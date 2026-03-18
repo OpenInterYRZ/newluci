@@ -27,8 +27,8 @@ import { MeetingBriefingCard } from "./MeetingBriefingCard";
 /* Phase 1+2: auto-play on mount */
 const PHASE12_TIMELINE = [
   500, // [0] AssistantBubble greeting
-  1500, // [1] SummaryCard
-  3000, // [2] QuickActionPicker — waits for user click
+  1500, // [1] SummaryCard (analyzing animation ~2.8s inside)
+  6400, // [2] QuickActionPicker — after analyze-complete (1500+2800+1400+700)
 ];
 
 /* Phase 3: relative delays from picker dismiss (per-path) */
@@ -120,7 +120,7 @@ export function PhoneChatScreen() {
           node: (
             <AssistantBubble
               key={`assist-extra-${prev.length}`}
-              text="To try LUCI, download Luci Desktop 😊"
+              text="To try LUCI, download LUCI Desktop 😊"
             />
           ),
         },
@@ -199,7 +199,6 @@ export function PhoneChatScreen() {
               key="email"
               fileName="v2.4 Smart Search QA Checklist"
               fileSize="Sent to QA Team · 8 test cases"
-              iconColor="#FF8C00"
             />,
             <ActionCompletePill
               key="complete"
@@ -237,7 +236,6 @@ export function PhoneChatScreen() {
               key="file"
               fileName="Sprint Review Briefing Pack"
               fileSize="12 KB · Saved to Notes & shared with @PM Team"
-              iconColor="#4A6CF7"
             />,
             <ActionCompletePill
               key="complete"
@@ -251,16 +249,11 @@ export function PhoneChatScreen() {
 
   return (
     <div className="flex h-full w-full flex-col overflow-hidden bg-bg-0 text-left">
-      {/* ── Chat Header ── */}
-
       {/* ── Messages ── */}
       <div
         ref={scrollAreaRef}
         data-lenis-prevent
-        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto px-8 py-4 phone-scroll"
-        style={{
-          background: "linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%)",
-        }}
+        className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto bg-white px-8 py-4 phone-scroll"
       >
         <AnimatePresence>
           {(() => {
@@ -312,12 +305,9 @@ export function PhoneChatScreen() {
         </AnimatePresence>
       </div>
 
-      {/* ── Input Bar (always visible) ── */}
+      {/* ── Input Bar ── */}
       <div className="flex shrink-0 items-center gap-1.5 bg-bg-0 px-8 py-1.5">
-        <div
-          className="flex flex-1 items-center rounded-lg border border-grey-1 px-3"
-          style={{ height: 34, background: "#F2F2F7" }}
-        >
+        <div className="flex flex-1 items-center rounded-lg border border-grey-1 bg-grey-0 px-3 h-[34px]">
           <input
             type="text"
             value={inputValue}
@@ -326,19 +316,13 @@ export function PhoneChatScreen() {
               if (e.key === "Enter") handleSend();
             }}
             placeholder="Message LUCI..."
-            className="min-w-0 flex-1 bg-transparent text-xs font-normal text-[#1C1C1E] placeholder:text-[#AEAEB2] outline-none"
-            style={{ fontFamily: "Manrope, sans-serif" }}
+            className="min-w-0 flex-1 bg-transparent text-xs font-normal text-text-0 placeholder:text-text-3 outline-none"
           />
         </div>
         <button
           onClick={handleSend}
           disabled={!inputValue.trim() || isSending}
-          className="flex shrink-0 items-center justify-center rounded-full transition-opacity disabled:opacity-40"
-          style={{
-            width: 32,
-            height: 32,
-            background: "linear-gradient(135deg, #FF8C00 0%, #FFa030 100%)",
-          }}
+          className="flex shrink-0 items-center justify-center rounded-full bg-primary transition-opacity hover:brightness-110 active:scale-[0.97] disabled:opacity-40 w-8 h-8"
         >
           <ArrowUp size={16} strokeWidth={2.5} className="text-white" />
         </button>

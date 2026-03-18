@@ -36,15 +36,10 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 10 }}
       transition={{ duration: visible ? 0.4 : 0.3, ease: "easeOut" }}
       className="w-full"
-      style={{ fontFamily: "Manrope, sans-serif" }}
     >
       <div
-        className="flex flex-col overflow-hidden rounded-xl max-w-90 ml-10"
-        style={{
-          background: "#FFFFFF",
-          border: "1px solid #E5E5E5",
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
-        }}
+        className="flex flex-col overflow-hidden rounded-xl max-w-90 ml-10 border border-grey-1 bg-white"
+        style={{ boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)" }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-3 pt-3"></div>
@@ -52,7 +47,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         {/* Question */}
         <div className="px-3 pb-2">
           <span
-            className="font-semibold text-[#333]"
+            className="font-semibold text-text-0"
             style={{ fontSize: "var(--phone-chat-fs)" }}
           >
             Based on yesterday&apos;s activity, here are your top priorities:
@@ -72,15 +67,15 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
                   showHint
                     ? {
                         backgroundColor: [
-                          "rgba(255, 140, 0, 0)",
-                          "rgba(255, 140, 0, 0.08)",
-                          "rgba(255, 140, 0, 0)",
+                          "oklch(0.8 0.12 70 / 0)",
+                          "oklch(0.8 0.12 70 / 0.08)",
+                          "oklch(0.8 0.12 70 / 0)",
                         ],
                       }
                     : {
                         backgroundColor: isSelected
-                          ? "rgba(255, 140, 0, 0.08)"
-                          : "rgba(255, 140, 0, 0)",
+                          ? "oklch(0.8 0.12 70 / 0.08)"
+                          : "oklch(0.8 0.12 70 / 0)",
                       }
                 }
                 transition={
@@ -93,10 +88,9 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
                       }
                     : { duration: 0.2 }
                 }
-                className="flex cursor-pointer text-text-2 items-center gap-2.5 rounded-lg px-2 py-1 transition-colors hover:text-text-0"
-                style={{
-                  color: isSelected ? "text-text-0" : "text-text-2",
-                }}
+                className={`flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-1 transition-colors ${
+                  isSelected ? "text-text-0" : "text-text-2 hover:text-text-0"
+                }`}
               >
                 <span
                   className="shrink-0"
@@ -118,10 +112,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
         </div>
 
         {/* Footer */}
-        <div
-          className="flex items-center justify-end gap-3 px-3 py-2"
-          style={{ borderTop: "1px solid #F0F0F0" }}
-        >
+        <div className="flex items-center justify-end gap-3 border-t border-grey-0 px-3 py-2">
           <span
             onClick={() => {
               if (confirmed) return;
@@ -129,7 +120,7 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
               setVisible(false);
               setTimeout(() => onDismiss?.(0), 300);
             }}
-            className="cursor-pointer font-medium text-[#999] transition-colors hover:text-[#666]"
+            className="cursor-pointer font-medium text-text-3 transition-colors hover:text-text-1"
             style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
           >
             Skip
@@ -137,11 +128,8 @@ export function QuickActionPicker({ onDismiss }: QuickActionPickerProps) {
           <button
             onClick={handleContinue}
             disabled={selectedIndex === null || confirmed}
-            className="rounded-md px-3 py-1 font-semibold text-white transition-opacity disabled:opacity-30"
-            style={{
-              fontSize: "calc(var(--phone-chat-fs) - 2px)",
-              background: "#FF8C00",
-            }}
+            className="rounded-md bg-primary px-3 py-1 font-semibold text-white transition-opacity hover:brightness-110 disabled:opacity-30"
+            style={{ fontSize: "calc(var(--phone-chat-fs) - 2px)" }}
           >
             Continue
           </button>
