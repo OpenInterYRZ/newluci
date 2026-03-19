@@ -42,7 +42,7 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-web-bg-0">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-12 px-6 py-16 md:flex-row md:gap-[100px] md:px-5 md:py-24">
+      <div className="mx-auto flex max-w-[1300px] flex-col gap-12 px-6 py-16 md:flex-row md:gap-[100px] md:px-5 md:py-24">
         {/* Left — Title Column */}
         <div className="flex shrink-0 flex-col gap-4 md:w-[400px]">
           <h2 className="text-2xl md:text-5xl font-semibold leading-[1.15] tracking-tight">

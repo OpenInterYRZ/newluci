@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import BlogCard from '@/components/blog/BlogCard';
-import Footer from '@/components/Footer';
+
 import type { BlogPost } from '@/lib/blog';
 
 interface BlogPageProps {
@@ -140,7 +140,7 @@ export default function BlogPage({
           </nav>
         )}
       </section>
-      <Footer />
+
     </>
   );
 }

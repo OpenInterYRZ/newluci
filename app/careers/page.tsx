@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { jobs } from "@/data/careers";
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Careers | LUCI",
@@ -132,8 +131,6 @@ export default function CareersPage() {
           ))}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

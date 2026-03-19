@@ -3,7 +3,7 @@ import { getAllPosts } from '@/lib/blog';
 import TableOfContents from './TableOfContents';
 import BlogCard from './BlogCard';
 import CtaBanner from '@/components/CTA/CtaBanner';
-import Footer from '@/components/Footer';
+
 
 interface BlogLayoutProps {
   post: BlogPost;
@@ -82,7 +82,7 @@ export default function BlogLayout({ post, headings, children }: BlogLayoutProps
         </section>
       )}
 
-      <Footer />
+
     </>
   );
 }

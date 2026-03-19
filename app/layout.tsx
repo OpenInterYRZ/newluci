@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import { ChatWidget } from "@/components/chatbot/ChatWidget";
+import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" className="min-h-full" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -31,7 +32,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="h-full antialiased bg-web-bg-0">
+      <body className="min-h-full antialiased bg-web-bg-0">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -39,6 +40,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Footer />
           {/* <ChatWidget /> */}
         </ThemeProvider>
         <Analytics />

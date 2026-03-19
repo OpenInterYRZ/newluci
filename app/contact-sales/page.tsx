@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import Footer from "@/components/Footer";
 
 const teamSizes = ["1–10", "11–50", "51–200", "201–1000", "1000+"] as const;
 
@@ -243,8 +242,6 @@ export default function ContactSalesPage() {
           </aside>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

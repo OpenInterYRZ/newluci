@@ -173,12 +173,12 @@ function ExtraUsageDropdown() {
   );
 }
 
-export default function PricingSection() {
+export default function PricingSectionHome() {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
     <section className="w-full bg-web-bg-0 py-24 px-6 sm:px-12">
-      <div className="mx-auto max-w-[1100px]">
+      <div className="mx-auto max-w-[1300px] px-5">
         {/* Header — left-aligned for asymmetry */}
         <div className="mb-14 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
@@ -199,14 +199,14 @@ export default function PricingSection() {
         </div>
 
         {/* Plans — 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1100px] mx-auto items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1300px] mx-auto items-stretch">
           {/* Free Plan */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0, 1] }}
-            className="flex flex-col rounded-2xl border border-grey-1 bg-bg-0 p-8 md:mt-6"
+            className="flex flex-col rounded-2xl border border-grey-1 bg-bg-0 p-8"
           >
             <h3 className="text-lg font-semibold text-text-0">Free</h3>
             <div className="mt-3 flex items-baseline gap-1">
@@ -246,7 +246,7 @@ export default function PricingSection() {
               delay: 0.1,
               ease: [0.25, 0.1, 0, 1],
             }}
-            className="relative flex flex-col rounded-2xl border-2 border-[#FF6B4A] bg-primary-light-default p-8 shadow-[0_8px_40px_rgba(255,159,28,0.18)] md:scale-[1.03] md:origin-top"
+            className="relative flex flex-col rounded-2xl border-2 border-[#FF6B4A] bg-primary-light-default p-8 shadow-[0_8px_40px_rgba(255,159,28,0.18)]"
           >
             <div className="absolute -top-3.5 left-8 rounded-full bg-[#FF6B4A] px-4 py-1 text-xs font-semibold text-white shadow-sm">
               Most popular
@@ -296,7 +296,7 @@ export default function PricingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0, 1] }}
-            className="relative flex flex-col rounded-2xl border border-dashed border-grey-2 bg-[#f5f3f0] p-8 md:mt-6"
+            className="relative flex flex-col rounded-2xl border border-dashed border-grey-2 bg-[#f5f3f0] p-8"
           >
             <div className="absolute -top-3.5 left-8 rounded-full bg-grey-3 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-sm">
               The Old Way
@@ -339,7 +339,7 @@ export default function PricingSection() {
             delay: 0.2,
             ease: [0.25, 0.1, 0, 1],
           }}
-          className="mx-auto mt-6 max-w-[1100px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl border border-grey-1 bg-bg-0 p-8"
+          className="mx-auto mt-6 max-w-[1300px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-2xl border border-grey-1 bg-bg-0 p-8"
         >
           <div className="flex-1">
             <h3 className="text-lg font-semibold text-text-0">
@@ -355,88 +355,6 @@ export default function PricingSection() {
             <button className="mt-3 w-full rounded-full border border-[#FF6B4A] bg-bg-0 py-2.5 text-sm font-semibold text-[#FF6B4A] transition-colors hover:bg-[#FF6B4A]/5">
               Add Usage
             </button>
-          </div>
-        </motion.div>
-        {/* CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
-          className="mx-auto mt-16 max-w-[1100px] rounded-3xl bg-[#FF6B4A]/10 p-10 md:p-14"
-        >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <div className="max-w-lg">
-              <h3 className="text-3xl md:text-4xl font-semibold leading-tight text-text-0">
-                Why spend $60k/year
-                <br />
-                on a human assistant?
-              </h3>
-              <p className="mt-4 text-base leading-relaxed text-text-2">
-                Humans are great for building relationships, but for the heavy
-                lifting of scheduling, meeting prep, and follow-ups, Luci does
-                the work of a full-time assistant for 1% of the cost.{" "}
-                <strong className="text-text-0">
-                  Make the smart financial choice today.
-                </strong>
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <button className="rounded-full bg-[#FF6B4A] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_2px_12px_rgba(255,107,74,0.3)] transition-all hover:bg-[#ff5a36] hover:shadow-[0_4px_20px_rgba(255,107,74,0.4)] hover:scale-[1.02] active:scale-[0.98]">
-                Start Saving Now
-              </button>
-              <button className="rounded-full border border-grey-2 bg-white px-8 py-3.5 text-sm font-semibold text-text-0 transition-colors hover:border-grey-3">
-                ROI Calculator
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Efficiency Breakdown */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.1, 0, 1] }}
-          className="mx-auto mt-20 max-w-[1100px]"
-        >
-          <h3 className="text-center text-3xl md:text-4xl font-semibold text-text-0 mb-10">
-            Efficiency Breakdown
-          </h3>
-          <div className="overflow-x-auto rounded-2xl border border-[#FF6B4A]/15">
-            {/* Table Header */}
-            <div className="grid grid-cols-4 bg-[#FF6B4A]/8 text-xs font-semibold uppercase tracking-wider">
-              <div className="px-6 py-4 text-grey-4">Metric</div>
-              <div className="px-6 py-4 text-center text-grey-4">Free</div>
-              <div className="px-6 py-4 text-center text-[#FF6B4A]">
-                Pro + AI
-              </div>
-              <div className="px-6 py-4 text-center text-grey-3">
-                Human Assistant
-              </div>
-            </div>
-            {/* Table Rows */}
-            {efficiencyMetrics.map((row, i) => (
-              <div
-                key={row.metric}
-                className={`grid grid-cols-4 border-t border-[#FF6B4A]/10 ${
-                  i % 2 === 0 ? "bg-white" : "bg-[#FF6B4A]/[0.03]"
-                }`}
-              >
-                <div className="px-6 py-4 text-sm font-medium text-text-0">
-                  {row.metric}
-                </div>
-                <div className="px-6 py-4 text-center text-sm text-grey-4">
-                  {row.free}
-                </div>
-                <div className="px-6 py-4 text-center text-sm font-semibold text-[#FF6B4A]">
-                  {row.pro}
-                </div>
-                <div className="px-6 py-4 text-center text-sm text-grey-3">
-                  {row.human}
-                </div>
-              </div>
-            ))}
           </div>
         </motion.div>
       </div>

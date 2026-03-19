@@ -8,7 +8,7 @@ import SkillsCard from "./SkillsCard";
 export default function CodexFeature() {
   return (
     <section className="w-full bg-web-bg-0">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-20 py-16 md:py-28">
+      <div className="max-w-[1300px] mx-auto px-5  py-16 md:py-28">
         {/* ─── Header ─── */}
         <div className="flex flex-col gap-4 mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold leading-[1.15] text-center text-text-0">

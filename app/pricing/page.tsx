@@ -1,6 +1,5 @@
 import PricingSection from "@/components/pricing/PricingSection";
 import CtaBanner from "@/components/CTA/CtaBanner";
-import Footer from "@/components/Footer";
 
 export default function PricingPage() {
   return (
@@ -11,7 +10,6 @@ export default function PricingPage() {
       <div className="w-full bg-web-bg-0 py-14 px-6 sm:px-12">
         <CtaBanner />
       </div>
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -511,7 +510,6 @@ export default function TermsOfServicePage() {
           </section>
         </article>
       </div>
-      <Footer />
     </div>
   );
 }

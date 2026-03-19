@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -238,7 +237,6 @@ export default function PrivacyPolicyPage() {
           </section>
         </article>
       </div>
-      <Footer />
     </div>
   );
 }

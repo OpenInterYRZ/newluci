@@ -270,11 +270,11 @@ export default function Navbar() {
       ref={navRef}
       role="navigation"
       aria-label="Main navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm ${
         isDarkSection ? "nav-dark" : ""
       } ${
         activeDropdown || scrolled
-          ? "bg-web-bg-0 border-b border-grey-1"
+          ? "bg-web-bg-0/80 border-b border-grey-1"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -396,9 +396,7 @@ export default function Navbar() {
                 style={{
                   transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
                   opacity: mobileOpen ? 1 : 0,
-                  transform: mobileOpen
-                    ? "translateX(0)"
-                    : "translateX(-12px)",
+                  transform: mobileOpen ? "translateX(0)" : "translateX(-12px)",
                 }}
                 className="transition-all duration-200"
               >

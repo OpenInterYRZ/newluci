@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { jobs, getJobById } from "@/data/careers";
-import Footer from "@/components/Footer";
 import Sidebar from "./Sidebar";
 
 type Props = {
@@ -67,7 +66,6 @@ export default async function CareerDetailPage({ params }: Props) {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

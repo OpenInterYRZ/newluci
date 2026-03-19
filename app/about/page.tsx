@@ -4,7 +4,6 @@ import WhyLuci from "@/components/about/WhyLuci";
 import WhatIsLuci from "@/components/about/WhatIsLuci";
 import OurBeliefs from "@/components/about/OurBeliefs";
 import TeamGallery from "@/components/about/TeamGallery";
-import Footer from "@/components/Footer";
 
 export default function AboutPage() {
   return (
@@ -65,8 +64,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-
-        <Footer />
       </div>
     </div>
   );

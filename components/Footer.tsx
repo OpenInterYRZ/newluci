@@ -97,15 +97,20 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#1A1A19]">
+    <footer className="relative w-full bg-web-bg-0">
       {/* Content */}
       <div className="mx-auto max-w-[1300px] px-8 pt-14 pb-10 flex flex-col gap-10">
         {/* ── Top row ── */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-0 md:items-start">
           {/* Left: Logo + copyright */}
           <div className="flex flex-col items-start gap-4 md:w-[340px] shrink-0">
-            <Image src="/lucilogo.svg" alt="LUCI" width={88} height={28} />
-            <p className="text-[13px] leading-relaxed text-white/50">
+            <Image
+              src="/lucilogo-black.svg"
+              alt="LUCI"
+              width={88}
+              height={28}
+            />
+            <p className="text-[13px] leading-relaxed text-text-2">
               © {new Date().getFullYear()} LUCI. All rights reserved.
             </p>
           </div>
@@ -114,7 +119,7 @@ export default function Footer() {
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {footerColumns.map((col) => (
               <div key={col.title} className="flex flex-col gap-3">
-                <h3 className="text-xs uppercase tracking-widest font-semibold text-white/40">
+                <h3 className="text-xs uppercase tracking-widest font-semibold text-text-2">
                   {col.title}
                 </h3>
                 <div className="flex flex-col gap-2">
@@ -122,7 +127,7 @@ export default function Footer() {
                     <Link
                       key={link.href + link.label}
                       href={link.href}
-                      className="text-[14px] text-white/60 hover:text-white transition-colors"
+                      className="text-[14px] text-text-2 hover:text-text-0 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -134,18 +139,18 @@ export default function Footer() {
         </div>
 
         {/* ── Divider ── */}
-        <div className="h-px bg-white/10" />
+        <div className="h-px bg-grey-1" />
 
         {/* ── Bottom: Social icons ── */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-5 text-white/40">
+          <div className="flex items-center gap-5 text-text-2">
             {socialLinks.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white/80 transition-colors"
+                className="hover:text-text-0 transition-colors"
                 aria-label={s.label}
               >
                 {s.icon}

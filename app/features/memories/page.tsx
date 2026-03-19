@@ -1,5 +1,4 @@
 import FeatureHero from "@/components/features/FeatureHero";
-import Footer from "@/components/Footer";
 import FeatureChannels from "@/components/features/memories/FeatureChannels";
 import FeatureVideoSearch from "@/components/features/memories/FeatureVideoSearch";
 import FeatureAction from "@/components/features/memories/FeatureAction";
@@ -21,7 +20,6 @@ export default function MemoriesPage() {
       <div className="w-full bg-web-bg-0 py-14 px-6 sm:px-12">
         <CtaBanner />
       </div>
-      <Footer />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default function CtaBanner(props?: CtaBannerConfig) {
   return (
     <div className="w-full bg-web-bg-0 ">
       <section
-        className="relative w-full overflow-hidden rounded-[24px] mx-auto max-w-[1360px]"
+        className="relative w-full overflow-hidden rounded-[24px] mx-auto max-w-[1300px]"
         style={{
           backgroundImage: "url(/landscape/lan8.webp)",
           backgroundSize: "cover",
