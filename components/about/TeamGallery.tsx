@@ -44,7 +44,7 @@ export default function TeamGallery() {
           <span className="inline-block text-xs tracking-[0.25em] uppercase text-text-2 mb-5">
             The Team
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-text-0 leading-[1.08] tracking-tight max-w-2xl">
+          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold text-text-0 leading-[1.08] tracking-tight max-w-2xl">
             Meet the Minds Behind <span className="text-primary">LUCI</span>
           </h2>
           <p className="mt-5 text-base text-text-2 max-w-lg leading-relaxed">

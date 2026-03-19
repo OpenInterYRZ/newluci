@@ -30,7 +30,7 @@ export default function WhyLuci() {
           <span className="inline-block text-xs tracking-[0.25em] uppercase text-text-2 mb-5">
             Why we built LUCI
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-text-0 leading-[1.08] tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold text-text-0 leading-[1.08] tracking-tight">
             The Problem Is Simple
           </h2>
         </div>

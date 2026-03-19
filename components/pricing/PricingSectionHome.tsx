@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Check } from "lucide-react";
 
 const freePlanFeatures = [
@@ -201,13 +200,7 @@ export default function PricingSectionHome() {
         {/* Plans — 3 columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1300px] mx-auto items-stretch">
           {/* Free Plan */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: [0.25, 0.1, 0, 1] }}
-            className="flex flex-col rounded-2xl border border-grey-1 bg-bg-0 p-8"
-          >
+          <div className="flex flex-col rounded-2xl border border-grey-1 bg-bg-0 p-8">
             <h3 className="text-lg font-semibold text-text-0">Free</h3>
             <div className="mt-3 flex items-baseline gap-1">
               <span className="text-4xl font-bold text-text-0">$0</span>
@@ -235,36 +228,17 @@ export default function PricingSectionHome() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
           {/* Pro Plan — visually dominant */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              duration: 0.5,
-              delay: 0.1,
-              ease: [0.25, 0.1, 0, 1],
-            }}
-            className="relative flex flex-col rounded-2xl border-2 border-[#FF6B4A] bg-primary-light-default p-8 shadow-[0_8px_40px_rgba(255,159,28,0.18)]"
-          >
+          <div className="relative flex flex-col rounded-2xl border-2 border-[#FF6B4A] bg-primary-light-default p-8 shadow-[0_8px_40px_rgba(255,159,28,0.18)]">
             <div className="absolute -top-3.5 left-8 rounded-full bg-[#FF6B4A] px-4 py-1 text-xs font-semibold text-white shadow-sm">
               Most popular
             </div>
             <h3 className="text-lg font-semibold text-text-0">Pro</h3>
             <div className="mt-3 flex items-baseline gap-1">
-              <AnimatePresence mode="popLayout">
-                <motion.span
-                  key={`pro-${isYearly}`}
-                  initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
-                  transition={{ duration: 0.25 }}
-                  className="text-4xl font-bold text-text-0"
-                >
-                  ${isYearly ? 80 : 100}
-                </motion.span>
-              </AnimatePresence>
+              <span className="text-4xl font-bold text-text-0">
+                ${isYearly ? 80 : 100}
+              </span>
               <span className="text-sm text-grey-3">/month</span>
             </div>
 
@@ -289,15 +263,9 @@ export default function PricingSectionHome() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
           {/* Human Recruiter — "The Old Way" */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: [0.25, 0.1, 0, 1] }}
-            className="relative flex flex-col rounded-2xl border border-dashed border-grey-2 bg-[#f5f3f0] p-8"
-          >
+          <div className="relative flex flex-col rounded-2xl border border-dashed border-grey-2 bg-[#f5f3f0] p-8">
             <div className="absolute -top-3.5 left-8 rounded-full bg-grey-3 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white shadow-sm">
               The Old Way
             </div>
@@ -326,11 +294,11 @@ export default function PricingSectionHome() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Extra Usage — separate add-on section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -356,7 +324,7 @@ export default function PricingSectionHome() {
               Add Usage
             </button>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

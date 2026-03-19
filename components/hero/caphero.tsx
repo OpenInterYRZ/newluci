@@ -50,7 +50,7 @@ export const CapHero = () => {
           key={bgIndex}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('${LANDSCAPES[bgIndex]}')`,
+            backgroundImage: `url('pb.webp')`,
             y: bgY,
           }}
           initial={{ opacity: 0 }}
@@ -60,24 +60,8 @@ export const CapHero = () => {
         />
       </AnimatePresence>
 
-      {/* Switcher buttons */}
-      <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2">
-        <button
-          onClick={goPrev}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm border border-black/5 text-text-1 hover:bg-white hover:text-text-0 transition-colors shadow-sm"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <span className="text-xs font-medium text-white/80 tabular-nums min-w-[3ch] text-center">
-          {bgIndex + 1}/{LANDSCAPES.length}
-        </span>
-        <button
-          onClick={goNext}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm border border-black/5 text-text-1 hover:bg-white hover:text-text-0 transition-colors shadow-sm"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </div>
+      {/* 白色蒙层 */}
+      <div className="absolute inset-0 z-1 bg-white/30 pointer-events-none" />
 
       {/* 主要内容区 */}
       <div className="relative z-10 flex flex-col items-start w-full max-w-7xl mt-2 mb-12">

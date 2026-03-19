@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 };
 
 /* ── helpers ── */
-const DEPARTMENT_ORDER = ["Research", "Engineer", "Product", "Business"] as const;
+const DEPARTMENT_ORDER = [
+  "Research",
+  "Engineer",
+  "Product",
+  "Business",
+] as const;
 
 function groupByDepartment(items: typeof jobs) {
   const grouped: Record<string, typeof jobs> = {};
@@ -47,13 +52,13 @@ export default function CareersPage() {
         <p className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">
           Open Positions
         </p>
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-text-0 leading-[1.08] max-w-4xl">
+        <h1 className="font-semibold text-5xl md:text-6xl lg:text-7xl text-text-0 leading-[1.08] max-w-4xl">
           Build the future of personal&nbsp;AI
         </h1>
         <p className="mt-6 text-grey-5 text-lg leading-relaxed max-w-2xl">
           We&apos;re a small, focused team turning ambitious research into
-          products people rely on every day. If you thrive on hard problems
-          and care about craft, we&apos;d love to&nbsp;hear from you.
+          products people rely on every day. If you thrive on hard problems and
+          care about craft, we&apos;d love to&nbsp;hear from you.
         </p>
         <div className="mt-10 flex items-center gap-3 text-sm text-grey-4">
           <span className="inline-flex items-center gap-1.5">

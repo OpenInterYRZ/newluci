@@ -21,37 +21,25 @@ const platforms = [
 
 export default function WhereYouAreCard() {
   return (
-    <div className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10">
-      {/* ─── Title + Desc ─── */}
-      <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
-        <h3 className="text-2xl md:text-[28px] font-semibold md:font-bold leading-tight text-text-0">
-          Where You Already Are
-        </h3>
-        <p className="text-[15px] leading-relaxed text-text-2">
-          No new app to download. LUCI lives inside the messaging platforms you
-          already use every day — just start chatting.
-        </p>
-      </div>
+    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+      {/* ─── Left: Visual with platform icon grid ─── */}
+      <div className="relative flex-1 aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+        <img
+          src="/pb.webp"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-white/20" />
 
-      {/* ─── Mockup: Icon Grid ─── */}
-      <div
-        className="flex flex-1 items-center justify-center overflow-hidden rounded-[20px] p-5 md:p-10"
-        style={{
-          backgroundImage: "url(/pb.webp)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: 400,
-        }}
-      >
-        <div className="rounded-2xl bg-web-bg-0 px-10 py-8 ">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="relative z-10 m-5 md:m-8 rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg px-8 py-8 max-w-[380px] w-full">
+          <div className="grid grid-cols-4 gap-x-5 gap-y-6">
             {platforms.map((p) => (
               <div
                 key={p.name}
                 className="group flex flex-col items-center gap-2.5"
               >
                 <div
-                  className="flex h-16 w-16 items-center justify-center rounded-2xl shadow-lg transition-transform duration-300 group-hover:scale-110"
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl shadow-md transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundColor: p.color }}
                 >
                   {p.slug === "slack" ? (
@@ -60,17 +48,51 @@ export default function WhereYouAreCard() {
                     <Image
                       src={`https://cdn.simpleicons.org/${p.slug}/white`}
                       alt={p.name}
-                      width={28}
-                      height={28}
+                      width={26}
+                      height={26}
                       unoptimized
                     />
                   )}
                 </div>
-                <span className="text-xs font-medium text-text-0">
+                <span className="text-[11px] font-medium text-neutral-700">
                   {p.name}
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ─── Right: Title + Desc ─── */}
+      <div className="flex w-full flex-1 md:shrink-0 flex-col gap-4 pb-0 md:pb-6">
+        <span className="text-[11px] font-semibold tracking-widest text-emerald-600 uppercase">
+          Platform
+        </span>
+        <h3 className="text-2xl md:text-3xl font-semibold leading-tight text-text-0">
+          Where You Already Are
+        </h3>
+        <p className="text-[15px] leading-relaxed text-text-2">
+          No new app to download. LUCI lives inside the messaging platforms you
+          already use every day — just start chatting.
+        </p>
+
+        {/* Feature bullets */}
+        <div className="grid grid-cols-2 gap-6 mt-2">
+          <div>
+            <h4 className="text-sm font-bold text-neutral-900 mb-1">
+              Zero Setup
+            </h4>
+            <p className="text-[12px] leading-relaxed text-text-2">
+              Connect your existing chat apps in one click. No downloads needed.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-neutral-900 mb-1">
+              8+ Platforms
+            </h4>
+            <p className="text-[12px] leading-relaxed text-text-2">
+              WhatsApp, Slack, Telegram, Discord, and more — all supported.
+            </p>
           </div>
         </div>
       </div>

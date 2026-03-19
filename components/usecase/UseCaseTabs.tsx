@@ -22,54 +22,6 @@ interface UseCaseTab {
 
 const TABS: UseCaseTab[] = [
   {
-    id: "managers",
-    label: "Managers",
-    href: "/use-cases/managers",
-    title: "Meeting memory, task follow-up, action item tracking",
-    description:
-      "Never lose track of what was discussed or who owns what. LUCI captures meeting context, follows up on action items, and keeps your team accountable — automatically.",
-    agents: [
-      { label: "Meeting Summary Agent" },
-      { label: "Action Item Tracker" },
-      { label: "Follow-up Reminder Agent" },
-      { label: "Team Progress Agent" },
-    ],
-    cta: "Start managing smarter",
-    image: "/usecase-manage/mana1.webp",
-  },
-  {
-    id: "knowledge",
-    label: "Knowledge Workers",
-    href: "/use-cases/knowledge-workers",
-    title: "Learning notes, require video understanding",
-    description:
-      "Turn hours of video into structured notes in seconds. LUCI watches, understands, and organizes knowledge so you can learn faster and recall anything instantly.",
-    agents: [
-      { label: "Video Understanding Agent" },
-      { label: "Smart Notes Agent" },
-      { label: "Knowledge Base Builder" },
-      { label: "Semantic Search Agent" },
-    ],
-    cta: "Build your knowledge base",
-    image: "/usecases/konw/Knowledgewor.webp",
-  },
-  {
-    id: "creators",
-    label: "Creators & Thinkers",
-    href: "/use-cases/creators",
-    title: "Capture ideas, build a second brain, creative workflows",
-    description:
-      "Ideas are fleeting — LUCI catches them all. From shower thoughts to structured outlines, build a living second brain that grows with your creative process.",
-    agents: [
-      { label: "Idea Capture Agent" },
-      { label: "Second Brain Organizer" },
-      { label: "Creative Workflow Agent" },
-      { label: "Idea Connection Agent" },
-    ],
-    cta: "Start capturing ideas",
-    image: "/usecases/creator/CreatorHero.webp",
-  },
-  {
     id: "founders",
     label: "Founders",
     href: "/use-cases/founders",
@@ -84,6 +36,38 @@ const TABS: UseCaseTab[] = [
     ],
     cta: "Keep your team aligned",
     image: "/usecases/konw/knowhero.webp",
+  },
+  {
+    id: "investors",
+    label: "Investors",
+    href: "/use-cases/investors",
+    title: "Deal flow tracking, portfolio insights, due diligence at scale",
+    description:
+      "Stay on top of every deal without drowning in data. LUCI organizes pitch decks, tracks portfolio updates, and surfaces the signals that matter — so you never miss a great opportunity.",
+    agents: [
+      { label: "Deal Flow Agent" },
+      { label: "Portfolio Monitor" },
+      { label: "Due Diligence Agent" },
+      { label: "Market Signal Agent" },
+    ],
+    cta: "Sharpen your deal flow",
+    image: "/usecase-manage/mana1.webp",
+  },
+  {
+    id: "sales-leaders",
+    label: "Sales Leaders",
+    href: "/use-cases/sales-leaders",
+    title: "Pipeline visibility, call insights, rep coaching on autopilot",
+    description:
+      "Stop guessing where deals stand. LUCI captures every call, highlights buying signals, and gives your reps personalized coaching — turning raw conversations into closed revenue.",
+    agents: [
+      { label: "Call Insight Agent" },
+      { label: "Pipeline Tracker" },
+      { label: "Rep Coaching Agent" },
+      { label: "Deal Risk Agent" },
+    ],
+    cta: "Supercharge your pipeline",
+    image: "/usecases/konw/Knowledgewor.webp",
   },
 ];
 
@@ -103,11 +87,11 @@ export default function UseCaseTabs() {
         {/* Header */}
         <div className="mb-14 flex flex-col items-center gap-4 text-center">
           <h2 className="text-4xl md:text-5xl font-semibold text-text-0 leading-[1.15]">
-            Built for every role
+            Built for elites
           </h2>
-          <p className="text-base text-text-2 max-w-xl">
-            Whether you lead a team, learn for a living, create for fun, or
-            build a company — LUCI adapts to how you work.
+          <p className="text-base text-text-2 max-w-3xl">
+            From founders to investors, sales leaders to founders — LUCI adapts
+            to how you work.
           </p>
         </div>
 

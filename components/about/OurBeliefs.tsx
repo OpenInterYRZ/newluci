@@ -29,7 +29,7 @@ export default function OurBeliefs() {
           Our Beliefs
         </span>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-text-0 leading-[1.08] tracking-tight max-w-2xl mb-16">
+        <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold text-text-0 leading-[1.08] tracking-tight max-w-2xl mb-16">
           A Few Things We Hold True
         </h2>
 

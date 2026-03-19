@@ -1,153 +1,138 @@
-import Image from "next/image";
-import { ChevronLeft } from "lucide-react";
-
-/* ── FeatureChannels data ─── */
-const memories = [
-  {
-    title: "Brainstorming Session",
-    date: "02/04 15:00",
-    thumbnail: "/hero/lib1.webp",
-  },
-  {
-    title: "Q1 Strategy Review",
-    date: "02/04 15:00",
-    thumbnail: "/hero/lib2.webp",
-  },
-  {
-    title: "Project Phoenix Kickoff",
-    date: "02/04 15:00",
-    thumbnail: "/hero/lib3.webp",
-  },
-  {
-    title: "Marketing Strategy Review",
-    date: "02/04 15:00",
-    thumbnail: "/hero/lib4.webp",
-  },
-  {
-    title: "Quarterly Alignment Meeting",
-    date: "02/04 15:00",
-    thumbnail: "/hero/lib5.webp",
-  },
-  {
-    title: "Project Zenith Review",
-    date: "02/04 15:00",
-    thumbnail: "/hero/lib6.webp",
-  },
-];
-
-/* ── FeatureVideoSearch data ─── */
-const speakerAvatarMap: Record<string, string> = {
-  You: "/hero/h2.webp",
-  Lisa: "/hero/h5.webp",
-};
-
-const transcriptEntries = [
-  {
-    speaker: "You",
-    time: "12:03–12:47",
-    text: "So the main blocker right now is the API rate limit on the analytics endpoint. We're hitting the cap around 2 PM every day when the bulk sync kicks in. I think we either need to batch the requests or negotiate a higher quota before the launch.",
-  },
-  {
-    speaker: "Lisa",
-    time: "12:48–13:15",
-    text: "Agreed. I've already started prototyping a queue-based approach — we buffer the calls and spread them across a 10-minute window instead of firing everything at once. Should cut peak traffic by about 60%. I can have a PR up by Thursday.",
-  },
-];
+import { Bookmark, TrendingUp, Play, Circle } from "lucide-react";
 
 export default function VideoMemoryCard() {
   return (
-    <div className="flex flex-col md:flex-row-reverse md:items-end gap-6 md:gap-10">
-      {/* ─── Text ─── */}
-      <div className="flex w-full md:w-[400px] md:shrink-0 flex-col justify-end gap-4 pb-0 md:pb-6">
-        <h3 className="text-2xl md:text-[28px] font-semibold md:font-bold leading-tight text-text-0">
-          Video Understanding Memory
-        </h3>
-        <p className="text-[15px] leading-relaxed text-text-2">
-          Long-form and bulk video understanding, converted into a searchable
-          memory library. LUCI automatically extracts key moments, decisions,
-          and action items.
-        </p>
-      </div>
-
-      {/* ─── Visual: Two cards stacked with z-index ─── */}
-      <div className="relative flex-1 overflow-hidden rounded-3xl aspect-[4/3]">
+    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+      {/* ─── Left: Visual with floating cards ─── */}
+      <div className="relative flex-1 aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
         <img
-          src="/landscape/lan3.webp"
+          src="/pb.webp"
           alt=""
-          className="absolute inset-0 size-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-white/20" />
 
-        {/* Back card: Transcript UI (z-20, front, bottom-right) */}
-        <div className="absolute z-20 bottom-4 right-4 md:bottom-6 md:right-6 w-[65%] overflow-hidden rounded-2xl bg-white shadow-xl">
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-neutral-100 px-4 py-3">
-            <div className="flex items-center gap-3">
-              <ChevronLeft className="size-4 text-neutral-400" />
-              <div>
-                <h4 className="text-xs font-semibold text-neutral-900">
-                  Q2 Launch Sync — Engineering
-                </h4>
-                <p className="text-[10px] text-neutral-400">12:00–12:32 pm</p>
+        {/* Organic floating cards */}
+        <div className="relative z-10 w-full h-full p-6 md:p-10">
+          {/* Card 1: Key Themes — top-left, largest */}
+          <div
+            className="absolute left-6 top-[12%] md:left-10 md:top-[14%] w-[44%] rounded-2xl bg-white px-5 py-5 shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
+            style={{ transform: "rotate(-1deg)" }}
+          >
+            <div className="mb-3 w-full overflow-hidden rounded-lg bg-neutral-100">
+              <div className="relative aspect-video">
+                <img
+                  src="/hero/lib1.webp"
+                  alt="Video thumbnail"
+                  className="size-full object-cover"
+                />
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm">
+                    <Play className="h-3.5 w-3.5 fill-white text-white ml-0.5" />
+                  </div>
+                </div>
               </div>
+              {/* Progress bar with key segment markers */}
+              <div className="relative h-1.5 w-full bg-neutral-200">
+                <div className="absolute inset-y-0 left-0 w-[35%] bg-neutral-400 rounded-r-full" />
+                {/* Key segments — thicker highlights */}
+                <div className="absolute -top-[1px] h-[calc(100%+2px)] left-[12%] w-[8%] rounded-full bg-emerald-500" />
+                <div className="absolute -top-[1px] h-[calc(100%+2px)] left-[52%] w-[6%] rounded-full bg-emerald-500" />
+                <div className="absolute -top-[1px] h-[calc(100%+2px)] left-[78%] w-[10%] rounded-full bg-emerald-500" />
+              </div>
+            </div>
+            <p className="text-[14px] font-semibold text-neutral-800 mb-3 leading-snug">
+              Key Themes Identified
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[10px] font-semibold text-emerald-600 tracking-wide">
+                SCALABILITY
+              </span>
+              <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[10px] font-semibold text-emerald-600 tracking-wide">
+                UX FLOW
+              </span>
             </div>
           </div>
 
-          {/* Tabs */}
-          <div className="flex border-b border-neutral-100 px-4">
-            <button className="border-b-2 border-orange-500 px-2 py-2 text-xs font-medium text-neutral-900">
-              Transcription
-            </button>
-            <button className="px-2 py-2 text-xs text-neutral-400">
-              Summary
-            </button>
+          {/* Card 2: Transcribing — top-right, offset down */}
+          <div
+            className="absolute right-6 top-[18%] md:right-10 md:top-[20%] w-[44%] rounded-2xl bg-white px-5 py-5 shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
+            style={{ transform: "rotate(0.5deg)" }}
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
+              </span>
+              <span className="text-[11px] font-bold tracking-wider text-neutral-700 uppercase">
+                Transcribing…
+              </span>
+            </div>
+            <p className="text-[12px] leading-[1.7] text-neutral-400">
+              &ldquo;We need to focus on the curation aspect of the editorial…&rdquo;
+            </p>
           </div>
 
-          {/* Transcript entries */}
-          <div className="flex flex-col divide-y divide-neutral-100 px-4">
-            {transcriptEntries.map((entry, i) => (
-              <div key={i} className="py-3">
-                <div className="mb-1.5 flex items-center gap-2">
-                  <img
-                    src={speakerAvatarMap[entry.speaker] || "/hero/h2.webp"}
-                    alt={entry.speaker}
-                    className="size-5 rounded-full object-cover"
-                  />
-                  <span className="text-[10px] font-semibold text-neutral-800">
-                    {entry.speaker}
-                  </span>
-                  <span className="text-[10px] text-neutral-400">
-                    {entry.time}
-                  </span>
-                </div>
-                <p className="text-[10px] leading-relaxed text-neutral-600 line-clamp-2">
-                  {entry.text}
-                </p>
-              </div>
-            ))}
+          {/* Card 3: Saved Moments — bottom-left */}
+          <div
+            className="absolute left-6 bottom-[16%] md:left-10 md:bottom-[18%] w-[38%] rounded-2xl bg-white px-5 py-5 shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
+            style={{ transform: "rotate(0.5deg)" }}
+          >
+            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-neutral-100">
+              <Bookmark className="size-[18px] text-neutral-500" strokeWidth={1.5} />
+            </div>
+            <p className="text-[14px] font-semibold text-neutral-800 leading-snug">
+              Saved Moments (12)
+            </p>
+          </div>
+
+          {/* Card 4: Engagement Metrics — bottom-right */}
+          <div
+            className="absolute right-6 bottom-[12%] md:right-10 md:bottom-[14%] w-[44%] rounded-2xl bg-white px-5 py-5 shadow-[0_2px_20px_rgba(0,0,0,0.06)]"
+            style={{ transform: "rotate(-0.5deg)" }}
+          >
+            <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-neutral-100">
+              <TrendingUp className="size-[18px] text-neutral-500" strokeWidth={1.5} />
+            </div>
+            <p className="text-[14px] font-semibold text-neutral-800 leading-snug">
+              Engagement Metrics
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Back card: Video Library (z-10, behind, top-left) */}
-        <div className="absolute z-10 top-4 left-4 md:top-6 md:left-6 w-[65%] rounded-2xl bg-white p-4 shadow-lg">
-          <h4 className="text-sm font-semibold text-neutral-900 mb-3">
-            Memories
-          </h4>
-          <div className="grid grid-cols-3 gap-2">
-            {memories.map((m, i) => (
-              <div key={i}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-100">
-                  <img
-                    src={m.thumbnail}
-                    alt={m.title}
-                    className="size-full object-cover"
-                  />
-                </div>
-                <p className="mt-1 text-[10px] font-medium text-neutral-800 leading-tight line-clamp-1">
-                  {m.title}
-                </p>
-                <p className="text-[9px] text-neutral-400">{m.date}</p>
-              </div>
-            ))}
+      {/* ─── Right: Title + Desc ─── */}
+      <div className="flex w-full flex-1 md:shrink-0 flex-col gap-4 pb-0 md:pb-6">
+        <span className="text-[11px] font-semibold tracking-widest text-emerald-600 uppercase">
+          Memory
+        </span>
+        <h3 className="text-2xl md:text-3xl font-semibold leading-tight text-text-0">
+          Video Understanding Memory
+        </h3>
+        <p className="text-[15px] leading-relaxed text-text-2">
+          Stop scrubbing through hours of footage. Our AI watches, listens, and
+          indexes your visual meetings, transforming video data into searchable,
+          actionable knowledge bites.
+        </p>
+
+        {/* Feature bullets */}
+        <div className="grid grid-cols-2 gap-6 mt-2">
+          <div>
+            <h4 className="text-sm font-bold text-neutral-900 mb-1">
+              Instant Summaries
+            </h4>
+            <p className="text-[12px] leading-relaxed text-text-2">
+              Get the gist of any 60‑minute video in under 60 seconds.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-sm font-bold text-neutral-900 mb-1">
+              Visual Search
+            </h4>
+            <p className="text-[12px] leading-relaxed text-text-2">
+              Search for moments where specific slides or people appeared.
+            </p>
           </div>
         </div>
       </div>

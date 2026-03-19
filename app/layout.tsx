@@ -8,9 +8,36 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "LUCI - See, Remember & Act",
+  metadataBase: new URL("https://luci.ai"),
+  title: {
+    default: "LUCI — The AI Agent That Watches, Remembers, and Acts",
+    template: "%s | LUCI",
+  },
   description:
-    "LUCI remembers everything and gets things done automatically. Not just a recording tool — a personal AI assistant that builds memory and automates execution.",
+    "LUCI is an all-purpose AI agent that understands video, builds persistent memory, and automates execution. From screen activity to meetings, LUCI sees the full picture and takes action for you.",
+  keywords: [
+    "AI agent",
+    "AI personal agent",
+    "video understanding",
+    "AI memory",
+    "AI assistant",
+    "automated execution",
+    "screen understanding",
+    "AI productivity",
+  ],
+  authors: [{ name: "LUCI" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "LUCI",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

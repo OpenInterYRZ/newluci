@@ -351,49 +351,9 @@ function SeeVisual() {
       {/* Floating recorder window */}
       <div className="relative z-10 w-full max-w-[320px] bg-bg-0 rounded-2xl overflow-hidden border border-grey-2 transition-transform duration-500 ease-out">
         {/* Top bar: close / logo / cloud + more */}
-        <div className="flex items-center justify-between px-4 pt-4 pb-2">
-          {/* Close button */}
-          <button className="w-7 h-7 rounded-full bg-grey-1 flex items-center justify-center">
-            <svg
-              className="w-3 h-3 text-text-3"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
+        <div className="flex items-center justify-center  px-4 pt-4 pb-2">
           {/* LUCI logo */}
           <img src="/lucilogo-black.svg" alt="LUCI" className="h-5" />
-
-          {/* Right icons */}
-          <div className="flex items-center gap-1.5">
-            <button className="w-7 h-7 rounded-full bg-grey-1 flex items-center justify-center">
-              <svg
-                className="w-3.5 h-3.5 text-text-3"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                viewBox="0 0 24 24"
-              >
-                <path d="M2 15s3-6 10-6 10 6 10 6-3 6-10 6S2 15 2 15z" />
-                <circle cx="12" cy="15" r="3" />
-              </svg>
-            </button>
-            <button className="w-7 h-7 rounded-full bg-grey-1 flex items-center justify-center">
-              <svg
-                className="w-3.5 h-3.5 text-text-3"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="5" r="2" />
-                <circle cx="12" cy="12" r="2" />
-                <circle cx="12" cy="19" r="2" />
-              </svg>
-            </button>
-          </div>
         </div>
 
         {/* Source selectors: Screen + Microphone */}

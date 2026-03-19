@@ -20,7 +20,7 @@ export default function AboutPage() {
         <section className="relative overflow-hidden bg-grey-9 dark:bg-grey-0">
           <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-5xl font-serif text-white dark:text-text-0 leading-[1.1] tracking-tight mb-5">
+              <h2 className="text-3xl md:text-5xl font-semibold text-white dark:text-text-0 leading-[1.1] tracking-tight mb-5">
                 Help us build
                 <br />
                 the memory layer
@@ -55,7 +55,7 @@ export default function AboutPage() {
             {/* Decorative pull-quote */}
             <div className="hidden lg:block">
               <blockquote className="border-l-2 border-primary pl-6">
-                <p className="text-xl text-white/80 dark:text-text-1 font-serif leading-relaxed italic">
+                <p className="text-xl text-white/80 dark:text-text-1 font-semibold leading-relaxed italic">
                   &ldquo;An AI without memory is just a tool.
                   <br />
                   An AI with memory becomes an assistant.&rdquo;

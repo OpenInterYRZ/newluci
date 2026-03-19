@@ -19,7 +19,7 @@ export default function WhatIsLuci() {
       <div className="max-w-6xl mx-auto">
         {/* Hero statement */}
         <div className="max-w-3xl mb-20">
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-text-0 leading-[1.08] tracking-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold text-text-0 leading-[1.08] tracking-tight">
             Your AI that actually{" "}
             <span className="text-primary">knows you</span>
           </h2>

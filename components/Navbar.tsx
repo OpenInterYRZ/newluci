@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Briefcase,
-  BookOpen,
   Lightbulb,
   Shield,
   Brain,
@@ -35,28 +34,28 @@ interface NavItemData {
 
 const useCasePersonas: NavItemData[] = [
   {
-    label: "Managers",
-    href: "/use-cases/managers",
-    desc: "Meeting memory, task follow-up, action item tracking",
-    icon: <Briefcase className="h-4 w-4" />,
-  },
-  {
-    label: "Knowledge Workers",
-    href: "/use-cases/knowledge-workers",
-    desc: "Learning notes, video understanding, knowledge base",
-    icon: <BookOpen className="h-4 w-4" />,
-  },
-  {
-    label: "Creators & Thinkers",
-    href: "/use-cases/creators",
-    desc: "Capture ideas, build a second brain, creative workflows",
-    icon: <Lightbulb className="h-4 w-4" />,
-  },
-  {
     label: "Founders",
     href: "/use-cases/founders",
     desc: "Never lose client context, keep your lean team aligned",
     icon: <Shield className="h-4 w-4" />,
+  },
+  {
+    label: "Investors",
+    href: "/use-cases/investors",
+    desc: "Deal flow tracking, portfolio insights, due diligence at scale",
+    icon: <Briefcase className="h-4 w-4" />,
+  },
+  {
+    label: "Sales Leaders",
+    href: "/use-cases/sales-leaders",
+    desc: "Pipeline visibility, call insights, rep coaching on autopilot",
+    icon: <ArrowRight className="h-4 w-4" />,
+  },
+  {
+    label: "Explore More",
+    href: "/use-cases",
+    desc: "Discover all use cases for every role",
+    icon: <Lightbulb className="h-4 w-4" />,
   },
 ];
 
