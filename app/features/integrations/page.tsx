@@ -8,19 +8,33 @@ import ChatFAQ from "@/components/features/integrations/ChatFAQ";
 import CtaBanner from "@/components/CTA/CtaBanner";
 
 export const metadata: Metadata = {
-  title: "Integrations — Connect Your Tools to LUCI",
+  title: "Integrations — Sync Slack, Notion, Calendar & More with Your AI Agent",
   description:
-    "Migrate existing memories, connect Slack, Notion, Google Calendar and more. Extend LUCI with custom skills and integrate where your work already happens.",
+    "Stop switching between apps. LUCI connects to Slack, Notion, Google Calendar, CRM, and more — automatically syncing meeting notes, action items, and context where your team already works. Extend with custom skills.",
+  keywords: [
+    "AI integrations",
+    "Slack AI integration",
+    "Notion AI integration",
+    "Google Calendar AI sync",
+    "CRM meeting sync",
+    "AI workflow automation",
+    "meeting notes to Slack",
+    "AI custom skills",
+    "productivity tool integrations",
+    "automated meeting follow-ups",
+    "AI app integrations",
+    "connect tools to AI agent",
+  ],
   openGraph: {
-    title: "LUCI Integrations — Connect Your Favorite Tools",
+    title: "LUCI Integrations — Sync Notes & Actions to Slack, Notion & More",
     description:
-      "Connect Slack, Notion, Google Calendar and more. Migrate existing data and extend LUCI with custom skills.",
+      "Stop switching between apps. Auto-sync meeting notes, action items, and context to Slack, Notion, CRM, and your favorite tools.",
     url: "/features/integrations",
   },
   twitter: {
-    title: "LUCI Integrations — Connect Your Favorite Tools",
+    title: "LUCI Integrations — Sync Notes & Actions to Slack, Notion & More",
     description:
-      "Connect Slack, Notion, Google Calendar and more. Migrate existing data and extend LUCI with custom skills.",
+      "Stop switching between apps. Auto-sync meeting notes, action items, and context to Slack, Notion, CRM, and your favorite tools.",
   },
   alternates: {
     canonical: "/features/integrations",
@@ -30,14 +44,27 @@ export const metadata: Metadata = {
 const integrationsJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "LUCI Integrations",
+  name: "LUCI Integrations — Sync Slack, Notion, Calendar & More",
   description:
-    "Connect third-party tools, migrate existing memories, and extend LUCI with custom skills.",
+    "Auto-sync meeting notes, action items, and context to Slack, Notion, Google Calendar, CRM, and more. Extend LUCI with custom skills and API access.",
   url: "https://luci.ai/features/integrations",
   isPartOf: {
     "@type": "WebSite",
     name: "LUCI",
     url: "https://luci.ai",
+  },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "LUCI",
+    applicationCategory: "ProductivityApplication",
+    featureList: [
+      "Slack integration — auto-send meeting notes",
+      "Notion integration — sync knowledge base",
+      "Google Calendar integration — proactive reminders",
+      "CRM sync — auto-update deal context",
+      "Custom skills — extend agent behavior",
+      "API access — build custom workflows",
+    ],
   },
 };
 

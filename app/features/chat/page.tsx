@@ -9,19 +9,33 @@ import ChatFAQ from "@/components/features/chat/ChatFAQ";
 import CtaBanner from "@/components/CTA/CtaBanner";
 
 export const metadata: Metadata = {
-  title: "Chat — Talk to Your AI Agent",
+  title: "Chat — AI Copilot That Searches Meetings, Answers Questions & Runs Tasks",
   description:
-    "Chat with LUCI to ask questions about your meetings, get summaries, trigger actions, and manage tasks — all through natural conversation.",
+    "Ask LUCI anything about your past meetings, emails, and notes. Get instant answers with citations, trigger automated actions, and manage tasks — all through natural conversation. Your AI copilot with perfect memory.",
+  keywords: [
+    "AI copilot",
+    "AI chat assistant",
+    "meeting search AI",
+    "conversational AI agent",
+    "AI that remembers",
+    "ask AI about meetings",
+    "enterprise search AI",
+    "AI task automation",
+    "natural language search",
+    "AI meeting assistant chat",
+    "AI with long-term memory",
+    "AI digital twin",
+  ],
   openGraph: {
-    title: "Chat with LUCI — Your AI Agent That Remembers Everything",
+    title: "Chat with LUCI — Search Meetings, Get Answers, Automate Tasks",
     description:
-      "Ask questions about past meetings, get instant summaries, and trigger automated actions through natural conversation.",
+      "Ask anything about past meetings and get instant answers with citations. Your AI copilot with perfect memory across every conversation.",
     url: "/features/chat",
   },
   twitter: {
-    title: "Chat with LUCI — Your AI Agent That Remembers Everything",
+    title: "Chat with LUCI — Search Meetings, Get Answers, Automate Tasks",
     description:
-      "Ask questions about past meetings, get instant summaries, and trigger automated actions through natural conversation.",
+      "Ask anything about past meetings and get instant answers with citations. Your AI copilot with perfect memory across every conversation.",
   },
   alternates: {
     canonical: "/features/chat",
@@ -31,14 +45,26 @@ export const metadata: Metadata = {
 const chatJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Chat with LUCI",
+  name: "Chat with LUCI — AI Copilot with Perfect Memory",
   description:
-    "Conversational AI interface to interact with your persistent memory. Ask questions, get summaries, and trigger automated actions.",
+    "Search across meetings, emails, and notes in plain language. Get instant answers with citations, trigger automated actions, and manage tasks through natural conversation.",
   url: "https://luci.ai/features/chat",
   isPartOf: {
     "@type": "WebSite",
     name: "LUCI",
     url: "https://luci.ai",
+  },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "LUCI",
+    applicationCategory: "ProductivityApplication",
+    featureList: [
+      "Natural language meeting search",
+      "Instant answers with citations",
+      "Automated task execution",
+      "Cross-conversation memory",
+      "Multi-channel access (Telegram, WhatsApp, Desktop)",
+    ],
   },
 };
 

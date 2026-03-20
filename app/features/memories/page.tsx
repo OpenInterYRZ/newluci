@@ -8,19 +8,33 @@ import ChatFAQ from "@/components/features/memories/ChatFAQ";
 import CtaBanner from "@/components/CTA/CtaBanner";
 
 export const metadata: Metadata = {
-  title: "Memories — Video Understanding & Persistent Memory",
+  title: "Memories — AI Meeting Transcription, Video Search & Action Items",
   description:
-    "Consolidate video assets, extract transcripts and summaries, and get proactive reminders before meetings. LUCI turns your recordings into searchable, actionable memory.",
+    "Stop rewatching hours of footage. LUCI auto-transcribes meetings, extracts summaries and action items, and builds a searchable knowledge base from every recording. Get proactive reminders before your next call.",
+  keywords: [
+    "AI meeting transcription",
+    "video search",
+    "meeting summaries",
+    "action items extraction",
+    "AI notetaker",
+    "searchable meeting archive",
+    "video understanding",
+    "meeting knowledge base",
+    "AI meeting memory",
+    "screen recording analysis",
+    "meeting recap",
+    "persistent memory",
+  ],
   openGraph: {
-    title: "LUCI Memories — Turn Videos into Searchable Knowledge",
+    title: "LUCI Memories — Transcribe, Search & Act on Every Meeting",
     description:
-      "Extract transcripts, summaries, and action items from your meetings and screen recordings. Never lose context again.",
+      "Auto-transcribe meetings, extract action items, and search across all your recordings in plain language. Never lose meeting context again.",
     url: "/features/memories",
   },
   twitter: {
-    title: "LUCI Memories — Turn Videos into Searchable Knowledge",
+    title: "LUCI Memories — Transcribe, Search & Act on Every Meeting",
     description:
-      "Extract transcripts, summaries, and action items from your meetings and screen recordings. Never lose context again.",
+      "Auto-transcribe meetings, extract action items, and search across all your recordings in plain language. Never lose meeting context again.",
   },
   alternates: {
     canonical: "/features/memories",
@@ -30,14 +44,27 @@ export const metadata: Metadata = {
 const memoriesJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "LUCI Memories",
+  name: "LUCI Memories — AI Meeting Transcription, Video Search & Action Items",
   description:
-    "Video understanding and persistent memory feature. Consolidate video assets, extract transcripts and summaries, and get proactive meeting reminders.",
+    "Auto-transcribe meetings, extract summaries and action items, search recordings in plain language, and get proactive reminders. Turn hours of video into a searchable knowledge base.",
   url: "https://luci.ai/features/memories",
   isPartOf: {
     "@type": "WebSite",
     name: "LUCI",
     url: "https://luci.ai",
+  },
+  about: {
+    "@type": "SoftwareApplication",
+    name: "LUCI",
+    applicationCategory: "ProductivityApplication",
+    featureList: [
+      "AI meeting transcription",
+      "Video search in plain language",
+      "Automatic action item extraction",
+      "Meeting summaries and recaps",
+      "Proactive meeting reminders",
+      "Searchable knowledge base from recordings",
+    ],
   },
 };
 
