@@ -90,7 +90,7 @@ export default function FeatureChannels() {
 
       {/* Text — right */}
       <div>
-        <h2 className="text-xl font-medium md:text-4xl lg:text-5xl">
+        <h2 className="text-xl font-medium md:text-4xl lg:text-4xl">
           Manage context with Channels
         </h2>
         <p className="mt-5 max-w-lg text-base leading-relaxed text-text-1 md:text-lg">

@@ -25,11 +25,7 @@ const chatMessages: ChatMessage[] = [
 
   {
     role: "images",
-    srcs: [
-      "/landscape/lan5.webp",
-      "/landscape/lan8.webp",
-      "/landscape/lan11.webp",
-    ],
+    srcs: ["/hero/lib1.webp", "/hero/lib2.webp", "/hero/lib3.webp"],
   },
 ];
 
@@ -60,13 +56,17 @@ function ChatBubble({ msg }: { msg: ChatMessage }) {
       );
     case "images":
       return (
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex gap-2">
           {msg.srcs.map((src, i) => (
             <div
               key={i}
               className="relative aspect-square overflow-hidden rounded-lg"
             >
-              <img src={src} alt="" className="object-cover aspect-square" />
+              <img
+                src={src}
+                alt=""
+                className="object-cover w-20 aspect-square"
+              />
             </div>
           ))}
         </div>
@@ -79,7 +79,7 @@ export default function FeatureVideoSearch() {
     <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 py-20 md:grid-cols-2 md:gap-20 md:py-16">
       {/* Text — left */}
       <div>
-        <h2 className="text-xl font-medium md:text-4xl lg:text-5xl">
+        <h2 className="text-xl font-medium md:text-4xl lg:text-4xl">
           Search, summarize, and ask about any video
         </h2>
         <p className="mt-5 max-w-lg text-base leading-relaxed text-text-1 md:text-lg">
@@ -107,21 +107,6 @@ export default function FeatureVideoSearch() {
             {chatMessages.map((msg, i) => (
               <ChatBubble key={i} msg={msg} />
             ))}
-          </div>
-
-          {/* Input bar */}
-          <div className="border-t border-neutral-100 px-4 py-3">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-neutral-300">Press Fn to ask</span>
-            </div>
-            <div className="mt-2 flex items-center justify-between">
-              <button className="flex size-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-400">
-                <Plus className="size-4" />
-              </button>
-              <button className="flex size-8 items-center justify-center rounded-full bg-neutral-900 text-white">
-                <ArrowUp className="size-4" />
-              </button>
-            </div>
           </div>
         </div>
       </div>

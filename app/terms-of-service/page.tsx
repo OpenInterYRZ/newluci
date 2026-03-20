@@ -3,8 +3,23 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "LUCI Desktop Terms of Service",
-  description: "Terms of Service for LUCI Desktop",
+  title: "Terms of Service",
+  description:
+    "LUCI Desktop Terms of Service. Read the terms and conditions governing your use of LUCI's AI agent platform and services.",
+  openGraph: {
+    title: "LUCI Terms of Service",
+    description:
+      "Terms and conditions governing your use of LUCI.",
+    url: "/terms-of-service",
+  },
+  twitter: {
+    title: "LUCI Terms of Service",
+    description:
+      "Terms and conditions governing your use of LUCI.",
+  },
+  alternates: {
+    canonical: "/terms-of-service",
+  },
 };
 
 export default function TermsOfServicePage() {

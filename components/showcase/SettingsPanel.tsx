@@ -145,7 +145,13 @@ const SKILLS: Skill[] = [
     accentColor: "var(--primary)",
     icon: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <rect width="20" height="20" rx="5" fill="var(--primary)" opacity="0.12" />
+        <rect
+          width="20"
+          height="20"
+          rx="5"
+          fill="var(--primary)"
+          opacity="0.12"
+        />
         <path
           d="M5.5 6.5H14.5M5.5 10H12.5M5.5 13.5H10"
           stroke="var(--primary)"
@@ -286,9 +292,7 @@ export default function SettingsPanel() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`relative shrink-0 px-3 py-3 text-[13px] font-medium whitespace-nowrap transition-colors duration-200 active:opacity-70 focus-visible:outline-none focus-visible:text-text-0 ${
-                isActive
-                  ? "text-text-0"
-                  : "text-text-3 hover:text-text-2"
+                isActive ? "text-text-0" : "text-text-3 hover:text-text-2"
               }`}
             >
               {tab.label}
@@ -314,12 +318,13 @@ export default function SettingsPanel() {
             {/* ── Core AI Integration — flat, no card wrapper ── */}
             <div className="border-l-2 border-pro pl-4">
               <div className="flex items-center gap-3 mb-2">
-                <img src="/memorieslogo.svg" alt="Memories" className="h-5 shrink-0" />
+                <img
+                  src="/memorieslogo.svg"
+                  alt="Memories"
+                  className="h-5 shrink-0"
+                />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-text-0">
-                      Memories.ai
-                    </span>
                     <span className="rounded-full bg-pro/10 px-2 py-0.5 text-[10px] font-semibold text-pro uppercase tracking-wide">
                       Core
                     </span>
@@ -384,7 +389,9 @@ export default function SettingsPanel() {
                                 ? "border-b border-grey-1"
                                 : ""
                             } ${
-                              app.connected ? "opacity-100" : "opacity-60 hover:opacity-80"
+                              app.connected
+                                ? "opacity-100"
+                                : "opacity-60 hover:opacity-80"
                             } transition-opacity duration-200`}
                           >
                             <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-grey-0">
@@ -427,9 +434,7 @@ export default function SettingsPanel() {
               <div
                 key={skill.name}
                 className={`flex items-center gap-3 rounded-lg py-3 px-3 transition-all duration-200 ${
-                  skill.enabled
-                    ? "bg-grey-0"
-                    : "opacity-50 hover:opacity-70"
+                  skill.enabled ? "bg-grey-0" : "opacity-50 hover:opacity-70"
                 }`}
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg">

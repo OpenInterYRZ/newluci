@@ -25,11 +25,11 @@ export default function FeatureVideoSearch() {
   return (
     <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 py-20 md:grid-cols-2 md:gap-20 md:py-16">
       {/* Text — left */}
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-xl font-medium md:text-4xl lg:text-5xl">
+      <div className="flex flex-col items-center">
+        <h2 className="text-xl font-medium md:text-4xl lg:text-4xl">
           Turn video into understandable information
         </h2>
-        <p className="mt-5 max-w-lg text-center text-base leading-relaxed text-text-1 md:text-lg">
+        <p className="mt-5 max-w-lg text-base leading-relaxed text-text-1 md:text-lg">
           Automatically transcribe video content and generate concise summaries.
           Catch the key points without rewatching from the start — reduce the
           cost of understanding by extracting what matters.

@@ -3,19 +3,19 @@ import CtaBanner from "@/components/CTA/CtaBanner";
 import CapHero from "@/components/hero/caphero";
 
 export const metadata: Metadata = {
-  title: "LUCI — The AI Agent That Watches, Remembers, and Acts",
+  title: "LUCI — AI Agent with Video Understanding & Memory | See. Remember. Act.",
   description:
-    "LUCI is an all-purpose AI agent that understands video, builds persistent memory, and automates execution. From screen activity to meetings, LUCI sees the full picture and takes action for you.",
+    "LUCI is a personal AI agent that understands your videos and meetings, builds persistent memory, and automatically executes tasks. Open source, self-hosted, data sovereign. Try free.",
   openGraph: {
-    title: "LUCI — The AI Agent That Watches, Remembers, and Acts",
+    title: "LUCI — AI Agent with Video Understanding & Memory",
     description:
-      "An all-purpose AI agent with video understanding, persistent memory, and automated execution.",
+      "Personal AI agent that understands videos, remembers everything, and automates your tasks. Open source & self-hosted.",
     url: "/",
   },
   twitter: {
-    title: "LUCI — The AI Agent That Watches, Remembers, and Acts",
+    title: "LUCI — AI Agent with Video Understanding & Memory",
     description:
-      "An all-purpose AI agent with video understanding, persistent memory, and automated execution.",
+      "Personal AI agent that understands videos, remembers everything, and automates your tasks. Open source & self-hosted.",
   },
   alternates: {
     canonical: "/",
@@ -35,9 +35,19 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "LUCI",
   applicationCategory: "ProductivityApplication",
-  operatingSystem: "macOS",
+  operatingSystem: "macOS, Windows, Web",
   description:
-    "An all-purpose AI agent that understands video, builds persistent memory, and automates execution.",
+    "Personal AI agent with video understanding and persistent memory. LUCI watches your meetings and screen activity, remembers key context, and automatically executes tasks.",
+  url: "https://luci.ai",
+  featureList: [
+    "Video understanding and analysis",
+    "Persistent long-term memory",
+    "Automated task execution",
+    "Meeting transcription and action items",
+    "Self-hosted with data sovereignty",
+    "Open source",
+    "Telegram and WhatsApp integration",
+  ],
   offers: [
     {
       "@type": "Offer",

@@ -3,13 +3,42 @@
 import Image from "next/image";
 
 const integrations = [
-  { name: "Notion", icon: "https://cdn.simpleicons.org/notion", connected: false },
-  { name: "Memories.ai", icon: "https://cdn.simpleicons.org/memories/F97316", connected: true, email: "UserUser@gmail.com" },
-  { name: "Outlook Mail", icon: "https://cdn.simpleicons.org/microsoftoutlook", connected: false },
-  { name: "Outlook Calendar", icon: "https://cdn.simpleicons.org/microsoftoutlook/1976D2", connected: false },
-  { name: "Gmail", icon: "https://cdn.simpleicons.org/gmail", connected: false },
-  { name: "Google Drive", icon: "https://cdn.simpleicons.org/googledrive", connected: false },
-  { name: "Google Calendar", icon: "https://cdn.simpleicons.org/googlecalendar", connected: false },
+  {
+    name: "Notion",
+    icon: "https://cdn.simpleicons.org/notion",
+    connected: false,
+  },
+  {
+    name: "Memories.ai",
+    icon: "https://cdn.simpleicons.org/memories/F97316",
+    connected: true,
+    email: "UserUser@gmail.com",
+  },
+  {
+    name: "Outlook Mail",
+    icon: "https://cdn.simpleicons.org/microsoftoutlook",
+    connected: false,
+  },
+  {
+    name: "Outlook Calendar",
+    icon: "https://cdn.simpleicons.org/microsoftoutlook/1976D2",
+    connected: false,
+  },
+  {
+    name: "Gmail",
+    icon: "https://cdn.simpleicons.org/gmail",
+    connected: false,
+  },
+  {
+    name: "Google Drive",
+    icon: "https://cdn.simpleicons.org/googledrive",
+    connected: false,
+  },
+  {
+    name: "Google Calendar",
+    icon: "https://cdn.simpleicons.org/googlecalendar",
+    connected: false,
+  },
 ];
 
 function IntegrationCard({ item }: { item: (typeof integrations)[number] }) {
@@ -20,9 +49,7 @@ function IntegrationCard({ item }: { item: (typeof integrations)[number] }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-sm font-medium text-neutral-800">{item.name}</p>
-        {item.email && (
-          <p className="text-xs text-neutral-400">{item.email}</p>
-        )}
+        {item.email && <p className="text-xs text-neutral-400">{item.email}</p>}
       </div>
       {item.connected ? (
         <button className="shrink-0 rounded-full border border-orange-200 px-4 py-1.5 text-xs font-medium text-orange-500">
@@ -42,13 +69,13 @@ export default function FeatureVideoSearch() {
     <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 py-20 md:grid-cols-2 md:gap-20 md:py-16">
       {/* Text — left */}
       <div>
-        <h2 className="text-xl font-medium md:text-4xl lg:text-5xl">
+        <h2 className="text-xl font-medium md:text-4xl lg:text-4xl">
           Connect the tools where work already happens
         </h2>
         <p className="mt-5 max-w-lg text-base leading-relaxed text-text-1 md:text-lg">
           Connect your video memory, docs, inbox, and messaging tools into one
-          working context. No more switching between apps to find what you
-          need — everything flows into a single layer of understanding.
+          working context. No more switching between apps to find what you need
+          — everything flows into a single layer of understanding.
         </p>
       </div>
 

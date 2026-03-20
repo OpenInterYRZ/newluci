@@ -3,9 +3,23 @@ import { jobs } from "@/data/careers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers | LUCI",
+  title: "Careers — Join the LUCI Team",
   description:
-    "Join the LUCI team. Explore open positions in AI research, engineering, product, and more.",
+    "Join the LUCI team. Explore open positions in AI research, engineering, product, and more. Build the future of personal AI.",
+  openGraph: {
+    title: "Careers at LUCI — Build the Future of Personal AI",
+    description:
+      "Explore open positions in AI research, engineering, product, and more.",
+    url: "/careers",
+  },
+  twitter: {
+    title: "Careers at LUCI — Build the Future of Personal AI",
+    description:
+      "Explore open positions in AI research, engineering, product, and more.",
+  },
+  alternates: {
+    canonical: "/careers",
+  },
 };
 
 /* ── helpers ── */

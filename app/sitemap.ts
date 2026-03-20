@@ -1,14 +1,28 @@
 import type {MetadataRoute} from 'next';
 import {getAllSlugs} from '@/lib/blog';
 
-const baseUrl = 'https://luci.com';
+const baseUrl = 'https://luci.ai';
 
 const pages = [
   '',
+  '/features/memories',
+  '/features/chat',
+  '/features/integrations',
+  '/use-cases',
+  '/use-cases/managers',
+  '/use-cases/knowledge-workers',
+  '/use-cases/founders',
+  '/use-cases/investors',
+  '/use-cases/creators',
+  '/use-cases/sales-leaders',
+  '/use-cases/privacy-first',
+  '/pricing',
+  '/download',
   '/privacy-policy',
   '/terms-of-service',
   '/careers',
-  '/pricing',
+  '/contact-sales',
+  '/changelog',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

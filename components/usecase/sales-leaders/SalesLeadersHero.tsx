@@ -1,6 +1,6 @@
 import { ArrowDown } from "lucide-react";
 
-export default function ManagersHero() {
+export default function SalesLeadersHero() {
   return (
     <section className="relative w-full bg-web-bg-0 overflow-hidden">
       <div className="max-w-[1300px] mx-auto flex flex-col items-center pt-32 pb-20 px-6 md:px-20">
@@ -8,21 +8,20 @@ export default function ManagersHero() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-grey-1 bg-grey-0 px-4 py-1.5 text-[12px] font-medium text-text-2">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              LUCI for Founders
+              LUCI for Sales Leaders
             </span>
           </div>
 
           <h1 className="mt-6 text-[40px] md:text-[56px] font-semibold leading-[1.08] tracking-tight text-text-0 max-w-3xl">
-            You do the work of five.
+            Pipeline Visibility,
             <br />
-            AI remembers the rest for you.
+            Rep Coaching on Autopilot
           </h1>
 
           <p className="mt-5 text-base md:text-lg leading-relaxed text-text-2 max-w-[600px]">
-            What clients said, last quote amounts, whether that supplier issue
-            got resolved—your brain can&apos;t hold it all. Let AI be your
-            external memory and execution assistant. Stop making decisions on
-            &quot;I think I remember…&quot;
+            Stop guessing where deals stand. LUCI captures every call,
+            highlights buying signals, and gives your reps personalized
+            coaching — turning raw conversations into closed revenue.
           </p>
 
           <div className="mt-8 flex gap-3">
@@ -40,8 +39,8 @@ export default function ManagersHero() {
             </a>
           </div>
           <img
-            src="/usecases/Founders.webp"
-            alt="Founders Hero"
+            src="/usecases/sales.webp"
+            alt="Sales Leaders Hero"
             className="w-full h-full object-cover mt-10"
           />
           <div className="mt-12 flex flex-col items-center gap-2 text-text-2">

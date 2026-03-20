@@ -10,11 +10,11 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://luci.ai"),
   title: {
-    default: "LUCI — The AI Agent That Watches, Remembers, and Acts",
+    default: "LUCI — AI Agent with Video Understanding & Memory | See. Remember. Act.",
     template: "%s | LUCI",
   },
   description:
-    "LUCI is an all-purpose AI agent that understands video, builds persistent memory, and automates execution. From screen activity to meetings, LUCI sees the full picture and takes action for you.",
+    "LUCI is a personal AI agent that understands your videos and meetings, builds persistent memory, and automatically executes tasks. Open source, self-hosted, data sovereign. Try free.",
   keywords: [
     "AI agent",
     "AI personal agent",
@@ -24,6 +24,21 @@ export const metadata: Metadata = {
     "automated execution",
     "screen understanding",
     "AI productivity",
+    "AI meeting assistant",
+    "video AI agent",
+    "AI agent with memory",
+    "personal AI with long-term memory",
+    "meeting transcription AI",
+    "action items automation",
+    "self-hosted AI agent",
+    "open source AI agent",
+    "AI that remembers",
+    "Limitless AI alternative",
+    "Rewind AI alternative",
+    "video to knowledge base",
+    "AI task automation",
+    "persistent memory AI",
+    "data sovereign AI",
   ],
   authors: [{ name: "LUCI" }],
   openGraph: {

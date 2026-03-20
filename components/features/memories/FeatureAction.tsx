@@ -37,7 +37,10 @@ export default function FeatureAction() {
 
             <ul className="mt-3 flex flex-col gap-3">
               {contextItems.map((item, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm text-neutral-600">
+                <li
+                  key={i}
+                  className="flex items-start gap-2.5 text-sm text-neutral-600"
+                >
                   <span className="mt-1.5 size-2 shrink-0 rounded-full bg-amber-400" />
                   {item}
                 </li>
@@ -48,11 +51,11 @@ export default function FeatureAction() {
       </div>
 
       {/* Text — right */}
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-xl font-medium md:text-4xl lg:text-5xl">
+      <div className="flex flex-col items-center ">
+        <h2 className="text-xl font-medium md:text-4xl lg:text-4xl">
           Proactive reminders at the moments that matter
         </h2>
-        <p className="mt-5 max-w-lg text-center text-base leading-relaxed text-text-1 md:text-lg">
+        <p className="mt-5 max-w-lg text-base leading-relaxed text-text-1 md:text-lg">
           Before a meeting starts, LUCI surfaces relevant memories, past
           discussions, and key context — so you can switch gears instantly
           instead of scrambling to catch up.

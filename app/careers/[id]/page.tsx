@@ -19,8 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!job) return {};
 
   return {
-    title: `${job.title} | Careers | LUCI`,
-    description: `${job.title} - ${job.type} position in ${job.department} at LUCI. ${job.location}.`,
+    title: `${job.title} — Careers`,
+    description: `${job.title} - ${job.type} position in ${job.department} at LUCI. ${job.location}. Apply now and build the future of personal AI.`,
+    openGraph: {
+      title: `${job.title} — LUCI Careers`,
+      description: `${job.type} position in ${job.department}. ${job.location}.`,
+      url: `/careers/${id}`,
+    },
+    twitter: {
+      title: `${job.title} — LUCI Careers`,
+      description: `${job.type} position in ${job.department}. ${job.location}.`,
+    },
+    alternates: {
+      canonical: `/careers/${id}`,
+    },
   };
 }
 

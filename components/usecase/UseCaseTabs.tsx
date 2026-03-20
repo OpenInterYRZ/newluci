@@ -35,7 +35,7 @@ const TABS: UseCaseTab[] = [
       { label: "Priority Focus Agent" },
     ],
     cta: "Keep your team aligned",
-    image: "/usecases/konw/knowhero.webp",
+    image: "/usecases/Founders.webp",
   },
   {
     id: "investors",
@@ -51,7 +51,7 @@ const TABS: UseCaseTab[] = [
       { label: "Market Signal Agent" },
     ],
     cta: "Sharpen your deal flow",
-    image: "/usecase-manage/mana1.webp",
+    image: "/usecases/Investors.webp",
   },
   {
     id: "sales-leaders",
@@ -67,7 +67,7 @@ const TABS: UseCaseTab[] = [
       { label: "Deal Risk Agent" },
     ],
     cta: "Supercharge your pipeline",
-    image: "/usecases/konw/Knowledgewor.webp",
+    image: "/usecases/sales.webp",
   },
 ];
 

@@ -80,11 +80,11 @@ export default function FeatureChannels() {
       </div>
 
       {/* Text — right */}
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-xl font-medium md:text-4xl lg:text-5xl">
+      <div className="flex flex-col items-center">
+        <h2 className="text-xl font-medium md:text-4xl lg:text-4xl">
           Centralize your video memories
         </h2>
-        <p className="mt-5 max-w-lg text-center text-base leading-relaxed text-text-1 md:text-lg">
+        <p className="mt-5 max-w-lg text-base leading-relaxed text-text-1 md:text-lg">
           Bring scattered videos into one unified library. Organize by topic,
           project, person, or meeting — no more digging through local folders or
           chat histories to find what you need.

@@ -3,8 +3,23 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "LUCI Desktop Privacy Policy",
-  description: "Privacy Policy for LUCI Desktop",
+  title: "Privacy Policy",
+  description:
+    "LUCI Desktop Privacy Policy. Learn how we collect, use, and protect your data including screen recordings, meeting transcriptions, and chat data.",
+  openGraph: {
+    title: "LUCI Privacy Policy",
+    description:
+      "Learn how LUCI collects, uses, and protects your data.",
+    url: "/privacy-policy",
+  },
+  twitter: {
+    title: "LUCI Privacy Policy",
+    description:
+      "Learn how LUCI collects, uses, and protects your data.",
+  },
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

@@ -1,4 +1,25 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Changelog — What's New in LUCI",
+  description:
+    "See the latest updates, new features, and improvements to LUCI. Follow our product development journey.",
+  openGraph: {
+    title: "LUCI Changelog — Latest Updates & New Features",
+    description:
+      "See the latest updates, new features, and improvements to LUCI.",
+    url: "/changelog",
+  },
+  twitter: {
+    title: "LUCI Changelog — Latest Updates & New Features",
+    description:
+      "See the latest updates, new features, and improvements to LUCI.",
+  },
+  alternates: {
+    canonical: "/changelog",
+  },
+};
 
 /* ─── sample data ─── */
 const changelog = [
@@ -101,9 +122,26 @@ const changelog = [
 ];
 
 /* ─── page ─── */
+const changelogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "LUCI Changelog",
+  description: "Latest updates, new features, and improvements to LUCI.",
+  url: "https://luci.ai/changelog",
+  isPartOf: {
+    "@type": "WebSite",
+    name: "LUCI",
+    url: "https://luci.ai",
+  },
+};
+
 export default function ChangelogPage() {
   return (
     <main className="min-h-screen bg-web-bg-0 pt-32 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(changelogJsonLd) }}
+      />
       {/* header */}
       <div className="mx-auto max-w-3xl px-6 mb-16">
         <h1 className="font-serif text-4xl md:text-5xl text-text-0">
