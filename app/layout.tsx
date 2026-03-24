@@ -10,11 +10,15 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://luci.ai"),
   title: {
-    default: "LUCI — AI Agent with Video Understanding & Memory | See. Remember. Act.",
+    default:
+      "LUCI — AI Agent with Video Understanding & Memory | See. Remember. Act.",
     template: "%s | LUCI",
   },
   description:
     "LUCI is a personal AI agent that understands your videos and meetings, builds persistent memory, and automatically executes tasks. Open source, self-hosted, data sovereign. Try free.",
+  icons: {
+    icon: [{ url: "/lucifavlogo.svg", type: "image/svg+xml" }],
+  },
   keywords: [
     "AI agent",
     "AI personal agent",
