@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+import { AssistantNameTime } from "./AssistantAvatar";
 
 interface AssistantBubbleProps {
   text?: string;
@@ -18,7 +18,6 @@ export function AssistantBubble({
 }: AssistantBubbleProps) {
   return (
     <div className="flex w-full items-start gap-2 justify-start">
-      <AssistantAvatar />
       <div className="flex max-w-[85%] flex-col gap-0.5">
         <AssistantNameTime name={name} time={time} />
         <div

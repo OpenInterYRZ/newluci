@@ -1,11 +1,10 @@
 "use client";
 
-import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+import { AssistantNameTime } from "./AssistantAvatar";
 
 export function MeetingBriefingCard() {
   return (
     <div className="flex w-full items-start gap-2 justify-start">
-      <AssistantAvatar />
       <div className="flex max-w-120 flex-col">
         <AssistantNameTime time="8:17 AM" />
         <span

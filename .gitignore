@@ -51,3 +51,4 @@ data/vectorstore/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env*.local

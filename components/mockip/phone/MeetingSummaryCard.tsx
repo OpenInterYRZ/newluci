@@ -1,6 +1,5 @@
 "use client";
 
-import { AssistantAvatar } from "./AssistantAvatar";
 
 export function MeetingSummaryCard() {
   return (
@@ -8,7 +7,6 @@ export function MeetingSummaryCard() {
       className="flex w-full items-start gap-2 justify-start max-w-[75%]"
       style={{ fontSize: "var(--phone-chat-fs)" }}
     >
-      <AssistantAvatar />
       <div className="flex flex-col gap-0.5">
         {/* Header: Name + Badge + Time */}
         <div className="flex items-center gap-1.5">

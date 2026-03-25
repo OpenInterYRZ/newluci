@@ -37,13 +37,6 @@ export function UserBubble({
           {text}
         </div>
       </div>
-      <div
-        className="shrink-0 overflow-hidden rounded-[6px]"
-        style={{ width: 36, height: 36 }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/user.webp" alt="" className="h-full w-full object-cover" />
-      </div>
     </div>
   );
 }

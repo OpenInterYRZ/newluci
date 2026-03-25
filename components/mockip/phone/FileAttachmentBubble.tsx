@@ -1,6 +1,6 @@
 "use client";
 
-import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+import { AssistantNameTime } from "./AssistantAvatar";
 
 interface FileAttachmentBubbleProps {
   fileName?: string;
@@ -16,7 +16,6 @@ export function FileAttachmentBubble({
   const color = iconColor ?? "var(--primary)";
   return (
     <div className="flex w-full items-start gap-2 justify-start">
-      <AssistantAvatar />
       <div className="flex flex-col gap-1">
         <AssistantNameTime time="8:17 AM" />
         <div

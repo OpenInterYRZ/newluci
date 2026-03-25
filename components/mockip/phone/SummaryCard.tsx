@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+import { AssistantNameTime } from "./AssistantAvatar";
 import ShinyText from "@/components/ui/ShinyText";
 
 const VIDEOS = [
@@ -34,7 +34,6 @@ export function SummaryCard() {
 
   return (
     <div className="flex w-full items-start gap-2 justify-start">
-      <AssistantAvatar />
       <div className="flex w-[88%] flex-col gap-2">
         <AssistantNameTime />
 

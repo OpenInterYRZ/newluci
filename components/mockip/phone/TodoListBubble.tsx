@@ -1,6 +1,6 @@
 "use client";
 
-import { AssistantAvatar, AssistantNameTime } from "./AssistantAvatar";
+import { AssistantNameTime } from "./AssistantAvatar";
 
 const TODOS = [
   { text: "QA team to verify smart search edge cases before Thursday's v2.4 release", source: "from Product Demo" },
@@ -14,7 +14,6 @@ const TODOS = [
 export function TodoListBubble() {
   return (
     <div className="flex w-full items-start gap-2 justify-start">
-      <AssistantAvatar />
       <div className="flex max-w-120 flex-col">
         <AssistantNameTime time="8:16 AM" />
         <span
